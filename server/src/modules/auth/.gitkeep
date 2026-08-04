@@ -1,0 +1,3 @@
+'use strict';
+// Authentication module – Phase 1 Part 2
+// Handles: register, login, logout, refresh tokens, email verification, password reset

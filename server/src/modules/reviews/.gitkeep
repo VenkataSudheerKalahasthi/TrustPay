@@ -1,0 +1,3 @@
+'use strict';
+// Reviews module – Phase 4
+// Handles: client reviews, worker reviews, ratings, review moderation

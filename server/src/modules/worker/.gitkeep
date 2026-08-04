@@ -1,0 +1,3 @@
+'use strict';
+// Worker module – Phase 2
+// Handles: worker profile, skills, portfolio, availability, proposals

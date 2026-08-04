@@ -1,0 +1,3 @@
+'use strict';
+// Wallet module – Phase 3
+// Handles: wallet balance, deposit, withdrawal, transaction history

@@ -1,0 +1,3 @@
+'use strict';
+// Chat module – Phase 4
+// Handles: real-time messaging, conversation threads, file sharing in chat

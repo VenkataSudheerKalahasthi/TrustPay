@@ -1,0 +1,3 @@
+'use strict';
+// Client module – Phase 2
+// Handles: client profile CRUD, project posting, contract requests

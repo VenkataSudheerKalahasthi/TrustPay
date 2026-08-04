@@ -1,0 +1,176 @@
+/* ============================================================
+   TrustPay Global Styles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Resets ─────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --color-bg: theme('colors.surface.950');
+    --color-bg-secondary: theme('colors.surface.900');
+    --color-bg-card: theme('colors.surface.800');
+    --color-text-primary: theme('colors.surface.50');
+    --color-text-secondary: theme('colors.surface.400');
+    --color-border: theme('colors.surface.700');
+    --color-primary: theme('colors.primary.500');
+    --color-primary-hover: theme('colors.primary.400');
+
+    /* Sidebar */
+    --sidebar-width: 16rem;
+    --sidebar-collapsed: 4.5rem;
+    --navbar-height: 4rem;
+  }
+
+  * {
+    @apply box-border m-0 p-0;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-50 font-sans;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  #root {
+    @apply min-h-screen flex flex-col;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-primary-500/30 text-primary-200;
+  }
+
+  /* Focus Outline */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-surface-950;
+  }
+}
+
+/* ─── Component Utilities ────────────────────────────────────────────────── */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-surface-800/60 backdrop-blur-md border border-surface-700/50 rounded-2xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  /* Gradient border */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #6366f1, #d946ef);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Shimmer loading skeleton */
+  .skeleton {
+    @apply bg-surface-700 rounded animate-pulse;
+  }
+
+  /* Glow effect */
+  .glow {
+    @apply shadow-glow;
+  }
+  .glow-hover {
+    @apply transition-shadow duration-300 hover:shadow-glow-lg;
+  }
+
+  /* Page container */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  /* Badge base */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-surface-700/60 my-6;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: relative;
+  }
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* ─── Utility Overrides ──────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Transition presets */
+  .transition-base {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .transition-slow {
+    @apply transition-all duration-500 ease-in-out;
+  }
+}

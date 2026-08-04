@@ -1,0 +1,3 @@
+'use strict';
+// Notifications module – Phase 4
+// Handles: in-app notifications, email notifications, push notifications, preferences

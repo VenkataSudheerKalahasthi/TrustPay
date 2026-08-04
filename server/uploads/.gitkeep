@@ -1,0 +1,3 @@
+# Upload directory
+# Files uploaded by users will be stored here.
+# This directory is included in .gitignore — only this .gitkeep is tracked.
