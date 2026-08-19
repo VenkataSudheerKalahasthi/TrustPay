@@ -6,7 +6,7 @@ export function TimesheetTable({ timesheets = [], onReview, isManager = false })
       <div className="p-5 border-b border-slate-800 flex items-center justify-between">
         <div>
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <FileText className="w-5 h-5 text-sky-400" />
+            <FileText className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Timesheet Ledger
           </h3>
           <p className="text-xs text-slate-400">Weekly & biweekly worker time logs and approvals</p>

@@ -52,26 +52,26 @@ export function ReleaseModal({ isOpen, contract, availableBalance, onClose, onSu
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="glass-card max-w-md w-full p-6 space-y-6 relative border border-surface-700">
+      <div className="glass-card max-w-md w-full p-6 space-y-6 relative border border-surface-300">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={20} className="text-success-400" />
-            <h3 className="text-base font-bold text-surface-100 font-display">
+            <CheckCircle2 size={20} className="text-success-600" />
+            <h3 className="text-base font-bold text-surface-900 font-display">
               Release Escrow Funds
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-lg text-surface-400 hover:text-surface-100"
+            className="p-1 rounded-lg text-surface-600 hover:text-surface-900"
           >
             <X size={16} />
           </button>
         </div>
 
         <form onSubmit={handleReleaseSubmit} className="space-y-4">
-          <div className="text-xs text-surface-400 bg-surface-900/60 p-3 rounded-xl border border-surface-800">
-            Contract: <span className="text-surface-200 font-semibold">{contract.title}</span> (
+          <div className="text-xs text-surface-600 bg-card/60 p-3 rounded-xl border border-surface-200">
+            Contract: <span className="text-surface-800 font-semibold">{contract.title}</span> (
             {contract.contractNumber})
           </div>
 
@@ -86,7 +86,7 @@ export function ReleaseModal({ isOpen, contract, availableBalance, onClose, onSu
           />
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Release Notes / Remarks
             </label>
             <textarea
@@ -94,7 +94,7 @@ export function ReleaseModal({ isOpen, contract, availableBalance, onClose, onSu
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. Milestone 1 deliverables approved."
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
@@ -116,3 +116,4 @@ export function ReleaseModal({ isOpen, contract, availableBalance, onClose, onSu
     </div>
   );
 }
+

@@ -44,7 +44,7 @@ export function SubscriptionsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <ShieldCheck className="w-6 h-6 text-sky-400" />
+            <ShieldCheck className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             SaaS Subscription Management
           </h1>
           <p className="text-slate-400 text-sm">Select enterprise plans, manage subscription provisioning, and scale team usage</p>

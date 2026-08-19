@@ -134,13 +134,13 @@ export function ChatPage() {
   if (loading) {
     return (
       <div className="h-[calc(100vh-6rem)] max-w-7xl mx-auto flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-primary-500 border-t-transparent animate-spin" />
+        <div className="w-8 h-8 rounded-full border-2 border-primary-600 border-t-transparent animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="h-[calc(100vh-6rem)] max-w-7xl mx-auto flex bg-surface-900 border border-surface-800 rounded-2xl overflow-hidden shadow-2xl">
+    <div className="h-[calc(100vh-6rem)] max-w-7xl mx-auto flex bg-card border border-surface-200 rounded-2xl overflow-hidden shadow-2xl">
       <ConversationList
         conversations={conversations}
         activeConversationId={activeConversation?.id}
@@ -175,3 +175,4 @@ export function ChatPage() {
     </div>
   );
 }
+

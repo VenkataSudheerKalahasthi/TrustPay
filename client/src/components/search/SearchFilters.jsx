@@ -10,8 +10,8 @@ export function SearchFilters({ selectedType, onTypeChange, facets = {} }) {
   ];
 
   return (
-    <Card className="p-4 bg-surface-900 border-surface-800 space-y-3">
-      <h3 className="text-xs font-bold text-surface-200 uppercase tracking-wider">Search Facets</h3>
+    <Card className="p-4 bg-card border-surface-200 space-y-3">
+      <h3 className="text-xs font-bold text-surface-800 uppercase tracking-wider">Search Facets</h3>
 
       <div className="space-y-1">
         {categories.map((c) => (
@@ -20,12 +20,12 @@ export function SearchFilters({ selectedType, onTypeChange, facets = {} }) {
             onClick={() => onTypeChange(c.id)}
             className={`w-full flex items-center justify-between p-2 rounded-xl text-xs font-semibold transition-all ${
               selectedType === c.id
-                ? 'bg-primary-500 text-white shadow-glow'
-                : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800'
+                ? 'bg-primary-500 text-white shadow'
+                : 'text-surface-600 hover:text-surface-900 hover:bg-surface-50'
             }`}
           >
             <span>{c.label}</span>
-            <span className={`text-3xs px-2 py-0.5 rounded-full ${selectedType === c.id ? 'bg-white/20 text-white' : 'bg-surface-800 text-surface-400'}`}>
+            <span className={`text-3xs px-2 py-0.5 rounded-full ${selectedType === c.id ? 'bg-card/20 text-white' : 'bg-surface-50 text-surface-600'}`}>
               {c.count}
             </span>
           </button>
@@ -34,3 +34,4 @@ export function SearchFilters({ selectedType, onTypeChange, facets = {} }) {
     </Card>
   );
 }
+

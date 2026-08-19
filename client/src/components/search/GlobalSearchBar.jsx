@@ -38,7 +38,7 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
   return (
     <div ref={wrapperRef} className="relative w-full max-w-md">
       <form onSubmit={handleSubmit} className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-600" />
         <input
           type="text"
           value={query}
@@ -48,7 +48,7 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
           }}
           onFocus={() => setOpen(true)}
           placeholder="Search projects, contracts, users..."
-          className="w-full pl-10 pr-16 py-2 rounded-xl bg-surface-900 border border-surface-800 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
+          className="w-full pl-10 pr-16 py-2 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500 transition-all"
         />
 
         <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
@@ -56,7 +56,7 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
             <button
               type="button"
               onClick={() => setQuery('')}
-              className="text-surface-400 hover:text-surface-100 p-0.5"
+              className="text-surface-600 hover:text-surface-900 p-0.5"
             >
               <X size={14} />
             </button>
@@ -64,7 +64,7 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
             <button
               type="button"
               onClick={onOpenCommandPalette}
-              className="hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface-800 text-3xs font-mono text-surface-400 hover:text-surface-200"
+              className="hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-surface-50 text-3xs font-mono text-surface-600 hover:text-surface-800"
               title="Open Command Palette (Ctrl+K)"
             >
               <Command size={10} />
@@ -76,7 +76,7 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
 
       {/* Suggestions Popover */}
       {open && suggestions.length > 0 && (
-        <div className="absolute left-0 right-0 mt-2 rounded-2xl bg-surface-900 border border-surface-800 shadow-2xl z-dropdown overflow-hidden divide-y divide-surface-800">
+        <div className="absolute left-0 right-0 mt-2 rounded-2xl bg-card border border-surface-200 shadow-2xl z-dropdown overflow-hidden divide-y divide-surface-800">
           <div className="p-2 space-y-1">
             {suggestions.map((item) => (
               <button
@@ -85,21 +85,21 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
                   setOpen(false);
                   navigate(item.linkUrl);
                 }}
-                className="w-full text-left p-2.5 rounded-xl hover:bg-surface-800 transition-colors flex items-center justify-between group"
+                className="w-full text-left p-2.5 rounded-xl hover:bg-surface-50 transition-colors flex items-center justify-between group"
               >
                 <div className="min-w-0 pr-2">
-                  <span className="text-xs font-bold text-surface-100 block truncate">{item.title}</span>
-                  <span className="text-3xs text-surface-400 block truncate">{item.subtitle}</span>
+                  <span className="text-xs font-bold text-surface-900 block truncate">{item.title}</span>
+                  <span className="text-3xs text-surface-600 block truncate">{item.subtitle}</span>
                 </div>
-                <ArrowRight size={14} className="text-surface-500 group-hover:text-primary-400 shrink-0" />
+                <ArrowRight size={14} className="text-surface-500 group-hover:text-primary-600 shrink-0" />
               </button>
             ))}
           </div>
-          <div className="p-2 bg-surface-950 text-center">
+          <div className="p-2 bg-card text-center">
             <button
               type="button"
               onClick={handleSubmit}
-              className="text-xs font-semibold text-primary-400 hover:underline"
+              className="text-xs font-semibold text-primary-600 hover:underline"
             >
               See all results for "{query}"
             </button>
@@ -109,3 +109,4 @@ export function GlobalSearchBar({ onOpenCommandPalette }) {
     </div>
   );
 }
+

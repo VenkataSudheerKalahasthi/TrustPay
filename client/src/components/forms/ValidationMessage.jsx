@@ -7,9 +7,10 @@ export function ValidationMessage({ message, className }) {
   }
 
   return (
-    <p role="alert" className={cn('text-xs text-danger-400 flex items-center gap-1 font-medium', className)}>
+    <p role="alert" className={cn('text-xs text-danger-600 flex items-center gap-1 font-medium', className)}>
       <AlertCircle size={12} className="shrink-0" />
       <span>{message}</span>
     </p>
   );
 }
+

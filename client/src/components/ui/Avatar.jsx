@@ -41,7 +41,7 @@ export function Avatar({
     <div className="relative inline-block shrink-0">
       <div
         className={cn(
-          'rounded-full bg-surface-700 text-surface-200 border border-surface-600 flex items-center justify-center font-semibold overflow-hidden select-none',
+          'rounded-full bg-primary-100 text-primary-700 border border-primary-200 flex items-center justify-center font-semibold overflow-hidden select-none',
           sizeMap[size],
           className
         )}
@@ -58,7 +58,7 @@ export function Avatar({
       {status && (
         <span
           className={cn(
-            'absolute bottom-0 right-0 rounded-full border-2 border-surface-900',
+            'absolute bottom-0 right-0 rounded-full border-2 border-white',
             statusMap[status],
             size === 'xs' || size === 'sm' ? 'w-2.5 h-2.5' : 'w-3.5 h-3.5'
           )}

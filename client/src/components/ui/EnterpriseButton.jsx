@@ -5,11 +5,11 @@ export const EnterpriseButton = forwardRef(function EnterpriseButton(
   ref
 ) {
   const variantStyles = {
-    primary: 'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white font-semibold shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
-    secondary: 'bg-surface-800 hover:bg-surface-700 text-surface-100 font-medium border border-surface-700 focus-visible:ring-primary-500',
-    outline: 'border border-primary-500/50 text-primary-400 hover:bg-primary-500/10 font-semibold',
+    primary: 'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white font-semibold shadow-sm hover:shadow focus-visible:ring-primary-500',
+    secondary: 'bg-surface-50 hover:bg-surface-700 text-surface-900 font-medium border border-surface-300 focus-visible:ring-primary-500',
+    outline: 'border border-primary-600/50 text-primary-600 hover:bg-primary-50 font-semibold',
     danger: 'bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white font-semibold shadow-sm focus-visible:ring-danger-500',
-    ghost: 'text-surface-400 hover:text-surface-100 hover:bg-surface-800 font-medium',
+    ghost: 'text-surface-600 hover:text-surface-900 hover:bg-surface-50 font-medium',
   };
 
   const sizeStyles = {
@@ -34,3 +34,4 @@ export const EnterpriseButton = forwardRef(function EnterpriseButton(
     </button>
   );
 });
+

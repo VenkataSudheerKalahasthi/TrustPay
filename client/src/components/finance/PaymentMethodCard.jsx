@@ -6,7 +6,7 @@ export function PaymentMethodCard({ method }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="p-3 bg-sky-500/10 text-sky-400 rounded-xl">
+        <div className="p-3 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-xl">
           <CreditCard className="w-6 h-6" />
         </div>
         <div>

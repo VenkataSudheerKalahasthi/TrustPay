@@ -28,7 +28,7 @@ export function EnterpriseFooter() {
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 aria-label={label}
                 id={`enterprise-footer-social-${label.toLowerCase()}`}
-                className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 hover:border-slate-700 transition-all duration-200"
+                className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 dark:text-primary-400 hover:border-slate-700 transition-all duration-200"
               >
                 <Icon size={14} />
               </a>

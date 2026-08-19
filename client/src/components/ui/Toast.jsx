@@ -9,10 +9,10 @@ const icons = {
 };
 
 const borderStyles = {
-  success: 'border-success-500/40 text-success-400 bg-surface-900',
-  warning: 'border-warning-500/40 text-warning-400 bg-surface-900',
-  error: 'border-danger-500/40 text-danger-400 bg-surface-900',
-  info: 'border-primary-500/40 text-primary-400 bg-surface-900',
+  success: 'border-success-500/40 text-success-600 bg-card',
+  warning: 'border-warning-500/40 text-warning-400 bg-card',
+  error: 'border-danger-500/40 text-danger-600 bg-card',
+  info: 'border-primary-600/40 text-primary-600 bg-card',
 };
 
 export function Toast({ type = 'info', message, onClose, className }) {
@@ -28,13 +28,13 @@ export function Toast({ type = 'info', message, onClose, className }) {
     >
       <div className="flex items-center gap-2.5">
         <Icon size={16} className="shrink-0" />
-        <span className="text-surface-200">{message}</span>
+        <span className="text-surface-800">{message}</span>
       </div>
 
       {onClose && (
         <button
           onClick={onClose}
-          className="p-1 rounded-lg text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-colors"
+          className="p-1 rounded-lg text-surface-600 hover:text-surface-900 hover:bg-surface-50 transition-colors"
         >
           <X size={14} />
         </button>
@@ -46,3 +46,4 @@ export function Toast({ type = 'info', message, onClose, className }) {
 export function ToastContainer() {
   return null;
 }
+

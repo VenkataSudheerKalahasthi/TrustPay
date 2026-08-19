@@ -13,13 +13,13 @@ export function ForecastChart({ forecast }) {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-sky-400" />
+            <Sparkles className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             {forecast?.name || 'Predictive Revenue Velocity Forecast'}
           </h3>
           <p className="text-xs text-slate-400">95% Confidence Band Linear Regression</p>
         </div>
 
-        <span className="text-xs font-mono font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20 px-3 py-1 rounded-full">
+        <span className="text-xs font-mono font-bold bg-sky-500/10 text-sky-400 dark:text-primary-400 border border-sky-500/20 px-3 py-1 rounded-full">
           {forecast?.algorithm || 'LINEAR_REGRESSION'}
         </span>
       </div>

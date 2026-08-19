@@ -1,6 +1,6 @@
 export function FinancialKPIWidget({ title, value, subtitle, icon: Icon, color = 'sky' }) {
   const colorMap = {
-    sky: 'text-sky-400 bg-sky-500/10 border-sky-500/20',
+    sky: 'text-sky-400 dark:text-primary-400 bg-sky-500/10 border-sky-500/20',
     emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
     purple: 'text-purple-400 bg-purple-500/10 border-purple-500/20',
     amber: 'text-amber-400 bg-amber-500/10 border-amber-500/20',

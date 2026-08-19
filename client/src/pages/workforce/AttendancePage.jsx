@@ -17,7 +17,7 @@ export function AttendancePage() {
     <div className="space-y-8 pb-12">
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <UserCheck className="w-6 h-6 text-sky-400" />
+          <UserCheck className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Attendance & Clock History
         </h1>
         <p className="text-slate-400 text-sm">Monitor check-ins, check-outs, remote status, and shift attendance</p>

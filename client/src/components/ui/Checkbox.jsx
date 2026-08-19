@@ -33,7 +33,7 @@ const Checkbox = forwardRef(
           <div
             className={cn(
               'w-5 h-5 rounded-lg border flex items-center justify-center transition-all duration-200 cursor-pointer',
-              'bg-surface-800 border-surface-700 peer-checked:bg-primary-600 peer-checked:border-primary-500',
+              'bg-surface-50 border-surface-300 peer-checked:bg-primary-600 peer-checked:border-primary-600',
               'peer-focus-visible:ring-2 peer-focus-visible:ring-primary-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-surface-950',
               disabled && 'opacity-50 cursor-not-allowed',
               error && 'border-danger-500',
@@ -46,9 +46,9 @@ const Checkbox = forwardRef(
 
         {(label || description) && (
           <label htmlFor={inputId} className="cursor-pointer text-sm">
-            {label && <span className="font-medium text-surface-200 block">{label}</span>}
-            {description && <span className="text-xs text-surface-400 block">{description}</span>}
-            {error && <span className="text-xs text-danger-400 block mt-0.5">{error}</span>}
+            {label && <span className="font-medium text-surface-800 block">{label}</span>}
+            {description && <span className="text-xs text-surface-600 block">{description}</span>}
+            {error && <span className="text-xs text-danger-600 block mt-0.5">{error}</span>}
           </label>
         )}
       </div>
@@ -59,3 +59,4 @@ const Checkbox = forwardRef(
 Checkbox.displayName = 'Checkbox';
 
 export { Checkbox };
+

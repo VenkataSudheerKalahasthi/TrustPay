@@ -37,18 +37,18 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
   };
 
   return (
-    <div className="fixed inset-0 z-modal bg-surface-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-surface-900 border border-surface-800 rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
-        <div className="flex items-center justify-between border-b border-surface-800 pb-4 mb-4">
-          <h3 className="text-base font-semibold text-surface-100">Add Project Milestone</h3>
-          <button onClick={onClose} className="text-surface-400 hover:text-surface-100 p-1">
+    <div className="fixed inset-0 z-modal bg-card/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-card border border-surface-200 rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
+        <div className="flex items-center justify-between border-b border-surface-200 pb-4 mb-4">
+          <h3 className="text-base font-semibold text-surface-900">Add Project Milestone</h3>
+          <button onClick={onClose} className="text-surface-600 hover:text-surface-900 p-1">
             <X size={18} />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">
+            <label className="block text-xs font-semibold text-surface-700 mb-1">
               Milestone Title *
             </label>
             <input
@@ -57,12 +57,12 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Initial Backend API Setup"
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">
+            <label className="block text-xs font-semibold text-surface-700 mb-1">
               Description
             </label>
             <textarea
@@ -70,25 +70,25 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Scope and details for this milestone..."
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Due Date
               </label>
               <input
                 type="date"
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Estimated Amount (₹)
               </label>
               <input
@@ -98,19 +98,19 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
                 value={estimatedAmount}
                 onChange={(e) => setEstimatedAmount(e.target.value)}
                 placeholder="50000"
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">
+            <label className="block text-xs font-semibold text-surface-700 mb-1">
               Prerequisite Milestone (Dependency)
             </label>
             <select
               value={prerequisiteMilestoneId}
               onChange={(e) => setPrerequisiteMilestoneId(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             >
               <option value="">None (Independent Milestone)</option>
               {existingMilestones.map((m) => (
@@ -124,7 +124,7 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
             </p>
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-200">
             <Button type="button" variant="ghost" size="sm" onClick={onClose}>
               Cancel
             </Button>
@@ -137,3 +137,4 @@ export function MilestoneModal({ isOpen, onClose, onSubmit, existingMilestones =
     </div>
   );
 }
+

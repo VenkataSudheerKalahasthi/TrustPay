@@ -50,32 +50,32 @@ export function TalentDiscoveryPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Users size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Users size={20} className="text-primary-600" />
           <span>Talent Discovery & Weighted Matching Engine</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Discover verified talent, evaluate weighted matching scores (0-100%), save to pools, and send job invitations.
         </p>
       </div>
 
       {/* Search Bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-600" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search candidates by title, skills, or experience..."
-          className="w-full pl-10 pr-4 py-3 rounded-2xl bg-surface-900 border border-surface-800 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+          className="w-full pl-10 pr-4 py-3 rounded-2xl bg-card border border-surface-200 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
         />
       </div>
 
       {/* Talent Cards Grid */}
       {loading ? (
-        <p className="text-xs text-surface-400">Searching candidate profiles...</p>
+        <p className="text-xs text-surface-600">Searching candidate profiles...</p>
       ) : workers.length === 0 ? (
-        <p className="text-xs text-surface-400">No candidates match your discovery criteria.</p>
+        <p className="text-xs text-surface-600">No candidates match your discovery criteria.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {workers.map((worker) => (
@@ -98,3 +98,4 @@ export function TalentDiscoveryPage() {
     </div>
   );
 }
+

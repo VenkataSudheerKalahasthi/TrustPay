@@ -56,7 +56,7 @@ export function UserManagementPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Users className="w-6 h-6 text-sky-400" />
+            <Users className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             User, Worker & Client Administration
           </h1>
           <p className="text-slate-400 text-sm">Account search, suspensions, restriction tagging, and compliance notes</p>

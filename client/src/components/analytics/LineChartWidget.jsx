@@ -24,11 +24,11 @@ export function LineChartWidget({ title, data = [], dataKey = 'gmv', color = '#0
   const polylinePoints = points.map((p) => `${p.x},${p.y}`).join(' ');
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 space-y-3">
+    <Card className="p-5 bg-card border-surface-200 space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-bold text-surface-100">{title}</h3>
+        <h3 className="text-sm font-bold text-surface-900">{title}</h3>
         {hoveredPoint && (
-          <span className="text-xs font-mono font-semibold text-primary-400">
+          <span className="text-xs font-mono font-semibold text-primary-600">
             {hoveredPoint.label}: ₹{hoveredPoint.value.toLocaleString()}
           </span>
         )}
@@ -75,3 +75,4 @@ export function LineChartWidget({ title, data = [], dataKey = 'gmv', color = '#0
     </Card>
   );
 }
+

@@ -7,17 +7,17 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
   const versions = deliverable.versions || [];
 
   return (
-    <div className="fixed inset-0 z-modal bg-surface-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-surface-900 border border-surface-800 rounded-2xl w-full max-w-2xl p-6 shadow-2xl relative max-h-[85vh] flex flex-col">
+    <div className="fixed inset-0 z-modal bg-card/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-card border border-surface-200 rounded-2xl w-full max-w-2xl p-6 shadow-2xl relative max-h-[85vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-surface-800 pb-4 mb-4 shrink-0">
+        <div className="flex items-center justify-between border-b border-surface-200 pb-4 mb-4 shrink-0">
           <div>
-            <h3 className="text-base font-semibold text-surface-100">
+            <h3 className="text-base font-semibold text-surface-900">
               Immutable Version History
             </h3>
-            <p className="text-xs text-surface-400 font-mono">{deliverable.title}</p>
+            <p className="text-xs text-surface-600 font-mono">{deliverable.title}</p>
           </div>
-          <button onClick={onClose} className="text-surface-400 hover:text-surface-100 p-1">
+          <button onClick={onClose} className="text-surface-600 hover:text-surface-900 p-1">
             <X size={18} />
           </button>
         </div>
@@ -35,11 +35,11 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
               return (
                 <div
                   key={ver.id}
-                  className="p-4 rounded-xl bg-surface-800/60 border border-surface-700/60 space-y-3"
+                  className="p-4 rounded-xl bg-surface-100/60 border border-surface-300/60 space-y-3"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded">
+                      <span className="text-xs font-mono font-bold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
                         Version {ver.versionNumber}
                       </span>
                       <Badge size="sm" variant={ver.status === 'APPROVED' ? 'success' : 'neutral'}>
@@ -47,21 +47,21 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
                       </Badge>
                     </div>
 
-                    <div className="flex items-center gap-2 text-2xs text-surface-400">
+                    <div className="flex items-center gap-2 text-2xs text-surface-600">
                       <Calendar size={12} />
                       <span>{new Date(ver.submittedAt).toLocaleString()}</span>
                     </div>
                   </div>
 
                   {ver.description && (
-                    <p className="text-xs text-surface-300 leading-relaxed bg-surface-900/40 p-2.5 rounded-lg">
+                    <p className="text-xs text-surface-700 leading-relaxed bg-card/40 p-2.5 rounded-lg">
                       {ver.description}
                     </p>
                   )}
 
                   {ver.fileUrls && ver.fileUrls.length > 0 && (
                     <div>
-                      <span className="text-2xs font-semibold text-surface-400 block mb-1">
+                      <span className="text-2xs font-semibold text-surface-600 block mb-1">
                         Artifact URLs:
                       </span>
                       <div className="flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-700/60 text-primary-300 hover:text-primary-200 text-2xs font-mono truncate max-w-xs"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-700/60 text-primary-700 hover:text-primary-200 text-2xs font-mono truncate max-w-xs"
                           >
                             <ExternalLink size={10} />
                             <span className="truncate">{url}</span>
@@ -82,8 +82,8 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
                   )}
 
                   {ver.clientFeedback && (
-                    <div className="border-t border-surface-700/40 pt-2 text-xs text-surface-400">
-                      <span className="font-semibold text-surface-200 block text-2xs mb-0.5">
+                    <div className="border-t border-surface-300/40 pt-2 text-xs text-surface-600">
+                      <span className="font-semibold text-surface-800 block text-2xs mb-0.5">
                         Client Review Feedback:
                       </span>
                       {ver.clientFeedback}
@@ -103,3 +103,4 @@ export function DeliverableHistoryModal({ isOpen, onClose, deliverable }) {
     </div>
   );
 }
+

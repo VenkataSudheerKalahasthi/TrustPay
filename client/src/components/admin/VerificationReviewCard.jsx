@@ -7,7 +7,7 @@ export function VerificationReviewCard({ review, onApprove, onReject }) {
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg flex items-center justify-between">
       <div className="space-y-1">
         <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-sky-400" />
+          <ShieldCheck className="w-4 h-4 text-sky-400 dark:text-primary-400" />
           <h4 className="text-sm font-bold text-white">
             {review.targetUser?.firstName} {review.targetUser?.lastName}
           </h4>

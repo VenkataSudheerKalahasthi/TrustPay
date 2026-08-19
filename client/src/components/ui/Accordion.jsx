@@ -25,20 +25,20 @@ export function Accordion({ items = [], allowMultiple = false, className }) {
         return (
           <div
             key={index}
-            className="border border-surface-700/60 rounded-2xl bg-surface-800/40 backdrop-blur-sm overflow-hidden"
+            className="border border-surface-300/60 rounded-2xl bg-surface-100/40 backdrop-blur-sm overflow-hidden"
           >
             <button
               type="button"
               onClick={() => toggleItem(index)}
-              className="w-full px-5 py-4 flex items-center justify-between text-left text-surface-100 font-medium hover:bg-surface-800/60 transition-colors"
+              className="w-full px-5 py-4 flex items-center justify-between text-left text-surface-900 font-medium hover:bg-surface-100/60 transition-colors"
             >
               <div className="flex items-center gap-3">
-                {Icon && <Icon size={18} className="text-primary-400 shrink-0" />}
+                {Icon && <Icon size={18} className="text-primary-600 shrink-0" />}
                 <span className="text-sm font-semibold">{item.title}</span>
               </div>
               <ChevronDown
                 size={18}
-                className={cn('text-surface-400 transition-transform duration-200', isOpen && 'rotate-180')}
+                className={cn('text-surface-600 transition-transform duration-200', isOpen && 'rotate-180')}
               />
             </button>
 
@@ -50,7 +50,7 @@ export function Accordion({ items = [], allowMultiple = false, className }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="px-5 pb-4 pt-1 text-sm text-surface-300 border-t border-surface-700/40">
+                  <div className="px-5 pb-4 pt-1 text-sm text-surface-700 border-t border-surface-300/40">
                     {item.content}
                   </div>
                 </motion.div>
@@ -62,3 +62,4 @@ export function Accordion({ items = [], allowMultiple = false, className }) {
     </div>
   );
 }
+

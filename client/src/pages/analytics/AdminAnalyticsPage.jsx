@@ -61,10 +61,10 @@ export function AdminAnalyticsPage() {
   if (loading) {
     return (
       <div className="space-y-6 max-w-7xl mx-auto">
-        <div className="h-16 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+        <div className="h-16 bg-card border border-surface-200 rounded-2xl animate-pulse" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-32 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+            <div key={i} className="h-32 bg-card border border-surface-200 rounded-2xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -73,7 +73,7 @@ export function AdminAnalyticsPage() {
 
   if (error || !data) {
     return (
-      <div className="max-w-md mx-auto p-8 rounded-2xl bg-surface-900 border border-red-500/30 text-center space-y-4">
+      <div className="max-w-md mx-auto p-8 rounded-2xl bg-card border border-red-500/30 text-center space-y-4">
         <p className="text-xs text-red-400">{error || 'Failed to load analytics'}</p>
         <Button size="sm" variant="secondary" onClick={fetchAnalytics} leftIcon={<RefreshCw size={14} />}>
           Retry
@@ -89,8 +89,8 @@ export function AdminAnalyticsPage() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50">System Operations & GMV Analytics</h1>
-          <p className="text-xs text-surface-400">
+          <h1 className="text-xl font-bold text-surface-900">System Operations & GMV Analytics</h1>
+          <p className="text-xs text-surface-600">
             Platform volume, total escrow flow, revenue models, user growth, and active system metrics.
           </p>
         </div>
@@ -166,3 +166,4 @@ export function AdminAnalyticsPage() {
     </div>
   );
 }
+

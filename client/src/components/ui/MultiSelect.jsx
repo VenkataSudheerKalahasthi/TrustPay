@@ -52,14 +52,14 @@ export function MultiSelect({
 
   return (
     <div ref={containerRef} className="flex flex-col gap-1.5 w-full relative">
-      {label && <label className="text-sm font-medium text-surface-200">{label}</label>}
+      {label && <label className="text-sm font-medium text-surface-800">{label}</label>}
 
       <div
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          'min-h-[42px] w-full bg-surface-800/80 border rounded-xl px-3 py-1.5 flex flex-wrap items-center gap-1.5 cursor-pointer transition-all duration-200',
-          error ? 'border-danger-500' : 'border-surface-700 hover:border-surface-600',
-          isOpen && 'ring-2 ring-primary-500 border-primary-500',
+          'min-h-[42px] w-full bg-surface-100/80 border rounded-xl px-3 py-1.5 flex flex-wrap items-center gap-1.5 cursor-pointer transition-all duration-200',
+          error ? 'border-danger-500' : 'border-surface-300 hover:border-surface-600',
+          isOpen && 'ring-2 ring-primary-500 border-primary-600',
           className
         )}
       >
@@ -69,7 +69,7 @@ export function MultiSelect({
           value.map((val) => (
             <span
               key={val}
-              className="inline-flex items-center gap-1 text-xs font-medium bg-primary-500/20 text-primary-300 border border-primary-500/30 px-2 py-0.5 rounded-md"
+              className="inline-flex items-center gap-1 text-xs font-medium bg-primary-500/20 text-primary-700 border border-primary-600/30 px-2 py-0.5 rounded-md"
             >
               {getOptionLabel(val)}
               <button
@@ -83,11 +83,11 @@ export function MultiSelect({
           ))
         )}
 
-        <ChevronDown size={16} className="ml-auto text-surface-400 shrink-0" />
+        <ChevronDown size={16} className="ml-auto text-surface-600 shrink-0" />
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 z-dropdown bg-surface-800 border border-surface-700 rounded-xl shadow-xl max-h-56 overflow-y-auto py-1">
+        <div className="absolute top-full left-0 right-0 mt-1 z-dropdown bg-surface-50 border border-surface-300 rounded-xl shadow-xl max-h-56 overflow-y-auto py-1">
           {options.length === 0 ? (
             <div className="px-4 py-2 text-sm text-surface-500">No options available</div>
           ) : (
@@ -103,12 +103,12 @@ export function MultiSelect({
                   className={cn(
                     'px-4 py-2 text-sm flex items-center justify-between cursor-pointer transition-colors',
                     selected
-                      ? 'bg-primary-500/15 text-primary-300 font-medium'
-                      : 'text-surface-200 hover:bg-surface-700/60'
+                      ? 'bg-primary-500/15 text-primary-700 font-medium'
+                      : 'text-surface-800 hover:bg-surface-700/60'
                   )}
                 >
                   <span>{optLbl}</span>
-                  {selected && <Check size={16} className="text-primary-400" />}
+                  {selected && <Check size={16} className="text-primary-600" />}
                 </div>
               );
             })
@@ -117,10 +117,11 @@ export function MultiSelect({
       )}
 
       {error ? (
-        <p className="text-xs text-danger-400">{error}</p>
+        <p className="text-xs text-danger-600">{error}</p>
       ) : hint ? (
         <p className="text-xs text-surface-500">{hint}</p>
       ) : null}
     </div>
   );
 }
+

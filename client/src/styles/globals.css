@@ -1,5 +1,5 @@
 /* ============================================================
-   TrustPay Global Styles
+   TrustPay Global Styles - Light & Dark Theme Support
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -8,26 +8,147 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Base Resets ─────────────────────────────────────────────────────────── */
+/* ─── Theme Tokens (CSS Variables) ──────────────────────────── */
 @layer base {
   :root {
-    --color-bg: #0F172A;
-    --color-bg-secondary: #020617;
-    --color-bg-card: #1E293B;
-    --color-text-primary: #F8FAFC;
-    --color-text-secondary: #94A3B8;
-    --color-text-muted: #64748B;
-    --color-border: #334155;
-    --color-border-soft: #1E293B;
-    --color-primary: #0EA5E9;
-    --color-primary-hover: #0284C7;
+    /* card: must be RGB tuple for opacity modifiers (bg-card/80) */
+    --color-card: 255 255 255;
+    --color-border: #E2E8F0;
 
-    /* Sidebar & Navbar */
+    /* Surfaces: light scale (light = bright, airy) */
+    --surface-50: #FFFFFF;
+    --surface-100: #F8FAFC;
+    --surface-200: #E2E8F0;
+    --surface-300: #CBD5E1;
+    --surface-400: #94A3B8;
+    --surface-500: #64748B;
+    --surface-600: #475569;
+    --surface-700: #334155;
+    --surface-800: #1E293B;
+    --surface-900: #0F172A;
+    --surface-950: #020617;
+
+    /* Primary: Purple scale (light mode) */
+    --primary-50: #F5F3FF;
+    --primary-100: #EDE9FE;
+    --primary-200: #DDD6FE;
+    --primary-300: #C4B5FD;
+    --primary-400: #A78BFA;
+    --primary-500: #8B5CF6;
+    --primary-600: #7C3AED;
+    --primary-700: #6D28D9;
+    --primary-800: #5B21B6;
+    --primary-900: #4C1D95;
+    --primary-950: #2E1065;
+
+    /* Secondary: Blue scale (light mode) */
+    --secondary-50: #EFF6FF;
+    --secondary-100: #DBEAFE;
+    --secondary-200: #BFDBFE;
+    --secondary-300: #93C5FD;
+    --secondary-400: #60A5FA;
+    --secondary-500: #3B82F6;
+    --secondary-600: #2563EB;
+    --secondary-700: #1D4ED8;
+    --secondary-800: #1E40AF;
+    --secondary-900: #1E3A8A;
+    --secondary-950: #172554;
+
+    /* Accent: Cyan scale (light mode) */
+    --accent-50: #ECFEFF;
+    --accent-100: #CFFAFE;
+    --accent-200: #A5F3FC;
+    --accent-300: #67E8F9;
+    --accent-400: #22D3EE;
+    --accent-500: #06B6D4;
+    --accent-600: #0891B2;
+    --accent-700: #0E7490;
+    --accent-800: #155E75;
+    --accent-900: #164E63;
+    --accent-950: #083344;
+
+    /* Gradients and Glows */
+    --brand-start: #8B5CF6;
+    --brand-end: #3B82F6;
+    --accent-start: #3B82F6;
+    --accent-end: #06B6D4;
+    --color-glow: 139 92 246;
+
+    /* Layout */
     --sidebar-width: 16rem;
     --sidebar-collapsed: 4.5rem;
     --navbar-height: 4rem;
   }
 
+  /* ─── Dark Theme Overrides ─────────────────────────────────── */
+  .dark {
+    /* card: dark card background as RGB tuple */
+    --color-card: 10 18 14;
+    --color-border: rgba(255, 255, 255, 0.08);
+
+    /* Surfaces: dark scale (dark = deep, inverted) */
+    --surface-50: #020403;
+    --surface-100: rgba(255, 255, 255, 0.04);
+    --surface-200: rgba(255, 255, 255, 0.08);
+    --surface-300: rgba(255, 255, 255, 0.15);
+    --surface-400: rgba(255, 255, 255, 0.25);
+    --surface-500: #94A3A8;
+    --surface-600: #94A3A8;
+    --surface-700: #D1D5DB;
+    --surface-800: #E5E7EB;
+    --surface-900: #F3F4F6;
+    --surface-950: #FFFFFF;
+
+    /* Primary: Green scale (dark mode — no purple) */
+    --primary-50: #002211;
+    --primary-100: #00331A;
+    --primary-200: #004422;
+    --primary-300: #006633;
+    --primary-400: #008F4C;
+    --primary-500: #00B359;
+    --primary-600: #00D26A;
+    --primary-700: #16F28A;
+    --primary-800: #33F499;
+    --primary-900: #66F7B2;
+    --primary-950: #99F9CC;
+
+    /* Secondary: Green-tinted (dark mode) */
+    --secondary-50: #001A0D;
+    --secondary-100: #002211;
+    --secondary-200: #004422;
+    --secondary-300: #006633;
+    --secondary-400: #008F4C;
+    --secondary-500: #00B359;
+    --secondary-600: #00D26A;
+    --secondary-700: #16F28A;
+    --secondary-800: #FFFFFF;
+    --secondary-900: #FFFFFF;
+    --secondary-950: #FFFFFF;
+
+    /* Accent: Green-tinted (dark mode) */
+    --accent-50: #001A0D;
+    --accent-100: #002211;
+    --accent-200: #004422;
+    --accent-300: #006633;
+    --accent-400: #008F4C;
+    --accent-500: #00B359;
+    --accent-600: #00D26A;
+    --accent-700: #16F28A;
+    --accent-800: #33F499;
+    --accent-900: #66F7B2;
+    --accent-950: #99F9CC;
+
+    /* Gradients and Glows */
+    --brand-start: #00D26A;
+    --brand-end: #008F4C;
+    --accent-start: #008F4C;
+    --accent-end: #006633;
+    --color-glow: 0 210 106;
+
+    color-scheme: dark;
+  }
+
+  /* ─── Base Resets ─────────────────────────────────────────── */
   * {
     @apply box-border m-0 p-0;
   }
@@ -38,11 +159,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color-scheme: dark;
   }
 
   body {
-    @apply bg-surface-950 text-surface-50 font-sans;
+    @apply bg-surface-50 text-surface-900 font-sans transition-colors duration-200;
     min-height: 100dvh;
     overflow-x: hidden;
   }
@@ -52,114 +172,82 @@
   }
 
   /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    @apply w-1.5;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-surface-900;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-surface-600 rounded-full;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-500;
-  }
+  ::-webkit-scrollbar { @apply w-1.5; }
+  ::-webkit-scrollbar-track { @apply bg-surface-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-300 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-primary-400; }
 
   /* Selection */
-  ::selection {
-    @apply bg-primary-900/40 text-primary-200;
-  }
+  ::selection { @apply bg-primary-200 text-primary-900; }
 
   /* Focus Outline */
   :focus-visible {
-    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-surface-950;
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    ring-offset-color: rgb(var(--color-card));
   }
 }
 
-/* ─── Component Utilities ────────────────────────────────────────────────── */
+/* ─── Component Utilities ──────────────────────────────────── */
 @layer components {
   /* Clean Fintech Card */
   .glass-card {
-    @apply bg-surface-900/60 backdrop-blur-xl border border-surface-800 rounded-2xl shadow-glow transition-all duration-300;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgb(var(--color-card) / 0.85);
+    border: 1px solid var(--color-border);
+    @apply rounded-2xl shadow-card transition-all duration-300;
   }
 
-  /* TrustPay Blue Gradient Text */
+  /* TrustPay Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
   }
 
   /* Gradient border */
-  .gradient-border {
-    position: relative;
-  }
+  .gradient-border { position: relative; }
   .gradient-border::before {
     content: '';
     position: absolute;
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, #0EA5E9, #6366F1);
+    background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
 
-  /* Shimmer loading skeleton */
-  .skeleton {
-    @apply bg-surface-700 rounded animate-pulse;
-  }
+  /* Shimmer skeleton */
+  .skeleton { @apply bg-surface-200 rounded animate-pulse; }
 
-  /* Glow effect */
-  .glow {
-    @apply shadow-glow;
-  }
-  .glow-hover {
-    @apply transition-shadow duration-300 hover:shadow-glow-lg;
-  }
+  /* Glow effects */
+  .glow { @apply shadow-glow-sm; }
+  .glow-hover { @apply transition-shadow duration-300 hover:shadow-glow; }
 
   /* Page container */
-  .page-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+  .page-container { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
 
   /* Section spacing */
-  .section {
-    @apply py-12 sm:py-16 lg:py-20;
-  }
+  .section { @apply py-12 sm:py-16 lg:py-20; }
 
   /* Badge base */
-  .badge {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide;
-  }
+  .badge { @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide; }
 
   /* Divider */
-  .divider {
-    @apply border-t border-surface-700/60 my-6;
-  }
+  .divider { @apply border-t border-surface-200 my-6; }
 }
 
-/* ─── Utility Overrides ──────────────────────────────────────────────────── */
+/* ─── Utility Overrides ─────────────────────────────────────── */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
 
-  /* Transition presets */
-  .transition-base {
-    @apply transition-all duration-200 ease-in-out;
-  }
-  .transition-smooth {
-    @apply transition-all duration-300 ease-in-out;
-  }
-  .transition-slow {
-    @apply transition-all duration-500 ease-in-out;
-  }
+  .transition-base { @apply transition-all duration-200 ease-in-out; }
+  .transition-smooth { @apply transition-all duration-300 ease-in-out; }
+  .transition-slow { @apply transition-all duration-500 ease-in-out; }
 }

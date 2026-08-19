@@ -73,7 +73,7 @@ export function ClientDashboardPage() {
           <div className="flex items-center justify-between w-full">
             <div>
               <Card.Title>Recent Digital Contracts</Card.Title>
-              <p className="text-xs text-surface-400 mt-0.5">Overview of active escrow contract milestones.</p>
+              <p className="text-xs text-surface-600 mt-0.5">Overview of active escrow contract milestones.</p>
             </div>
             <Button variant="primary" size="xs" leftIcon={<Plus size={14} />}>
               Create Contract
@@ -95,13 +95,13 @@ export function ClientDashboardPage() {
             <Table.Body columnsCount={6}>
               {sampleContracts.map((c) => (
                 <Table.Row key={c.id}>
-                  <Table.Cell className="font-semibold text-surface-100">{c.title}</Table.Cell>
+                  <Table.Cell className="font-semibold text-surface-900">{c.title}</Table.Cell>
                   <Table.Cell>{c.worker}</Table.Cell>
-                  <Table.Cell className="font-mono font-medium text-primary-400">{c.amount}</Table.Cell>
+                  <Table.Cell className="font-mono font-medium text-primary-600">{c.amount}</Table.Cell>
                   <Table.Cell>
                     <StatusBadge status={c.status} />
                   </Table.Cell>
-                  <Table.Cell className="text-surface-400 text-xs">{c.date}</Table.Cell>
+                  <Table.Cell className="text-surface-500 text-xs">{c.date}</Table.Cell>
                   <Table.Cell>
                     <Button variant="ghost" size="xs" rightIcon={<ArrowUpRight size={12} />}>
                       Details

@@ -105,21 +105,21 @@ export function ContractDetailsPage() {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+            className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900 shadow-sm"
           >
             <ArrowLeft size={16} />
           </button>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded-md border border-primary-500/20">
+              <span className="text-xs font-mono text-primary-600 bg-primary-50 px-2 py-0.5 rounded-md border border-primary-100">
                 {contract.contractNumber}
               </span>
               <ContractStatusBadge status={contract.status} />
-              <span className="text-2xs font-mono text-surface-400">
+              <span className="text-2xs font-mono text-surface-500">
                 v{contract.currentVersionNumber || 1}
               </span>
             </div>
-            <h1 className="text-2xl font-bold text-surface-100 font-display mt-1">
+            <h1 className="text-2xl font-bold text-surface-900 font-display mt-1">
               {contract.title}
             </h1>
           </div>
@@ -171,38 +171,38 @@ export function ContractDetailsPage() {
           {/* Summary Details */}
           <div className="glass-card p-6 space-y-6">
             <div>
-              <h3 className="text-xs font-bold text-surface-400 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-bold text-surface-600 uppercase tracking-wider mb-2">
                 Scope of Work
               </h3>
-              <p className="text-xs text-surface-200 leading-relaxed whitespace-pre-line bg-surface-900/60 p-4 rounded-xl border border-surface-800/60">
+              <p className="text-xs text-surface-700 leading-relaxed whitespace-pre-line bg-surface-50 p-4 rounded-xl border border-surface-200">
                 {contract.scopeOfWork}
               </p>
             </div>
 
             <div>
-              <h3 className="text-xs font-bold text-surface-400 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-bold text-surface-600 uppercase tracking-wider mb-2">
                 Deliverables & Milestones
               </h3>
-              <p className="text-xs text-surface-200 leading-relaxed whitespace-pre-line bg-surface-900/60 p-4 rounded-xl border border-surface-800/60">
+              <p className="text-xs text-surface-700 leading-relaxed whitespace-pre-line bg-surface-50 p-4 rounded-xl border border-surface-200">
                 {contract.deliverables}
               </p>
             </div>
 
             <div>
-              <h3 className="text-xs font-bold text-surface-400 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-bold text-surface-600 uppercase tracking-wider mb-2">
                 Terms & Conditions
               </h3>
-              <p className="text-xs text-surface-200 leading-relaxed whitespace-pre-line bg-surface-900/60 p-4 rounded-xl border border-surface-800/60">
+              <p className="text-xs text-surface-700 leading-relaxed whitespace-pre-line bg-surface-50 p-4 rounded-xl border border-surface-200">
                 {contract.termsAndConditions}
               </p>
             </div>
 
             {contract.paymentTermsText && (
               <div>
-                <h3 className="text-xs font-bold text-surface-400 uppercase tracking-wider mb-2">
+                <h3 className="text-xs font-bold text-surface-600 uppercase tracking-wider mb-2">
                   Payment Terms
                 </h3>
-                <p className="text-xs text-primary-300 bg-primary-500/10 p-3 rounded-xl border border-primary-500/20">
+                <p className="text-xs text-primary-700 bg-primary-50 p-3 rounded-xl border border-primary-100">
                   {contract.paymentTermsText}
                 </p>
               </div>
@@ -211,8 +211,8 @@ export function ContractDetailsPage() {
 
           {/* Digital Signatures Grid */}
           <div className="space-y-3">
-            <h3 className="text-sm font-bold text-surface-200 flex items-center gap-2">
-              <ShieldCheck size={16} className="text-primary-400" />
+            <h3 className="text-sm font-bold text-surface-900 flex items-center gap-2">
+              <ShieldCheck size={16} className="text-primary-600" />
               <span>Digital Signatures</span>
             </h3>
 
@@ -240,22 +240,22 @@ export function ContractDetailsPage() {
         <div className="space-y-6">
           {/* Cryptographic Integrity Card */}
           <div className="glass-card p-4 space-y-3">
-            <h3 className="text-xs font-bold text-surface-200 flex items-center gap-1.5">
-              <FileText size={14} className="text-primary-400" />
+            <h3 className="text-xs font-bold text-surface-900 flex items-center gap-1.5">
+              <FileText size={14} className="text-primary-600" />
               <span>Cryptographic Audit Hashes</span>
             </h3>
 
             <div className="space-y-2 text-2xs font-mono">
               <div>
-                <span className="text-surface-500 block">Content Hash (SHA-256):</span>
-                <span className="text-surface-300 truncate block">
+                <span className="text-surface-600 block">Content Hash (SHA-256):</span>
+                <span className="text-surface-500 truncate block">
                   {contract.contentHash || 'N/A'}
                 </span>
               </div>
               {contract.pdfHash && (
                 <div>
-                  <span className="text-surface-500 block">PDF Hash (SHA-256):</span>
-                  <span className="text-surface-300 truncate block">{contract.pdfHash}</span>
+                  <span className="text-surface-600 block">PDF Hash (SHA-256):</span>
+                  <span className="text-surface-500 truncate block">{contract.pdfHash}</span>
                 </div>
               )}
             </div>
@@ -263,7 +263,7 @@ export function ContractDetailsPage() {
 
           {/* Activity Timeline */}
           <div className="glass-card p-5 space-y-4">
-            <h3 className="text-sm font-bold text-surface-200">Contract Activity Trail</h3>
+            <h3 className="text-sm font-bold text-surface-900">Contract Activity Trail</h3>
             <ContractTimeline activities={contract.activities} />
           </div>
         </div>

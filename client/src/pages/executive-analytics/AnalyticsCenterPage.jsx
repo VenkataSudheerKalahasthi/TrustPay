@@ -8,7 +8,7 @@ export function AnalyticsCenterPage() {
     <div className="space-y-8 pb-12">
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <PieChart className="w-6 h-6 text-sky-400" />
+          <PieChart className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Enterprise Analytics Center Directory
         </h1>
         <p className="text-slate-400 text-sm">Deep-dive domain analytics synthesising finance, projects, and organization metrics</p>

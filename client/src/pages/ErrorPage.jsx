@@ -38,7 +38,7 @@ export function ErrorPage() {
   return (
     <div
       id="error-boundary-page"
-      className="min-h-screen bg-surface-950 flex items-center justify-center px-4 relative overflow-hidden"
+      className="min-h-screen bg-card flex items-center justify-center px-4 relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-warning-500/8 rounded-full blur-3xl" />
@@ -60,14 +60,14 @@ export function ErrorPage() {
           <p className="text-6xl font-display font-black text-warning-500/40 mb-2">{statusCode}</p>
         )}
 
-        <h1 className="text-2xl sm:text-3xl font-display font-bold text-surface-100 mb-3">
+        <h1 className="text-2xl sm:text-3xl font-display font-bold text-surface-900 mb-3">
           {title}
         </h1>
-        <p className="text-surface-400 text-base mb-6 leading-relaxed">{message}</p>
+        <p className="text-surface-600 text-base mb-6 leading-relaxed">{message}</p>
 
         {/* Dev error details */}
         {isDev && error?.message && (
-          <pre className="bg-surface-800 border border-surface-700 rounded-xl p-4 text-left text-xs text-danger-300 overflow-auto mb-6 text-wrap">
+          <pre className="bg-surface-50 border border-surface-300 rounded-xl p-4 text-left text-xs text-danger-300 overflow-auto mb-6 text-wrap">
             {error.message}
             {error.stack && `\n\n${error.stack}`}
           </pre>
@@ -96,3 +96,4 @@ export function ErrorPage() {
     </div>
   );
 }
+

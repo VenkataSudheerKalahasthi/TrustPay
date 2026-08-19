@@ -33,9 +33,9 @@ export function FinanceDashboardPage() {
   return (
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/40 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+      <div className="bg-gradient-to-r from-slate-900 dark:from-[#0A120E] via-slate-900 dark:via-[#07100B] to-sky-950/40 dark:to-primary-950/20 border border-slate-800 dark:border-primary-900/30 rounded-2xl p-8 shadow-2xl">
         <div className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-sky-400">Enterprise Operations</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-sky-400 dark:text-primary-400">Enterprise Operations</span>
           <h1 className="text-3xl md:text-4xl font-black text-white mt-1">Finance, Billing & Revenue Operations</h1>
           <p className="text-slate-300 text-sm md:text-base mt-2">
             Centralized SaaS subscription management, corporate budgeting, revenue/expense ledgers, marketplace commissions, and AI financial advisory intelligence.
@@ -60,7 +60,7 @@ export function FinanceDashboardPage() {
       {/* AI Financial Advisory Insights */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl">
+          <div className="p-2.5 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-xl">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>

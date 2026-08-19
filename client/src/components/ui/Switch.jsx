@@ -21,8 +21,8 @@ const Switch = forwardRef(
       <div className="flex items-center justify-between gap-4 select-none">
         {(label || description) && (
           <label htmlFor={inputId} className="cursor-pointer text-sm flex-1">
-            {label && <span className="font-medium text-surface-200 block">{label}</span>}
-            {description && <span className="text-xs text-surface-400 block">{description}</span>}
+            {label && <span className="font-medium text-surface-800 block">{label}</span>}
+            {description && <span className="text-xs text-surface-600 block">{description}</span>}
           </label>
         )}
 
@@ -48,7 +48,7 @@ const Switch = forwardRef(
           >
             <div
               className={cn(
-                'w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-200',
+                'w-5 h-5 rounded-full bg-card shadow-md transition-transform duration-200',
                 checked && 'translate-x-5'
               )}
             />
@@ -62,3 +62,4 @@ const Switch = forwardRef(
 Switch.displayName = 'Switch';
 
 export { Switch };
+

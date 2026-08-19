@@ -13,7 +13,7 @@ export function ServerErrorPage() {
   return (
     <div
       id="server-error-page"
-      className="min-h-screen bg-surface-950 flex items-center justify-center px-4 relative overflow-hidden"
+      className="min-h-screen bg-card flex items-center justify-center px-4 relative overflow-hidden"
     >
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
@@ -33,8 +33,8 @@ export function ServerErrorPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-6 flex justify-center"
         >
-          <div className="w-28 h-28 rounded-3xl bg-danger-500/15 border border-danger-500/30 flex items-center justify-center">
-            <AlertTriangle className="w-14 h-14 text-danger-400" />
+          <div className="w-28 h-28 rounded-3xl bg-danger-500/15 border border-danger-200 flex items-center justify-center">
+            <AlertTriangle className="w-14 h-14 text-danger-600" />
           </div>
         </motion.div>
 
@@ -48,10 +48,10 @@ export function ServerErrorPage() {
           </span>
         </motion.div>
 
-        <h1 className="text-2xl sm:text-3xl font-display font-bold text-surface-100 mb-3">
+        <h1 className="text-2xl sm:text-3xl font-display font-bold text-surface-900 mb-3">
           Something went wrong
         </h1>
-        <p className="text-surface-400 text-base mb-8 leading-relaxed">
+        <p className="text-surface-600 text-base mb-8 leading-relaxed">
           Our servers encountered an unexpected error. Our team has been notified.
           Please try again in a few moments.
         </p>
@@ -79,3 +79,4 @@ export function ServerErrorPage() {
     </div>
   );
 }
+

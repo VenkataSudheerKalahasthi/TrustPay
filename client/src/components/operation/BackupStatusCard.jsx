@@ -3,15 +3,15 @@ import { Card } from '@components/ui/Card';
 
 export function BackupStatusCard({ backupJob }) {
   return (
-    <Card className="p-4 bg-surface-900 border-surface-800 space-y-3">
+    <Card className="p-4 bg-card border-surface-200 space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-primary-500/10 text-primary-400">
+          <div className="p-2 rounded-xl bg-primary-50 text-primary-600">
             <Database size={18} />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-surface-100">{backupJob.name}</h4>
-            <span className="text-3xs font-mono text-surface-400">Retention: {backupJob.retentionDays} Days</span>
+            <h4 className="text-xs font-bold text-surface-900">{backupJob.name}</h4>
+            <span className="text-3xs font-mono text-surface-600">Retention: {backupJob.retentionDays} Days</span>
           </div>
         </div>
 
@@ -21,10 +21,11 @@ export function BackupStatusCard({ backupJob }) {
         </span>
       </div>
 
-      <div className="flex items-center justify-between text-3xs font-mono text-surface-400 pt-2 border-t border-surface-800">
+      <div className="flex items-center justify-between text-3xs font-mono text-surface-600 pt-2 border-t border-surface-200">
         <span>Type: {backupJob.type}</span>
         <span>Created: {new Date(backupJob.createdAt).toLocaleDateString()}</span>
       </div>
     </Card>
   );
 }
+

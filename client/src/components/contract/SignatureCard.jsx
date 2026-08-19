@@ -9,7 +9,7 @@ export function SignatureCard({ title, role, signature, onSign, isCurrentSigner 
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
           <div>
-            <h4 className="text-xs font-bold text-surface-200">{title}</h4>
+            <h4 className="text-xs font-bold text-surface-800">{title}</h4>
             <span className="text-2xs text-surface-500 font-mono">Role: {role}</span>
           </div>
           <Badge variant={isSigned ? 'success' : 'warning'}>
@@ -18,13 +18,13 @@ export function SignatureCard({ title, role, signature, onSign, isCurrentSigner 
         </div>
 
         {isSigned ? (
-          <div className="space-y-2 bg-success-500/5 border border-success-500/20 p-3 rounded-xl">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-success-400">
+          <div className="space-y-2 bg-success-500/5 border border-success-200 p-3 rounded-xl">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-success-600">
               <ShieldCheck size={14} />
               <span>Digitally Signed</span>
             </div>
 
-            <div className="text-2xs text-surface-400 space-y-1 font-mono">
+            <div className="text-2xs text-surface-600 space-y-1 font-mono">
               <div className="flex items-center gap-1">
                 <Clock size={11} className="text-surface-500" />
                 <span>
@@ -43,8 +43,8 @@ export function SignatureCard({ title, role, signature, onSign, isCurrentSigner 
             </div>
           </div>
         ) : (
-          <div className="bg-surface-900/60 p-4 rounded-xl border border-dashed border-surface-800 text-center">
-            <p className="text-xs text-surface-400 mb-3">
+          <div className="bg-card/60 p-4 rounded-xl border border-dashed border-surface-200 text-center">
+            <p className="text-xs text-surface-600 mb-3">
               Awaiting digital signature from {role.toLowerCase()}.
             </p>
 
@@ -63,3 +63,4 @@ export function SignatureCard({ title, role, signature, onSign, isCurrentSigner 
     </div>
   );
 }
+

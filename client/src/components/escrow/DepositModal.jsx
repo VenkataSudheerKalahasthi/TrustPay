@@ -60,18 +60,18 @@ export function DepositModal({ isOpen, onClose, onSuccess }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="glass-card max-w-md w-full p-6 space-y-6 relative border border-surface-700">
+      <div className="glass-card max-w-md w-full p-6 space-y-6 relative border border-surface-300">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CreditCard size={20} className="text-primary-400" />
-            <h3 className="text-base font-bold text-surface-100 font-display">
+            <CreditCard size={20} className="text-primary-600" />
+            <h3 className="text-base font-bold text-surface-900 font-display">
               Deposit Funds to Wallet
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-lg text-surface-400 hover:text-surface-100"
+            className="p-1 rounded-lg text-surface-600 hover:text-surface-900"
           >
             <X size={16} />
           </button>
@@ -88,9 +88,9 @@ export function DepositModal({ isOpen, onClose, onSuccess }) {
             required
           />
 
-          <div className="bg-surface-900/60 p-3 rounded-xl border border-surface-800 text-2xs text-surface-400 space-y-1">
-            <div className="flex items-center gap-1 text-surface-300 font-semibold">
-              <ShieldCheck size={12} className="text-primary-400" />
+          <div className="bg-card/60 p-3 rounded-xl border border-surface-200 text-2xs text-surface-600 space-y-1">
+            <div className="flex items-center gap-1 text-surface-700 font-semibold">
+              <ShieldCheck size={12} className="text-primary-600" />
               <span>Razorpay Encrypted Gateway</span>
             </div>
             <p>Funds will be instantly added to your Escrow Available Balance.</p>
@@ -114,3 +114,4 @@ export function DepositModal({ isOpen, onClose, onSuccess }) {
     </div>
   );
 }
+

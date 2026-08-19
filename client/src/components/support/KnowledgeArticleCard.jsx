@@ -6,13 +6,13 @@ export function KnowledgeArticleCard({ article }) {
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all shadow-md">
-      <div className="flex items-center gap-2 text-xs font-bold text-sky-400 mb-2">
+      <div className="flex items-center gap-2 text-xs font-bold text-sky-400 dark:text-primary-400 mb-2">
         <BookOpen className="w-4 h-4" />
         <span>{article.category?.name || 'General Help'}</span>
       </div>
 
       <h4 className="text-base font-bold text-white mb-2 line-clamp-1">
-        <Link to={`/dashboard/client/support/knowledge/${article.slug}`} className="hover:text-sky-400 transition-colors">
+        <Link to={`/dashboard/client/support/knowledge/${article.slug}`} className="hover:text-sky-400 dark:text-primary-400 transition-colors">
           {article.title}
         </Link>
       </h4>

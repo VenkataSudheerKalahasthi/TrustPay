@@ -2,7 +2,7 @@ import { ShieldCheck, Award } from 'lucide-react';
 
 export function GovernanceSummaryCard({ summary }) {
   return (
-    <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/40 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-4">
+    <div className="bg-gradient-to-r from-slate-900 dark:from-[#0A120E] via-slate-900 dark:via-[#07100B] to-sky-950/40 dark:to-primary-950/20 border border-slate-800 dark:border-primary-900/30 rounded-2xl p-6 shadow-2xl space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-bold text-white flex items-center gap-2">
           <ShieldCheck className="w-6 h-6 text-emerald-400" />
@@ -20,7 +20,7 @@ export function GovernanceSummaryCard({ summary }) {
         </div>
         <div>
           <span className="text-slate-400 block">Active Runbooks</span>
-          <span className="font-bold font-mono text-sky-400">{summary?.activeRunbooksCount || 2}</span>
+          <span className="font-bold font-mono text-sky-400 dark:text-primary-400">{summary?.activeRunbooksCount || 2}</span>
         </div>
         <div>
           <span className="text-slate-400 block">Upcoming Maintenance</span>

@@ -20,7 +20,7 @@ export function FinanceAnalyticsChart() {
         </div>
         <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50">
           <p className="text-xs text-slate-400 font-semibold">Active Subscriptions</p>
-          <p className="text-xl font-bold text-sky-400">42 Enterprise</p>
+          <p className="text-xl font-bold text-sky-400 dark:text-primary-400">42 Enterprise</p>
           <p className="text-xs text-slate-500">Annual recurring billing</p>
         </div>
       </div>

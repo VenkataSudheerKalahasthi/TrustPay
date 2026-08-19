@@ -23,7 +23,7 @@ export function BudgetAllocationTable({ allocations = [] }) {
               return (
                 <tr key={alloc.id} className="hover:bg-slate-800/30">
                   <td className="py-3.5 px-4 font-bold text-white uppercase text-xs">{alloc.department}</td>
-                  <td className="py-3.5 px-4 font-mono font-bold text-sky-400">₹{alloc.allocated.toLocaleString()}</td>
+                  <td className="py-3.5 px-4 font-mono font-bold text-sky-400 dark:text-primary-400">₹{alloc.allocated.toLocaleString()}</td>
                   <td className="py-3.5 px-4 font-mono text-slate-300">₹{alloc.spent.toLocaleString()}</td>
                   <td className="py-3.5 px-4">
                     <span

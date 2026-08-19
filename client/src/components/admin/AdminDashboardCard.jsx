@@ -8,7 +8,7 @@ export function AdminDashboardCard({ title, value, subtitle, icon: Icon, _trend 
       </div>
 
       {Icon && (
-        <div className="p-3 bg-sky-500/10 text-sky-400 rounded-xl border border-sky-500/20">
+        <div className="p-3 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-xl border border-sky-500/20">
           <Icon className="w-6 h-6" />
         </div>
       )}

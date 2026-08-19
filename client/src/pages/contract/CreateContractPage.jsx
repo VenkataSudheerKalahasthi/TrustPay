@@ -82,15 +82,15 @@ export function CreateContractPage() {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+          className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900"
         >
           <ArrowLeft size={16} />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-surface-100 font-display">
+          <h1 className="text-2xl font-bold text-surface-900 font-display">
             Create Digital Contract
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Define terms, deliverables, scope of work, and assign a specialist worker.
           </p>
         </div>
@@ -99,8 +99,8 @@ export function CreateContractPage() {
       {/* Template Quick Selection Bar */}
       {templates.length > 0 && (
         <div className="glass-card p-4 space-y-2">
-          <div className="flex items-center gap-2 text-xs font-bold text-surface-200">
-            <Sparkles size={14} className="text-primary-400" />
+          <div className="flex items-center gap-2 text-xs font-bold text-surface-800">
+            <Sparkles size={14} className="text-primary-600" />
             <span>Use Template Preset:</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -109,7 +109,7 @@ export function CreateContractPage() {
                 key={tmpl.id}
                 type="button"
                 onClick={() => handleSelectTemplate(tmpl)}
-                className="px-3 py-1.5 rounded-xl bg-surface-800/80 hover:bg-primary-500/20 text-surface-300 hover:text-primary-300 text-xs font-medium border border-surface-700/50 transition-colors"
+                className="px-3 py-1.5 rounded-xl bg-surface-100/80 hover:bg-primary-500/20 text-surface-700 hover:text-primary-700 text-xs font-medium border border-surface-300/50 transition-colors"
               >
                 {tmpl.title}
               </button>
@@ -121,18 +121,18 @@ export function CreateContractPage() {
       {/* Form */}
       <form onSubmit={handleSubmit} className="glass-card p-6 space-y-6">
         <div className="space-y-4">
-          <h3 className="text-sm font-bold text-surface-200 border-b border-surface-800/80 pb-2">
+          <h3 className="text-sm font-bold text-surface-800 border-b border-surface-200/80 pb-2">
             1. Contract Parties & Title
           </h3>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Assigned Specialist / Worker *
             </label>
             <select
               value={formData.workerProfileId}
               onChange={(e) => setFormData({ ...formData, workerProfileId: e.target.value })}
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl px-3 py-2.5 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl px-3 py-2.5 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               required
             >
               <option value="">-- Select Worker --</option>
@@ -158,7 +158,7 @@ export function CreateContractPage() {
           />
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Short Description
             </label>
             <textarea
@@ -166,18 +166,18 @@ export function CreateContractPage() {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               placeholder="Brief summary of the contract objective..."
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-sm font-bold text-surface-200 border-b border-surface-800/80 pb-2">
+          <h3 className="text-sm font-bold text-surface-800 border-b border-surface-200/80 pb-2">
             2. Scope of Work & Deliverables
           </h3>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Scope of Work *
             </label>
             <textarea
@@ -185,13 +185,13 @@ export function CreateContractPage() {
               value={formData.scopeOfWork}
               onChange={(e) => setFormData({ ...formData, scopeOfWork: e.target.value })}
               placeholder="Detailed description of responsibilities, features, tasks, and technical stack..."
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               required
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Deliverables List *
             </label>
             <textarea
@@ -199,19 +199,19 @@ export function CreateContractPage() {
               value={formData.deliverables}
               onChange={(e) => setFormData({ ...formData, deliverables: e.target.value })}
               placeholder="Enumerate explicit deliverables expected upon project completion..."
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               required
             />
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-sm font-bold text-surface-200 border-b border-surface-800/80 pb-2">
+          <h3 className="text-sm font-bold text-surface-800 border-b border-surface-200/80 pb-2">
             3. Terms & Schedules
           </h3>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Terms & Conditions *
             </label>
             <textarea
@@ -219,13 +219,13 @@ export function CreateContractPage() {
               value={formData.termsAndConditions}
               onChange={(e) => setFormData({ ...formData, termsAndConditions: e.target.value })}
               placeholder="Specify intellectual property transfer, confidentiality, liability limits..."
-              className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               required
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+            <label className="block text-xs font-semibold text-surface-700 mb-1.5">
               Payment Terms (Text Notice)
             </label>
             <Input
@@ -251,7 +251,7 @@ export function CreateContractPage() {
           </div>
         </div>
 
-        <div className="pt-4 border-t border-surface-800 flex justify-end gap-3">
+        <div className="pt-4 border-t border-surface-200 flex justify-end gap-3">
           <Button
             type="button"
             variant="ghost"
@@ -271,3 +271,4 @@ export function CreateContractPage() {
     </div>
   );
 }
+

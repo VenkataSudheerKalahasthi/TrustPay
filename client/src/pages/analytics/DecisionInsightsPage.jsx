@@ -19,7 +19,7 @@ export function DecisionInsightsPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-sky-400" />
+          <Sparkles className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           AI Decision Support & Strategic Recommendations
         </h1>
         <p className="text-slate-400 text-sm">Automated business anomaly detection, strategic advice, and operational insights</p>

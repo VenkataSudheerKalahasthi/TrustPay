@@ -2,7 +2,7 @@ import { Shield, ShoppingBag, Users, BarChart3 } from 'lucide-react';
 
 export function BrandShowcase() {
   const modules = [
-    { title: 'Digital Escrow Vault', desc: 'Milestone payment protection backed by instant automated settlement.', icon: Shield, color: 'text-sky-400 border-sky-500/20 bg-sky-500/10' },
+    { title: 'Digital Escrow Vault', desc: 'Milestone payment protection backed by instant automated settlement.', icon: Shield, color: 'text-sky-400 dark:text-primary-400 border-sky-500/20 bg-sky-500/10' },
     { title: 'Talent Marketplace', desc: 'Verified tech professionals, seamless hiring, and legal contract templates.', icon: ShoppingBag, color: 'text-purple-400 border-purple-500/20 bg-purple-500/10' },
     { title: 'Workforce Operations', desc: 'Contingent workforce management, time tracking, and productivity scoring.', icon: Users, color: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/10' },
     { title: 'Executive Analytics', desc: 'C-suite decision intelligence, AI reports, and multi-format exports.', icon: BarChart3, color: 'text-amber-400 border-amber-500/20 bg-amber-500/10' },

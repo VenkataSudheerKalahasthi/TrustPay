@@ -6,7 +6,7 @@ export function LandingHero3D() {
     <div className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 text-center space-y-8 bg-slate-950">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-wider">
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 dark:text-primary-400 text-xs font-bold uppercase tracking-wider">
         <Zap className="w-4 h-4 fill-sky-400" />
         Next-Generation Enterprise Escrow Platform
       </div>
@@ -40,7 +40,7 @@ export function LandingHero3D() {
 
       <div className="flex justify-center items-center gap-6 text-xs text-slate-400 pt-6">
         <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-emerald-400" /> 100% Escrow Protected</span>
-        <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-sky-400" /> ISO 27001 Security</span>
+        <span className="flex items-center gap-1.5"><Lock className="w-4 h-4 text-sky-400 dark:text-primary-400" /> ISO 27001 Security</span>
       </div>
     </div>
   );

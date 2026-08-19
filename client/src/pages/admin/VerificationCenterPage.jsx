@@ -51,7 +51,7 @@ export function VerificationCenterPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <ShieldCheck className="w-6 h-6 text-sky-400" />
+          <ShieldCheck className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Verification Center & Identity Review Queue
         </h1>
         <p className="text-slate-400 text-sm">Worker & client identity document verification, KYC review, and approval status</p>
@@ -60,7 +60,7 @@ export function VerificationCenterPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {reviews.length === 0 ? (
           <div className="col-span-full py-16 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <ShieldCheck className="w-10 h-10 text-slate-600 mx-auto mb-2" />
+            <ShieldCheck className="w-10 h-10 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No pending verification reviews</p>
           </div>
         ) : (

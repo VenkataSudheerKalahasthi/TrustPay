@@ -33,15 +33,15 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
 
   return (
     <div className="glass-card p-5 flex flex-col gap-5 w-full">
-      <div className="flex items-center justify-between border-b border-surface-800 pb-3">
-        <div className="flex items-center gap-2 text-surface-100 font-bold text-sm">
-          <Filter size={16} className="text-primary-400" />
+      <div className="flex items-center justify-between border-b border-surface-200 pb-3">
+        <div className="flex items-center gap-2 text-surface-900 font-bold text-sm">
+          <Filter size={16} className="text-primary-600" />
           <span>Advanced Filters</span>
         </div>
         <button
           type="button"
           onClick={handleReset}
-          className="text-2xs text-surface-400 hover:text-surface-200 flex items-center gap-1"
+          className="text-2xs text-surface-600 hover:text-surface-800 flex items-center gap-1"
         >
           <RotateCcw size={12} />
           Reset All
@@ -50,13 +50,13 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
 
       {/* Category Selection */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-2xs font-semibold text-surface-300 uppercase tracking-wider">
+        <label className="text-2xs font-semibold text-surface-700 uppercase tracking-wider">
           Category
         </label>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
         >
           <option value="">All Categories</option>
           {categories.map((cat) => (
@@ -69,7 +69,7 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
 
       {/* Hourly Rate Range */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-2xs font-semibold text-surface-300 uppercase tracking-wider">
+        <label className="text-2xs font-semibold text-surface-700 uppercase tracking-wider">
           Hourly Rate (₹)
         </label>
         <div className="grid grid-cols-2 gap-2">
@@ -78,21 +78,21 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
             placeholder="Min Rate"
             value={minRate}
             onChange={(e) => setMinRate(e.target.value)}
-            className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+            className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
           />
           <input
             type="number"
             placeholder="Max Rate"
             value={maxRate}
             onChange={(e) => setMaxRate(e.target.value)}
-            className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+            className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
           />
         </div>
       </div>
 
       {/* Experience Level */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-2xs font-semibold text-surface-300 uppercase tracking-wider">
+        <label className="text-2xs font-semibold text-surface-700 uppercase tracking-wider">
           Min Experience (Years)
         </label>
         <input
@@ -100,19 +100,19 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
           placeholder="e.g. 3"
           value={minExp}
           onChange={(e) => setMinExp(e.target.value)}
-          className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
         />
       </div>
 
       {/* Availability */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-2xs font-semibold text-surface-300 uppercase tracking-wider">
+        <label className="text-2xs font-semibold text-surface-700 uppercase tracking-wider">
           Availability Status
         </label>
         <select
           value={availability}
           onChange={(e) => setAvailability(e.target.value)}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
         >
           <option value="">Any Status</option>
           <option value="AVAILABLE">Available Now</option>
@@ -124,13 +124,13 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
 
       {/* Verification Status */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-2xs font-semibold text-surface-300 uppercase tracking-wider">
+        <label className="text-2xs font-semibold text-surface-700 uppercase tracking-wider">
           Verification
         </label>
         <select
           value={verificationStatus}
           onChange={(e) => setVerificationStatus(e.target.value)}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-800 focus:outline-none focus:border-primary-600"
         >
           <option value="">All Workers</option>
           <option value="VERIFIED">Verified Only</option>
@@ -144,3 +144,4 @@ export function WorkerFilterPanel({ categories = [], onApplyFilters, onResetFilt
     </div>
   );
 }
+

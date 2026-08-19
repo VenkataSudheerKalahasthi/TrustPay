@@ -19,7 +19,7 @@ export function ApprovalCenterPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <CheckSquare className="w-6 h-6 text-sky-400" />
+          <CheckSquare className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Administrative Approval & Task Queue
         </h1>
         <p className="text-slate-400 text-sm">Enterprise tier requests, high-value wallet withdrawals, and administrative approvals</p>

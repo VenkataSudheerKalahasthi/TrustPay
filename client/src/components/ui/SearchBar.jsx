@@ -46,19 +46,19 @@ export function SearchBar({
 
   return (
     <div className={cn('relative flex items-center w-full', className)}>
-      <Search size={16} className="absolute left-3.5 text-surface-400 pointer-events-none" />
+      <Search size={16} className="absolute left-3.5 text-surface-600 pointer-events-none" />
       <input
         type="text"
         value={internalValue}
         onChange={handleChange}
         placeholder={placeholder}
-        className="w-full bg-surface-800/80 border border-surface-700 rounded-xl pl-10 pr-9 py-2 text-sm text-surface-50 placeholder:text-surface-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
+        className="w-full bg-surface-100/80 border border-surface-300 rounded-xl pl-10 pr-9 py-2 text-sm text-surface-900 placeholder:text-surface-500 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-500 transition-colors"
       />
       {internalValue && (
         <button
           type="button"
           onClick={handleClear}
-          className="absolute right-3 text-surface-400 hover:text-surface-200 transition-colors"
+          className="absolute right-3 text-surface-600 hover:text-surface-800 transition-colors"
           aria-label="Clear search"
         >
           <X size={14} />
@@ -67,3 +67,4 @@ export function SearchBar({
     </div>
   );
 }
+

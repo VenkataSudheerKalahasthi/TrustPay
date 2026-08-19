@@ -7,7 +7,7 @@ export function EnterpriseStatCard({ label, value, subtitle, icon: Icon }) {
         {subtitle && <p className="text-xs text-slate-500">{subtitle}</p>}
       </div>
       {Icon && (
-        <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400">
+        <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 dark:text-primary-400">
           <Icon className="w-6 h-6" />
         </div>
       )}

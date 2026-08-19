@@ -36,11 +36,11 @@ export function JobsExplorerPage() {
     <div className="max-w-7xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-            <Briefcase size={20} className="text-primary-400" />
+          <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+            <Briefcase size={20} className="text-primary-600" />
             <span>Talent Marketplace & Opportunities</span>
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Discover verified enterprise opportunities, submit proposals, and transition to Escrow contracts.
           </p>
         </div>
@@ -74,3 +74,4 @@ export function JobsExplorerPage() {
     </div>
   );
 }
+

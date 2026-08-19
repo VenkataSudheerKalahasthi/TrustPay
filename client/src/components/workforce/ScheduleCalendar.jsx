@@ -29,7 +29,7 @@ export function ScheduleCalendar({ shifts = [], onCreateShift }) {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
           <h3 className="text-xl font-bold text-white flex items-center gap-2">
-            <CalendarIcon className="w-5 h-5 text-sky-400" />
+            <CalendarIcon className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Work Schedule Calendar
           </h3>
           <p className="text-slate-400 text-sm">View shifts, working hours, and worker assignments</p>
@@ -69,7 +69,7 @@ export function ScheduleCalendar({ shifts = [], onCreateShift }) {
       <div className="space-y-3">
         {filteredShifts.length === 0 ? (
           <div className="text-center py-10 border border-dashed border-slate-800 rounded-lg">
-            <Clock className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+            <Clock className="w-8 h-8 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 text-sm font-medium">No shifts scheduled for this day</p>
           </div>
         ) : (
@@ -81,7 +81,7 @@ export function ScheduleCalendar({ shifts = [], onCreateShift }) {
               className="flex items-center justify-between p-4 bg-slate-800/40 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors"
             >
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-sky-500/10 text-sky-400 rounded-lg">
+                <div className="p-3 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-lg">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -95,7 +95,7 @@ export function ScheduleCalendar({ shifts = [], onCreateShift }) {
               <div className="flex items-center gap-3">
                 {shift.assignedUser ? (
                   <div className="flex items-center gap-2 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700">
-                    <User className="w-3.5 h-3.5 text-sky-400" />
+                    <User className="w-3.5 h-3.5 text-sky-400 dark:text-primary-400" />
                     <span className="text-xs font-medium text-slate-200">
                       {shift.assignedUser.firstName} {shift.assignedUser.lastName}
                     </span>

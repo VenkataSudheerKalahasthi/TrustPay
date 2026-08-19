@@ -24,7 +24,7 @@ export function Tooltip({ children, content, position = 'top', className }) {
         <div
           role="tooltip"
           className={cn(
-            'absolute z-tooltip px-2.5 py-1 text-2xs font-medium bg-surface-900 text-surface-100 border border-surface-700 rounded-lg shadow-xl whitespace-nowrap pointer-events-none transition-opacity duration-150',
+            'absolute z-tooltip px-2.5 py-1 text-2xs font-medium bg-card text-surface-900 border border-surface-300 rounded-lg shadow-xl whitespace-nowrap pointer-events-none transition-opacity duration-150',
             positionMap[position],
             className
           )}
@@ -35,3 +35,4 @@ export function Tooltip({ children, content, position = 'top', className }) {
     </div>
   );
 }
+

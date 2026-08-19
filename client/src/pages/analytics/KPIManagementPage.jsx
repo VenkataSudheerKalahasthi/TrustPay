@@ -44,7 +44,7 @@ export function KPIManagementPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Target className="w-6 h-6 text-sky-400" />
+            <Target className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Enterprise Key Performance Indicators (KPIs)
           </h1>
           <p className="text-slate-400 text-sm">Define target values, track current velocity, and monitor variance thresholds</p>

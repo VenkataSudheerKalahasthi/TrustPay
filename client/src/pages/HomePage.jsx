@@ -1,136 +1,13 @@
-import { useRef, useEffect } from 'react';
-import * as THREE from 'three';
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Shield, Zap, Lock, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@components/ui/Button';
-import { Badge } from '@components/ui/Badge';
 import { Card } from '@components/ui/Card';
 import { Container } from '@components/common/Container';
 import { ROUTES } from '@constants';
-
-// ─── Three.js Hero Scene ───────────────────────────────────────────────────
-
-function HeroScene() {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const width = container.clientWidth || 600;
-    const height = container.clientHeight || 500;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 5;
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-
-    const pLight1 = new THREE.PointLight(0x6366f1, 2.5, 50);
-    pLight1.position.set(10, 10, 10);
-    scene.add(pLight1);
-
-    const pLight2 = new THREE.PointLight(0xd946ef, 1.8, 50);
-    pLight2.position.set(-10, -10, -10);
-    scene.add(pLight2);
-
-    const pLight3 = new THREE.PointLight(0x10b981, 1.2, 50);
-    pLight3.position.set(0, 10, -5);
-    scene.add(pLight3);
-
-    // Distorted Sphere
-    const geometry = new THREE.SphereGeometry(1.6, 64, 64);
-    const originalPositions = geometry.attributes.position.clone();
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x6366f1,
-      roughness: 0.1,
-      metalness: 0.9,
-      transparent: true,
-      opacity: 0.85,
-    });
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    // Starfield Background
-    const starsCount = 600;
-    const starsGeometry = new THREE.BufferGeometry();
-    const starPositions = new Float32Array(starsCount * 3);
-    for (let i = 0; i < starsCount * 3; i++) {
-      starPositions[i] = (Math.random() - 0.5) * 40;
-    }
-    starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-    const starsMaterial = new THREE.PointsMaterial({
-      color: 0x818cf8,
-      size: 0.08,
-      transparent: true,
-      opacity: 0.6,
-    });
-    const starField = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(starField);
-
-    // Resize handler
-    const handleResize = () => {
-      if (!container) return;
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Animation loop with smooth vertex distortion
-    let animationFrameId;
-    const clock = new THREE.Clock();
-
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
-
-      sphere.rotation.x = elapsedTime * 0.1;
-      sphere.rotation.y = elapsedTime * 0.15;
-      starField.rotation.y = elapsedTime * 0.02;
-
-      const pos = geometry.attributes.position;
-      for (let i = 0; i < pos.count; i++) {
-        const u = originalPositions.getX(i);
-        const v = originalPositions.getY(i);
-        const w = originalPositions.getZ(i);
-
-        const distortion = Math.sin(u * 2 + elapsedTime * 2) * Math.cos(v * 2 + elapsedTime * 2) * 0.12;
-        pos.setXYZ(i, u + u * distortion, v + v * distortion, w + w * distortion);
-      }
-      pos.needsUpdate = true;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-      if (container && renderer.domElement) {
-        container.removeChild(renderer.domElement);
-      }
-      geometry.dispose();
-      material.dispose();
-      starsGeometry.dispose();
-      starsMaterial.dispose();
-      renderer.dispose();
-    };
-  }, []);
-
-  return <div ref={containerRef} className="w-full h-full" style={{ background: 'transparent' }} />;
-}
+import { useTheme } from '@contexts/ThemeContext';
+import heroImage from '../assets/home page light image.png';
+import darkHeroImage from '../assets/home page dark image.png';
 
 // ─── Feature Data ─────────────────────────────────────────────────────────────
 
@@ -174,102 +51,164 @@ const trustPoints = [
 // ─── Home Page ───────────────────────────────────────────────────────────────
 
 export function HomePage() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <div id="home-page" className="min-h-screen bg-surface-950">
+    <div id="home-page" className="min-h-screen bg-surface-50 transition-colors duration-300">
       {/* ─── Hero Section ──────────────────────────────────────────────────── */}
-      <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-1 bg-gradient-brand opacity-60 blur-sm" />
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary-600/12 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute top-40 right-1/4 w-80 h-80 bg-secondary-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-accent-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <section id="hero" className="relative w-full min-h-[calc(100vh-3.5rem)] bg-surface-50 overflow-hidden pt-4 lg:pt-6 pb-16 transition-colors duration-300">
+        {/* Background Glows — purple in light, green in dark */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {isDark ? (
+            <>
+              <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px]"
+                style={{ background: 'radial-gradient(circle, rgba(0,210,106,0.08) 0%, transparent 70%)' }} />
+              <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px]"
+                style={{ background: 'radial-gradient(circle, rgba(0,210,106,0.06) 0%, transparent 70%)' }} />
+            </>
+          ) : (
+            <>
+              <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-secondary-400/10 rounded-full blur-[120px]" />
+              <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-[120px]" />
+            </>
+          )}
         </div>
 
-        <Container className="relative z-10 pt-24 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[85vh]">
-            {/* ─── Left: Copy ─────────────────────────────────────────── */}
+        <Container className="relative z-10 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full">
+            {/* ─── Left: Copy (48%) ─────────────────────────────────────────── */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-3 lg:gap-4 lg:w-[48%]"
             >
-              <Badge variant="primary" dot size="md" id="hero-badge">
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-semibold text-xs self-start border ${
+                isDark
+                  ? 'border-primary-600/30 bg-primary-600/10 text-primary-600'
+                  : 'border-primary-200 bg-primary-50 text-primary-700'
+              }`}>
                 🚀 Now in Beta — Join 50,000+ Professionals
-              </Badge>
+              </div>
 
-              <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-surface-50 leading-[1.1] tracking-tight">
-                Contracts & Escrow{' '}
-                <span className="gradient-text">You Can Trust</span>
+              <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-5xl xl:text-6xl text-surface-950 leading-[1.05] tracking-tight">
+                Contracts & Escrow<br className="hidden lg:block" />{' '}
+                <span className={isDark
+                  ? 'text-primary-600'
+                  : 'bg-gradient-to-r from-secondary-600 to-primary-600 bg-clip-text text-transparent'
+                }>You Can Trust</span>
               </h1>
 
-              <p className="text-surface-400 text-lg sm:text-xl leading-relaxed max-w-xl">
+              <p className="text-surface-700 text-base lg:text-lg xl:text-xl leading-relaxed max-w-xl font-medium">
                 TrustPay secures every freelance engagement with legally binding digital contracts,
                 milestone-based escrow, and AI-powered dispute resolution — all in one platform.
               </p>
 
               {/* Trust Points */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 xl:gap-y-2.5">
                 {trustPoints.map((point) => (
                   <div key={point} className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-accent-400 shrink-0" />
-                    <span className="text-sm text-surface-300">{point}</span>
+                    <div className={`w-5 h-5 xl:w-6 xl:h-6 rounded-full flex items-center justify-center shrink-0 border ${
+                      isDark
+                        ? 'bg-primary-600/10 border-primary-600/30'
+                        : 'bg-secondary-50 border-secondary-100'
+                    }`}>
+                      <CheckCircle2 size={12} className={isDark ? 'text-primary-600' : 'text-secondary-600'} style={{ width: 12, height: 12 }} />
+                    </div>
+                    <span className="text-xs xl:text-sm font-semibold text-surface-900">{point}</span>
                   </div>
                 ))}
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <Button
-                  variant="gradient"
-                  size="xl"
-                  rightIcon={<ArrowRight size={20} />}
+                  className={isDark
+                    ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all'
+                    : 'bg-gradient-to-r from-secondary-600 to-primary-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all'
+                  }
+                  size="lg"
+                  rightIcon={<ArrowRight size={18} />}
                   id="hero-cta-primary"
                 >
                   <Link to={ROUTES.REGISTER}>Start for Free</Link>
                 </Button>
                 <Button
-                  variant="outline"
-                  size="xl"
+                  className={isDark
+                    ? 'bg-transparent border-2 border-surface-300 text-surface-900 hover:border-primary-600 hover:bg-primary-600/10 transition-all font-semibold'
+                    : 'bg-card border-2 border-surface-200 text-surface-900 hover:border-primary-600 hover:bg-primary-50 transition-all font-semibold'
+                  }
+                  size="lg"
                   id="hero-cta-secondary"
                 >
                   <a href="#how-it-works">See How It Works</a>
                 </Button>
               </div>
 
-              <p className="text-xs text-surface-600">
+              <p className="text-xs font-semibold text-surface-500">
                 No credit card required · Free forever plan available
               </p>
             </motion.div>
 
-            {/* ─── Right: 3D Scene ─────────────────────────────────────── */}
+            {/* ─── Right: Visual Asset (52%) ─────────────────────────────────────── */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-[450px] lg:h-[600px]"
-              id="hero-3d-scene"
+              className="relative lg:w-[52%] w-full flex justify-center items-center h-[350px] sm:h-[450px] lg:h-auto lg:max-h-[90%]"
+              id="hero-image-container"
             >
-              <HeroScene />
+              {/* Ambient glow behind the illustration */}
+              <div className="absolute inset-0 pointer-events-none flex justify-center items-center z-0">
+                {isDark ? (
+                  <div className="w-[85%] h-[85%] rounded-full blur-[80px]"
+                    style={{ background: 'radial-gradient(circle at 50% 50%, rgba(0,210,106,0.12) 0%, transparent 70%)' }} />
+                ) : (
+                  <div className="w-[85%] h-[85%] bg-gradient-to-tr from-primary-200/40 via-white/20 to-secondary-200/40 rounded-full blur-[60px] xl:blur-[80px]" />
+                )}
+              </div>
 
-              {/* Floating badges on 3D */}
+              {/* Hero Illustration */}
+              <img
+                src={isDark ? darkHeroImage : heroImage}
+                alt="TrustPay digitally signed contract with escrow security shield"
+                className={`relative z-10 w-full h-auto object-contain ${isDark ? 'mix-blend-screen opacity-90' : 'mix-blend-multiply'}`}
+                style={{
+                  maxHeight: 'min(620px, 75vh)',
+                  maskImage: 'radial-gradient(50% 50% at 50% 50%, black 75%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(50% 50% at 50% 50%, black 75%, transparent 100%)',
+                }}
+              />
+
+              {/* Floating: Contract Signed card */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-8 left-0 glass-card px-4 py-3 flex items-center gap-2 text-sm"
+                className="absolute top-[5%] left-[0%] lg:left-[5%] rounded-xl shadow-lg px-3 py-2 xl:px-4 xl:py-3 flex items-center gap-2 text-xs xl:text-sm z-10 transition-colors duration-300"
+                style={{
+                  backgroundColor: isDark ? 'rgba(10,18,14,0.92)' : 'rgb(255,255,255)',
+                  border: isDark ? '1px solid rgba(255,255,255,0.08)' : '1px solid #E2E8F0',
+                  backdropFilter: 'blur(12px)',
+                }}
               >
-                <div className="w-2 h-2 rounded-full bg-success-400 animate-pulse" />
-                <span className="text-surface-300 font-medium">Contract Signed</span>
+                <div className="w-2 h-2 xl:w-2.5 xl:h-2.5 rounded-full bg-primary-600 animate-pulse" />
+                <span className="text-surface-900 font-bold">Contract Signed</span>
               </motion.div>
 
+              {/* Floating: Escrow Released card */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute bottom-16 right-0 glass-card px-4 py-3 text-sm"
+                className="absolute bottom-[5%] right-[0%] lg:right-[5%] rounded-xl shadow-lg px-4 py-3 xl:px-5 xl:py-4 z-10 transition-colors duration-300"
+                style={{
+                  backgroundColor: isDark ? 'rgba(10,18,14,0.92)' : 'rgb(255,255,255)',
+                  border: isDark ? '1px solid rgba(255,255,255,0.08)' : '1px solid #E2E8F0',
+                  backdropFilter: 'blur(12px)',
+                }}
               >
-                <p className="text-surface-400 text-xs">Escrow Released</p>
-                <p className="text-accent-400 font-bold text-base">₹1,25,000</p>
+                <p className="text-surface-700 text-[10px] xl:text-xs font-bold uppercase tracking-wider mb-0.5">Escrow Released</p>
+                <p className="text-primary-600 font-black text-lg xl:text-xl">₹1,25,000</p>
               </motion.div>
             </motion.div>
           </div>
@@ -278,16 +217,16 @@ export function HomePage() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-surface-600"
+            className="absolute bottom-2 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-surface-500 hidden lg:flex"
           >
-            <span className="text-xs">Scroll to explore</span>
-            <ChevronDown size={20} />
+            <span className="text-[10px] font-bold uppercase tracking-widest">Scroll to explore</span>
+            <ChevronDown size={16} />
           </motion.div>
         </Container>
       </section>
 
       {/* ─── Stats Section ──────────────────────────────────────────────────── */}
-      <section id="stats" className="py-16 border-y border-surface-800/50">
+      <section id="stats" className="py-16 border-y border-surface-200 bg-surface-100 transition-colors duration-300">
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map(({ value, label }, i) => (
@@ -299,8 +238,8 @@ export function HomePage() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="text-center"
               >
-                <p className="font-display font-black text-4xl sm:text-5xl gradient-text mb-1">{value}</p>
-                <p className="text-surface-400 text-sm">{label}</p>
+                <p className="font-display font-black text-4xl sm:text-5xl bg-gradient-to-r from-secondary-600 to-primary-600 bg-clip-text text-transparent mb-1">{value}</p>
+                <p className="text-surface-700 font-bold text-sm uppercase tracking-wider">{label}</p>
               </motion.div>
             ))}
           </div>
@@ -308,7 +247,7 @@ export function HomePage() {
       </section>
 
       {/* ─── Features Section ────────────────────────────────────────────────── */}
-      <section id="features" className="py-24">
+      <section id="features" className="py-24 bg-surface-50 transition-colors duration-300">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -316,12 +255,12 @@ export function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge variant="surface" size="md" className="mb-4">Platform Features</Badge>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-surface-50 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-100 text-surface-900 font-bold text-xs mb-4">Platform Features</div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-surface-950 mb-4">
               Everything you need to{' '}
-              <span className="gradient-text">work with confidence</span>
+              <span className="bg-gradient-to-r from-secondary-600 to-primary-600 bg-clip-text text-transparent">work with confidence</span>
             </h2>
-            <p className="text-surface-400 text-lg max-w-2xl mx-auto">
+            <p className="text-surface-600 text-lg max-w-2xl mx-auto font-medium">
               Built specifically for the Indian freelance market with compliance,
               security, and speed as first-class priorities.
             </p>
@@ -336,16 +275,16 @@ export function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
               >
-                <Card variant="default" hoverable className="h-full">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4
-                    ${color === 'primary' ? 'bg-primary-500/15 text-primary-400' : ''}
-                    ${color === 'secondary' ? 'bg-secondary-500/15 text-secondary-400' : ''}
-                    ${color === 'accent' ? 'bg-accent-500/15 text-accent-400' : ''}
+                <Card variant="bordered" hoverable className="h-full bg-card border-surface-200 shadow-sm hover:shadow-md transition-all">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 border
+                    ${color === 'primary' ? 'bg-primary-50 text-primary-600 border-primary-100' : ''}
+                    ${color === 'secondary' ? 'bg-secondary-50 text-secondary-600 border-secondary-100' : ''}
+                    ${color === 'accent' ? 'bg-accent-50 text-accent-600 border-accent-100' : ''}
                   `}>
                     <Icon size={24} />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-surface-100 mb-3">{title}</h3>
-                  <p className="text-surface-400 text-sm leading-relaxed">{description}</p>
+                  <h3 className="font-display font-bold text-xl text-surface-900 mb-3">{title}</h3>
+                  <p className="text-surface-600 text-sm leading-relaxed font-medium">{description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -354,31 +293,34 @@ export function HomePage() {
       </section>
 
       {/* ─── CTA Section ────────────────────────────────────────────────────── */}
-      <section id="cta" className="py-24">
+      <section id="cta" className="py-24 bg-surface-50 transition-colors duration-300">
         <Container>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-hero border border-primary-500/20 p-12 sm:p-16 text-center overflow-hidden"
+            className="relative rounded-3xl bg-card border border-surface-200 p-12 sm:p-16 text-center overflow-hidden shadow-xl"
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-r from-secondary-400/10 to-primary-400/10 rounded-full blur-[80px]" />
             </div>
-            <Badge variant="primary" dot size="md" className="mb-6">Get Started Today</Badge>
-            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-surface-50 mb-4 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary-200 bg-primary-50 text-primary-700 font-semibold text-xs mb-6 relative z-10">Get Started Today</div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-surface-950 mb-4 relative z-10">
               Ready to build trust in{' '}
-              <span className="gradient-text">every transaction?</span>
+              <span className="bg-gradient-to-r from-secondary-600 to-primary-600 bg-clip-text text-transparent">every transaction?</span>
             </h2>
-            <p className="text-surface-300 text-lg mb-8 max-w-xl mx-auto relative z-10">
+            <p className="text-surface-600 font-medium text-lg mb-8 max-w-xl mx-auto relative z-10">
               Join thousands of freelancers and clients who trust TrustPay to protect their work and payments.
             </p>
             <Button
-              variant="gradient"
+              className={`shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all relative z-10 ${
+                isDark
+                  ? 'bg-primary-600 text-white hover:bg-primary-700'
+                  : 'bg-gradient-to-r from-secondary-600 to-primary-600 text-white'
+              }`}
               size="xl"
               rightIcon={<ArrowRight size={20} />}
               id="cta-get-started-btn"
-              className="relative z-10"
             >
               <Link to={ROUTES.REGISTER}>Create Free Account</Link>
             </Button>

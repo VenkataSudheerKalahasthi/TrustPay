@@ -83,17 +83,17 @@ export function MessageComposer({
   };
 
   return (
-    <div className="p-3 bg-surface-900 border-t border-surface-800 space-y-2 relative">
+    <div className="p-3 bg-card border-t border-surface-200 space-y-2 relative">
       {/* Replying Banner */}
       {replyingTo && (
-        <div className="flex items-center justify-between px-3 py-1.5 rounded-xl bg-surface-800 border-l-2 border-primary-500 text-xs">
+        <div className="flex items-center justify-between px-3 py-1.5 rounded-xl bg-surface-50 border-l-2 border-primary-600 text-xs">
           <div className="truncate">
-            <span className="font-semibold text-primary-400 block text-2xs">
+            <span className="font-semibold text-primary-600 block text-2xs">
               Replying to {replyingTo.senderUser?.firstName}
             </span>
-            <span className="text-surface-300 truncate block text-2xs">{replyingTo.content}</span>
+            <span className="text-surface-700 truncate block text-2xs">{replyingTo.content}</span>
           </div>
-          <button onClick={onClearReply} className="text-surface-400 hover:text-surface-100 p-1">
+          <button onClick={onClearReply} className="text-surface-600 hover:text-surface-900 p-1">
             <X size={14} />
           </button>
         </div>
@@ -103,7 +103,7 @@ export function MessageComposer({
       {editingMessage && (
         <div className="flex items-center justify-between px-3 py-1.5 rounded-xl bg-indigo-500/10 border-l-2 border-indigo-500 text-xs">
           <span className="font-semibold text-indigo-400 text-2xs">Editing message</span>
-          <button onClick={onClearEdit} className="text-surface-400 hover:text-surface-100 p-1">
+          <button onClick={onClearEdit} className="text-surface-600 hover:text-surface-900 p-1">
             <X size={14} />
           </button>
         </div>
@@ -115,13 +115,13 @@ export function MessageComposer({
           {attachments.map((att, index) => (
             <div
               key={index}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-surface-800 border border-surface-700 text-2xs text-surface-200"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-surface-50 border border-surface-300 text-2xs text-surface-800"
             >
               <span className="truncate max-w-[120px] font-mono">{att.fileName}</span>
               <button
                 type="button"
                 onClick={() => setAttachments((prev) => prev.filter((_, i) => i !== index))}
-                className="text-surface-400 hover:text-red-400"
+                className="text-surface-600 hover:text-red-400"
               >
                 <X size={12} />
               </button>
@@ -143,7 +143,7 @@ export function MessageComposer({
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="p-2 rounded-xl bg-surface-800 text-surface-400 hover:text-surface-100 hover:bg-surface-700 transition-colors shrink-0 mb-0.5"
+          className="p-2 rounded-xl bg-surface-50 text-surface-600 hover:text-surface-900 hover:bg-surface-700 transition-colors shrink-0 mb-0.5"
           title="Attach file with SHA-256 integrity"
         >
           <Paperclip size={18} />
@@ -152,7 +152,7 @@ export function MessageComposer({
         <button
           type="button"
           onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-          className="p-2 rounded-xl bg-surface-800 text-surface-400 hover:text-amber-400 hover:bg-surface-700 transition-colors shrink-0 mb-0.5"
+          className="p-2 rounded-xl bg-surface-50 text-surface-600 hover:text-amber-400 hover:bg-surface-700 transition-colors shrink-0 mb-0.5"
           title="Add Emoji"
         >
           <Smile size={18} />
@@ -164,7 +164,7 @@ export function MessageComposer({
           onChange={handleTextChange}
           onKeyDown={handleKeyDown}
           placeholder="Type a message... (Press Enter to send)"
-          className="flex-1 px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500 resize-none max-h-32"
+          className="flex-1 px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600 resize-none max-h-32"
         />
 
         <Button
@@ -181,7 +181,7 @@ export function MessageComposer({
 
       {/* Quick Emoji Bar */}
       {showEmojiPicker && (
-        <div className="absolute bottom-16 left-12 bg-surface-900 border border-surface-700 rounded-2xl p-2 flex flex-wrap gap-1 shadow-2xl z-modal max-w-xs">
+        <div className="absolute bottom-16 left-12 bg-card border border-surface-300 rounded-2xl p-2 flex flex-wrap gap-1 shadow-2xl z-modal max-w-xs">
           {EMOJIS.map((e) => (
             <button
               key={e}
@@ -190,7 +190,7 @@ export function MessageComposer({
                 setContent((prev) => prev + e);
                 setShowEmojiPicker(false);
               }}
-              className="p-1.5 hover:bg-surface-800 rounded-xl text-base transition-transform hover:scale-125"
+              className="p-1.5 hover:bg-surface-50 rounded-xl text-base transition-transform hover:scale-125"
             >
               {e}
             </button>
@@ -200,3 +200,4 @@ export function MessageComposer({
     </div>
   );
 }
+

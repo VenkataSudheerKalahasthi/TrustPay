@@ -42,8 +42,8 @@ export function ReportsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50">Enterprise Report Generator Workspace</h1>
-        <p className="text-xs text-surface-400">
+        <h1 className="text-xl font-bold text-surface-900">Enterprise Report Generator Workspace</h1>
+        <p className="text-xs text-surface-600">
           Build and export customized PDF, CSV, and Excel financial, project, and escrow compliance reports.
         </p>
       </div>
@@ -55,17 +55,17 @@ export function ReportsPage() {
         </div>
       )}
 
-      <Card className="p-6 bg-surface-900 border-surface-800 space-y-6">
+      <Card className="p-6 bg-card border-surface-200 space-y-6">
         <form onSubmit={handleGenerate} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Report Category
               </label>
               <select
                 value={reportType}
                 onChange={(e) => setReportType(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               >
                 <option value="FINANCIAL">Financial Overview & Escrow Audit</option>
                 <option value="PROJECT">Project Milestone & Execution Progress</option>
@@ -76,13 +76,13 @@ export function ReportsPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Time Window
               </label>
               <select
                 value={dateRange}
                 onChange={(e) => setDateRange(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               >
                 <option value="DAILY">Daily Snapshot</option>
                 <option value="WEEKLY">Weekly Summary</option>
@@ -93,7 +93,7 @@ export function ReportsPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-2">
+            <label className="block text-xs font-semibold text-surface-700 mb-2">
               Select File Format
             </label>
             <div className="grid grid-cols-3 gap-3">
@@ -108,8 +108,8 @@ export function ReportsPage() {
                   onClick={() => setFormat(f.id)}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     format === f.id
-                      ? 'border-primary-500 bg-primary-500/10 text-primary-400'
-                      : 'border-surface-700 bg-surface-800 text-surface-400 hover:text-surface-200'
+                      ? 'border-primary-600 bg-primary-50 text-primary-600'
+                      : 'border-surface-300 bg-surface-50 text-surface-600 hover:text-surface-800'
                   }`}
                 >
                   <span className="text-xs font-bold block mb-0.5">{f.label}</span>
@@ -119,17 +119,17 @@ export function ReportsPage() {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-400 flex items-start gap-3">
+          <div className="p-4 rounded-xl bg-card border border-surface-200 text-xs text-surface-600 flex items-start gap-3">
             <ShieldCheck size={18} className="text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-surface-200 block mb-0.5">Enterprise Security & Compliance</span>
+              <span className="font-semibold text-surface-800 block mb-0.5">Enterprise Security & Compliance</span>
               <span>
                 All exported reports are compiled dynamically from verified database records with server-side authorization.
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-200">
             <Button type="submit" size="sm" loading={loading} leftIcon={<Download size={14} />}>
               Generate & Download Report
             </Button>
@@ -139,3 +139,4 @@ export function ReportsPage() {
     </div>
   );
 }
+

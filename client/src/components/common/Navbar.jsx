@@ -19,6 +19,7 @@ import { NotificationDropdown } from '@components/notification/NotificationDropd
 import { GlobalSearchBar } from '@components/search/GlobalSearchBar';
 import { CommandPalette } from '@components/productivity/CommandPalette';
 import { WorkspaceSwitcher } from '@components/organization/WorkspaceSwitcher';
+import { ThemeToggle } from '@components/common/ThemeToggle';
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -82,29 +83,29 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-navbar transition-all duration-300',
           isScrolled
-            ? 'bg-surface-950/95 backdrop-blur-xl border-b border-surface-800 shadow-glow-sm'
-            : 'bg-surface-950/80 backdrop-blur-md border-b border-surface-800/60'
+            ? 'bg-card/95 backdrop-blur-xl border-b border-surface-200 shadow-sm'
+            : 'bg-card/90 backdrop-blur-md border-b border-surface-200'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14">
             <Link to={ROUTES.HOME} className="flex items-center gap-2 group" id="nav-logo">
               <div className="relative">
-                <div className="w-9 h-9 rounded-xl bg-primary-500 flex items-center justify-center shadow-glow-sm group-hover:shadow-glow transition-all duration-300">
+                <div className="w-9 h-9 rounded-xl bg-gradient-brand flex items-center justify-center shadow-sm group-hover:shadow transition-all duration-300">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
               </div>
-              <span className="font-display font-bold text-xl text-surface-50">
-                Trust<span className="gradient-text">Pay</span>
+              <span className="font-display font-bold text-xl text-surface-950">
+                Trust<span className="bg-gradient-to-r from-secondary-600 to-primary-600 bg-clip-text text-transparent">Pay</span>
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+            <nav className="hidden lg:flex items-center gap-2" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-surface-300 hover:text-surface-50 rounded-lg hover:bg-surface-800/50 transition-all duration-200"
+                  className="px-4 py-2 text-sm font-bold text-surface-900 hover:text-primary-600 transition-all duration-200 border-b-2 border-transparent hover:border-primary-600"
                 >
                   {link.label}
                 </a>
@@ -118,14 +119,15 @@ export function Navbar() {
               </div>
             )}
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <ThemeToggle />
 
               {isAuthenticated ? (
                 <div className="hidden sm:flex items-center gap-3">
                   <NotificationDropdown />
 
                   <Link to={roleDashboardRoute}>
-                    <Button variant="primary" size="sm" leftIcon={<LayoutDashboard size={16} />}>
+                    <Button className="bg-gradient-to-r from-secondary-600 to-primary-600 text-white shadow-md hover:shadow-lg transition-all" size="sm" leftIcon={<LayoutDashboard size={16} />}>
                       Dashboard
                     </Button>
                   </Link>
@@ -143,11 +145,11 @@ export function Navbar() {
                   />
                 </div>
               ) : (
-                <div className="hidden sm:flex items-center gap-2">
-                  <Button variant="ghost" size="sm" id="nav-login-btn">
+                <div className="hidden sm:flex items-center gap-3">
+                  <Button variant="ghost" size="sm" id="nav-login-btn" className="font-bold text-surface-900 hover:text-primary-600">
                     <Link to={ROUTES.LOGIN}>Sign In</Link>
                   </Button>
-                  <Button variant="primary" size="sm" id="nav-register-btn">
+                  <Button className="bg-gradient-to-r from-secondary-600 to-primary-600 text-white shadow hover:shadow-md transition-all font-semibold" size="sm" id="nav-register-btn">
                     <Link to={ROUTES.REGISTER}>Get Started</Link>
                   </Button>
                 </div>
@@ -156,7 +158,7 @@ export function Navbar() {
               <button
                 id="nav-mobile-menu-btn"
                 onClick={() => setIsMobileOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-lg text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-all duration-200"
+                className="lg:hidden p-2 rounded-lg text-surface-900 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
                 aria-label="Toggle mobile menu"
                 aria-expanded={isMobileOpen}
               >
@@ -175,19 +177,19 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-navbar bg-surface-900/95 backdrop-blur-xl border-b border-surface-800 lg:hidden"
+            className="fixed inset-x-0 top-14 z-navbar bg-card/95 backdrop-blur-xl border-b border-surface-200 lg:hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-4 py-3 text-sm font-medium text-surface-300 hover:text-surface-100 hover:bg-surface-800 rounded-xl transition-all duration-200"
+                  className="px-4 py-3 text-sm font-medium text-surface-600 hover:text-surface-900 hover:bg-surface-100 rounded-xl transition-all duration-200"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2 border-t border-surface-700/50 flex flex-col gap-2">
+              <div className="pt-2 border-t border-surface-200 flex flex-col gap-2">
                 {isAuthenticated ? (
                   <>
                     <Link to={roleDashboardRoute} className="w-full">
@@ -219,3 +221,4 @@ export function Navbar() {
     </>
   );
 }
+

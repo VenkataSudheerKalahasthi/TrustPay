@@ -39,15 +39,15 @@ export function TransactionHistoryPage() {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+            className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900"
           >
             <ArrowLeft size={16} />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-surface-100 font-display">
+            <h1 className="text-2xl font-bold text-surface-900 font-display">
               Immutable Financial Ledger
             </h1>
-            <p className="text-xs text-surface-400">
+            <p className="text-xs text-surface-600">
               Complete append-only audit trail of deposits, holds, releases & refunds.
             </p>
           </div>
@@ -56,7 +56,7 @@ export function TransactionHistoryPage() {
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="bg-surface-900 border border-surface-800 rounded-xl px-3 py-2 text-xs text-surface-200 focus:outline-none focus:border-primary-500"
+          className="bg-card border border-surface-200 rounded-xl px-3 py-2 text-xs text-surface-800 focus:outline-none focus:border-primary-600"
         >
           <option value="">All Transaction Types</option>
           <option value="DEPOSIT">Deposit</option>
@@ -69,7 +69,7 @@ export function TransactionHistoryPage() {
       {isLoading ? (
         <PageLoader />
       ) : transactions.length === 0 ? (
-        <div className="glass-card p-12 text-center text-xs text-surface-400">
+        <div className="glass-card p-12 text-center text-xs text-surface-600">
           No financial transaction entries matching filter criteria.
         </div>
       ) : (
@@ -88,15 +88,15 @@ export function TransactionHistoryPage() {
             return (
               <div
                 key={tx.id}
-                className="bg-surface-900/60 p-4 rounded-xl border border-surface-800/80 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="bg-card/60 p-4 rounded-xl border border-surface-200/80 flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="flex items-start gap-3">
                   <TransactionBadge type={tx.type} />
                   <div>
-                    <span className="text-xs font-bold text-surface-200 font-mono block">
+                    <span className="text-xs font-bold text-surface-800 font-mono block">
                       {tx.referenceNumber}
                     </span>
-                    <p className="text-xs text-surface-300 mt-0.5">{tx.description}</p>
+                    <p className="text-xs text-surface-700 mt-0.5">{tx.description}</p>
                     <div className="flex items-center gap-1 text-2xs text-surface-500 font-mono mt-1">
                       <Clock size={11} />
                       <span>{dateStr}</span>
@@ -104,8 +104,8 @@ export function TransactionHistoryPage() {
                   </div>
                 </div>
 
-                <div className="text-right border-t md:border-t-0 border-surface-800 pt-2 md:pt-0">
-                  <span className="text-sm font-bold font-mono text-surface-100 block">
+                <div className="text-right border-t md:border-t-0 border-surface-200 pt-2 md:pt-0">
+                  <span className="text-sm font-bold font-mono text-surface-900 block">
                     ₹{tx.amount.toLocaleString('en-IN')}
                   </span>
                   <span className="text-2xs text-surface-500 block font-mono">
@@ -121,3 +121,4 @@ export function TransactionHistoryPage() {
     </div>
   );
 }
+

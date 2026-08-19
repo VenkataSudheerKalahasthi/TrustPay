@@ -10,14 +10,14 @@ export function PortfolioCard({ project, onDelete }) {
       <div>
         {/* Header & Title */}
         <div className="flex items-start justify-between gap-3 mb-2">
-          <h3 className="font-bold text-base text-surface-100 font-display line-clamp-1">
+          <h3 className="font-bold text-base text-surface-900 font-display line-clamp-1">
             {project.title}
           </h3>
           {onDelete && (
             <button
               type="button"
               onClick={() => onDelete(project.id)}
-              className="p-1.5 rounded-lg text-surface-500 hover:text-danger-500 hover:bg-danger-500/10 transition-colors"
+              className="p-1.5 rounded-lg text-surface-500 hover:text-danger-500 hover:bg-danger-50 transition-colors"
               aria-label="Delete project"
             >
               <Trash2 size={14} />
@@ -27,7 +27,7 @@ export function PortfolioCard({ project, onDelete }) {
 
         {/* Description */}
         {project.description && (
-          <p className="text-xs text-surface-300 line-clamp-3 mb-4 leading-relaxed">
+          <p className="text-xs text-surface-700 line-clamp-3 mb-4 leading-relaxed">
             {project.description}
           </p>
         )}
@@ -38,7 +38,7 @@ export function PortfolioCard({ project, onDelete }) {
             {techs.map((t, idx) => (
               <span
                 key={idx}
-                className="px-2 py-0.5 rounded-md bg-primary-500/10 text-primary-400 text-2xs font-mono border border-primary-500/20"
+                className="px-2 py-0.5 rounded-md bg-primary-50 text-primary-600 text-2xs font-mono border border-primary-100"
               >
                 {t}
               </span>
@@ -48,13 +48,13 @@ export function PortfolioCard({ project, onDelete }) {
       </div>
 
       {/* External Links */}
-      <div className="pt-3 border-t border-surface-800/60 flex items-center gap-3">
+      <div className="pt-3 border-t border-surface-200/60 flex items-center gap-3">
         {project.projectUrl && (
           <a
             href={project.projectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-primary-400 hover:underline"
+            className="inline-flex items-center gap-1 text-xs text-primary-600 hover:underline"
           >
             <ExternalLink size={12} />
             <span>Live Demo</span>
@@ -65,7 +65,7 @@ export function PortfolioCard({ project, onDelete }) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-surface-300 hover:text-surface-100"
+            className="inline-flex items-center gap-1 text-xs text-surface-700 hover:text-surface-900"
           >
             <Github size={12} />
             <span>GitHub Repository</span>
@@ -75,3 +75,4 @@ export function PortfolioCard({ project, onDelete }) {
     </div>
   );
 }
+

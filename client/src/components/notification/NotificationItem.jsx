@@ -33,15 +33,15 @@ export function NotificationItem({ notification, onMarkRead, onArchive, onDelete
     <div
       className={`p-4 rounded-xl border transition-all flex items-start gap-3 relative ${
         notification.isRead
-          ? 'bg-surface-900/60 border-surface-800/80 opacity-80'
-          : 'bg-surface-900 border-surface-700 shadow-sm'
+          ? 'bg-card/60 border-surface-200/80 opacity-80'
+          : 'bg-card border-surface-300 shadow-sm'
       }`}
     >
       <div
         className={`p-2.5 rounded-xl border shrink-0 mt-0.5 ${
           isUrgent
             ? 'bg-red-500/10 border-red-500/30 text-red-400'
-            : 'bg-primary-500/10 border-primary-500/30 text-primary-400'
+            : 'bg-primary-50 border-primary-600/30 text-primary-600'
         }`}
       >
         <Icon size={16} />
@@ -49,27 +49,27 @@ export function NotificationItem({ notification, onMarkRead, onArchive, onDelete
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-2 mb-1">
-          <h4 className="text-xs font-bold text-surface-100 truncate">{notification.title}</h4>
-          <span className="text-3xs text-surface-400 shrink-0">
+          <h4 className="text-xs font-bold text-surface-900 truncate">{notification.title}</h4>
+          <span className="text-3xs text-surface-600 shrink-0">
             {new Date(notification.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
 
-        <p className="text-xs text-surface-300 line-clamp-2 leading-relaxed mb-2">
+        <p className="text-xs text-surface-700 line-clamp-2 leading-relaxed mb-2">
           {notification.message}
         </p>
 
         {notification.linkUrl && (
           <Link
             to={notification.linkUrl}
-            className="text-2xs font-semibold text-primary-400 hover:text-primary-300 transition-colors inline-block mb-2"
+            className="text-2xs font-semibold text-primary-600 hover:text-primary-700 transition-colors inline-block mb-2"
           >
             View Details →
           </Link>
         )}
 
-        <div className="flex items-center justify-between text-3xs text-surface-400 pt-2 border-t border-surface-800/60">
-          <span className="font-mono uppercase font-semibold text-primary-400">
+        <div className="flex items-center justify-between text-3xs text-surface-600 pt-2 border-t border-surface-200/60">
+          <span className="font-mono uppercase font-semibold text-primary-600">
             {notification.category}
           </span>
 
@@ -109,3 +109,4 @@ export function NotificationItem({ notification, onMarkRead, onArchive, onDelete
     </div>
   );
 }
+

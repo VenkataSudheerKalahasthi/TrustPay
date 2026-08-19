@@ -7,7 +7,7 @@ export function ShiftCard({ shift, onAssign }) {
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all shadow-md">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <span className="text-xs uppercase tracking-wider text-sky-400 font-semibold">
+          <span className="text-xs uppercase tracking-wider text-sky-400 dark:text-primary-400 font-semibold">
             {shift.schedule?.name || 'Standard Shift'}
           </span>
           <h4 className="text-lg font-bold text-white mt-0.5">{shift.name}</h4>
@@ -41,7 +41,7 @@ export function ShiftCard({ shift, onAssign }) {
       <div className="flex items-center justify-between pt-3 border-t border-slate-800">
         {shift.assignedUser ? (
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">
+            <div className="w-7 h-7 rounded-full bg-sky-500/20 text-sky-400 dark:text-primary-400 flex items-center justify-center font-bold text-xs">
               {shift.assignedUser.firstName?.[0]}
             </div>
             <span className="text-xs text-slate-200 font-medium">
@@ -58,7 +58,7 @@ export function ShiftCard({ shift, onAssign }) {
         {onAssign && (
           <button
             onClick={() => onAssign(shift)}
-            className="text-xs bg-slate-800 hover:bg-slate-700 text-sky-400 font-medium px-3 py-1.5 rounded-lg border border-slate-700 transition-colors"
+            className="text-xs bg-slate-800 hover:bg-slate-700 text-sky-400 dark:text-primary-400 font-medium px-3 py-1.5 rounded-lg border border-slate-700 transition-colors"
           >
             Manage
           </button>

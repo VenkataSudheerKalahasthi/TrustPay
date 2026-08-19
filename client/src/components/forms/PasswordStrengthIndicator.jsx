@@ -29,9 +29,9 @@ export function PasswordStrengthIndicator({ password = '' }) {
       </div>
 
       {password && (
-        <div className="flex items-center justify-between text-2xs text-surface-400">
+        <div className="flex items-center justify-between text-2xs text-surface-600">
           <span>Password Strength:</span>
-          <span className="font-semibold text-surface-200">
+          <span className="font-semibold text-surface-800">
             {score > 0 ? strengthLabels[score - 1] : 'Very Weak'}
           </span>
         </div>
@@ -41,11 +41,11 @@ export function PasswordStrengthIndicator({ password = '' }) {
         {checks.map((check, idx) => (
           <div key={idx} className="flex items-center gap-1.5 text-2xs">
             {check.valid ? (
-              <Check size={12} className="text-success-400 shrink-0" />
+              <Check size={12} className="text-success-600 shrink-0" />
             ) : (
               <X size={12} className="text-surface-500 shrink-0" />
             )}
-            <span className={check.valid ? 'text-surface-200' : 'text-surface-500'}>
+            <span className={check.valid ? 'text-surface-800' : 'text-surface-500'}>
               {check.label}
             </span>
           </div>
@@ -54,3 +54,4 @@ export function PasswordStrengthIndicator({ password = '' }) {
     </div>
   );
 }
+

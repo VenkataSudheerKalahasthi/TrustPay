@@ -39,11 +39,11 @@ export function ForgotPasswordPage() {
   if (submitted) {
     return (
       <div className="text-center py-4">
-        <div className="w-12 h-12 rounded-full bg-success-500/15 text-success-400 flex items-center justify-center mx-auto mb-4 border border-success-500/30">
+        <div className="w-12 h-12 rounded-full bg-success-50 text-success-600 flex items-center justify-center mx-auto mb-4 border border-success-200">
           <CheckCircle2 size={24} />
         </div>
-        <h2 className="text-xl font-bold text-surface-50 font-display mb-2">Check Your Email</h2>
-        <p className="text-sm text-surface-300 mb-6">
+        <h2 className="text-xl font-bold text-surface-900 font-display mb-2">Check Your Email</h2>
+        <p className="text-sm text-surface-500 mb-6">
           If an account exists for that email, we've sent password reset instructions.
         </p>
         <Link to={ROUTES.LOGIN}>
@@ -58,14 +58,14 @@ export function ForgotPasswordPage() {
   return (
     <div>
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-surface-50 font-display">Reset Password</h1>
-        <p className="text-sm text-surface-400 mt-1">
+        <h1 className="text-2xl font-bold text-surface-900 font-display">Reset Password</h1>
+        <p className="text-sm text-surface-500 mt-1">
           Enter your email and we'll send you a password reset link
         </p>
       </div>
 
       {serverError && (
-        <div className="mb-6 p-4 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-start gap-2">
+        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-200 text-danger-700 text-sm flex items-start gap-2">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />
           <span>{serverError}</span>
         </div>
@@ -93,7 +93,7 @@ export function ForgotPasswordPage() {
       </form>
 
       <div className="mt-6 text-center text-xs">
-        <Link to={ROUTES.LOGIN} className="text-surface-400 hover:text-surface-200 inline-flex items-center gap-1">
+        <Link to={ROUTES.LOGIN} className="text-surface-500 hover:text-surface-700 inline-flex items-center gap-1">
           <ArrowLeft size={12} /> Back to Sign In
         </Link>
       </div>

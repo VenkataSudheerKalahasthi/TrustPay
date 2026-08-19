@@ -20,7 +20,7 @@ export function UserManagementTable({ users = [], onToggleSuspend, onRestrict })
                 <span className="font-bold text-white block">{usr.firstName} {usr.lastName}</span>
                 <span className="text-xs text-slate-400 font-mono">{usr.email}</span>
               </td>
-              <td className="py-3.5 px-4 font-mono text-sky-400 text-xs">{usr.role}</td>
+              <td className="py-3.5 px-4 font-mono text-sky-400 dark:text-primary-400 text-xs">{usr.role}</td>
               <td className="py-3.5 px-4">
                 <span
                   className={`px-2 py-0.5 rounded text-[10px] font-bold ${

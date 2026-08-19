@@ -25,23 +25,23 @@ export function PromptTemplatePicker({ isOpen, onClose, onSelectTemplate }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-surface-950/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="w-full max-w-lg rounded-2xl bg-surface-900 border border-surface-800 shadow-2xl overflow-hidden flex flex-col max-h-[30rem]">
-        <div className="p-4 border-b border-surface-800 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-surface-100 flex items-center gap-2">
-            <Sparkles size={16} className="text-primary-400" />
+    <div className="fixed inset-0 z-50 bg-card/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="w-full max-w-lg rounded-2xl bg-card border border-surface-200 shadow-2xl overflow-hidden flex flex-col max-h-[30rem]">
+        <div className="p-4 border-b border-surface-200 flex items-center justify-between">
+          <h3 className="text-sm font-bold text-surface-900 flex items-center gap-2">
+            <Sparkles size={16} className="text-primary-600" />
             <span>AI Prompt Templates</span>
           </h3>
-          <button onClick={onClose} className="text-surface-400 hover:text-surface-100">
+          <button onClick={onClose} className="text-surface-600 hover:text-surface-900">
             <X size={16} />
           </button>
         </div>
 
         <div className="p-4 flex-1 overflow-y-auto space-y-2">
           {loading ? (
-            <p className="text-xs text-surface-400 text-center">Loading prompt templates...</p>
+            <p className="text-xs text-surface-600 text-center">Loading prompt templates...</p>
           ) : templates.length === 0 ? (
-            <p className="text-xs text-surface-400 text-center">No prompt templates available.</p>
+            <p className="text-xs text-surface-600 text-center">No prompt templates available.</p>
           ) : (
             templates.map((tpl) => (
               <button
@@ -50,15 +50,15 @@ export function PromptTemplatePicker({ isOpen, onClose, onSelectTemplate }) {
                   onSelectTemplate(tpl.promptText);
                   onClose();
                 }}
-                className="w-full text-left p-3 rounded-xl bg-surface-800/60 hover:bg-surface-800 border border-surface-700/60 transition-all group"
+                className="w-full text-left p-3 rounded-xl bg-surface-100/60 hover:bg-surface-50 border border-surface-300/60 transition-all group"
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-surface-100">{tpl.title}</span>
-                  <span className="text-3xs font-mono uppercase font-semibold text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded">
+                  <span className="text-xs font-bold text-surface-900">{tpl.title}</span>
+                  <span className="text-3xs font-mono uppercase font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
                     {tpl.category}
                   </span>
                 </div>
-                <p className="text-2xs text-surface-300 line-clamp-2 leading-relaxed">{tpl.promptText}</p>
+                <p className="text-2xs text-surface-700 line-clamp-2 leading-relaxed">{tpl.promptText}</p>
               </button>
             ))
           )}
@@ -67,3 +67,4 @@ export function PromptTemplatePicker({ isOpen, onClose, onSelectTemplate }) {
     </div>
   );
 }
+

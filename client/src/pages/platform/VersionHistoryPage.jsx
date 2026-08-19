@@ -19,7 +19,7 @@ export function VersionHistoryPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <GitCommit className="w-6 h-6 text-sky-400" />
+          <GitCommit className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Application Version Directory
         </h1>
         <p className="text-slate-400 text-sm">Full deployment version history and active build status</p>

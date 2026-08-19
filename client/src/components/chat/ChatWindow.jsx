@@ -32,10 +32,10 @@ export function ChatWindow({
 
   if (!conversation) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-surface-950/40">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-card/40">
         <MessageSquare className="w-16 h-16 text-surface-600 mb-4" />
-        <h3 className="text-base font-bold text-surface-200">No Conversation Selected</h3>
-        <p className="text-xs text-surface-400 max-w-sm mt-1">
+        <h3 className="text-base font-bold text-surface-800">No Conversation Selected</h3>
+        <p className="text-xs text-surface-600 max-w-sm mt-1">
           Select a conversation from the sidebar or click "New" to start a direct message or project discussion.
         </p>
       </div>
@@ -51,9 +51,9 @@ export function ChatWindow({
   const presence = otherParticipant ? onlinePresences[otherParticipant.id] || 'OFFLINE' : 'OFFLINE';
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-surface-950/20 relative min-w-0">
+    <div className="flex-1 flex flex-col h-full bg-card/20 relative min-w-0">
       {/* Header */}
-      <div className="p-4 bg-surface-900 border-b border-surface-800 flex items-center justify-between gap-3 shrink-0">
+      <div className="p-4 bg-card border-b border-surface-200 flex items-center justify-between gap-3 shrink-0">
         <div className="flex items-center gap-3 min-w-0">
           <div className="relative shrink-0">
             <Avatar name={title} src={otherParticipant?.avatar} size="sm" />
@@ -66,13 +66,13 @@ export function ChatWindow({
 
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-bold text-surface-50 truncate">{title}</h3>
-              <span className="text-3xs font-mono font-semibold text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded border border-primary-500/20">
+              <h3 className="text-sm font-bold text-surface-900 truncate">{title}</h3>
+              <span className="text-3xs font-mono font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded border border-primary-100">
                 {conversation.conversationNumber}
               </span>
             </div>
 
-            <div className="flex items-center gap-3 text-2xs text-surface-400 mt-0.5">
+            <div className="flex items-center gap-3 text-2xs text-surface-600 mt-0.5">
               {conversation.project && (
                 <span className="flex items-center gap-1 text-amber-400 truncate">
                   <Briefcase size={12} />
@@ -143,3 +143,4 @@ export function ChatWindow({
     </div>
   );
 }
+

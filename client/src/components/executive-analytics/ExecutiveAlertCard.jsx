@@ -6,7 +6,7 @@ export function ExecutiveAlertCard({ alert }) {
   const severityColorMap = {
     CRITICAL: 'border-rose-500/30 bg-rose-500/10 text-rose-400',
     HIGH: 'border-amber-500/30 bg-amber-500/10 text-amber-400',
-    MEDIUM: 'border-sky-500/30 bg-sky-500/10 text-sky-400',
+    MEDIUM: 'border-sky-500/30 bg-sky-500/10 text-sky-400 dark:text-primary-400',
     LOW: 'border-slate-700 bg-slate-800/40 text-slate-400',
   };
 

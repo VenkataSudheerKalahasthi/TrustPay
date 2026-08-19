@@ -99,14 +99,14 @@ export function WorkerSearchPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface-950 text-surface-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-card text-surface-900 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         {/* Header Section */}
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold font-display tracking-tight text-surface-50">
+          <h1 className="text-3xl font-bold font-display tracking-tight text-surface-900">
             Find Verified Talent & Specialists
           </h1>
-          <p className="text-sm text-surface-400 max-w-2xl">
+          <p className="text-sm text-surface-600 max-w-2xl">
             Browse verified freelancers, explore portfolios, and hire safely with TrustPay milestone escrow protection.
           </p>
         </div>
@@ -119,7 +119,7 @@ export function WorkerSearchPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by title, skill, or keyword..."
-              className="w-full pl-10 pr-4 py-2.5 text-sm bg-surface-950 border border-surface-800 rounded-xl text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+              className="w-full pl-10 pr-4 py-2.5 text-sm bg-card border border-surface-200 rounded-xl text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
             />
             <Search size={18} className="absolute left-3 top-3 text-surface-500" />
           </form>
@@ -129,14 +129,14 @@ export function WorkerSearchPage() {
             <button
               type="button"
               onClick={() => setShowMobileFilters(!showMobileFilters)}
-              className="lg:hidden px-3 py-2 rounded-xl bg-surface-800 text-surface-200 text-xs font-semibold flex items-center gap-2"
+              className="lg:hidden px-3 py-2 rounded-xl bg-surface-50 text-surface-800 text-xs font-semibold flex items-center gap-2"
             >
               <SlidersHorizontal size={14} />
               <span>Filters</span>
             </button>
 
             {/* Sorting Select */}
-            <div className="flex items-center gap-2 text-xs text-surface-400">
+            <div className="flex items-center gap-2 text-xs text-surface-600">
               <ArrowUpDown size={14} />
               <select
                 value={sortOption}
@@ -144,7 +144,7 @@ export function WorkerSearchPage() {
                   setSortOption(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="bg-surface-950 border border-surface-800 text-surface-200 py-2 px-3 rounded-xl focus:outline-none focus:border-primary-500 text-xs"
+                className="bg-card border border-surface-200 text-surface-800 py-2 px-3 rounded-xl focus:outline-none focus:border-primary-600 text-xs"
               >
                 <option value="newest">Newest First</option>
                 <option value="experience">Most Experienced</option>
@@ -213,3 +213,4 @@ export function WorkerSearchPage() {
     </div>
   );
 }
+

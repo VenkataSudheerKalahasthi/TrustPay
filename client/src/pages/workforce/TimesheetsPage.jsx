@@ -53,7 +53,7 @@ export function TimesheetsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <FileText className="w-6 h-6 text-sky-400" />
+            <FileText className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Timesheets & Billable Hours
           </h1>
           <p className="text-slate-400 text-sm">Submit weekly time logs, review worker hours, and prepare payroll</p>

@@ -31,13 +31,13 @@ export function Pagination({
   const pages = getPageNumbers();
 
   return (
-    <div className={cn('flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-4 text-xs text-surface-400', className)}>
+    <div className={cn('flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-4 text-xs text-surface-600', className)}>
       <div className="flex items-center gap-2">
         {totalItems !== undefined && (
           <span>
-            Showing <strong className="text-surface-200">{Math.min((currentPage - 1) * (pageSize || 10) + 1, totalItems)}</strong> to{' '}
-            <strong className="text-surface-200">{Math.min(currentPage * (pageSize || 10), totalItems)}</strong> of{' '}
-            <strong className="text-surface-200">{totalItems}</strong> entries
+            Showing <strong className="text-surface-800">{Math.min((currentPage - 1) * (pageSize || 10) + 1, totalItems)}</strong> to{' '}
+            <strong className="text-surface-800">{Math.min(currentPage * (pageSize || 10), totalItems)}</strong> of{' '}
+            <strong className="text-surface-800">{totalItems}</strong> entries
           </span>
         )}
 
@@ -47,7 +47,7 @@ export function Pagination({
             <select
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
-              className="bg-surface-800 border border-surface-700 text-surface-200 rounded-lg px-2 py-1 focus:outline-none"
+              className="bg-surface-50 border border-surface-300 text-surface-800 rounded-lg px-2 py-1 focus:outline-none"
             >
               <option value={5}>5</option>
               <option value={10}>10</option>
@@ -77,7 +77,7 @@ export function Pagination({
               'w-7 h-7 rounded-lg text-xs font-semibold flex items-center justify-center transition-colors',
               currentPage === p
                 ? 'bg-primary-600 text-white'
-                : 'text-surface-300 hover:bg-surface-800'
+                : 'text-surface-700 hover:bg-surface-50'
             )}
           >
             {p}
@@ -97,3 +97,4 @@ export function Pagination({
     </div>
   );
 }
+

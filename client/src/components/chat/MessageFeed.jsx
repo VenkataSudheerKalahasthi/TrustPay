@@ -22,10 +22,10 @@ export function MessageFeed({
 
   if (messages.length === 0) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-surface-950/40">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-card/40">
         <MessageSquare className="w-12 h-12 text-surface-600 mb-3" />
-        <h4 className="text-sm font-semibold text-surface-200">No Messages Yet</h4>
-        <p className="text-xs text-surface-400 max-w-xs mt-1">
+        <h4 className="text-sm font-semibold text-surface-800">No Messages Yet</h4>
+        <p className="text-xs text-surface-600 max-w-xs mt-1">
           Start the conversation by typing a message below.
         </p>
       </div>
@@ -33,7 +33,7 @@ export function MessageFeed({
   }
 
   return (
-    <div className="flex-1 overflow-y-auto space-y-1 py-4 bg-surface-950/30 scrollbar-thin">
+    <div className="flex-1 overflow-y-auto space-y-1 py-4 bg-card/30 scrollbar-thin">
       {messages.map((m) => (
         <MessageItem
           key={m.id}
@@ -53,3 +53,4 @@ export function MessageFeed({
     </div>
   );
 }
+

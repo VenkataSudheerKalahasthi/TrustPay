@@ -16,7 +16,7 @@ export function ContractManagementTable({ contracts = [], onFlagContract }) {
         <tbody className="divide-y divide-slate-800 text-slate-300">
           {contracts.map((ctr) => (
             <tr key={ctr.id} className="hover:bg-slate-800/30">
-              <td className="py-3.5 px-4 font-mono text-sky-400 font-bold">{ctr.contractNumber || ctr.id.slice(0, 8)}</td>
+              <td className="py-3.5 px-4 font-mono text-sky-400 dark:text-primary-400 font-bold">{ctr.contractNumber || ctr.id.slice(0, 8)}</td>
               <td className="py-3.5 px-4 font-bold text-white">{ctr.title}</td>
               <td className="py-3.5 px-4 font-mono font-bold text-emerald-400">₹{(ctr.totalAmount || 0).toLocaleString()}</td>
               <td className="py-3.5 px-4 font-mono text-xs text-slate-400">{ctr.status}</td>

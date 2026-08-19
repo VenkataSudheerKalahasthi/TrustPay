@@ -24,7 +24,7 @@ export function Popover({ trigger, children, align = 'right', className }) {
       {isOpen && (
         <div
           className={cn(
-            'absolute mt-2 z-dropdown bg-surface-800 border border-surface-700 rounded-2xl shadow-2xl p-4 overflow-hidden animate-in fade-in zoom-in-95 duration-150',
+            'absolute mt-2 z-dropdown bg-surface-50 border border-surface-300 rounded-2xl shadow-2xl p-4 overflow-hidden animate-in fade-in zoom-in-95 duration-150',
             align === 'right' ? 'right-0' : 'left-0',
             className
           )}
@@ -35,3 +35,4 @@ export function Popover({ trigger, children, align = 'right', className }) {
     </div>
   );
 }
+

@@ -18,10 +18,10 @@ export function TrendCard({ title, value, data = [], color = '#0ea5e9' }) {
     .join(' ');
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 flex items-center justify-between gap-4">
+    <Card className="p-5 bg-card border-surface-200 flex items-center justify-between gap-4">
       <div>
-        <span className="text-xs text-surface-400 font-semibold block mb-1">{title}</span>
-        <h4 className="text-lg font-bold text-surface-50">{value}</h4>
+        <span className="text-xs text-surface-600 font-semibold block mb-1">{title}</span>
+        <h4 className="text-lg font-bold text-surface-900">{value}</h4>
       </div>
 
       <div className="shrink-0">
@@ -39,3 +39,4 @@ export function TrendCard({ title, value, data = [], color = '#0ea5e9' }) {
     </Card>
   );
 }
+

@@ -4,14 +4,14 @@ export function ReleaseTimeline({ versions = [] }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
       <h3 className="text-lg font-bold text-white flex items-center gap-2">
-        <GitCommit className="w-5 h-5 text-sky-400" />
+        <GitCommit className="w-5 h-5 text-sky-400 dark:text-primary-400" />
         Release Timeline & Version History
       </h3>
 
       <div className="space-y-4 pt-2 border-t border-slate-800">
         {versions.map((v) => (
           <div key={v.id} className="flex gap-4 items-start">
-            <div className="p-2 bg-sky-500/10 text-sky-400 rounded-full mt-0.5">
+            <div className="p-2 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-full mt-0.5">
               <GitCommit className="w-4 h-4" />
             </div>
 
@@ -27,7 +27,7 @@ export function ReleaseTimeline({ versions = [] }) {
 
               {v.releaseNotes?.map((note) => (
                 <p key={note.id} className="text-xs text-slate-300">
-                  <span className="text-sky-400 font-bold font-mono">[{note.category}]</span> {note.content}
+                  <span className="text-sky-400 dark:text-primary-400 font-bold font-mono">[{note.category}]</span> {note.content}
                 </p>
               ))}
             </div>

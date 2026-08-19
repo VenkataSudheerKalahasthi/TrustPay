@@ -37,7 +37,7 @@ export function CreateGoalModal({ isOpen, onClose, onSuccess }) {
       <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-4">
         <div className="flex items-center justify-between pb-4 border-b border-slate-800">
           <h3 className="text-xl font-bold text-white flex items-center gap-2">
-            <Target className="w-5 h-5 text-sky-400" />
+            <Target className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Create Strategic Business Goal
           </h3>
           <button onClick={onClose} className="text-slate-400 hover:text-white p-1">

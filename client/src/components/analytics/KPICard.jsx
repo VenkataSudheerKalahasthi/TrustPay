@@ -5,11 +5,11 @@ export function KPICard({ title, value, change, isCurrency = false, icon: Icon, 
   const isPositive = (change || 0) >= 0;
 
   const colorStyles = {
-    primary: 'text-primary-400 bg-primary-500/10 border-primary-500/20',
+    primary: 'text-primary-600 bg-primary-50 border-primary-100',
     emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
     indigo: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
     amber: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
-  }[color] || 'text-primary-400 bg-primary-500/10 border-primary-500/20';
+  }[color] || 'text-primary-600 bg-primary-50 border-primary-100';
 
   const formattedValue =
     typeof value === 'number'
@@ -19,9 +19,9 @@ export function KPICard({ title, value, change, isCurrency = false, icon: Icon, 
       : value || '0';
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 hover:border-surface-700 transition-all flex flex-col justify-between">
+    <Card className="p-5 bg-card border-surface-200 hover:border-surface-300 transition-all flex flex-col justify-between">
       <div className="flex items-center justify-between gap-3 mb-3">
-        <span className="text-xs font-semibold text-surface-400 truncate">{title}</span>
+        <span className="text-xs font-semibold text-surface-600 truncate">{title}</span>
         {Icon && (
           <div className={`p-2 rounded-xl border ${colorStyles} shrink-0`}>
             <Icon size={16} />
@@ -30,7 +30,7 @@ export function KPICard({ title, value, change, isCurrency = false, icon: Icon, 
       </div>
 
       <div className="flex items-end justify-between gap-2">
-        <h3 className="text-xl font-bold text-surface-50 tracking-tight">{formattedValue}</h3>
+        <h3 className="text-xl font-bold text-surface-900 tracking-tight">{formattedValue}</h3>
 
         {change !== undefined && change !== null && (
           <div
@@ -48,3 +48,4 @@ export function KPICard({ title, value, change, isCurrency = false, icon: Icon, 
     </Card>
   );
 }
+

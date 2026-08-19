@@ -27,7 +27,7 @@ export function ScheduleReportModal({ isOpen, onClose, onSchedule }) {
       <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Clock className="w-5 h-5 text-sky-400" />
+            <Clock className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Schedule Automated Executive Report
           </h3>
           <button onClick={onClose} className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">

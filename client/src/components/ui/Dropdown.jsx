@@ -29,7 +29,7 @@ export function Dropdown({ trigger, children, items, align = 'right', className 
       {isOpen && (
         <div
           className={cn(
-            'absolute top-full mt-2 z-50 w-56 rounded-xl bg-surface-900 border border-surface-800 shadow-glow p-1.5 animate-slide-down',
+            'absolute top-full mt-2 z-50 w-56 rounded-xl bg-card border border-surface-200 shadow p-1.5 animate-slide-down',
             alignClasses[align],
             className
           )}
@@ -38,7 +38,7 @@ export function Dropdown({ trigger, children, items, align = 'right', className 
           {items
             ? items.map((item, idx) => {
                 if (item.divider) {
-                  return <div key={idx} className="my-1 border-t border-surface-800" />;
+                  return <div key={idx} className="my-1 border-t border-surface-200" />;
                 }
                 return (
                   <DropdownItem
@@ -65,8 +65,8 @@ export function DropdownItem({ children, onClick, icon: Icon, danger = false, cl
       className={cn(
         'w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-lg transition-colors text-left',
         danger
-          ? 'text-danger-400 hover:bg-danger-500/10'
-          : 'text-surface-300 hover:text-surface-50 hover:bg-surface-800',
+          ? 'text-danger-600 hover:bg-danger-50'
+          : 'text-surface-700 hover:text-surface-900 hover:bg-surface-50',
         className
       )}
     >
@@ -75,3 +75,4 @@ export function DropdownItem({ children, onClick, icon: Icon, danger = false, cl
     </button>
   );
 }
+

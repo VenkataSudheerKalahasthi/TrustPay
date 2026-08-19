@@ -7,8 +7,8 @@ export function NetworkError({ onRetry }) {
       <div className="p-3.5 rounded-2xl bg-warning-500/20 text-warning-400 border border-warning-500/30 mb-4">
         <WifiOff size={32} />
       </div>
-      <h3 className="text-lg font-bold text-surface-100 font-display">Network Connection Lost</h3>
-      <p className="text-xs text-surface-300 mt-1 max-w-xs leading-relaxed">
+      <h3 className="text-lg font-bold text-surface-900 font-display">Network Connection Lost</h3>
+      <p className="text-xs text-surface-700 mt-1 max-w-xs leading-relaxed">
         Unable to connect to the TrustPay server. Please check your internet connection and try again.
       </p>
       {onRetry && (
@@ -25,3 +25,4 @@ export function NetworkError({ onRetry }) {
     </div>
   );
 }
+

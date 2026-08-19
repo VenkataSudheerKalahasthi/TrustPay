@@ -230,19 +230,19 @@ export function CollaborationWorkspacePage() {
   };
 
   if (isLoading) return <PageLoader message="Loading Private Workspace..." />;
-  if (!workspace) return <div className="p-8 text-center text-surface-400">Workspace not found</div>;
+  if (!workspace) return <div className="p-8 text-center text-surface-600">Workspace not found</div>;
 
   const clientUser = workspace.clientProfile?.user || {};
   const workerUser = workspace.workerProfile?.user || {};
 
   return (
-    <div className="min-h-screen bg-surface-950 text-surface-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-card text-surface-900 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col gap-6">
         {/* Workspace Top Header Bar */}
-        <div className="glass-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-primary-500/30">
+        <div className="glass-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-primary-600/30">
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-3">
-              <span className="text-2xs font-mono font-bold px-2.5 py-1 rounded-lg bg-surface-800 text-primary-300 border border-surface-700">
+              <span className="text-2xs font-mono font-bold px-2.5 py-1 rounded-lg bg-surface-50 text-primary-700 border border-surface-300">
                 {workspace.workspaceNumber}
               </span>
               <Badge
@@ -258,18 +258,18 @@ export function CollaborationWorkspacePage() {
                 {workspace.status}
               </Badge>
             </div>
-            <h1 className="text-2xl font-bold font-display text-surface-50">
+            <h1 className="text-2xl font-bold font-display text-surface-900">
               {workspace.request?.projectTitle || workspace.project?.title || 'Collaboration Workspace'}
             </h1>
-            <div className="flex items-center gap-4 text-xs text-surface-400">
-              <span>Client: <strong className="text-surface-200">{clientUser.firstName} {clientUser.lastName}</strong></span>
-              <span>Specialist: <strong className="text-surface-200">{workerUser.firstName} {workerUser.lastName}</strong></span>
+            <div className="flex items-center gap-4 text-xs text-surface-600">
+              <span>Client: <strong className="text-surface-800">{clientUser.firstName} {clientUser.lastName}</strong></span>
+              <span>Specialist: <strong className="text-surface-800">{workerUser.firstName} {workerUser.lastName}</strong></span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-xl bg-surface-900 border border-surface-800 flex flex-col items-end">
-              <span className="text-2xs text-surface-400">Escrow Budget</span>
+            <div className="p-3 rounded-xl bg-card border border-surface-200 flex flex-col items-end">
+              <span className="text-2xs text-surface-600">Escrow Budget</span>
               <span className="text-lg font-bold text-emerald-400 flex items-center">
                 <DollarSign size={16} /> ₹{workspace.planningBoard?.budget || workspace.request?.budget || 0}
               </span>
@@ -278,7 +278,7 @@ export function CollaborationWorkspacePage() {
         </div>
 
         {/* Tab Navigation Menu */}
-        <div className="flex items-center gap-2 overflow-x-auto border-b border-surface-800 pb-2">
+        <div className="flex items-center gap-2 overflow-x-auto border-b border-surface-200 pb-2">
           {[
             { id: 'chat', label: '1. Private Chat & Files', icon: MessageSquare },
             { id: 'planning', label: '2. Planning Board', icon: FileSpreadsheet },
@@ -295,8 +295,8 @@ export function CollaborationWorkspacePage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                   isActive
-                    ? 'bg-primary-600 text-white shadow-glow'
-                    : 'bg-surface-900 text-surface-300 hover:text-surface-100 hover:bg-surface-800'
+                    ? 'bg-primary-600 text-white shadow'
+                    : 'bg-card text-surface-700 hover:text-surface-900 hover:bg-surface-50'
                 }`}
               >
                 <Icon size={16} />
@@ -309,11 +309,11 @@ export function CollaborationWorkspacePage() {
         {/* TAB 1: PRIVATE CHAT */}
         {activeTab === 'chat' && (
           <div className="glass-card flex flex-col h-[600px] overflow-hidden">
-            <div className="p-4 border-b border-surface-800 bg-surface-950/60 flex items-center justify-between">
+            <div className="p-4 border-b border-surface-200 bg-card/60 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Avatar name={workerUser.firstName} src={workerUser.avatar} size="sm" status="online" />
                 <div>
-                  <h3 className="text-xs font-bold text-surface-100">{workerUser.firstName} {workerUser.lastName}</h3>
+                  <h3 className="text-xs font-bold text-surface-900">{workerUser.firstName} {workerUser.lastName}</h3>
                   <span className="text-2xs text-emerald-400">Direct Workspace Real-time Sync</span>
                 </div>
               </div>
@@ -338,7 +338,7 @@ export function CollaborationWorkspacePage() {
                         className={`p-3.5 rounded-2xl text-xs ${
                           isMe
                             ? 'bg-primary-600 text-white rounded-br-none'
-                            : 'bg-surface-800 text-surface-100 rounded-bl-none border border-surface-700/60'
+                            : 'bg-surface-50 text-surface-900 rounded-bl-none border border-surface-300/60'
                         }`}
                       >
                         {msg.content}
@@ -352,13 +352,13 @@ export function CollaborationWorkspacePage() {
               )}
             </div>
 
-            <form onSubmit={handleSendMessage} className="p-3 border-t border-surface-800 bg-surface-950/80 flex items-center gap-2">
+            <form onSubmit={handleSendMessage} className="p-3 border-t border-surface-200 bg-card/80 flex items-center gap-2">
               <input
                 type="text"
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder="Type your message or project note..."
-                className="flex-1 px-4 py-2.5 rounded-xl bg-surface-900 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="flex-1 px-4 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
               <Button type="submit" variant="primary" size="sm" leftIcon={<Send size={14} />}>
                 Send
@@ -370,13 +370,13 @@ export function CollaborationWorkspacePage() {
         {/* TAB 2: PLANNING BOARD */}
         {activeTab === 'planning' && (
           <div className="glass-card p-6 flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-surface-800 pb-4">
+            <div className="flex items-center justify-between border-b border-surface-200 pb-4">
               <div>
-                <h2 className="text-lg font-bold font-display text-surface-50 flex items-center gap-2">
-                  <FileSpreadsheet size={20} className="text-primary-400" />
+                <h2 className="text-lg font-bold font-display text-surface-900 flex items-center gap-2">
+                  <FileSpreadsheet size={20} className="text-primary-600" />
                   Collaborative Project Planning Board
                 </h2>
-                <p className="text-xs text-surface-400">
+                <p className="text-xs text-surface-600">
                   Define scope, milestones, revision policy, and budget together in real time.
                 </p>
               </div>
@@ -392,65 +392,65 @@ export function CollaborationWorkspacePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-surface-200">Scope of Work</label>
+                <label className="text-xs font-semibold text-surface-800">Scope of Work</label>
                 <textarea
                   rows={4}
                   value={planningBoard.scope}
                   onChange={(e) => setPlanningBoard((p) => ({ ...p, scope: e.target.value }))}
-                  className="px-3.5 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="px-3.5 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-surface-200">Revision Policy & Guarantee</label>
+                <label className="text-xs font-semibold text-surface-800">Revision Policy & Guarantee</label>
                 <textarea
                   rows={4}
                   value={planningBoard.revisionPolicy}
                   onChange={(e) => setPlanningBoard((p) => ({ ...p, revisionPolicy: e.target.value }))}
-                  className="px-3.5 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="px-3.5 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-surface-200">Agreed Budget (₹)</label>
+                <label className="text-xs font-semibold text-surface-800">Agreed Budget (₹)</label>
                 <input
                   type="number"
                   value={planningBoard.budget}
                   onChange={(e) => setPlanningBoard((p) => ({ ...p, budget: e.target.value }))}
-                  className="px-3.5 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="px-3.5 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-surface-200">Timeline</label>
+                <label className="text-xs font-semibold text-surface-800">Timeline</label>
                 <input
                   type="text"
                   value={planningBoard.timeline}
                   onChange={(e) => setPlanningBoard((p) => ({ ...p, timeline: e.target.value }))}
-                  className="px-3.5 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="px-3.5 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-surface-200">Target Due Date</label>
+                <label className="text-xs font-semibold text-surface-800">Target Due Date</label>
                 <input
                   type="text"
                   value={planningBoard.dueDates}
                   onChange={(e) => setPlanningBoard((p) => ({ ...p, dueDates: e.target.value }))}
-                  className="px-3.5 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="px-3.5 py-2.5 rounded-xl bg-card border border-surface-200 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-surface-900 border border-surface-800 flex items-center justify-between">
-              <span className="text-xs text-surface-300">
+            <div className="p-4 rounded-xl bg-card border border-surface-200 flex items-center justify-between">
+              <span className="text-xs text-surface-700">
                 Once both Client and Specialist agree, an Enterprise Digital Contract will automatically generate.
               </span>
               <div className="flex items-center gap-3">
                 <Button variant="outline" size="sm" onClick={() => handleSavePlanningBoard(false)} isLoading={isSavingPlan}>
                   Save Draft
                 </Button>
-                <Button variant="primary" size="sm" onClick={() => handleSavePlanningBoard(true)} isLoading={isSavingPlan} className="shadow-glow">
+                <Button variant="primary" size="sm" onClick={() => handleSavePlanningBoard(true)} isLoading={isSavingPlan} className="shadow">
                   Agree & Lock Plan
                 </Button>
               </div>
@@ -461,13 +461,13 @@ export function CollaborationWorkspacePage() {
         {/* TAB 3: DIGITAL CONTRACT & SIGNATURE */}
         {activeTab === 'contract' && (
           <div className="glass-card p-6 flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-surface-800 pb-4">
+            <div className="flex items-center justify-between border-b border-surface-200 pb-4">
               <div>
-                <h2 className="text-lg font-bold font-display text-surface-50 flex items-center gap-2">
-                  <FileSignature size={20} className="text-primary-400" />
+                <h2 className="text-lg font-bold font-display text-surface-900 flex items-center gap-2">
+                  <FileSignature size={20} className="text-primary-600" />
                   Enterprise Digital Contract
                 </h2>
-                <p className="text-xs text-surface-400">
+                <p className="text-xs text-surface-600">
                   Contract Number: {workspace.contract?.contractNumber || 'Generating upon agreement...'}
                 </p>
               </div>
@@ -478,8 +478,8 @@ export function CollaborationWorkspacePage() {
 
             {workspace.contract ? (
               <div className="flex flex-col gap-6">
-                <div className="p-6 rounded-2xl bg-surface-950 border border-surface-800 text-xs text-surface-200 flex flex-col gap-4 font-mono leading-relaxed max-h-96 overflow-y-auto">
-                  <h3 className="text-sm font-bold text-surface-50 font-display border-b border-surface-800 pb-2">
+                <div className="p-6 rounded-2xl bg-card border border-surface-200 text-xs text-surface-800 flex flex-col gap-4 font-mono leading-relaxed max-h-96 overflow-y-auto">
+                  <h3 className="text-sm font-bold text-surface-900 font-display border-b border-surface-200 pb-2">
                     {workspace.contract.title}
                   </h3>
                   <p><strong>SCOPE OF WORK:</strong> {workspace.contract.scopeOfWork}</p>
@@ -494,14 +494,14 @@ export function CollaborationWorkspacePage() {
                     const workerSig = workspace.contract.signatures?.find((s) => s.signerRole === 'WORKER');
                     return (
                       <>
-                        <div className="p-4 rounded-xl bg-surface-950 border border-surface-800 flex flex-col gap-2">
+                        <div className="p-4 rounded-xl bg-card border border-surface-200 flex flex-col gap-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-semibold text-surface-200">Client Signature</span>
+                            <span className="text-xs font-semibold text-surface-800">Client Signature</span>
                             <Badge variant={clientSig?.signatureStatus === 'SIGNED' ? 'success' : 'neutral'} size="sm">
                               {clientSig?.signatureStatus === 'SIGNED' ? 'SIGNED' : 'PENDING'}
                             </Badge>
                           </div>
-                          <p className="text-2xs text-surface-400 font-mono">
+                          <p className="text-2xs text-surface-600 font-mono">
                             Signer: {clientUser.firstName} {clientUser.lastName}
                           </p>
                           {clientSig?.signatureTimestamp && (
@@ -511,14 +511,14 @@ export function CollaborationWorkspacePage() {
                           )}
                         </div>
 
-                        <div className="p-4 rounded-xl bg-surface-950 border border-surface-800 flex flex-col gap-2">
+                        <div className="p-4 rounded-xl bg-card border border-surface-200 flex flex-col gap-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-semibold text-surface-200">Specialist Signature</span>
+                            <span className="text-xs font-semibold text-surface-800">Specialist Signature</span>
                             <Badge variant={workerSig?.signatureStatus === 'SIGNED' ? 'success' : 'neutral'} size="sm">
                               {workerSig?.signatureStatus === 'SIGNED' ? 'SIGNED' : 'PENDING'}
                             </Badge>
                           </div>
-                          <p className="text-2xs text-surface-400 font-mono">
+                          <p className="text-2xs text-surface-600 font-mono">
                             Signer: {workerUser.firstName} {workerUser.lastName}
                           </p>
                           {workerSig?.signatureTimestamp && (
@@ -534,20 +534,20 @@ export function CollaborationWorkspacePage() {
 
                 {/* E-signature Input */}
                 {workspace.contract?.status !== 'ACCEPTED' && (
-                  <div className="p-6 rounded-2xl bg-surface-900 border border-surface-800 flex flex-col gap-4">
-                    <h3 className="text-sm font-bold text-surface-50 font-display flex items-center gap-2">
-                      <PenTool size={16} className="text-primary-400" />
+                  <div className="p-6 rounded-2xl bg-card border border-surface-200 flex flex-col gap-4">
+                    <h3 className="text-sm font-bold text-surface-900 font-display flex items-center gap-2">
+                      <PenTool size={16} className="text-primary-600" />
                       Electronic Signature Pad
                     </h3>
 
                     <div className="flex flex-col gap-3">
-                      <label className="text-2xs text-surface-400 uppercase font-semibold">Type Full Legal Signature Name</label>
+                      <label className="text-2xs text-surface-600 uppercase font-semibold">Type Full Legal Signature Name</label>
                       <input
                         type="text"
                         value={typedSignature}
                         onChange={(e) => setTypedSignature(e.target.value)}
                         placeholder={`e.g. ${currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : 'Full Legal Name'}`}
-                        className="px-4 py-2.5 rounded-xl bg-surface-950 border border-surface-800 text-sm text-surface-100 font-display focus:outline-none focus:border-primary-500"
+                        className="px-4 py-2.5 rounded-xl bg-card border border-surface-200 text-sm text-surface-900 font-display focus:outline-none focus:border-primary-600"
                       />
                     </div>
 
@@ -558,7 +558,7 @@ export function CollaborationWorkspacePage() {
                         onClick={handleSignContract}
                         isLoading={isSigning}
                         leftIcon={<Lock size={16} />}
-                        className="shadow-glow"
+                        className="shadow"
                       >
                         Digitally Sign & Lock Contract
                       </Button>
@@ -567,7 +567,7 @@ export function CollaborationWorkspacePage() {
                 )}
               </div>
             ) : (
-              <div className="p-8 text-center text-xs text-surface-400">
+              <div className="p-8 text-center text-xs text-surface-600">
                 Please complete and agree to the Planning Board to generate the Enterprise Digital Contract.
               </div>
             )}
@@ -577,13 +577,13 @@ export function CollaborationWorkspacePage() {
         {/* TAB 4: ESCROW FUNDING */}
         {activeTab === 'escrow' && (
           <div className="glass-card p-6 flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-surface-800 pb-4">
+            <div className="flex items-center justify-between border-b border-surface-200 pb-4">
               <div>
-                <h2 className="text-lg font-bold font-display text-surface-50 flex items-center gap-2">
-                  <Wallet size={20} className="text-primary-400" />
+                <h2 className="text-lg font-bold font-display text-surface-900 flex items-center gap-2">
+                  <Wallet size={20} className="text-primary-600" />
                   Escrow Funding & Wallet Protection
                 </h2>
-                <p className="text-xs text-surface-400">
+                <p className="text-xs text-surface-600">
                   Client deposits budget into Escrow. Funds are safely held until project completion.
                 </p>
               </div>
@@ -592,14 +592,14 @@ export function CollaborationWorkspacePage() {
               </Badge>
             </div>
 
-            <div className="p-8 rounded-2xl bg-surface-950 border border-surface-800 flex flex-col items-center justify-center text-center gap-4">
+            <div className="p-8 rounded-2xl bg-card border border-surface-200 flex flex-col items-center justify-center text-center gap-4">
               <div className="p-4 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 <DollarSign size={40} />
               </div>
-              <h3 className="text-xl font-bold text-surface-50 font-display">
+              <h3 className="text-xl font-bold text-surface-900 font-display">
                 Escrow Amount: ₹{workspace.planningBoard?.budget || workspace.request?.budget || 0}
               </h3>
-              <p className="text-xs text-surface-400 max-w-md">
+              <p className="text-xs text-surface-600 max-w-md">
                 Specialist can view funding status. Specialist cannot withdraw funds until final client approval.
               </p>
 
@@ -609,7 +609,7 @@ export function CollaborationWorkspacePage() {
                 onClick={handleFundEscrow}
                 isLoading={isFunding}
                 leftIcon={<Wallet size={18} />}
-                className="shadow-glow px-8 mt-2"
+                className="shadow px-8 mt-2"
               >
                 Deposit & Fund Escrow from Wallet
               </Button>
@@ -620,13 +620,13 @@ export function CollaborationWorkspacePage() {
         {/* TAB 5: EXECUTION & DELIVERABLES */}
         {activeTab === 'execution' && (
           <div className="glass-card p-6 flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-surface-800 pb-4">
+            <div className="flex items-center justify-between border-b border-surface-200 pb-4">
               <div>
-                <h2 className="text-lg font-bold font-display text-surface-50 flex items-center gap-2">
-                  <CheckSquare size={20} className="text-primary-400" />
+                <h2 className="text-lg font-bold font-display text-surface-900 flex items-center gap-2">
+                  <CheckSquare size={20} className="text-primary-600" />
                   Project Execution & Milestone Review
                 </h2>
-                <p className="text-xs text-surface-400">
+                <p className="text-xs text-surface-600">
                   Track milestone progress, submit deliverables, and approve project phases.
                 </p>
               </div>
@@ -635,10 +635,10 @@ export function CollaborationWorkspacePage() {
             {workspace.project?.milestones ? (
               <div className="flex flex-col gap-4">
                 {workspace.project.milestones.map((m) => (
-                  <div key={m.id} className="p-4 rounded-xl bg-surface-900 border border-surface-800 flex items-center justify-between gap-4">
+                  <div key={m.id} className="p-4 rounded-xl bg-card border border-surface-200 flex items-center justify-between gap-4">
                     <div>
-                      <h4 className="text-sm font-bold text-surface-100">{m.title}</h4>
-                      <p className="text-xs text-surface-400">{m.description || 'Phase milestone'}</p>
+                      <h4 className="text-sm font-bold text-surface-900">{m.title}</h4>
+                      <p className="text-xs text-surface-600">{m.description || 'Phase milestone'}</p>
                     </div>
                     <Badge variant={m.status === 'COMPLETED' ? 'success' : 'warning'} size="sm">
                       {m.status}
@@ -647,7 +647,7 @@ export function CollaborationWorkspacePage() {
                 ))}
               </div>
             ) : (
-              <div className="p-8 text-center text-xs text-surface-400">
+              <div className="p-8 text-center text-xs text-surface-600">
                 Milestones active upon contract lock.
               </div>
             )}
@@ -657,13 +657,13 @@ export function CollaborationWorkspacePage() {
         {/* TAB 6: CERTIFICATE & DOCUMENTS */}
         {activeTab === 'certificate' && (
           <div className="glass-card p-6 flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-surface-800 pb-4">
+            <div className="flex items-center justify-between border-b border-surface-200 pb-4">
               <div>
-                <h2 className="text-lg font-bold font-display text-surface-50 flex items-center gap-2">
-                  <Award size={20} className="text-primary-400" />
+                <h2 className="text-lg font-bold font-display text-surface-900 flex items-center gap-2">
+                  <Award size={20} className="text-primary-600" />
                   Completion Certificate & Invoices
                 </h2>
-                <p className="text-xs text-surface-400">
+                <p className="text-xs text-surface-600">
                   Generated documents upon client final delivery approval and escrow release.
                 </p>
               </div>
@@ -674,7 +674,7 @@ export function CollaborationWorkspacePage() {
                   onClick={handleApproveCompletion}
                   isLoading={isApproving}
                   leftIcon={<CheckCircle2 size={18} />}
-                  className="shadow-glow"
+                  className="shadow"
                 >
                   Approve Final Delivery & Release Escrow
                 </Button>
@@ -682,24 +682,24 @@ export function CollaborationWorkspacePage() {
             </div>
 
             {certificateData ? (
-              <div className="p-8 rounded-2xl bg-surface-950 border-2 border-emerald-500/40 flex flex-col gap-6 text-center items-center shadow-glow">
+              <div className="p-8 rounded-2xl bg-card border-2 border-emerald-500/40 flex flex-col gap-6 text-center items-center shadow">
                 <div className="p-4 rounded-full bg-emerald-500/20 text-emerald-400">
                   <Award size={48} />
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-2xs font-mono text-emerald-400 font-bold uppercase">OFFICIAL TRUSTPAY CERTIFICATE</span>
-                  <h3 className="text-2xl font-bold font-display text-surface-50">{certificateData.projectTitle}</h3>
-                  <p className="text-xs text-surface-300">
+                  <h3 className="text-2xl font-bold font-display text-surface-900">{certificateData.projectTitle}</h3>
+                  <p className="text-xs text-surface-700">
                     Awarded for successful project completion between <strong>{certificateData.clientName}</strong> and <strong>{certificateData.workerName}</strong>.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-surface-900 border border-surface-800 text-2xs font-mono text-surface-400">
+                <div className="p-4 rounded-xl bg-card border border-surface-200 text-2xs font-mono text-surface-600">
                   Verification Code: {certificateData.certificateNumber} | Cryptographic Hash: {certificateData.verificationHash}
                 </div>
               </div>
             ) : (
-              <div className="p-12 text-center text-xs text-surface-400">
+              <div className="p-12 text-center text-xs text-surface-600">
                 Click "Approve Final Delivery & Release Escrow" above to finalize the project, release funds to the worker wallet, and generate official invoices and completion certificates.
               </div>
             )}
@@ -709,3 +709,4 @@ export function CollaborationWorkspacePage() {
     </div>
   );
 }
+

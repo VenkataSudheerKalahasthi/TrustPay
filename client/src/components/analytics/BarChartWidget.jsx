@@ -7,8 +7,8 @@ export function BarChartWidget({ title, data = [], dataKey = 'projects', color =
   const max = Math.max(...values, 1);
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 space-y-4">
-      <h3 className="text-sm font-bold text-surface-100">{title}</h3>
+    <Card className="p-5 bg-card border-surface-200 space-y-4">
+      <h3 className="text-sm font-bold text-surface-900">{title}</h3>
 
       <div className="flex items-end justify-between gap-3 h-44 pt-6">
         {data.map((item, idx) => {
@@ -17,16 +17,16 @@ export function BarChartWidget({ title, data = [], dataKey = 'projects', color =
 
           return (
             <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
-              <span className="text-2xs font-semibold text-surface-400 group-hover:text-primary-400 transition-colors">
+              <span className="text-2xs font-semibold text-surface-600 group-hover:text-primary-600 transition-colors">
                 {val}
               </span>
-              <div className="w-full bg-surface-800 rounded-t-xl overflow-hidden h-full flex items-end">
+              <div className="w-full bg-surface-50 rounded-t-xl overflow-hidden h-full flex items-end">
                 <div
                   className="w-full rounded-t-xl transition-all duration-500 group-hover:opacity-90"
                   style={{ height: `${heightPercent}%`, backgroundColor: color }}
                 />
               </div>
-              <span className="text-3xs text-surface-400 font-medium truncate w-full text-center">
+              <span className="text-3xs text-surface-600 font-medium truncate w-full text-center">
                 {item.name}
               </span>
             </div>
@@ -36,3 +36,4 @@ export function BarChartWidget({ title, data = [], dataKey = 'projects', color =
     </Card>
   );
 }
+

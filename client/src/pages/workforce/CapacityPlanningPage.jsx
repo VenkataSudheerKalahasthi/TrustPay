@@ -48,7 +48,7 @@ export function CapacityPlanningPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {plans.length === 0 ? (
           <div className="col-span-full py-12 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <Zap className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+            <Zap className="w-8 h-8 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No active capacity plans defined</p>
           </div>
         ) : (

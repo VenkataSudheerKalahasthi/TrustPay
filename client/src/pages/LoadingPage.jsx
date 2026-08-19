@@ -11,7 +11,7 @@ export function LoadingPage({ message = 'Loading TrustPay...' }) {
   return (
     <div
       id="loading-page"
-      className="fixed inset-0 z-[9999] bg-surface-950 flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[9999] bg-card flex flex-col items-center justify-center"
     >
       {/* Animated logo */}
       <motion.div
@@ -27,7 +27,7 @@ export function LoadingPage({ message = 'Loading TrustPay...' }) {
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute inset-0 rounded-3xl bg-gradient-brand blur-md"
           />
-          <div className="relative w-20 h-20 rounded-3xl bg-gradient-brand flex items-center justify-center shadow-glow-lg">
+          <div className="relative w-20 h-20 rounded-3xl bg-gradient-brand flex items-center justify-center shadow-lg">
             <Shield className="w-10 h-10 text-white" />
           </div>
         </div>
@@ -40,7 +40,7 @@ export function LoadingPage({ message = 'Loading TrustPay...' }) {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center"
       >
-        <h1 className="font-display font-bold text-3xl text-surface-50 mb-1">
+        <h1 className="font-display font-bold text-3xl text-surface-900 mb-1">
           Trust<span className="gradient-text">Pay</span>
         </h1>
         <p className="text-surface-500 text-sm">Secure Contract & Escrow Platform</p>
@@ -53,7 +53,7 @@ export function LoadingPage({ message = 'Loading TrustPay...' }) {
         transition={{ delay: 0.5 }}
         className="mt-12 flex flex-col items-center gap-3"
       >
-        <div className="relative w-48 h-1 bg-surface-800 rounded-full overflow-hidden">
+        <div className="relative w-48 h-1 bg-surface-50 rounded-full overflow-hidden">
           <motion.div
             animate={{ x: ['-100%', '100%'] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -65,3 +65,4 @@ export function LoadingPage({ message = 'Loading TrustPay...' }) {
     </div>
   );
 }
+

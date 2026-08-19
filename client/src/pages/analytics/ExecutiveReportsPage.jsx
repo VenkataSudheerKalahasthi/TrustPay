@@ -46,7 +46,7 @@ export function ExecutiveReportsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <FileText className="w-6 h-6 text-sky-400" />
+            <FileText className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Executive Reports & Automated Schedules
           </h1>
           <p className="text-slate-400 text-sm">Strategic digest reports and automated cron-based email schedules</p>
@@ -57,7 +57,7 @@ export function ExecutiveReportsPage() {
             onClick={() => setIsScheduleModalOpen(true)}
             className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm rounded-xl transition-all"
           >
-            <Calendar className="w-4 h-4 text-sky-400" />
+            <Calendar className="w-4 h-4 text-sky-400 dark:text-primary-400" />
             Schedule Report
           </button>
           <button
@@ -93,7 +93,7 @@ export function ExecutiveReportsPage() {
               ) : (
                 reports.map((rep) => (
                   <tr key={rep.id} className="hover:bg-slate-800/30">
-                    <td className="py-3 px-4 font-mono font-bold text-sky-400 text-xs">{rep.reportNumber}</td>
+                    <td className="py-3 px-4 font-mono font-bold text-sky-400 dark:text-primary-400 text-xs">{rep.reportNumber}</td>
                     <td className="py-3 px-4 font-bold text-white">{rep.title}</td>
                     <td className="py-3 px-4 text-xs font-mono text-slate-400">
                       {new Date(rep.createdAt).toLocaleDateString()}
@@ -115,7 +115,7 @@ export function ExecutiveReportsPage() {
                 <div key={sch.id} className="p-3 bg-slate-800/40 border border-slate-800 rounded-lg space-y-1">
                   <div className="flex justify-between font-bold text-white">
                     <span>{sch.title}</span>
-                    <span className="text-sky-400 font-mono">{sch.frequency}</span>
+                    <span className="text-sky-400 dark:text-primary-400 font-mono">{sch.frequency}</span>
                   </div>
                   <span className="text-slate-400 block font-mono text-[10px]">
                     Next Run: {new Date(sch.nextRunAt).toLocaleDateString()}

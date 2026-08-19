@@ -12,8 +12,8 @@ export function PieChartWidget({ title, data = [] }) {
   const total = items.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 space-y-4">
-      <h3 className="text-sm font-bold text-surface-100">{title}</h3>
+    <Card className="p-5 bg-card border-surface-200 space-y-4">
+      <h3 className="text-sm font-bold text-surface-900">{title}</h3>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* SVG Donut */}
@@ -41,8 +41,8 @@ export function PieChartWidget({ title, data = [] }) {
             })}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <span className="text-sm font-bold text-surface-100">{total}</span>
-            <span className="text-3xs text-surface-400">Total</span>
+            <span className="text-sm font-bold text-surface-900">{total}</span>
+            <span className="text-3xs text-surface-600">Total</span>
           </div>
         </div>
 
@@ -52,9 +52,9 @@ export function PieChartWidget({ title, data = [] }) {
             <div key={idx} className="flex items-center justify-between text-xs">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
-                <span className="text-surface-300 font-medium">{item.name}</span>
+                <span className="text-surface-700 font-medium">{item.name}</span>
               </div>
-              <span className="font-bold text-surface-100">{item.value}</span>
+              <span className="font-bold text-surface-900">{item.value}</span>
             </div>
           ))}
         </div>
@@ -62,3 +62,4 @@ export function PieChartWidget({ title, data = [] }) {
     </Card>
   );
 }
+

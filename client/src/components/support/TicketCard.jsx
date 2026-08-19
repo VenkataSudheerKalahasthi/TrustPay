@@ -11,7 +11,7 @@ export function TicketCard({ ticket }) {
         <div>
           <span className="text-xs font-mono text-slate-400 font-semibold">{ticket.ticketNumber}</span>
           <h4 className="text-base font-bold text-white mt-0.5 line-clamp-1">
-            <Link to={`/dashboard/client/support/tickets/${ticket.id}`} className="hover:text-sky-400 transition-colors">
+            <Link to={`/dashboard/client/support/tickets/${ticket.id}`} className="hover:text-sky-400 dark:text-primary-400 transition-colors">
               {ticket.subject}
             </Link>
           </h4>

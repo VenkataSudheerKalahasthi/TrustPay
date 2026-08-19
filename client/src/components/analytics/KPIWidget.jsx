@@ -36,7 +36,7 @@ export function KPIWidget({ kpi }) {
 
       <div className="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-slate-800">
         <span>Target: {kpi.targetValue?.toLocaleString()} {kpi.unit}</span>
-        <span className="font-mono text-sky-400 font-bold">
+        <span className="font-mono text-sky-400 dark:text-primary-400 font-bold">
           {kpi.targetValue > 0 ? Math.round((kpi.currentValue / kpi.targetValue) * 100) : 100}%
         </span>
       </div>

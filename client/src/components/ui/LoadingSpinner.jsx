@@ -18,7 +18,7 @@ export function LoadingSpinner({ size = 'md', color = 'primary', className }) {
   };
 
   const colorMap = {
-    primary: 'border-primary-500/30 border-t-primary-500',
+    primary: 'border-primary-600/30 border-t-primary-500',
     white: 'border-white/30 border-t-white',
     surface: 'border-surface-600/30 border-t-surface-400',
   };
@@ -37,9 +37,10 @@ export function LoadingSpinner({ size = 'md', color = 'primary', className }) {
  */
 export function LoadingOverlay({ message = 'Loading...' }) {
   return (
-    <div className="fixed inset-0 z-modal flex flex-col items-center justify-center bg-surface-950/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-modal flex flex-col items-center justify-center bg-card/80 backdrop-blur-sm">
       <LoadingSpinner size="xl" />
-      {message && <p className="mt-4 text-surface-400 text-sm">{message}</p>}
+      {message && <p className="mt-4 text-surface-600 text-sm">{message}</p>}
     </div>
   );
 }
+

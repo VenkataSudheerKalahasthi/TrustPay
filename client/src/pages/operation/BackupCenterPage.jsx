@@ -24,20 +24,20 @@ export function BackupCenterPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Database size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Database size={20} className="text-primary-600" />
           <span>Backup & Disaster Recovery Metadata</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Database and Supabase storage backup job schedules, retention policy metadata, and restore history.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {loading ? (
-          <p className="text-xs text-surface-400">Loading backup jobs...</p>
+          <p className="text-xs text-surface-600">Loading backup jobs...</p>
         ) : backupJobs.length === 0 ? (
-          <p className="text-xs text-surface-400">No backup records configured yet.</p>
+          <p className="text-xs text-surface-600">No backup records configured yet.</p>
         ) : (
           backupJobs.map((b) => (
             <BackupStatusCard key={b.id} backupJob={b} />
@@ -47,3 +47,4 @@ export function BackupCenterPage() {
     </div>
   );
 }
+

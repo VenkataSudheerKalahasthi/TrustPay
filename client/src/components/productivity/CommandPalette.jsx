@@ -58,11 +58,11 @@ export function CommandPalette({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-surface-950/80 backdrop-blur-md flex items-start justify-center pt-20 px-4">
-      <div className="w-full max-w-xl rounded-2xl bg-surface-900 border border-surface-800 shadow-2xl overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 bg-card/80 backdrop-blur-md flex items-start justify-center pt-20 px-4">
+      <div className="w-full max-w-xl rounded-2xl bg-card border border-surface-200 shadow-2xl overflow-hidden flex flex-col">
         {/* Input */}
-        <div className="p-4 border-b border-surface-800 flex items-center gap-3">
-          <Command size={18} className="text-primary-400 shrink-0" />
+        <div className="p-4 border-b border-surface-200 flex items-center gap-3">
+          <Command size={18} className="text-primary-600 shrink-0" />
           <input
             type="text"
             autoFocus
@@ -72,9 +72,9 @@ export function CommandPalette({ isOpen, onClose }) {
               setSelectedIndex(0);
             }}
             placeholder="Type a command or search workspace... (Esc to close)"
-            className="w-full bg-transparent text-sm text-surface-100 placeholder-surface-500 focus:outline-none"
+            className="w-full bg-transparent text-sm text-surface-900 placeholder-surface-500 focus:outline-none"
           />
-          <button onClick={onClose} className="text-surface-400 hover:text-surface-100">
+          <button onClick={onClose} className="text-surface-600 hover:text-surface-900">
             <X size={16} />
           </button>
         </div>
@@ -82,7 +82,7 @@ export function CommandPalette({ isOpen, onClose }) {
         {/* List */}
         <div className="p-2 max-h-80 overflow-y-auto divide-y divide-surface-800/40">
           {filteredCommands.length === 0 ? (
-            <div className="p-6 text-center text-xs text-surface-400">
+            <div className="p-6 text-center text-xs text-surface-600">
               <Search size={24} className="mx-auto mb-2 text-surface-600" />
               <span>Press Enter to perform global search for "{query}"</span>
             </div>
@@ -99,7 +99,7 @@ export function CommandPalette({ isOpen, onClose }) {
                   }}
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`w-full flex items-center justify-between p-3 rounded-xl text-xs font-semibold transition-all ${
-                    isSelected ? 'bg-primary-500 text-white shadow-glow' : 'text-surface-300 hover:bg-surface-800'
+                    isSelected ? 'bg-primary-500 text-white shadow' : 'text-surface-700 hover:bg-surface-50'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export function CommandPalette({ isOpen, onClose }) {
           )}
         </div>
 
-        <div className="p-2.5 bg-surface-950 border-t border-surface-800 flex items-center justify-between text-3xs font-mono text-surface-400">
+        <div className="p-2.5 bg-card border-t border-surface-200 flex items-center justify-between text-3xs font-mono text-surface-600">
           <span>Navigation: ↑↓ Arrow Keys</span>
           <span>Select: Enter</span>
         </div>
@@ -121,3 +121,4 @@ export function CommandPalette({ isOpen, onClose }) {
     </div>
   );
 }
+

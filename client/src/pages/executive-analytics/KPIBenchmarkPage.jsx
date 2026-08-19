@@ -50,7 +50,7 @@ export function KPIBenchmarkPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Target className="w-6 h-6 text-sky-400" />
+            <Target className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Enterprise KPI Targets & Benchmarks Scorecard
           </h1>
           <p className="text-slate-400 text-sm">Define strategic target benchmarks and warning thresholds for core platform KPIs</p>

@@ -33,20 +33,20 @@ export function PlatformSettingsPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Sliders size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Sliders size={20} className="text-primary-600" />
           <span>Platform Settings & Configuration</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Global platform parameters, default currencies, system constants, and maintenance controls.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {loading ? (
-          <p className="text-xs text-surface-400">Loading settings...</p>
+          <p className="text-xs text-surface-600">Loading settings...</p>
         ) : settings.length === 0 ? (
-          <p className="text-xs text-surface-400">No custom settings configured yet.</p>
+          <p className="text-xs text-surface-600">No custom settings configured yet.</p>
         ) : (
           settings.map((s) => (
             <PlatformSettingForm key={s.id} setting={s} onSave={handleSave} />
@@ -56,3 +56,4 @@ export function PlatformSettingsPage() {
     </div>
   );
 }
+

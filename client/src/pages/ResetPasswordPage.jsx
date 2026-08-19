@@ -63,11 +63,11 @@ export function ResetPasswordPage() {
   if (!token) {
     return (
       <div className="text-center py-4">
-        <div className="w-12 h-12 rounded-full bg-danger-500/15 text-danger-400 flex items-center justify-center mx-auto mb-4 border border-danger-500/30">
+        <div className="w-12 h-12 rounded-full bg-danger-500/15 text-danger-600 flex items-center justify-center mx-auto mb-4 border border-danger-200">
           <AlertCircle size={24} />
         </div>
-        <h2 className="text-xl font-bold text-surface-50 font-display mb-2">Invalid Link</h2>
-        <p className="text-sm text-surface-300 mb-6">
+        <h2 className="text-xl font-bold text-surface-900 font-display mb-2">Invalid Link</h2>
+        <p className="text-sm text-surface-700 mb-6">
           This password reset link is invalid or missing a token.
         </p>
         <Link to={ROUTES.FORGOT_PASSWORD}>
@@ -82,11 +82,11 @@ export function ResetPasswordPage() {
   if (success) {
     return (
       <div className="text-center py-4">
-        <div className="w-12 h-12 rounded-full bg-success-500/15 text-success-400 flex items-center justify-center mx-auto mb-4 border border-success-500/30">
+        <div className="w-12 h-12 rounded-full bg-success-500/15 text-success-600 flex items-center justify-center mx-auto mb-4 border border-success-200">
           <CheckCircle2 size={24} />
         </div>
-        <h2 className="text-xl font-bold text-surface-50 font-display mb-2">Password Reset Complete</h2>
-        <p className="text-sm text-surface-300 mb-6">
+        <h2 className="text-xl font-bold text-surface-900 font-display mb-2">Password Reset Complete</h2>
+        <p className="text-sm text-surface-700 mb-6">
           Your password has been reset successfully. Redirecting you to login...
         </p>
         <Link to={ROUTES.LOGIN}>
@@ -101,12 +101,12 @@ export function ResetPasswordPage() {
   return (
     <div>
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-surface-50 font-display">New Password</h1>
-        <p className="text-sm text-surface-400 mt-1">Enter your new password below</p>
+        <h1 className="text-2xl font-bold text-surface-900 font-display">New Password</h1>
+        <p className="text-sm text-surface-600 mt-1">Enter your new password below</p>
       </div>
 
       {serverError && (
-        <div className="mb-6 p-4 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-start gap-2">
+        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-200 text-danger-600 text-sm flex items-start gap-2">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />
           <span>{serverError}</span>
         </div>
@@ -144,3 +144,4 @@ export function ResetPasswordPage() {
     </div>
   );
 }
+

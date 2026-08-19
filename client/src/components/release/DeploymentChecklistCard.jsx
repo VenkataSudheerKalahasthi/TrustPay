@@ -4,7 +4,7 @@ export function DeploymentChecklistCard({ items = [] }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
       <h3 className="text-lg font-bold text-white flex items-center gap-2">
-        <CheckSquare className="w-5 h-5 text-sky-400" /> Production Deployment Checklist
+        <CheckSquare className="w-5 h-5 text-sky-400 dark:text-primary-400" /> Production Deployment Checklist
       </h3>
       <div className="space-y-3">
         {items.map((i, idx) => (

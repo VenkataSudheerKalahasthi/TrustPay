@@ -69,7 +69,7 @@ export function WorkerDashboardPage() {
           <div className="flex items-center justify-between w-full">
             <div>
               <Card.Title>Assigned Work & Milestone Progress</Card.Title>
-              <p className="text-xs text-surface-400 mt-0.5">Track your active contracts and escrow releases.</p>
+              <p className="text-xs text-surface-600 mt-0.5">Track your active contracts and escrow releases.</p>
             </div>
           </div>
         </Card.Header>
@@ -88,13 +88,13 @@ export function WorkerDashboardPage() {
             <Table.Body columnsCount={6}>
               {sampleWork.map((w) => (
                 <Table.Row key={w.id}>
-                  <Table.Cell className="font-semibold text-surface-100">{w.title}</Table.Cell>
+                  <Table.Cell className="font-semibold text-surface-900">{w.title}</Table.Cell>
                   <Table.Cell>{w.client}</Table.Cell>
-                  <Table.Cell className="font-mono font-medium text-success-400">{w.amount}</Table.Cell>
+                  <Table.Cell className="font-mono font-medium text-success-600">{w.amount}</Table.Cell>
                   <Table.Cell>
                     <StatusBadge status={w.status} />
                   </Table.Cell>
-                  <Table.Cell className="text-xs font-semibold text-primary-400">{w.progress}</Table.Cell>
+                  <Table.Cell className="text-xs font-semibold text-primary-600">{w.progress}</Table.Cell>
                   <Table.Cell>
                     <Button variant="ghost" size="xs" rightIcon={<ArrowUpRight size={12} />}>
                       View Contract

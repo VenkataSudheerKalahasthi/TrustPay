@@ -9,7 +9,7 @@ export function CustomerTrustSection() {
       <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400 font-bold text-sm">
         {partners.map((p, idx) => (
           <div key={idx} className="flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300">
-            <Building className="w-4 h-4 text-sky-400" />
+            <Building className="w-4 h-4 text-sky-400 dark:text-primary-400" />
             <span>{p}</span>
           </div>
         ))}

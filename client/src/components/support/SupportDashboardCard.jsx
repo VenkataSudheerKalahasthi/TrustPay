@@ -1,6 +1,6 @@
 export function SupportDashboardCard({ title, count, subtitle, icon: Icon, color = 'sky' }) {
   const colorMap = {
-    sky: 'text-sky-400 bg-sky-500/10 border-sky-500/20',
+    sky: 'text-sky-400 dark:text-primary-400 bg-sky-500/10 border-sky-500/20',
     emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
     amber: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
     rose: 'text-rose-400 bg-rose-500/10 border-rose-500/20',

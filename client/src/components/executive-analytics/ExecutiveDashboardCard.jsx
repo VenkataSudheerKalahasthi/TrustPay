@@ -1,7 +1,7 @@
 export function ExecutiveDashboardCard({ title, value, changePercent, icon: Icon, color = 'sky' }) {
   const isPositive = changePercent >= 0;
   const colorMap = {
-    sky: 'border-sky-500/20 text-sky-400 bg-sky-500/10',
+    sky: 'border-sky-500/20 text-sky-400 dark:text-primary-400 bg-sky-500/10',
     emerald: 'border-emerald-500/20 text-emerald-400 bg-emerald-500/10',
     purple: 'border-purple-500/20 text-purple-400 bg-purple-500/10',
     amber: 'border-amber-500/20 text-amber-400 bg-amber-500/10',

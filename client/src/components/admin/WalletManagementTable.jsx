@@ -16,7 +16,7 @@ export function WalletManagementTable({ wallets = [], onToggleFreeze }) {
         <tbody className="divide-y divide-slate-800 text-slate-300">
           {wallets.map((w) => (
             <tr key={w.id} className="hover:bg-slate-800/30">
-              <td className="py-3.5 px-4 font-mono text-sky-400 font-bold">{w.id.slice(0, 10)}</td>
+              <td className="py-3.5 px-4 font-mono text-sky-400 dark:text-primary-400 font-bold">{w.id.slice(0, 10)}</td>
               <td className="py-3.5 px-4 font-mono text-emerald-400 font-bold">₹{(w.balance || 0).toLocaleString()}</td>
               <td className="py-3.5 px-4 font-mono text-amber-400">₹{(w.heldInEscrow || 0).toLocaleString()}</td>
               <td className="py-3.5 px-4 font-mono text-xs">

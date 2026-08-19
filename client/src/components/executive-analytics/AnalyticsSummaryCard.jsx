@@ -7,7 +7,7 @@ export function AnalyticsSummaryCard({ title, description, badgeText, children }
           {description && <p className="text-xs text-slate-400">{description}</p>}
         </div>
         {badgeText && (
-          <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">
+          <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 dark:text-primary-400 border border-sky-500/20">
             {badgeText}
           </span>
         )}

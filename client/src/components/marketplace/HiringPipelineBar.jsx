@@ -10,7 +10,7 @@ export function HiringPipelineBar({ currentStage = 'SUBMITTED' }) {
   const currentIdx = stages.findIndex((s) => s.key === currentStage);
 
   return (
-    <div className="flex items-center w-full gap-1 p-1 bg-surface-950 rounded-xl border border-surface-800">
+    <div className="flex items-center w-full gap-1 p-1 bg-card rounded-xl border border-surface-200">
       {stages.map((stage, idx) => {
         const isCurrent = stage.key === currentStage;
         const isCompleted = currentIdx > idx;
@@ -33,3 +33,4 @@ export function HiringPipelineBar({ currentStage = 'SUBMITTED' }) {
     </div>
   );
 }
+

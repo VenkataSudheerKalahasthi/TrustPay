@@ -51,15 +51,15 @@ export function ContractPdfPreviewPage() {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+            className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900"
           >
             <ArrowLeft size={16} />
           </button>
           <div>
-            <h1 className="text-xl font-bold text-surface-100 font-display">
+            <h1 className="text-xl font-bold text-surface-900 font-display">
               PDF Contract Document Preview
             </h1>
-            <p className="text-xs text-surface-400">Branded digital PDF contract file with digital signatures.</p>
+            <p className="text-xs text-surface-600">Branded digital PDF contract file with digital signatures.</p>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export function ContractPdfPreviewPage() {
             className="w-full h-full min-h-[600px] rounded-xl"
           />
         ) : (
-          <div className="text-center py-12 text-surface-400 text-xs">
+          <div className="text-center py-12 text-surface-600 text-xs">
             Unable to load PDF preview. Use the download button to view offline.
           </div>
         )}
@@ -84,3 +84,4 @@ export function ContractPdfPreviewPage() {
     </div>
   );
 }
+

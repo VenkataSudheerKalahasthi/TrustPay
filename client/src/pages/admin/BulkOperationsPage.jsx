@@ -30,7 +30,7 @@ export function BulkOperationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Layers className="w-6 h-6 text-sky-400" />
+            <Layers className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Bulk Administrative Operations & Runner
           </h1>
           <p className="text-slate-400 text-sm">Execute transactional bulk user suspensions, restorations, and identity verifications safely</p>
@@ -48,7 +48,7 @@ export function BulkOperationsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {operations.length === 0 ? (
           <div className="col-span-full py-16 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <Layers className="w-10 h-10 text-slate-600 mx-auto mb-2" />
+            <Layers className="w-10 h-10 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No bulk operations executed yet</p>
           </div>
         ) : (

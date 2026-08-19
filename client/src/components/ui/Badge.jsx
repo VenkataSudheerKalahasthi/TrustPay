@@ -1,13 +1,13 @@
 import { cn } from '@utils';
 
 const variantStyles = {
-  primary: 'bg-primary-500/10 text-primary-400 border border-primary-500/20',
-  secondary: 'bg-secondary-500/10 text-secondary-400 border border-secondary-500/20',
-  accent: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20',
-  success: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20',
-  warning: 'bg-amber-500/10 text-amber-400 border border-amber-500/20',
-  danger: 'bg-rose-500/10 text-rose-400 border border-rose-500/20',
-  neutral: 'bg-surface-800 text-surface-300 border border-surface-700',
+  primary: 'bg-primary-50 text-primary-700 border border-primary-200',
+  secondary: 'bg-secondary-50 text-secondary-700 border border-secondary-200',
+  accent: 'bg-success-50 text-success-700 border border-success-200',
+  success: 'bg-success-50 text-success-700 border border-success-200',
+  warning: 'bg-warning-50 text-warning-700 border border-warning-200',
+  danger: 'bg-danger-50 text-danger-700 border border-danger-200',
+  neutral: 'bg-surface-100 text-surface-700 border border-surface-200',
 };
 
 const dotColors = {

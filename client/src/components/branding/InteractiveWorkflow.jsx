@@ -21,7 +21,7 @@ export function InteractiveWorkflow() {
           return (
             <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3 relative">
               <span className="text-3xl font-extrabold text-slate-800 font-mono absolute top-4 right-4">{s.number}</span>
-              <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 w-fit">
+              <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 dark:text-primary-400 w-fit">
                 <IconComp className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-white">{s.title}</h3>

@@ -63,30 +63,30 @@ export function CollaborationCenterPage() {
   if (isLoading) return <PageLoader message="Loading Collaboration Workspace Center..." />;
 
   return (
-    <div className="min-h-screen bg-surface-950 text-surface-50 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-card text-surface-900 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         {/* Page Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-surface-800 pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-surface-200 pb-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-primary-500/10 text-primary-400 border border-primary-500/20">
+              <span className="p-2 rounded-xl bg-primary-50 text-primary-600 border border-primary-100">
                 <FolderKanban size={22} />
               </span>
-              <h1 className="text-2xl font-bold font-display text-surface-50">Project Collaboration Workspaces</h1>
+              <h1 className="text-2xl font-bold font-display text-surface-900">Project Collaboration Workspaces</h1>
             </div>
-            <p className="text-xs text-surface-400 mt-1">
+            <p className="text-xs text-surface-600 mt-1">
               Private workspaces for Client ↔ Worker communication, real-time planning, digital contracts, and escrow execution.
             </p>
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center p-1 rounded-xl bg-surface-900 border border-surface-800">
+          <div className="flex items-center p-1 rounded-xl bg-card border border-surface-200">
             <button
               onClick={() => setActiveTab('workspaces')}
               className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'workspaces'
-                  ? 'bg-primary-600 text-white shadow-glow'
-                  : 'text-surface-400 hover:text-surface-200'
+                  ? 'bg-primary-600 text-white shadow'
+                  : 'text-surface-600 hover:text-surface-800'
               }`}
             >
               Active Workspaces ({workspaces.length})
@@ -95,8 +95,8 @@ export function CollaborationCenterPage() {
               onClick={() => setActiveTab('requests')}
               className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                 activeTab === 'requests'
-                  ? 'bg-primary-600 text-white shadow-glow'
-                  : 'text-surface-400 hover:text-surface-200'
+                  ? 'bg-primary-600 text-white shadow'
+                  : 'text-surface-600 hover:text-surface-800'
               }`}
             >
               Collaboration Requests ({requests.length})
@@ -109,9 +109,9 @@ export function CollaborationCenterPage() {
           <div className="flex flex-col gap-4">
             {workspaces.length === 0 ? (
               <div className="glass-card p-12 text-center flex flex-col items-center justify-center gap-3">
-                <Sparkles size={40} className="text-primary-400/60" />
-                <h3 className="text-base font-bold text-surface-200 font-display">No Active Workspaces Yet</h3>
-                <p className="text-xs text-surface-400 max-w-md">
+                <Sparkles size={40} className="text-primary-600/60" />
+                <h3 className="text-base font-bold text-surface-800 font-display">No Active Workspaces Yet</h3>
+                <p className="text-xs text-surface-600 max-w-md">
                   Workspaces are created automatically when a worker accepts a collaboration request from a client.
                 </p>
               </div>
@@ -123,11 +123,11 @@ export function CollaborationCenterPage() {
                   return (
                     <div
                       key={ws.id}
-                      className="glass-card p-6 flex flex-col justify-between gap-5 hover:border-primary-500/40 transition-all group"
+                      className="glass-card p-6 flex flex-col justify-between gap-5 hover:border-primary-600/40 transition-all group"
                     >
                       <div className="flex flex-col gap-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-2xs font-mono font-bold text-surface-400 uppercase tracking-wider">
+                          <span className="text-2xs font-mono font-bold text-surface-600 uppercase tracking-wider">
                             {ws.workspaceNumber}
                           </span>
                           <Badge
@@ -144,16 +144,16 @@ export function CollaborationCenterPage() {
                           </Badge>
                         </div>
 
-                        <h3 className="text-base font-bold text-surface-100 font-display group-hover:text-primary-300 transition-colors">
+                        <h3 className="text-base font-bold text-surface-900 font-display group-hover:text-primary-700 transition-colors">
                           {ws.request?.projectTitle || ws.project?.title || 'Collaboration Workspace'}
                         </h3>
 
-                        <div className="flex items-center gap-6 py-2 border-y border-surface-800/60 text-xs">
+                        <div className="flex items-center gap-6 py-2 border-y border-surface-200/60 text-xs">
                           <div className="flex items-center gap-2">
                             <Avatar name={clientUser.firstName} src={clientUser.avatar} size="xs" />
                             <div>
-                              <span className="text-2xs text-surface-400 block">Client</span>
-                              <span className="font-semibold text-surface-200">
+                              <span className="text-2xs text-surface-600 block">Client</span>
+                              <span className="font-semibold text-surface-800">
                                 {clientUser.firstName} {clientUser.lastName}
                               </span>
                             </div>
@@ -161,8 +161,8 @@ export function CollaborationCenterPage() {
                           <div className="flex items-center gap-2">
                             <Avatar name={workerUser.firstName} src={workerUser.avatar} size="xs" />
                             <div>
-                              <span className="text-2xs text-surface-400 block">Specialist</span>
-                              <span className="font-semibold text-surface-200">
+                              <span className="text-2xs text-surface-600 block">Specialist</span>
+                              <span className="font-semibold text-surface-800">
                                 {workerUser.firstName} {workerUser.lastName}
                               </span>
                             </div>
@@ -196,7 +196,7 @@ export function CollaborationCenterPage() {
         {activeTab === 'requests' && (
           <div className="flex flex-col gap-4">
             {requests.length === 0 ? (
-              <div className="glass-card p-12 text-center text-xs text-surface-400">
+              <div className="glass-card p-12 text-center text-xs text-surface-600">
                 No collaboration requests found.
               </div>
             ) : (
@@ -213,12 +213,12 @@ export function CollaborationCenterPage() {
                           <Badge variant={isPending ? 'warning' : req.status === 'ACCEPTED' ? 'success' : 'danger'} size="sm">
                             {req.status}
                           </Badge>
-                          <span className="text-2xs font-mono text-surface-400">{req.requestNumber}</span>
+                          <span className="text-2xs font-mono text-surface-600">{req.requestNumber}</span>
                         </div>
-                        <h3 className="text-base font-bold font-display text-surface-50">{req.projectTitle}</h3>
-                        <p className="text-xs text-surface-300 line-clamp-2">{req.projectDescription}</p>
+                        <h3 className="text-base font-bold font-display text-surface-900">{req.projectTitle}</h3>
+                        <p className="text-xs text-surface-700 line-clamp-2">{req.projectDescription}</p>
 
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-surface-400 mt-2">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-surface-600 mt-2">
                           <span className="flex items-center gap-1 font-semibold text-emerald-400">
                             <DollarSign size={14} /> ₹{req.budget}
                           </span>
@@ -253,7 +253,7 @@ export function CollaborationCenterPage() {
                               onClick={() => handleRespond(req.id, 'ACCEPT')}
                               isLoading={actionLoadingId === req.id}
                               leftIcon={<CheckCircle2 size={14} />}
-                              className="shadow-glow"
+                              className="shadow"
                             >
                               Accept & Create Workspace
                             </Button>
@@ -281,3 +281,4 @@ export function CollaborationCenterPage() {
     </div>
   );
 }
+

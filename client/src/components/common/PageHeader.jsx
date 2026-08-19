@@ -30,8 +30,8 @@ export function PageHeader({
     <div className={cn('flex flex-col gap-3 w-full', className)}>
       {/* Breadcrumb Trail */}
       {breadcrumbs.length > 0 && (
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-surface-400 font-medium overflow-x-auto scrollbar-hide">
-          <Link to="/" className="hover:text-surface-200 transition-colors">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-surface-600 font-medium overflow-x-auto scrollbar-hide">
+          <Link to="/" className="hover:text-surface-800 transition-colors">
             Home
           </Link>
           {breadcrumbs.map((item, idx) => {
@@ -40,11 +40,11 @@ export function PageHeader({
               <div key={idx} className="flex items-center gap-1.5 whitespace-nowrap">
                 <ChevronRight size={12} className="text-surface-600 shrink-0" />
                 {item.href && !isLast ? (
-                  <Link to={item.href} className="hover:text-surface-200 transition-colors">
+                  <Link to={item.href} className="hover:text-surface-800 transition-colors">
                     {item.label}
                   </Link>
                 ) : (
-                  <span className="text-surface-200 font-semibold">{item.label}</span>
+                  <span className="text-surface-800 font-semibold">{item.label}</span>
                 )}
               </div>
             );
@@ -57,18 +57,18 @@ export function PageHeader({
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3 flex-wrap">
             {Icon && (
-              <div className="p-2 rounded-xl bg-primary-500/10 text-primary-400 border border-primary-500/20 shrink-0">
+              <div className="p-2 rounded-xl bg-primary-50 text-primary-600 border border-primary-100 shrink-0">
                 <Icon size={22} />
               </div>
             )}
-            <h1 className="text-2xl sm:text-3xl font-bold text-surface-50 font-display tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-surface-900 font-display tracking-tight">
               {title}
             </h1>
             {badge && <div className="shrink-0">{badge}</div>}
           </div>
 
           {subtitle && (
-            <p className="text-xs text-surface-400 max-w-3xl leading-relaxed">
+            <p className="text-xs text-surface-600 max-w-3xl leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -84,3 +84,4 @@ export function PageHeader({
     </div>
   );
 }
+

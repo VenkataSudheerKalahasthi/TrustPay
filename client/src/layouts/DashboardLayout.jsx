@@ -65,7 +65,7 @@ export function DashboardLayout({ role = 'CLIENT' }) {
   ];
 
   return (
-    <div id="dashboard-layout" className="min-h-screen bg-surface-950 text-surface-50 flex flex-col">
+    <div id="dashboard-layout" className="min-h-screen bg-surface-50 text-surface-900 flex flex-col">
       {/* Sidebar */}
       <Sidebar
         isOpen={mobileSidebarOpen}
@@ -76,29 +76,29 @@ export function DashboardLayout({ role = 'CLIENT' }) {
       {/* Main Content Wrapper */}
       <div className="flex-1 flex flex-col lg:pl-64 transition-all duration-300">
         {/* Top Header */}
-        <header className="h-16 border-b border-surface-800 bg-surface-900/80 backdrop-blur-xl sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between shadow-glow-sm">
+        <header className="h-16 border-b border-surface-200 bg-card/80 backdrop-blur-xl sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMobileSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-xl text-surface-400 hover:text-surface-100 hover:bg-surface-800"
+              className="lg:hidden p-2 rounded-xl text-surface-600 hover:text-surface-900 hover:bg-surface-100"
               aria-label="Open navigation menu"
             >
               <Menu size={20} />
             </button>
 
             {/* Breadcrumb Navigation */}
-            <nav className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-surface-400">
-              <Link to="/" className="hover:text-surface-200 transition-colors">
+            <nav className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-surface-600">
+              <Link to="/" className="hover:text-surface-900 transition-colors">
                 Home
               </Link>
               {breadcrumbs.map((b, idx) => (
                 <div key={b.href} className="flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-surface-600" />
                   {idx === breadcrumbs.length - 1 ? (
-                    <span className="text-surface-200 font-semibold">{b.label}</span>
+                    <span className="text-surface-900 font-semibold">{b.label}</span>
                   ) : (
-                    <Link to={b.href} className="hover:text-surface-200 transition-colors">
+                    <Link to={b.href} className="hover:text-surface-900 transition-colors">
                       {b.label}
                     </Link>
                   )}
@@ -110,10 +110,10 @@ export function DashboardLayout({ role = 'CLIENT' }) {
           {/* Header Right Actions */}
           <div className="flex items-center gap-3">
             {/* Search Input Preview */}
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-800/80 border border-surface-700/60 text-xs text-surface-400">
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-50 border border-surface-200 text-xs text-surface-600">
               <Search size={14} />
               <span>Search workspace...</span>
-              <kbd className="ml-2 px-1.5 py-0.5 rounded bg-surface-700 text-2xs text-surface-300 shadow-2xs">
+              <kbd className="ml-2 px-1.5 py-0.5 rounded bg-surface-200 text-2xs text-surface-600 shadow-sm">
                 ⌘K
               </kbd>
             </div>
@@ -121,13 +121,13 @@ export function DashboardLayout({ role = 'CLIENT' }) {
             {/* Realtime Notifications Dropdown */}
             <NotificationDropdown />
 
-            <div className="h-6 w-px bg-surface-800" />
+            <div className="h-6 w-px bg-surface-200" />
 
             {/* User Profile Dropdown */}
             {user && (
               <Dropdown
                 trigger={
-                  <div className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
+                  <div className="flex items-center gap-2.5 hover:opacity-90 transition-opacity cursor-pointer">
                     <Avatar
                       name={`${user.firstName || ''} ${user.lastName || ''}`}
                       src={user.avatar}
@@ -135,10 +135,10 @@ export function DashboardLayout({ role = 'CLIENT' }) {
                       status="online"
                     />
                     <div className="hidden md:flex flex-col text-left leading-tight">
-                      <span className="text-xs font-semibold text-surface-100">
+                      <span className="text-xs font-semibold text-surface-900">
                         {user.firstName} {user.lastName}
                       </span>
-                      <span className="text-2xs text-surface-400">{user.email}</span>
+                      <span className="text-2xs text-surface-500">{user.email}</span>
                     </div>
                   </div>
                 }
@@ -149,7 +149,7 @@ export function DashboardLayout({ role = 'CLIENT' }) {
         </header>
 
         {/* Reusable Page Header Banner */}
-        <div className="bg-surface-900/40 border-b border-surface-800/60 px-4 sm:px-6 lg:px-8 py-6">
+        <div className="bg-card/40 border-b border-surface-200 px-4 sm:px-6 lg:px-8 py-6">
           <div className="max-w-7xl mx-auto">
             <PageHeader
               title={currentPageTitle}
@@ -179,3 +179,4 @@ export function DashboardLayout({ role = 'CLIENT' }) {
     </div>
   );
 }
+

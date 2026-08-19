@@ -6,7 +6,7 @@ export function ApprovalQueueCard({ approval }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-lg flex items-center justify-between">
       <div className="space-y-1">
-        <span className="text-xs font-mono font-bold text-sky-400 uppercase">{approval.entityType}</span>
+        <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 uppercase">{approval.entityType}</span>
         <h4 className="text-sm font-bold text-white">{approval.action}</h4>
         {approval.reason && <p className="text-xs text-slate-400">{approval.reason}</p>}
       </div>

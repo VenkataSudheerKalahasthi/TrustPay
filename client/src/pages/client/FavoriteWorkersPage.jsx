@@ -39,12 +39,12 @@ export function FavoriteWorkersPage() {
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto py-6">
       <div className="flex items-center gap-3">
-        <div className="p-2 rounded-xl bg-danger-500/10 text-danger-500 border border-danger-500/20">
+        <div className="p-2 rounded-xl bg-danger-50 text-danger-500 border border-danger-200">
           <Heart size={20} fill="currentColor" />
         </div>
         <div>
-          <h1 className="text-xl font-bold font-display text-surface-50">Saved Favorite Workers</h1>
-          <p className="text-xs text-surface-400">Shortlisted freelancers and specialists for upcoming contracts.</p>
+          <h1 className="text-xl font-bold font-display text-surface-900">Saved Favorite Workers</h1>
+          <p className="text-xs text-surface-600">Shortlisted freelancers and specialists for upcoming contracts.</p>
         </div>
       </div>
 
@@ -68,3 +68,4 @@ export function FavoriteWorkersPage() {
     </div>
   );
 }
+

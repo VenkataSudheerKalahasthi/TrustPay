@@ -4,19 +4,19 @@ import { cn } from '@utils';
 
 const variantStyles = {
   primary:
-    'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
+    'bg-gradient-brand dark:bg-primary-600 hover:opacity-90 dark:hover:bg-primary-700 text-white shadow-sm dark:shadow-[0_8px_30px_rgba(0,210,106,0.20)] hover:shadow focus-visible:ring-primary-500 transition-all',
   secondary:
-    'bg-surface-800 hover:bg-surface-700 active:bg-surface-600 text-surface-100 border border-surface-700 focus-visible:ring-primary-500',
+    'bg-card dark:bg-surface-50 hover:bg-surface-50 dark:hover:bg-surface-100 active:bg-surface-100 text-surface-900 border border-surface-200 dark:border-surface-300 shadow-sm focus-visible:ring-primary-500 transition-all',
   outline:
-    'border border-surface-700 bg-transparent text-surface-200 hover:bg-surface-800 hover:text-surface-50 hover:border-surface-600 focus-visible:ring-primary-500',
+    'border border-surface-300 bg-transparent text-surface-700 hover:bg-surface-50 hover:text-surface-900 hover:border-surface-400 focus-visible:ring-primary-500 transition-all',
   ghost:
-    'bg-transparent text-surface-400 hover:text-surface-100 hover:bg-surface-800/60 focus-visible:ring-primary-500',
+    'bg-transparent text-surface-600 hover:text-surface-900 hover:bg-surface-100 focus-visible:ring-primary-500 transition-all',
   danger:
-    'bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white shadow-sm focus-visible:ring-danger-500',
+    'bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white shadow-sm focus-visible:ring-danger-500 transition-all',
   success:
-    'bg-success-500 hover:bg-success-600 active:bg-success-700 text-white shadow-sm focus-visible:ring-success-500',
+    'bg-success-500 hover:bg-success-600 active:bg-success-700 text-white shadow-sm focus-visible:ring-success-500 transition-all',
   gradient:
-    'bg-gradient-brand hover:opacity-95 text-white shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
+    'bg-gradient-brand dark:bg-primary-600 hover:opacity-90 dark:hover:bg-primary-700 text-white shadow-sm dark:shadow-[0_8px_30px_rgba(0,210,106,0.20)] hover:shadow focus-visible:ring-primary-500 transition-all',
 };
 
 const sizeStyles = {
@@ -75,3 +75,4 @@ export const Button = forwardRef(
 );
 
 Button.displayName = 'Button';
+

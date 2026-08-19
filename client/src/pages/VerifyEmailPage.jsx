@@ -44,19 +44,19 @@ export function VerifyEmailPage() {
     <div className="text-center py-6">
       {status === 'loading' && (
         <div className="flex flex-col items-center gap-3">
-          <Loader2 size={36} className="animate-spin text-primary-400" />
-          <h2 className="text-xl font-bold text-surface-50 font-display">Verifying Email...</h2>
-          <p className="text-sm text-surface-400">Please wait while we confirm your email address.</p>
+          <Loader2 size={36} className="animate-spin text-primary-600" />
+          <h2 className="text-xl font-bold text-surface-900 font-display">Verifying Email...</h2>
+          <p className="text-sm text-surface-600">Please wait while we confirm your email address.</p>
         </div>
       )}
 
       {status === 'success' && (
         <div>
-          <div className="w-14 h-14 rounded-full bg-success-500/15 text-success-400 flex items-center justify-center mx-auto mb-4 border border-success-500/30">
+          <div className="w-14 h-14 rounded-full bg-success-500/15 text-success-600 flex items-center justify-center mx-auto mb-4 border border-success-200">
             <CheckCircle2 size={32} />
           </div>
-          <h2 className="text-2xl font-bold text-surface-50 font-display mb-2">Email Verified!</h2>
-          <p className="text-sm text-surface-300 mb-6">{message}</p>
+          <h2 className="text-2xl font-bold text-surface-900 font-display mb-2">Email Verified!</h2>
+          <p className="text-sm text-surface-700 mb-6">{message}</p>
           <Link to={ROUTES.HOME}>
             <Button variant="gradient" fullWidth>
               Go to Dashboard
@@ -67,11 +67,11 @@ export function VerifyEmailPage() {
 
       {status === 'error' && (
         <div>
-          <div className="w-14 h-14 rounded-full bg-danger-500/15 text-danger-400 flex items-center justify-center mx-auto mb-4 border border-danger-500/30">
+          <div className="w-14 h-14 rounded-full bg-danger-500/15 text-danger-600 flex items-center justify-center mx-auto mb-4 border border-danger-200">
             <AlertCircle size={32} />
           </div>
-          <h2 className="text-2xl font-bold text-surface-50 font-display mb-2">Verification Failed</h2>
-          <p className="text-sm text-surface-400 mb-6">{message}</p>
+          <h2 className="text-2xl font-bold text-surface-900 font-display mb-2">Verification Failed</h2>
+          <p className="text-sm text-surface-600 mb-6">{message}</p>
           <div className="space-y-3">
             <Link to={ROUTES.HOME}>
               <Button variant="outline" fullWidth>
@@ -84,3 +84,4 @@ export function VerifyEmailPage() {
     </div>
   );
 }
+

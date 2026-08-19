@@ -65,11 +65,11 @@ export function NotificationsPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-            <Bell size={20} className="text-primary-400" />
+          <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+            <Bell size={20} className="text-primary-600" />
             <span>Notification Hub</span>
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Realtime alerts, project updates, contract signatures, and escrow payment notifications.
           </p>
         </div>
@@ -87,7 +87,7 @@ export function NotificationsPage() {
       </div>
 
       {/* Filters Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-surface-900 border border-surface-800 rounded-2xl">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-card border border-surface-200 rounded-2xl">
         <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto scrollbar-hide text-xs">
           {[
             { id: '', label: 'All' },
@@ -104,8 +104,8 @@ export function NotificationsPage() {
               }}
               className={`px-3 py-1.5 rounded-xl font-semibold transition-all whitespace-nowrap ${
                 selectedCategory === cat.id
-                  ? 'bg-primary-500 text-white shadow-glow'
-                  : 'bg-surface-800 text-surface-400 hover:text-surface-100'
+                  ? 'bg-primary-500 text-white shadow'
+                  : 'bg-surface-50 text-surface-600 hover:text-surface-900'
               }`}
             >
               {cat.label}
@@ -118,7 +118,7 @@ export function NotificationsPage() {
           className={`text-xs font-semibold px-3 py-1.5 rounded-xl border transition-all ${
             isArchived
               ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
-              : 'border-surface-700 bg-surface-800 text-surface-400 hover:text-surface-200'
+              : 'border-surface-300 bg-surface-50 text-surface-600 hover:text-surface-800'
           }`}
         >
           {isArchived ? 'Viewing Archived' : 'View Archive'}
@@ -129,21 +129,21 @@ export function NotificationsPage() {
       {loading ? (
         <div className="space-y-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-24 rounded-2xl bg-surface-900 border border-surface-800 animate-pulse" />
+            <div key={i} className="h-24 rounded-2xl bg-card border border-surface-200 animate-pulse" />
           ))}
         </div>
       ) : error ? (
-        <div className="p-6 rounded-2xl bg-surface-900 border border-red-500/30 text-center">
+        <div className="p-6 rounded-2xl bg-card border border-red-500/30 text-center">
           <p className="text-xs text-red-400 mb-3">{error}</p>
           <Button size="sm" variant="secondary" onClick={fetchNotifications} leftIcon={<RefreshCw size={14} />}>
             Retry
           </Button>
         </div>
       ) : notifications.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-surface-900 border border-surface-800">
+        <div className="p-12 text-center rounded-2xl bg-card border border-surface-200">
           <Bell className="w-12 h-12 text-surface-600 mx-auto mb-3" />
-          <h3 className="text-sm font-semibold text-surface-200">No Notifications</h3>
-          <p className="text-xs text-surface-400 max-w-xs mx-auto mt-1">
+          <h3 className="text-sm font-semibold text-surface-800">No Notifications</h3>
+          <p className="text-xs text-surface-600 max-w-xs mx-auto mt-1">
             You don't have any {isArchived ? 'archived' : 'active'} notifications in this category.
           </p>
         </div>
@@ -163,3 +163,4 @@ export function NotificationsPage() {
     </div>
   );
 }
+

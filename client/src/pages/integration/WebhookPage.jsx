@@ -55,29 +55,29 @@ export function WebhookPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Radio size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Radio size={20} className="text-primary-600" />
           <span>Realtime Webhook Subscriptions</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Subscribe external endpoints to platform events with HMAC-SHA256 signature verification.
         </p>
       </div>
 
-      <form onSubmit={handleRegister} className="p-4 rounded-2xl bg-surface-900 border border-surface-800 flex flex-wrap gap-3">
+      <form onSubmit={handleRegister} className="p-4 rounded-2xl bg-card border border-surface-200 flex flex-wrap gap-3">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Webhook Name..."
-          className="flex-1 min-w-[150px] px-4 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+          className="flex-1 min-w-[150px] px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
         />
         <input
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://api.yourdomain.com/webhooks"
-          className="flex-2 min-w-[250px] px-4 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+          className="flex-2 min-w-[250px] px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
         />
         <Button size="sm" variant="primary" type="submit" isLoading={registering} leftIcon={<Plus size={14} />}>
           Register Webhook
@@ -86,10 +86,10 @@ export function WebhookPage() {
 
       <div className="space-y-3">
         {webhooks.map((wh) => (
-          <div key={wh.id} className="p-4 rounded-2xl bg-surface-900 border border-surface-800 flex items-center justify-between gap-4">
+          <div key={wh.id} className="p-4 rounded-2xl bg-card border border-surface-200 flex items-center justify-between gap-4">
             <div className="space-y-1 min-w-0">
-              <h4 className="text-xs font-bold text-surface-100">{wh.name}</h4>
-              <p className="text-3xs font-mono text-surface-400 truncate">{wh.url}</p>
+              <h4 className="text-xs font-bold text-surface-900">{wh.name}</h4>
+              <p className="text-3xs font-mono text-surface-600 truncate">{wh.url}</p>
               <div className="flex items-center gap-2 text-3xs font-mono text-surface-500">
                 <span>Status: {wh.status}</span>
                 <span>Events: {wh.events}</span>
@@ -114,3 +114,4 @@ export function WebhookPage() {
     </div>
   );
 }
+

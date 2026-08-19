@@ -16,11 +16,11 @@ export function ConfirmationDialog({
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="sm">
       <div className="flex flex-col items-center text-center py-2">
-        <div className="p-3 rounded-2xl bg-danger-500/15 border border-danger-500/30 text-danger-400 mb-4">
+        <div className="p-3 rounded-2xl bg-danger-500/15 border border-danger-200 text-danger-600 mb-4">
           <AlertTriangle size={32} />
         </div>
-        <h3 className="text-lg font-bold text-surface-100 font-display">{title}</h3>
-        <p className="text-xs text-surface-400 mt-1.5 leading-relaxed">{description}</p>
+        <h3 className="text-lg font-bold text-surface-900 font-display">{title}</h3>
+        <p className="text-xs text-surface-600 mt-1.5 leading-relaxed">{description}</p>
 
         <div className="flex items-center justify-center gap-3 w-full mt-6">
           <Button variant="ghost" size="sm" onClick={onClose} disabled={isLoading} fullWidth>
@@ -40,3 +40,4 @@ export function ConfirmationDialog({
     </Modal>
   );
 }
+

@@ -5,7 +5,7 @@ export function TicketTimeline({ messages = [] }) {
     <div className="space-y-4">
       {messages.length === 0 ? (
         <div className="text-center py-8 border border-dashed border-slate-800 rounded-xl">
-          <MessageSquare className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+          <MessageSquare className="w-8 h-8 text-surface-600 mx-auto mb-2" />
           <p className="text-slate-400 text-sm font-medium">No messages posted yet</p>
         </div>
       ) : (
@@ -20,7 +20,7 @@ export function TicketTimeline({ messages = [] }) {
           >
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">
+                <div className="w-7 h-7 rounded-full bg-sky-500/20 text-sky-400 dark:text-primary-400 flex items-center justify-center font-bold text-xs">
                   {msg.sender?.firstName?.[0] || 'U'}
                 </div>
                 <div>

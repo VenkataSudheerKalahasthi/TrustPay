@@ -11,15 +11,15 @@ export function ErrorState({
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-danger-500/30 bg-danger-500/10 max-w-md mx-auto my-6',
+        'flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-danger-200 bg-danger-50 max-w-md mx-auto my-6',
         className
       )}
     >
-      <div className="p-3.5 rounded-2xl bg-danger-500/20 text-danger-400 border border-danger-500/30 mb-4 shadow-sm">
+      <div className="p-3.5 rounded-2xl bg-danger-500/20 text-danger-600 border border-danger-200 mb-4 shadow-sm">
         <AlertCircle size={28} />
       </div>
-      <h3 className="text-base font-semibold text-surface-100 font-display">{title}</h3>
-      <p className="text-xs text-surface-300 mt-1 max-w-xs">{description}</p>
+      <h3 className="text-base font-semibold text-surface-900 font-display">{title}</h3>
+      <p className="text-xs text-surface-700 mt-1 max-w-xs">{description}</p>
       {onRetry && (
         <Button
           variant="outline"
@@ -34,3 +34,4 @@ export function ErrorState({
     </div>
   );
 }
+

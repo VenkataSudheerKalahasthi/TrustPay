@@ -44,18 +44,18 @@ export function IntegrationHubPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Layers size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Layers size={20} className="text-primary-600" />
           <span>Integration Hub & Adapters</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Connect TrustPay to Google Calendar, Google Meet, Microsoft Outlook, Slack, Teams, and Zapier.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {loading ? (
-          <p className="text-xs text-surface-400">Loading integrations directory...</p>
+          <p className="text-xs text-surface-600">Loading integrations directory...</p>
         ) : (
           integrations.map((item) => (
             <IntegrationCard
@@ -70,3 +70,4 @@ export function IntegrationHubPage() {
     </div>
   );
 }
+

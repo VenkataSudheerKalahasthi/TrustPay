@@ -5,7 +5,7 @@ export function DisasterRecoveryCard({ tests = [] }) {
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
       <div className="flex items-center justify-between border-b border-slate-800 pb-3">
         <h3 className="text-lg font-bold text-white flex items-center gap-2">
-          <Database className="w-5 h-5 text-sky-400" /> Disaster Recovery & Failover Verification
+          <Database className="w-5 h-5 text-sky-400 dark:text-primary-400" /> Disaster Recovery & Failover Verification
         </h3>
       </div>
       <div className="space-y-3">

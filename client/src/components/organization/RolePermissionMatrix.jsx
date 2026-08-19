@@ -15,11 +15,11 @@ export function RolePermissionMatrix({ effectiveRole = 'MEMBER', permissions = [
   const hasAll = permissions.includes('*') || effectiveRole === 'OWNER';
 
   return (
-    <Card className="p-4 bg-surface-900 border-surface-800 space-y-3">
+    <Card className="p-4 bg-card border-surface-200 space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-xs font-bold text-surface-100 flex items-center gap-2">
-          <ShieldCheck size={16} className="text-primary-400" />
-          <span>Effective Role: <span className="text-primary-400 font-mono">{effectiveRole}</span></span>
+        <h3 className="text-xs font-bold text-surface-900 flex items-center gap-2">
+          <ShieldCheck size={16} className="text-primary-600" />
+          <span>Effective Role: <span className="text-primary-600 font-mono">{effectiveRole}</span></span>
         </h3>
         {hasAll && (
           <span className="text-3xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">
@@ -36,12 +36,12 @@ export function RolePermissionMatrix({ effectiveRole = 'MEMBER', permissions = [
               key={p.code}
               className={`p-2.5 rounded-xl border text-xs flex items-center justify-between ${
                 isAllowed
-                  ? 'bg-surface-800/80 border-surface-700 text-surface-100'
-                  : 'bg-surface-950/40 border-surface-800/40 text-surface-500 opacity-60'
+                  ? 'bg-surface-100/80 border-surface-300 text-surface-900'
+                  : 'bg-card/40 border-surface-200/40 text-surface-500 opacity-60'
               }`}
             >
               <span>{p.label}</span>
-              <span className={`text-3xs font-mono px-2 py-0.5 rounded ${isAllowed ? 'bg-emerald-500/20 text-emerald-300' : 'bg-surface-800 text-surface-500'}`}>
+              <span className={`text-3xs font-mono px-2 py-0.5 rounded ${isAllowed ? 'bg-emerald-500/20 text-emerald-300' : 'bg-surface-50 text-surface-500'}`}>
                 {isAllowed ? 'ALLOWED' : 'DENIED'}
               </span>
             </div>
@@ -51,3 +51,4 @@ export function RolePermissionMatrix({ effectiveRole = 'MEMBER', permissions = [
     </Card>
   );
 }
+

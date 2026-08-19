@@ -49,8 +49,8 @@ export function ProjectsListPage() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50 tracking-tight">Project Management Workspace</h1>
-          <p className="text-xs text-surface-400">
+          <h1 className="text-xl font-bold text-surface-900 tracking-tight">Project Management Workspace</h1>
+          <p className="text-xs text-surface-600">
             Enterprise project execution, milestone tracking, deliverable versioning, and escrow readiness.
           </p>
         </div>
@@ -62,7 +62,7 @@ export function ProjectsListPage() {
         )}
       </div>
 
-      <div className="p-4 rounded-2xl bg-surface-900 border border-surface-800 space-y-3">
+      <div className="p-4 rounded-2xl bg-card border border-surface-200 space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Input
             placeholder="Search by title or PRJ number..."
@@ -74,7 +74,7 @@ export function ProjectsListPage() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+            className="px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
           >
             <option value="">All Statuses</option>
             <option value="DRAFT">Draft</option>
@@ -89,7 +89,7 @@ export function ProjectsListPage() {
           <select
             value={selectedPriority}
             onChange={(e) => setSelectedPriority(e.target.value)}
-            className="px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+            className="px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
           >
             <option value="">All Priorities</option>
             <option value="LOW">Low</option>
@@ -103,21 +103,21 @@ export function ProjectsListPage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-64 rounded-2xl bg-surface-900 border border-surface-800 animate-pulse" />
+            <div key={i} className="h-64 rounded-2xl bg-card border border-surface-200 animate-pulse" />
           ))}
         </div>
       ) : error ? (
-        <div className="p-6 rounded-2xl bg-surface-900 border border-red-500/20 text-center">
+        <div className="p-6 rounded-2xl bg-card border border-red-500/20 text-center">
           <p className="text-xs text-red-400 mb-3">{error}</p>
           <Button size="sm" variant="secondary" onClick={fetchProjects} leftIcon={<RefreshCw size={14} />}>
             Retry
           </Button>
         </div>
       ) : projects.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-surface-900 border border-surface-800">
+        <div className="p-12 text-center rounded-2xl bg-card border border-surface-200">
           <FolderOpen className="w-12 h-12 text-surface-600 mx-auto mb-3" />
-          <h3 className="text-sm font-semibold text-surface-200">No Projects Found</h3>
-          <p className="text-xs text-surface-400 mb-4 max-w-sm mx-auto">
+          <h3 className="text-sm font-semibold text-surface-800">No Projects Found</h3>
+          <p className="text-xs text-surface-600 mb-4 max-w-sm mx-auto">
             No project records match your filter criteria or role access.
           </p>
           {isClient && (
@@ -137,7 +137,7 @@ export function ProjectsListPage() {
           </div>
 
           {pagination.totalPages > 1 && (
-            <div className="flex items-center justify-between pt-4 text-xs text-surface-400 border-t border-surface-800">
+            <div className="flex items-center justify-between pt-4 text-xs text-surface-600 border-t border-surface-200">
               <span>
                 Showing page {page} of {pagination.totalPages} ({pagination.total} total projects)
               </span>
@@ -166,3 +166,4 @@ export function ProjectsListPage() {
     </div>
   );
 }
+

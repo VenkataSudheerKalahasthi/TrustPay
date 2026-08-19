@@ -30,16 +30,16 @@ export function FilterPanel({
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 z-dropdown bg-surface-800 border border-surface-700 rounded-2xl shadow-2xl p-4 flex flex-col gap-4">
-          <div className="flex items-center justify-between border-b border-surface-700 pb-3">
+        <div className="absolute right-0 mt-2 w-80 z-dropdown bg-surface-50 border border-surface-300 rounded-2xl shadow-2xl p-4 flex flex-col gap-4">
+          <div className="flex items-center justify-between border-b border-surface-300 pb-3">
             <div className="flex items-center gap-2">
-              <Filter size={16} className="text-primary-400" />
-              <span className="font-semibold text-sm text-surface-100">{title}</span>
+              <Filter size={16} className="text-primary-600" />
+              <span className="font-semibold text-sm text-surface-900">{title}</span>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="text-surface-400 hover:text-surface-200"
+              className="text-surface-600 hover:text-surface-800"
             >
               <X size={16} />
             </button>
@@ -47,7 +47,7 @@ export function FilterPanel({
 
           <div className="flex flex-col gap-3 max-h-80 overflow-y-auto pr-1">{children}</div>
 
-          <div className="flex items-center justify-between border-t border-surface-700 pt-3 gap-2">
+          <div className="flex items-center justify-between border-t border-surface-300 pt-3 gap-2">
             {onReset && (
               <Button
                 variant="ghost"
@@ -80,3 +80,4 @@ export function FilterPanel({
     </div>
   );
 }
+

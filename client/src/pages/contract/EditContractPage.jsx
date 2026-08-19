@@ -85,15 +85,15 @@ export function EditContractPage() {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+          className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900"
         >
           <ArrowLeft size={16} />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-surface-100 font-display">
+          <h1 className="text-2xl font-bold text-surface-900 font-display">
             Edit Contract & Create Version
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Modifying terms will automatically generate version v{(contract?.currentVersionNumber || 1) + 1}.
           </p>
         </div>
@@ -115,40 +115,40 @@ export function EditContractPage() {
         />
 
         <div>
-          <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+          <label className="block text-xs font-semibold text-surface-700 mb-1.5">
             Scope of Work *
           </label>
           <textarea
             rows={5}
             value={formData.scopeOfWork}
             onChange={(e) => setFormData({ ...formData, scopeOfWork: e.target.value })}
-            className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+            className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+          <label className="block text-xs font-semibold text-surface-700 mb-1.5">
             Deliverables *
           </label>
           <textarea
             rows={4}
             value={formData.deliverables}
             onChange={(e) => setFormData({ ...formData, deliverables: e.target.value })}
-            className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+            className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             required
           />
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-surface-300 mb-1.5">
+          <label className="block text-xs font-semibold text-surface-700 mb-1.5">
             Terms & Conditions *
           </label>
           <textarea
             rows={4}
             value={formData.termsAndConditions}
             onChange={(e) => setFormData({ ...formData, termsAndConditions: e.target.value })}
-            className="w-full bg-surface-900 border border-surface-800 rounded-xl p-3 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+            className="w-full bg-card border border-surface-200 rounded-xl p-3 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             required
           />
         </div>
@@ -161,7 +161,7 @@ export function EditContractPage() {
           required
         />
 
-        <div className="pt-4 border-t border-surface-800 flex justify-end gap-3">
+        <div className="pt-4 border-t border-surface-200 flex justify-end gap-3">
           <Button type="button" variant="ghost" onClick={() => navigate(-1)}>
             Cancel
           </Button>
@@ -173,3 +173,4 @@ export function EditContractPage() {
     </div>
   );
 }
+

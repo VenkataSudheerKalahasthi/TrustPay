@@ -8,7 +8,7 @@ export function CharacterCounter({ current = 0, max = 100, className }) {
     <span
       className={cn(
         'text-2xs font-mono select-none',
-        isAtLimit ? 'text-danger-400 font-bold' : isNearLimit ? 'text-warning-400' : 'text-surface-500',
+        isAtLimit ? 'text-danger-600 font-bold' : isNearLimit ? 'text-warning-400' : 'text-surface-500',
         className
       )}
     >
@@ -16,3 +16,4 @@ export function CharacterCounter({ current = 0, max = 100, className }) {
     </span>
   );
 }
+

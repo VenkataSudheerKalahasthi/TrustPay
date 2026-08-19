@@ -11,14 +11,15 @@ export function SecurityAlertCard({ incident }) {
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-2 mb-1">
-          <h4 className="text-xs font-bold text-surface-100">{incident.title}</h4>
+          <h4 className="text-xs font-bold text-surface-900">{incident.title}</h4>
           <span className={`text-3xs font-mono uppercase font-bold px-2 py-0.5 rounded ${isHigh ? 'bg-red-500/20 text-red-300' : 'bg-amber-500/20 text-amber-300'}`}>
             {incident.severity}
           </span>
         </div>
-        <p className="text-3xs text-surface-300 line-clamp-2 mb-2">{incident.description}</p>
+        <p className="text-3xs text-surface-700 line-clamp-2 mb-2">{incident.description}</p>
         <span className="text-3xs font-mono text-surface-500">Reported: {new Date(incident.createdAt).toLocaleDateString()}</span>
       </div>
     </div>
   );
 }
+

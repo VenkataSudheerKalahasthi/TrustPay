@@ -43,7 +43,7 @@ export function WalletManagementPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Wallet className="w-6 h-6 text-sky-400" />
+          <Wallet className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Escrow Wallet Inspection & Freeze Control
         </h1>
         <p className="text-slate-400 text-sm">Escrow balance inspection, hold monitoring, and administrative wallet freezes</p>

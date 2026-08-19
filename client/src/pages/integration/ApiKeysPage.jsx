@@ -52,22 +52,22 @@ export function ApiKeysPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Key size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Key size={20} className="text-primary-600" />
           <span>Public REST API Keys</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Generate API keys for external REST API integration with SHA-256 secret hashing.
         </p>
       </div>
 
-      <form onSubmit={handleGenerate} className="p-4 rounded-2xl bg-surface-900 border border-surface-800 flex gap-3">
+      <form onSubmit={handleGenerate} className="p-4 rounded-2xl bg-card border border-surface-200 flex gap-3">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="API Key Name (e.g. Production Zapier Integration)"
-          className="flex-1 px-4 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+          className="flex-1 px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
         />
         <Button size="sm" variant="primary" type="submit" isLoading={generating} leftIcon={<Plus size={14} />}>
           Generate Key
@@ -86,3 +86,4 @@ export function ApiKeysPage() {
     </div>
   );
 }
+

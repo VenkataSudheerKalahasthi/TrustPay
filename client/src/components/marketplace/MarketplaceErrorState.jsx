@@ -8,7 +8,7 @@ export function MarketplaceErrorState({ title = 'Failed to load opportunity data
         <AlertTriangle size={24} />
       </div>
       <h4 className="text-xs font-bold text-red-200">{title}</h4>
-      <p className="text-3xs text-surface-400">Please check your connection or click retry to reload.</p>
+      <p className="text-3xs text-surface-600">Please check your connection or click retry to reload.</p>
       {onRetry && (
         <Button size="xs" variant="outline" onClick={onRetry} leftIcon={<RefreshCw size={12} />}>
           Retry Request
@@ -17,3 +17,4 @@ export function MarketplaceErrorState({ title = 'Failed to load opportunity data
     </div>
   );
 }
+

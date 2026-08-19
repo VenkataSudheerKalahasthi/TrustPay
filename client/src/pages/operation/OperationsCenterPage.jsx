@@ -24,20 +24,21 @@ export function OperationsCenterPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Activity size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Activity size={20} className="text-primary-600" />
           <span>Operations Center & Background Logs</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Track background jobs, system maintenance operations, operational categories, and audit logs.
         </p>
       </div>
 
       {loading ? (
-        <p className="text-xs text-surface-400">Loading operation logs...</p>
+        <p className="text-xs text-surface-600">Loading operation logs...</p>
       ) : (
         <OperationLogTable operations={operations} />
       )}
     </div>
   );
 }
+

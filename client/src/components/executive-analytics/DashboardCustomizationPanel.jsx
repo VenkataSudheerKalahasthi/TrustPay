@@ -8,7 +8,7 @@ export function DashboardCustomizationPanel({ dashboard, onAddWidget }) {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Layout className="w-5 h-5 text-sky-400" />
+            <Layout className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Dashboard Widget Customization Panel
           </h3>
           <p className="text-xs text-slate-400">Add KPI scorecards, charts, and telemetry widgets to your active layout</p>
@@ -35,7 +35,7 @@ export function DashboardCustomizationPanel({ dashboard, onAddWidget }) {
                 <p className="text-sm font-bold text-white">{w.title}</p>
                 <p className="text-xs text-slate-400">{w.type} • {w.metricKey}</p>
               </div>
-              <span className="text-xs text-sky-400 font-mono">[{w.width}x{w.height}]</span>
+              <span className="text-xs text-sky-400 dark:text-primary-400 font-mono">[{w.width}x{w.height}]</span>
             </div>
           ))
         )}

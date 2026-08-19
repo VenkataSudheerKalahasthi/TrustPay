@@ -63,10 +63,10 @@ export function ClientAnalyticsPage() {
   if (loading) {
     return (
       <div className="space-y-6 max-w-7xl mx-auto">
-        <div className="h-16 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+        <div className="h-16 bg-card border border-surface-200 rounded-2xl animate-pulse" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-32 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+            <div key={i} className="h-32 bg-card border border-surface-200 rounded-2xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -75,7 +75,7 @@ export function ClientAnalyticsPage() {
 
   if (error || !data) {
     return (
-      <div className="max-w-md mx-auto p-8 rounded-2xl bg-surface-900 border border-red-500/30 text-center space-y-4">
+      <div className="max-w-md mx-auto p-8 rounded-2xl bg-card border border-red-500/30 text-center space-y-4">
         <p className="text-xs text-red-400">{error || 'Failed to load analytics'}</p>
         <Button size="sm" variant="secondary" onClick={fetchAnalytics} leftIcon={<RefreshCw size={14} />}>
           Retry
@@ -91,8 +91,8 @@ export function ClientAnalyticsPage() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50">Client Analytics & Financial Dashboard</h1>
-          <p className="text-xs text-surface-400">
+          <h1 className="text-xl font-bold text-surface-900">Client Analytics & Financial Dashboard</h1>
+          <p className="text-xs text-surface-600">
             Realtime project execution progress, escrow wallet balances, and contract activity.
           </p>
         </div>
@@ -146,20 +146,20 @@ export function ClientAnalyticsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2">
-          <Card className="p-5 bg-surface-900 border-surface-800 space-y-4">
-            <h3 className="text-sm font-bold text-surface-100">Recent Invoice Timeline</h3>
+          <Card className="p-5 bg-card border-surface-200 space-y-4">
+            <h3 className="text-sm font-bold text-surface-900">Recent Invoice Timeline</h3>
             {metrics.recentInvoices && metrics.recentInvoices.length > 0 ? (
               <div className="divide-y divide-surface-800">
                 {metrics.recentInvoices.map((inv) => (
                   <div key={inv.id} className="py-3 flex items-center justify-between text-xs">
                     <div>
-                      <span className="font-semibold text-surface-100 block">{inv.invoiceNumber}</span>
-                      <span className="text-2xs text-surface-400">
+                      <span className="font-semibold text-surface-900 block">{inv.invoiceNumber}</span>
+                      <span className="text-2xs text-surface-600">
                         Created: {new Date(inv.createdAt).toLocaleDateString()}
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="font-bold text-surface-200 block">
+                      <span className="font-bold text-surface-800 block">
                         ₹{Number(inv.totalAmount || 0).toLocaleString()}
                       </span>
                       <span className="text-3xs text-emerald-400 uppercase font-semibold">{inv.status}</span>
@@ -187,3 +187,4 @@ export function ClientAnalyticsPage() {
     </div>
   );
 }
+

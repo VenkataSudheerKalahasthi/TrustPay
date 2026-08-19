@@ -43,10 +43,10 @@ export function ContractsListPage() {
       {/* Top Bar Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-surface-100 font-display">
+          <h1 className="text-2xl font-bold text-surface-900 font-display">
             Digital Contracts
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Manage your service agreements, versioning, digital signatures & milestones.
           </p>
         </div>
@@ -76,7 +76,7 @@ export function ContractsListPage() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="w-full md:w-48 bg-surface-900 border border-surface-800 rounded-xl px-3 py-2 text-xs text-surface-200 focus:outline-none focus:border-primary-500"
+          className="w-full md:w-48 bg-card border border-surface-200 rounded-xl px-3 py-2 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
         >
           <option value="">All Statuses</option>
           <option value="DRAFT">Draft</option>
@@ -92,9 +92,9 @@ export function ContractsListPage() {
         <PageLoader />
       ) : contracts.length === 0 ? (
         <div className="glass-card p-12 text-center space-y-3">
-          <FileText size={40} className="mx-auto text-surface-600" />
-          <h3 className="text-base font-bold text-surface-200">No contracts found</h3>
-          <p className="text-xs text-surface-400 max-w-sm mx-auto">
+          <FileText size={40} className="mx-auto text-surface-500" />
+          <h3 className="text-base font-bold text-surface-900">No contracts found</h3>
+          <p className="text-xs text-surface-500 max-w-sm mx-auto">
             You don't have any digital contracts matching your filter criteria. Create a new contract to get started.
           </p>
         </div>
@@ -111,41 +111,41 @@ export function ContractsListPage() {
             return (
               <div
                 key={cnt.id}
-                className="glass-card p-5 flex flex-col justify-between hover:border-surface-700 transition-all group"
+                className="glass-card p-5 flex flex-col justify-between hover:border-surface-300 transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-2xs font-mono text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded-md border border-primary-500/20">
+                    <span className="text-2xs font-mono text-primary-600 bg-primary-50 px-2 py-0.5 rounded-md border border-primary-100">
                       {cnt.contractNumber}
                     </span>
                     <ContractStatusBadge status={cnt.status} />
                   </div>
 
-                  <h3 className="text-sm font-bold text-surface-100 font-display line-clamp-1 mb-1">
+                  <h3 className="text-sm font-bold text-surface-900 font-display line-clamp-1 mb-1">
                     {cnt.title}
                   </h3>
 
-                  <p className="text-xs text-surface-400 line-clamp-2 mb-4 leading-relaxed">
+                  <p className="text-xs text-surface-600 line-clamp-2 mb-4 leading-relaxed">
                     {cnt.scopeOfWork}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-surface-800/80 space-y-2">
-                  <div className="flex items-center justify-between text-2xs text-surface-400">
+                <div className="pt-3 border-t border-surface-200 space-y-2">
+                  <div className="flex items-center justify-between text-2xs text-surface-500">
                     <span>Parties:</span>
-                    <span className="font-semibold text-surface-200">
+                    <span className="font-semibold text-surface-900">
                       {clientName} & {workerName}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between text-2xs text-surface-400">
+                  <div className="flex items-center justify-between text-2xs text-surface-500">
                     <div className="flex items-center gap-1">
-                      <Calendar size={12} className="text-surface-500" />
+                      <Calendar size={12} className="text-surface-600" />
                       <span>v{cnt.currentVersionNumber || 1}</span>
                     </div>
                     <Link
                       to={`/contracts/${cnt.id}`}
-                      className="inline-flex items-center gap-1 text-primary-400 hover:underline font-semibold"
+                      className="inline-flex items-center gap-1 text-primary-600 hover:underline font-semibold"
                     >
                       <span>View Details</span>
                       <ArrowUpRight size={12} />
@@ -160,3 +160,4 @@ export function ContractsListPage() {
     </div>
   );
 }
+

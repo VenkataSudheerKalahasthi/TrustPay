@@ -172,32 +172,32 @@ export function EditWorkerProfilePage() {
   const personalTab = (
     <div className="flex flex-col gap-4">
       <div>
-        <label className="text-xs font-semibold text-surface-300 block mb-1">Professional Title</label>
+        <label className="text-xs font-semibold text-surface-700 block mb-1">Professional Title</label>
         <input
           type="text"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
           placeholder="e.g. Senior Fullstack React & Node.js Engineer"
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
         />
       </div>
       <div>
-        <label className="text-xs font-semibold text-surface-300 block mb-1">About Me (Bio)</label>
+        <label className="text-xs font-semibold text-surface-700 block mb-1">About Me (Bio)</label>
         <textarea
           rows={5}
           value={formData.bio}
           onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
           placeholder="Describe your professional background, key achievements, and specialization..."
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
         />
       </div>
       <div>
-        <label className="text-xs font-semibold text-surface-300 block mb-1">Years of Experience</label>
+        <label className="text-xs font-semibold text-surface-700 block mb-1">Years of Experience</label>
         <input
           type="number"
           value={formData.yearsExperience}
           onChange={(e) => setFormData({ ...formData, yearsExperience: e.target.value })}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
         />
       </div>
     </div>
@@ -206,21 +206,21 @@ export function EditWorkerProfilePage() {
   const ratesTab = (
     <div className="flex flex-col gap-4">
       <div>
-        <label className="text-xs font-semibold text-surface-300 block mb-1">Hourly Rate (₹ INR)</label>
+        <label className="text-xs font-semibold text-surface-700 block mb-1">Hourly Rate (₹ INR)</label>
         <input
           type="number"
           value={formData.hourlyRate}
           onChange={(e) => setFormData({ ...formData, hourlyRate: e.target.value })}
           placeholder="e.g. 1500"
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
         />
       </div>
       <div>
-        <label className="text-xs font-semibold text-surface-300 block mb-1">Availability Status</label>
+        <label className="text-xs font-semibold text-surface-700 block mb-1">Availability Status</label>
         <select
           value={formData.availabilityStatus}
           onChange={(e) => setFormData({ ...formData, availabilityStatus: e.target.value })}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
         >
           <option value="AVAILABLE">Available Now</option>
           <option value="BUSY">Busy with Projects</option>
@@ -235,23 +235,23 @@ export function EditWorkerProfilePage() {
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs font-semibold text-surface-300 block mb-1">City</label>
+          <label className="text-xs font-semibold text-surface-700 block mb-1">City</label>
           <input
             type="text"
             value={formData.city}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
             placeholder="e.g. Bengaluru"
-            className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+            className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
           />
         </div>
         <div>
-          <label className="text-xs font-semibold text-surface-300 block mb-1">State</label>
+          <label className="text-xs font-semibold text-surface-700 block mb-1">State</label>
           <input
             type="text"
             value={formData.state}
             onChange={(e) => setFormData({ ...formData, state: e.target.value })}
             placeholder="e.g. Karnataka"
-            className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100 focus:outline-none focus:border-primary-500"
+            className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900 focus:outline-none focus:border-primary-600"
           />
         </div>
       </div>
@@ -278,28 +278,28 @@ export function EditWorkerProfilePage() {
   const portfolioTab = (
     <div className="flex flex-col gap-6">
       <form onSubmit={handleAddPortfolio} className="glass-card p-4 flex flex-col gap-3">
-        <h3 className="text-xs font-bold text-surface-200 uppercase tracking-wider">Add Portfolio Project</h3>
+        <h3 className="text-xs font-bold text-surface-800 uppercase tracking-wider">Add Portfolio Project</h3>
         <input
           type="text"
           value={newProject.title}
           onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
           placeholder="Project Title *"
           required
-          className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+          className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
         />
         <textarea
           rows={2}
           value={newProject.description}
           onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
           placeholder="Project Description"
-          className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+          className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
         />
         <input
           type="text"
           value={newProject.technologies}
           onChange={(e) => setNewProject({ ...newProject, technologies: e.target.value })}
           placeholder="Technologies used (comma separated, e.g. React, Node.js, PostgreSQL)"
-          className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+          className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
         />
         <div className="grid grid-cols-2 gap-2">
           <input
@@ -307,14 +307,14 @@ export function EditWorkerProfilePage() {
             value={newProject.projectUrl}
             onChange={(e) => setNewProject({ ...newProject, projectUrl: e.target.value })}
             placeholder="Live Demo URL"
-            className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+            className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
           />
           <input
             type="url"
             value={newProject.githubUrl}
             onChange={(e) => setNewProject({ ...newProject, githubUrl: e.target.value })}
             placeholder="GitHub Repo URL"
-            className="w-full px-3 py-1.5 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+            className="w-full px-3 py-1.5 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
           />
         </div>
         <Button type="submit" variant="outline" size="xs" leftIcon={<Plus size={14} />}>
@@ -333,13 +333,13 @@ export function EditWorkerProfilePage() {
   const verificationTab = (
     <div className="flex flex-col gap-6">
       <form onSubmit={handleSubmitVerificationDoc} className="glass-card p-5 flex flex-col gap-3">
-        <h3 className="text-xs font-bold text-surface-200 uppercase tracking-wider">
+        <h3 className="text-xs font-bold text-surface-800 uppercase tracking-wider">
           Upload Government Verification Document
         </h3>
         <select
           value={docType}
           onChange={(e) => setDocType(e.target.value)}
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-200"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-800"
         >
           <option value="GOVERNMENT_ID">Government Issued ID</option>
           <option value="PASSPORT">Passport</option>
@@ -352,14 +352,14 @@ export function EditWorkerProfilePage() {
           value={docNumber}
           onChange={(e) => setDocNumber(e.target.value)}
           placeholder="Document ID Number (Optional)"
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
         />
         <input
           type="url"
           value={docUrl}
           onChange={(e) => setDocUrl(e.target.value)}
           placeholder="Document File Storage URL"
-          className="w-full px-3 py-2 text-xs bg-surface-950 border border-surface-800 rounded-xl text-surface-100"
+          className="w-full px-3 py-2 text-xs bg-card border border-surface-200 rounded-xl text-surface-900"
         />
         <Button type="submit" variant="primary" size="xs" leftIcon={<Upload size={14} />}>
           Submit Document for Audit
@@ -368,13 +368,13 @@ export function EditWorkerProfilePage() {
 
       {/* Submitted Documents History */}
       <div className="glass-card p-5 flex flex-col gap-3">
-        <h4 className="text-xs font-bold text-surface-200 uppercase tracking-wider">Document History</h4>
+        <h4 className="text-xs font-bold text-surface-800 uppercase tracking-wider">Document History</h4>
         {(profile?.verificationDocuments || []).length === 0 ? (
           <p className="text-xs text-surface-500">No verification documents submitted yet.</p>
         ) : (
           profile.verificationDocuments.map((doc) => (
-            <div key={doc.id} className="flex items-center justify-between p-3 rounded-xl bg-surface-950 border border-surface-800 text-xs">
-              <span className="font-semibold text-surface-100">{doc.documentType}</span>
+            <div key={doc.id} className="flex items-center justify-between p-3 rounded-xl bg-card border border-surface-200 text-xs">
+              <span className="font-semibold text-surface-900">{doc.documentType}</span>
               <span className="text-2xs font-mono text-warning-400">{doc.verificationStatus}</span>
             </div>
           ))
@@ -402,7 +402,7 @@ export function EditWorkerProfilePage() {
       {/* Main Form Area */}
       <form onSubmit={handleSaveProfile} className="flex flex-col gap-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold font-display text-surface-50">Edit Specialist Profile</h2>
+          <h2 className="text-xl font-bold font-display text-surface-900">Edit Specialist Profile</h2>
           <Button type="submit" variant="primary" size="sm" isLoading={isSaving} leftIcon={<Save size={14} />}>
             Save Changes
           </Button>
@@ -413,3 +413,4 @@ export function EditWorkerProfilePage() {
     </div>
   );
 }
+

@@ -189,7 +189,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-sidebar-overlay bg-surface-950/80 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-sidebar-overlay bg-card/40 backdrop-blur-sm lg:hidden"
           />
         )}
       </AnimatePresence>
@@ -198,19 +198,19 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
       <aside
         id="app-sidebar"
         className={cn(
-          'fixed left-0 top-0 z-sidebar h-screen bg-surface-900 border-r border-surface-800 flex flex-col transition-all duration-300 shadow-glow-sm',
+          'fixed left-0 top-0 z-sidebar h-screen bg-card border-r border-surface-200 flex flex-col transition-all duration-300 shadow-sm',
           collapsed ? 'lg:w-[4.5rem]' : 'lg:w-64',
           isOpen ? 'translate-x-0 w-64' : '-translate-x-full lg:translate-x-0'
         )}
       >
         {/* Logo */}
-        <div className="h-16 flex items-center justify-between px-4 border-b border-surface-800">
+        <div className="h-16 flex items-center justify-between px-4 border-b border-surface-200">
           <Link to={ROUTES.HOME} className="flex items-center gap-3 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-primary-500 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-gradient-brand flex items-center justify-center shrink-0 shadow-sm">
               <Shield className="w-4 h-4 text-white" />
             </div>
             {(!collapsed || isOpen) && (
-              <span className="font-display font-bold text-lg text-surface-50 truncate">
+              <span className="font-display font-bold text-lg text-surface-900 truncate">
                 Trust<span className="gradient-text">Pay</span>
               </span>
             )}
@@ -219,7 +219,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
           <button
             type="button"
             onClick={onClose}
-            className="lg:hidden text-surface-400 hover:text-surface-100 p-1"
+            className="lg:hidden text-surface-500 hover:text-surface-900 p-1"
           >
             <X size={20} />
           </button>
@@ -227,8 +227,8 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
 
         {/* User Role Badge */}
         {(!collapsed || isOpen) && (
-          <div className="px-4 py-2 border-b border-surface-800/60 bg-surface-800/30 flex items-center justify-between">
-            <span className="text-2xs font-semibold uppercase tracking-wider text-surface-400">
+          <div className="px-4 py-2 border-b border-surface-200/60 bg-surface-50 flex items-center justify-between">
+            <span className="text-2xs font-semibold uppercase tracking-wider text-surface-500">
               Role Workspace
             </span>
             <Badge
@@ -253,8 +253,8 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                     className={cn(
                       'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group',
                       active
-                        ? 'bg-primary-500/10 text-primary-400 border border-primary-500/20 font-semibold'
-                        : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800/60'
+                        ? 'bg-primary-50 text-primary-700 border border-primary-200 font-semibold shadow-sm'
+                        : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100'
                     )}
                   >
                     <Icon size={20} className="shrink-0" />
@@ -262,7 +262,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                       <span className="flex-1 whitespace-nowrap overflow-hidden">{label}</span>
                     )}
                     {collapsed && !isOpen && (
-                      <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
+                      <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-card text-surface-900 rounded-lg border border-surface-200 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
                         {label}
                       </span>
                     )}
@@ -274,7 +274,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
         </nav>
 
         {/* Bottom Navigation */}
-        <div className="px-2 py-3 border-t border-surface-800">
+        <div className="px-2 py-3 border-t border-surface-200">
           {bottomNav.map(({ icon: Icon, label, href }) => (
             <Link
               key={href}
@@ -283,8 +283,8 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
               className={cn(
                 'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group relative mb-1',
                 isActive(href)
-                  ? 'bg-primary-500/10 text-primary-400 font-semibold'
-                  : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800/60'
+                  ? 'bg-primary-50 text-primary-700 font-semibold shadow-sm'
+                  : 'text-surface-600 hover:text-surface-900 hover:bg-surface-100'
               )}
             >
               <Icon size={20} className="shrink-0" />
@@ -292,7 +292,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                 <span className="whitespace-nowrap overflow-hidden">{label}</span>
               )}
               {collapsed && !isOpen && (
-                <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
+                <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-card text-surface-900 rounded-lg border border-surface-200 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
                   {label}
                 </span>
               )}
@@ -303,7 +303,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
           <button
             id="sidebar-collapse-btn"
             onClick={toggleCollapsed}
-            className="hidden lg:flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-surface-500 hover:text-surface-300 hover:bg-surface-800 transition-all duration-200 w-full mt-1"
+            className="hidden lg:flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-surface-500 hover:text-surface-900 hover:bg-surface-100 transition-all duration-200 w-full mt-1"
             aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             <ChevronLeft
@@ -317,3 +317,4 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
     </>
   );
 }
+

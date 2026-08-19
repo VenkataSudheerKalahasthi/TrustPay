@@ -68,7 +68,7 @@ export function CustomerFeedbackPage() {
                   <td className="py-3.5 px-4 font-medium text-white">
                     {fb.user?.firstName} {fb.user?.lastName}
                   </td>
-                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400">{fb.type}</td>
+                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400 dark:text-primary-400">{fb.type}</td>
                   <td className="py-3.5 px-4 font-mono font-bold text-amber-400">{fb.rating} ★</td>
                   <td className="py-3.5 px-4 text-xs">
                     <span className="font-bold text-white block">{fb.title}</span>

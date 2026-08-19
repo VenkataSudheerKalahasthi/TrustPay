@@ -25,8 +25,8 @@ export function DeliverableList({
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-surface-100">Project Deliverables</h3>
-          <p className="text-xs text-surface-400">
+          <h3 className="text-sm font-semibold text-surface-900">Project Deliverables</h3>
+          <p className="text-xs text-surface-600">
             Immutable versioned deliverable submissions and client approval workflow
           </p>
         </div>
@@ -38,8 +38,8 @@ export function DeliverableList({
       </div>
 
       {deliverables.length === 0 ? (
-        <Card className="p-8 text-center bg-surface-900 border-surface-800">
-          <p className="text-xs text-surface-400">No deliverables recorded for this project yet.</p>
+        <Card className="p-8 text-center bg-card border-surface-200">
+          <p className="text-xs text-surface-600">No deliverables recorded for this project yet.</p>
         </Card>
       ) : (
         <div className="space-y-3">
@@ -49,28 +49,28 @@ export function DeliverableList({
             const canClientReview = isClientOwner && (d.status === 'SUBMITTED' || d.status === 'UNDER_REVIEW');
 
             return (
-              <Card key={d.id} className="p-4 bg-surface-900 border-surface-800 hover:border-surface-700 transition-colors">
+              <Card key={d.id} className="p-4 bg-card border-surface-200 hover:border-surface-300 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h4 className="text-sm font-semibold text-surface-100">{d.title}</h4>
+                      <h4 className="text-sm font-semibold text-surface-900">{d.title}</h4>
                       <Badge variant={config.variant} size="sm">
                         {config.label}
                       </Badge>
-                      <span className="text-2xs font-mono text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded">
+                      <span className="text-2xs font-mono text-primary-600 bg-primary-50 px-2 py-0.5 rounded">
                         v{d.currentVersion}
                       </span>
                     </div>
 
                     {d.description && (
-                      <p className="text-xs text-surface-400 mb-2 leading-relaxed">
+                      <p className="text-xs text-surface-600 mb-2 leading-relaxed">
                         {d.description}
                       </p>
                     )}
 
                     {d.clientFeedback && (
-                      <div className="p-2.5 rounded-xl bg-surface-800/80 border border-surface-700/60 text-xs text-surface-300 mb-2">
-                        <span className="font-semibold text-surface-200 block text-2xs mb-0.5">Client Feedback:</span>
+                      <div className="p-2.5 rounded-xl bg-surface-100/80 border border-surface-300/60 text-xs text-surface-700 mb-2">
+                        <span className="font-semibold text-surface-800 block text-2xs mb-0.5">Client Feedback:</span>
                         {d.clientFeedback}
                       </div>
                     )}
@@ -140,3 +140,4 @@ export function DeliverableList({
     </div>
   );
 }
+

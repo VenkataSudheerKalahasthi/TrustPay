@@ -60,14 +60,14 @@ export function SearchResultsPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Header Search Input */}
-      <div className="p-6 rounded-2xl bg-surface-900 border border-surface-800 space-y-4">
+      <div className="p-6 rounded-2xl bg-card border border-surface-200 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-              <Search size={20} className="text-primary-400" />
+            <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+              <Search size={20} className="text-primary-600" />
               <span>Unified Global Search</span>
             </h1>
-            <p className="text-xs text-surface-400">
+            <p className="text-xs text-surface-600">
               Cross-module search across Projects, Contracts, Workers, Clients, Messages, and Payments.
             </p>
           </div>
@@ -80,17 +80,17 @@ export function SearchResultsPage() {
         </div>
 
         <form onSubmit={handleSearchSubmit} className="relative">
-          <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-surface-400" />
+          <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-surface-600" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search keywords, project numbers, contracts, chat messages..."
-            className="w-full pl-11 pr-24 py-3 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+            className="w-full pl-11 pr-24 py-3 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
           />
           <button
             type="submit"
-            className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 rounded-lg bg-primary-500 hover:bg-primary-600 text-white text-xs font-semibold shadow-glow"
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 rounded-lg bg-primary-500 hover:bg-primary-600 text-white text-xs font-semibold shadow"
           >
             Search
           </button>
@@ -107,27 +107,27 @@ export function SearchResultsPage() {
           {loading ? (
             <div className="space-y-3">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-28 rounded-xl bg-surface-900 border border-surface-800 animate-pulse" />
+                <div key={i} className="h-28 rounded-xl bg-card border border-surface-200 animate-pulse" />
               ))}
             </div>
           ) : error ? (
-            <div className="p-6 rounded-2xl bg-surface-900 border border-red-500/30 text-center space-y-3">
+            <div className="p-6 rounded-2xl bg-card border border-red-500/30 text-center space-y-3">
               <p className="text-xs text-red-400">{error}</p>
               <Button size="sm" variant="secondary" onClick={fetchResults} leftIcon={<RefreshCw size={14} />}>
                 Retry
               </Button>
             </div>
           ) : results.length === 0 ? (
-            <div className="p-12 text-center rounded-2xl bg-surface-900 border border-surface-800">
+            <div className="p-12 text-center rounded-2xl bg-card border border-surface-200">
               <Search className="w-12 h-12 text-surface-600 mx-auto mb-3" />
-              <h3 className="text-sm font-semibold text-surface-200">No Matching Results</h3>
-              <p className="text-xs text-surface-400 max-w-xs mx-auto mt-1">
+              <h3 className="text-sm font-semibold text-surface-800">No Matching Results</h3>
+              <p className="text-xs text-surface-600 max-w-xs mx-auto mt-1">
                 We couldn't find any records matching "{queryParam}". Try searching for alternative keywords.
               </p>
             </div>
           ) : (
             <div className="space-y-3">
-              <p className="text-xs text-surface-400 font-semibold">
+              <p className="text-xs text-surface-600 font-semibold">
                 Found {results.length} result(s) for "{queryParam}"
               </p>
               {results.map((r) => (
@@ -144,3 +144,4 @@ export function SearchResultsPage() {
     </div>
   );
 }
+

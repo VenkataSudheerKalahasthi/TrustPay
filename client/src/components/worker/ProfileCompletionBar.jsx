@@ -2,16 +2,16 @@ import { AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export function ProfileCompletionBar({ completionPercentage = 0, missingItems = [] }) {
   return (
-    <div className="p-4 rounded-2xl bg-surface-900 border border-surface-800 flex flex-col gap-3">
+    <div className="p-4 rounded-2xl bg-card border border-surface-200 flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-surface-200">Profile Completion</span>
-          <span className="text-2xs font-mono px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-400 font-semibold border border-primary-500/20">
+          <span className="text-xs font-bold text-surface-800">Profile Completion</span>
+          <span className="text-2xs font-mono px-2 py-0.5 rounded-full bg-primary-50 text-primary-600 font-semibold border border-primary-100">
             {completionPercentage}%
           </span>
         </div>
         {completionPercentage === 100 ? (
-          <div className="flex items-center gap-1 text-2xs text-success-400 font-semibold">
+          <div className="flex items-center gap-1 text-2xs text-success-600 font-semibold">
             <CheckCircle2 size={14} />
             <span>Profile Fully Complete</span>
           </div>
@@ -24,7 +24,7 @@ export function ProfileCompletionBar({ completionPercentage = 0, missingItems = 
       </div>
 
       {/* Progress Bar */}
-      <div className="h-2 w-full bg-surface-950 rounded-full overflow-hidden border border-surface-800">
+      <div className="h-2 w-full bg-card rounded-full overflow-hidden border border-surface-200">
         <div
           className="h-full bg-gradient-brand transition-all duration-500 rounded-full"
           style={{ width: `${completionPercentage}%` }}
@@ -34,7 +34,7 @@ export function ProfileCompletionBar({ completionPercentage = 0, missingItems = 
       {/* Missing Items Checklist */}
       {missingItems.length > 0 && (
         <div className="mt-1 flex flex-wrap gap-2">
-          <span className="text-2xs text-surface-400">Missing:</span>
+          <span className="text-2xs text-surface-600">Missing:</span>
           {missingItems.map((item, idx) => (
             <span
               key={idx}
@@ -48,3 +48,4 @@ export function ProfileCompletionBar({ completionPercentage = 0, missingItems = 
     </div>
   );
 }
+

@@ -5,7 +5,7 @@ export function ConfigurationEditor({ configs = [], onSave }) {
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
       <div className="flex items-center justify-between pb-3 border-b border-slate-800">
         <h3 className="text-lg font-bold text-white flex items-center gap-2">
-          <Settings className="w-5 h-5 text-sky-400" />
+          <Settings className="w-5 h-5 text-sky-400 dark:text-primary-400" />
           Platform Key-Value Configuration Manager
         </h3>
       </div>
@@ -14,7 +14,7 @@ export function ConfigurationEditor({ configs = [], onSave }) {
         {configs.map((cfg) => (
           <div key={cfg.id || cfg.configKey} className="flex items-center justify-between gap-4 p-3 bg-slate-800/40 rounded-xl border border-slate-800">
             <div>
-              <span className="text-xs font-mono font-bold text-sky-400 block">{cfg.configKey}</span>
+              <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 block">{cfg.configKey}</span>
               <p className="text-[11px] text-slate-400">{cfg.description || 'Global configuration token'}</p>
             </div>
 

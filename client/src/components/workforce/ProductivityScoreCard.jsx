@@ -24,7 +24,7 @@ export function ProductivityScoreCard({ metrics }) {
 
       <div className="grid grid-cols-3 gap-4 text-center">
         <div className="bg-slate-800/40 border border-slate-800 rounded-lg p-3">
-          <Zap className="w-4 h-4 text-sky-400 mx-auto mb-1" />
+          <Zap className="w-4 h-4 text-sky-400 dark:text-primary-400 mx-auto mb-1" />
           <span className="text-lg font-bold text-white block">{utilPct}%</span>
           <span className="text-[11px] text-slate-400">Billable Utilization</span>
         </div>

@@ -8,7 +8,7 @@ export function BulkOperationProgress({ operation }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-mono font-bold text-sky-400 uppercase">{operation.operationType}</span>
+        <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 uppercase">{operation.operationType}</span>
         <span
           className={`flex items-center gap-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
             isCompleted ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'

@@ -40,9 +40,9 @@ export function WorkforceDashboardPage() {
   return (
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       {/* Top Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/40 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+      <div className="bg-gradient-to-r from-slate-900 dark:from-[#0A120E] via-slate-900 dark:via-[#07100B] to-sky-950/40 dark:to-primary-950/20 border border-slate-800 dark:border-primary-900/30 rounded-2xl p-8 shadow-2xl">
         <div className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-sky-400">Enterprise Operations</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-sky-400 dark:text-primary-400">Enterprise Operations</span>
           <h1 className="text-3xl md:text-4xl font-black text-white mt-1">Workforce & Productivity Suite</h1>
           <p className="text-slate-300 text-sm md:text-base mt-2">
             Schedule work shifts, track active hours, manage capacity plans, review leave, and leverage AI workforce insights.
@@ -65,7 +65,7 @@ export function WorkforceDashboardPage() {
       {/* AI Advisory Insights Panel */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl">
+          <div className="p-2.5 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-xl">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
@@ -80,7 +80,7 @@ export function WorkforceDashboardPage() {
               <div key={ins.id} className="bg-slate-800/40 border border-slate-800 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="text-sm font-bold text-white">{ins.title}</h4>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${ins.severity === 'WARNING' ? 'bg-amber-500/20 text-amber-400' : 'bg-sky-500/20 text-sky-400'}`}>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${ins.severity === 'WARNING' ? 'bg-amber-500/20 text-amber-400' : 'bg-sky-500/20 text-sky-400 dark:text-primary-400'}`}>
                     {ins.severity}
                   </span>
                 </div>

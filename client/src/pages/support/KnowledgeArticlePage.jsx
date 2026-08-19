@@ -21,7 +21,7 @@ export function KnowledgeArticlePage() {
     return (
       <div className="py-12 text-center text-slate-400">
         <p>Knowledge article not found.</p>
-        <button onClick={() => navigate(-1)} className="mt-4 text-sky-400 font-semibold">
+        <button onClick={() => navigate(-1)} className="mt-4 text-sky-400 dark:text-primary-400 font-semibold">
           Go Back
         </button>
       </div>
@@ -40,7 +40,7 @@ export function KnowledgeArticlePage() {
 
       {article && (
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl space-y-6 max-w-4xl">
-          <div className="flex items-center gap-2 text-xs font-bold text-sky-400">
+          <div className="flex items-center gap-2 text-xs font-bold text-sky-400 dark:text-primary-400">
             <BookOpen className="w-4 h-4" />
             <span>{article.category?.name || 'General Documentation'}</span>
           </div>

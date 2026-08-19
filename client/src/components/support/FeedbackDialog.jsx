@@ -52,7 +52,7 @@ export function FeedbackDialog({ isOpen, onClose, onSuccess }) {
                   key={star}
                   type="button"
                   onClick={() => setRating(star)}
-                  className="p-1 text-slate-600 hover:text-amber-400 transition-colors"
+                  className="p-1 text-surface-600 hover:text-amber-400 transition-colors"
                 >
                   <Star
                     className={`w-7 h-7 ${star <= rating ? 'text-amber-400 fill-amber-400' : 'text-slate-700'}`}

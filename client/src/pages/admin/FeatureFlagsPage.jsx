@@ -33,18 +33,18 @@ export function FeatureFlagsPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <ToggleLeft size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <ToggleLeft size={20} className="text-primary-600" />
           <span>Platform Feature Flags & Rollouts</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Control platform feature rollouts, targeting rules, and gradual rollout percentages.
         </p>
       </div>
 
       <div className="space-y-3">
         {loading ? (
-          <p className="text-xs text-surface-400">Loading feature flags...</p>
+          <p className="text-xs text-surface-600">Loading feature flags...</p>
         ) : (
           flags.map((flag) => (
             <FeatureFlagToggle key={flag.id} flag={flag} onToggle={handleToggle} />
@@ -54,3 +54,4 @@ export function FeatureFlagsPage() {
     </div>
   );
 }
+

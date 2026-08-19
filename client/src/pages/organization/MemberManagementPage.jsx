@@ -57,11 +57,11 @@ export function MemberManagementPage() {
     <div className="max-w-7xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-            <Users size={20} className="text-primary-400" />
+          <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+            <Users size={20} className="text-primary-600" />
             <span>Member Management & RBAC</span>
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Invite organization members, assign fine-grained roles, and inspect effective permission matrices.
           </p>
         </div>
@@ -70,7 +70,7 @@ export function MemberManagementPage() {
           <select
             value={selectedOrgId || ''}
             onChange={(e) => setSelectedOrgId(e.target.value)}
-            className="bg-surface-900 border border-surface-800 text-xs font-semibold text-surface-100 rounded-xl px-3 py-2"
+            className="bg-card border border-surface-200 text-xs font-semibold text-surface-900 rounded-xl px-3 py-2"
           >
             {organizations.map((o) => (
               <option key={o.id} value={o.id}>
@@ -82,18 +82,18 @@ export function MemberManagementPage() {
       </div>
 
       {/* Invite Member Form */}
-      <form onSubmit={handleInvite} className="p-4 rounded-2xl bg-surface-900 border border-surface-800 flex flex-wrap gap-3">
+      <form onSubmit={handleInvite} className="p-4 rounded-2xl bg-card border border-surface-200 flex flex-wrap gap-3">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="New member email address..."
-          className="flex-1 min-w-[200px] px-4 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+          className="flex-1 min-w-[200px] px-4 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
         />
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
-          className="bg-surface-800 border border-surface-700 text-xs font-semibold text-surface-100 rounded-xl px-3"
+          className="bg-surface-50 border border-surface-300 text-xs font-semibold text-surface-900 rounded-xl px-3"
         >
           <option value="ADMIN">ADMIN</option>
           <option value="MANAGER">MANAGER</option>
@@ -123,3 +123,4 @@ export function MemberManagementPage() {
     </div>
   );
 }
+

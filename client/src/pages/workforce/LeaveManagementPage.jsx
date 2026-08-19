@@ -43,7 +43,7 @@ export function LeaveManagementPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Calendar className="w-6 h-6 text-sky-400" />
+            <Calendar className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Leave Management & Time Off
           </h1>
           <p className="text-slate-400 text-sm">Request vacation/sick leave, view annual balances, and process approvals</p>
@@ -107,7 +107,7 @@ export function LeaveManagementPage() {
                   <td className="py-3.5 px-4 font-medium text-white">
                     {req.workerUser?.firstName} {req.workerUser?.lastName}
                   </td>
-                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400">{req.leaveType}</td>
+                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400 dark:text-primary-400">{req.leaveType}</td>
                   <td className="py-3.5 px-4 text-xs text-slate-400">
                     {new Date(req.startDate).toLocaleDateString()} - {new Date(req.endDate).toLocaleDateString()}
                   </td>

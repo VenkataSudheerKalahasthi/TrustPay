@@ -33,21 +33,21 @@ export function DeliverableReviewModal({ isOpen, onClose, onSubmit, deliverable,
       : 'Reject Deliverable';
 
   return (
-    <div className="fixed inset-0 z-modal bg-surface-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-surface-900 border border-surface-800 rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
-        <div className="flex items-center justify-between border-b border-surface-800 pb-4 mb-4">
+    <div className="fixed inset-0 z-modal bg-card/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-card border border-surface-200 rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
+        <div className="flex items-center justify-between border-b border-surface-200 pb-4 mb-4">
           <div>
-            <h3 className="text-base font-semibold text-surface-100">{statusTitle}</h3>
-            <p className="text-2xs text-surface-400 font-mono">{deliverable.title}</p>
+            <h3 className="text-base font-semibold text-surface-900">{statusTitle}</h3>
+            <p className="text-2xs text-surface-600 font-mono">{deliverable.title}</p>
           </div>
-          <button onClick={onClose} className="text-surface-400 hover:text-surface-100 p-1">
+          <button onClick={onClose} className="text-surface-600 hover:text-surface-900 p-1">
             <X size={18} />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">
+            <label className="block text-xs font-semibold text-surface-700 mb-1">
               Client Review Comments / Feedback *
             </label>
             <textarea
@@ -60,11 +60,11 @@ export function DeliverableReviewModal({ isOpen, onClose, onSubmit, deliverable,
                   ? 'Acceptance notes for approval...'
                   : 'Specify details and requirements for revision...'
               }
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-200">
             <Button type="button" variant="ghost" size="sm" onClick={onClose}>
               Cancel
             </Button>
@@ -88,3 +88,4 @@ export function DeliverableReviewModal({ isOpen, onClose, onSubmit, deliverable,
     </div>
   );
 }
+

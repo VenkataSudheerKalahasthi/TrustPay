@@ -14,7 +14,7 @@ export function VersionHistoryTable({ versions = [] }) {
           {versions.map((ver) => (
             <tr key={ver.id} className="hover:bg-slate-800/30">
               <td className="py-3.5 px-4 font-mono font-bold text-white">v{ver.version}</td>
-              <td className="py-3.5 px-4 font-mono text-sky-400">{ver.buildNumber}</td>
+              <td className="py-3.5 px-4 font-mono text-sky-400 dark:text-primary-400">{ver.buildNumber}</td>
               <td className="py-3.5 px-4 text-xs font-mono text-slate-400">
                 {new Date(ver.releaseDate).toLocaleDateString()}
               </td>

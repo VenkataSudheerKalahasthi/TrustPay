@@ -32,7 +32,7 @@ const Radio = forwardRef(
           <div
             className={cn(
               'w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer',
-              'bg-surface-800 border-surface-700 peer-checked:border-primary-500',
+              'bg-surface-50 border-surface-300 peer-checked:border-primary-600',
               'peer-focus-visible:ring-2 peer-focus-visible:ring-primary-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-surface-950',
               disabled && 'opacity-50 cursor-not-allowed',
               error && 'border-danger-500',
@@ -45,8 +45,8 @@ const Radio = forwardRef(
 
         {(label || description) && (
           <label htmlFor={inputId} className="cursor-pointer text-sm">
-            {label && <span className="font-medium text-surface-200 block">{label}</span>}
-            {description && <span className="text-xs text-surface-400 block">{description}</span>}
+            {label && <span className="font-medium text-surface-800 block">{label}</span>}
+            {description && <span className="text-xs text-surface-600 block">{description}</span>}
           </label>
         )}
       </div>
@@ -59,11 +59,12 @@ Radio.displayName = 'Radio';
 export function RadioGroup({ children, label, error, className }) {
   return (
     <div className={cn('flex flex-col gap-2', className)}>
-      {label && <span className="text-sm font-medium text-surface-200">{label}</span>}
+      {label && <span className="text-sm font-medium text-surface-800">{label}</span>}
       <div className="flex flex-col gap-2">{children}</div>
-      {error && <span className="text-xs text-danger-400">{error}</span>}
+      {error && <span className="text-xs text-danger-600">{error}</span>}
     </div>
   );
 }
 
 export { Radio };
+

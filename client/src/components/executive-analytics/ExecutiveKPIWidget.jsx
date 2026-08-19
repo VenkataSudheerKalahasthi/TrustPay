@@ -26,7 +26,7 @@ export function ExecutiveKPIWidget({ kpi }) {
         </div>
       </div>
       <div className="flex items-center gap-1.5 text-xs text-slate-400 pt-2 border-t border-slate-800/80">
-        <Target className="w-3.5 h-3.5 text-sky-400" />
+        <Target className="w-3.5 h-3.5 text-sky-400 dark:text-primary-400" />
         <span>Warning Threshold: {kpi.warningValue} {kpi.unit}</span>
       </div>
     </div>

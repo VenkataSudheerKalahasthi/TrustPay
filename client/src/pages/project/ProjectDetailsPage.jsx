@@ -69,15 +69,15 @@ export function ProjectDetailsPage() {
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto space-y-4">
-        <div className="h-24 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
-        <div className="h-64 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+        <div className="h-24 bg-card border border-surface-200 rounded-2xl animate-pulse" />
+        <div className="h-64 bg-card border border-surface-200 rounded-2xl animate-pulse" />
       </div>
     );
   }
 
   if (error || !project) {
     return (
-      <div className="max-w-md mx-auto p-8 rounded-2xl bg-surface-900 border border-red-500/30 text-center space-y-4">
+      <div className="max-w-md mx-auto p-8 rounded-2xl bg-card border border-red-500/30 text-center space-y-4">
         <p className="text-xs text-red-400">{error || 'Project not found'}</p>
         <Button size="sm" variant="secondary" onClick={fetchProjectDetails} leftIcon={<RefreshCw size={14} />}>
           Retry
@@ -147,22 +147,22 @@ export function ProjectDetailsPage() {
         )}
       </div>
 
-      <Card className="p-6 bg-surface-900 border-surface-800 space-y-4">
+      <Card className="p-6 bg-card border-surface-200 space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-              <span className="text-xs font-mono font-bold text-primary-400 bg-primary-500/10 px-2.5 py-0.5 rounded-lg border border-primary-500/20">
+              <span className="text-xs font-mono font-bold text-primary-600 bg-primary-50 px-2.5 py-0.5 rounded-lg border border-primary-100">
                 {project.projectNumber}
               </span>
               <ProjectStatusBadge status={project.status} />
               {project.category && (
-                <span className="text-2xs text-surface-400 bg-surface-800 px-2 py-0.5 rounded-md">
+                <span className="text-2xs text-surface-600 bg-surface-50 px-2 py-0.5 rounded-md">
                   {project.category}
                 </span>
               )}
             </div>
 
-            <h1 className="text-xl font-bold text-surface-50">{project.title}</h1>
+            <h1 className="text-xl font-bold text-surface-900">{project.title}</h1>
           </div>
 
           <div className="flex items-center gap-3">
@@ -185,43 +185,43 @@ export function ProjectDetailsPage() {
         </div>
 
         {project.description && (
-          <p className="text-xs text-surface-300 leading-relaxed max-w-4xl">
+          <p className="text-xs text-surface-700 leading-relaxed max-w-4xl">
             {project.description}
           </p>
         )}
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-surface-800 text-xs">
-          <div className="flex items-center gap-2 text-surface-300">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-surface-200 text-xs">
+          <div className="flex items-center gap-2 text-surface-700">
             <User size={14} className="text-surface-500" />
             <div>
               <span className="text-surface-500 block text-2xs">Client</span>
-              <span className="font-semibold text-surface-100">{clientName}</span>
+              <span className="font-semibold text-surface-900">{clientName}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-surface-300">
+          <div className="flex items-center gap-2 text-surface-700">
             <User size={14} className="text-surface-500" />
             <div>
               <span className="text-surface-500 block text-2xs">Assigned Worker</span>
-              <span className="font-semibold text-surface-100">{workerName}</span>
+              <span className="font-semibold text-surface-900">{workerName}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-surface-300">
+          <div className="flex items-center gap-2 text-surface-700">
             <Calendar size={14} className="text-surface-500" />
             <div>
               <span className="text-surface-500 block text-2xs">Start Date</span>
-              <span className="font-semibold text-surface-100">
+              <span className="font-semibold text-surface-900">
                 {project.startDate ? new Date(project.startDate).toLocaleDateString() : 'N/A'}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-surface-300">
+          <div className="flex items-center gap-2 text-surface-700">
             <Calendar size={14} className="text-surface-500" />
             <div>
               <span className="text-surface-500 block text-2xs">Estimated Budget</span>
-              <span className="font-semibold text-surface-100">
+              <span className="font-semibold text-surface-900">
                 {project.estimatedBudget ? `₹${project.estimatedBudget.toLocaleString()}` : 'N/A'}
               </span>
             </div>
@@ -231,7 +231,7 @@ export function ProjectDetailsPage() {
 
       <ProjectProgressCard metrics={project.progressMetrics} />
 
-      <div className="flex items-center gap-2 border-b border-surface-800 overflow-x-auto scrollbar-hide text-xs">
+      <div className="flex items-center gap-2 border-b border-surface-200 overflow-x-auto scrollbar-hide text-xs">
         {[
           { id: 'milestones', label: 'Milestones & Dependencies', icon: Layers },
           { id: 'deliverables', label: 'Deliverables & Versions', icon: FileCheck },
@@ -246,8 +246,8 @@ export function ProjectDetailsPage() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-3 font-semibold transition-all border-b-2 whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'border-primary-500 text-primary-400 bg-surface-900/50'
-                  : 'border-transparent text-surface-400 hover:text-surface-200'
+                  ? 'border-primary-600 text-primary-600 bg-card/50'
+                  : 'border-transparent text-surface-600 hover:text-surface-800'
               }`}
             >
               <Icon size={14} />
@@ -302,8 +302,8 @@ export function ProjectDetailsPage() {
         )}
 
         {activeTab === 'timeline' && (
-          <Card className="p-6 bg-surface-900 border-surface-800">
-            <h3 className="text-sm font-semibold text-surface-100 mb-4">Project Chronological Timeline</h3>
+          <Card className="p-6 bg-card border-surface-200">
+            <h3 className="text-sm font-semibold text-surface-900 mb-4">Project Chronological Timeline</h3>
             <ProjectTimeline events={project.timelines || []} />
           </Card>
         )}
@@ -361,3 +361,4 @@ export function ProjectDetailsPage() {
     </div>
   );
 }
+

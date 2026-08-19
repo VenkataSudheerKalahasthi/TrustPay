@@ -15,7 +15,7 @@ export function BundleAnalysisCard({ analyses = [] }) {
             <span className="font-mono text-slate-300">{b.chunkName}</span>
             <div className="flex items-center gap-3 font-semibold">
               <span className="text-slate-400">{b.sizeKb} KB</span>
-              <span className="text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">gzip: {b.gzipKb} KB</span>
+              <span className="text-sky-400 dark:text-primary-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">gzip: {b.gzipKb} KB</span>
             </div>
           </div>
         ))}

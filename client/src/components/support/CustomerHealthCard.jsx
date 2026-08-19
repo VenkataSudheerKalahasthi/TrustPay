@@ -39,7 +39,7 @@ export function CustomerHealthCard({ health }) {
         </div>
         <div className="bg-slate-800/40 p-2.5 rounded-lg border border-slate-800">
           <span className="text-slate-400 block">Open Tickets</span>
-          <span className="font-bold text-sky-400 text-sm font-mono">{health.openTicketsCount || 0}</span>
+          <span className="font-bold text-sky-400 dark:text-primary-400 text-sm font-mono">{health.openTicketsCount || 0}</span>
         </div>
         <div className="bg-slate-800/40 p-2.5 rounded-lg border border-slate-800">
           <span className="text-slate-400 block">Dispute Cases</span>

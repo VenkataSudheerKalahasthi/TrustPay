@@ -17,7 +17,7 @@ export function AppLayout() {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div id="app-layout" className="flex flex-col min-h-screen bg-surface-950">
+    <div id="app-layout" className="flex flex-col min-h-screen bg-card">
       <Navbar />
 
       <main
@@ -32,3 +32,4 @@ export function AppLayout() {
     </div>
   );
 }
+

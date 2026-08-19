@@ -41,7 +41,7 @@ export function FinancialReportsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <FileText className="w-6 h-6 text-sky-400" />
+            <FileText className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Executive Financial Reporting
           </h1>
           <p className="text-slate-400 text-sm">Generate P&L statements, cash flow summaries, and audit ledgers</p>
@@ -80,7 +80,7 @@ export function FinancialReportsPage() {
               reports.map((rep) => (
                 <tr key={rep.id} className="hover:bg-slate-800/30">
                   <td className="py-3.5 px-4 font-bold text-white">{rep.title}</td>
-                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400">{rep.reportType}</td>
+                  <td className="py-3.5 px-4 text-xs font-bold text-sky-400 dark:text-primary-400">{rep.reportType}</td>
                   <td className="py-3.5 px-4 font-mono text-emerald-400 font-bold">₹{rep.totalRevenue.toLocaleString()}</td>
                   <td className="py-3.5 px-4 font-mono text-rose-400 font-bold">₹{rep.totalExpense.toLocaleString()}</td>
                   <td className="py-3.5 px-4 font-mono text-white font-bold">₹{rep.netProfit.toLocaleString()}</td>

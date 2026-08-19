@@ -15,15 +15,16 @@ export function MarketplaceSearchBar({ value, onChange, placeholder = 'Search jo
 
   return (
     <div className="relative">
-      <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-400" />
+      <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-600" />
       <input
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder={placeholder}
         aria-label="Search opportunity catalog"
-        className="w-full pl-10 pr-4 py-3 rounded-2xl bg-surface-900 border border-surface-800 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+        className="w-full pl-10 pr-4 py-3 rounded-2xl bg-card border border-surface-200 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
       />
     </div>
   );
 }
+

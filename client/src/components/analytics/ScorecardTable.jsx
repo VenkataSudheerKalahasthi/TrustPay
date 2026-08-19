@@ -7,7 +7,7 @@ export function ScorecardTable({ scorecard }) {
     <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl space-y-4 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-xs font-mono font-bold text-sky-400 uppercase">{scorecard.department}</span>
+          <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 uppercase">{scorecard.department}</span>
           <h3 className="text-xl font-bold text-white mt-0.5">{scorecard.title}</h3>
         </div>
 
@@ -31,7 +31,7 @@ export function ScorecardTable({ scorecard }) {
             <tr key={m.id} className="hover:bg-slate-800/30">
               <td className="py-3 px-4 font-medium text-white">{m.metricName}</td>
               <td className="py-3 px-4 font-mono text-slate-400">{m.target}</td>
-              <td className="py-3 px-4 font-mono font-bold text-sky-400">{m.actual}</td>
+              <td className="py-3 px-4 font-mono font-bold text-sky-400 dark:text-primary-400">{m.actual}</td>
               <td className="py-3 px-4 font-mono font-bold text-right text-emerald-400">{m.score}%</td>
             </tr>
           ))}

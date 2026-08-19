@@ -31,7 +31,7 @@ export function ReportExportModal({ isOpen, reportId, onClose, onExport }) {
       <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Download className="w-5 h-5 text-sky-400" />
+            <Download className="w-5 h-5 text-sky-400 dark:text-primary-400" />
             Export Executive Report
           </h3>
           <button onClick={onClose} className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
@@ -54,7 +54,7 @@ export function ReportExportModal({ isOpen, reportId, onClose, onExport }) {
                     isSel ? 'border-sky-500 bg-sky-500/10 text-white' : 'border-slate-800 bg-slate-800/40 text-slate-400 hover:border-slate-700'
                   }`}
                 >
-                  <IconComp className={`w-5 h-5 ${isSel ? 'text-sky-400' : 'text-slate-400'}`} />
+                  <IconComp className={`w-5 h-5 ${isSel ? 'text-sky-400 dark:text-primary-400' : 'text-slate-400'}`} />
                   <p className="text-xs font-bold">{f.label}</p>
                   <p className="text-[10px] text-slate-500">{f.desc}</p>
                 </button>

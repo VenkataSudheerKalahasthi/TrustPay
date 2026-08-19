@@ -22,8 +22,8 @@ export function AreaChartWidget({ title, data = [], dataKey = 'revenue', color =
   const lineD = `M ${points.map((p) => `${p.x} ${p.y}`).join(' L ')}`;
 
   return (
-    <Card className="p-5 bg-surface-900 border-surface-800 space-y-3">
-      <h3 className="text-sm font-bold text-surface-100">{title}</h3>
+    <Card className="p-5 bg-card border-surface-200 space-y-3">
+      <h3 className="text-sm font-bold text-surface-900">{title}</h3>
 
       <div className="w-full overflow-x-auto">
         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-48 overflow-visible">
@@ -51,3 +51,4 @@ export function AreaChartWidget({ title, data = [], dataKey = 'revenue', color =
     </Card>
   );
 }
+

@@ -19,7 +19,7 @@ export function PlatformMonitoringPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Activity className="w-6 h-6 text-sky-400" />
+          <Activity className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Real-Time Platform Monitoring & System Metrics
         </h1>
         <p className="text-slate-400 text-sm">Monitor user growth, digital contracts, escrow volumes, AI token usage, and webhook status</p>

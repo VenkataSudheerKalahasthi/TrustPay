@@ -11,9 +11,9 @@ export function SubscriptionCard({ plan, isCurrent = false, onSelect }) {
     >
       <div>
         <div className="flex items-center justify-between mb-4">
-          <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest">{plan.code}</span>
+          <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 uppercase tracking-widest">{plan.code}</span>
           {isCurrent && (
-            <span className="flex items-center gap-1 text-[10px] font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2.5 py-0.5 rounded-full">
+            <span className="flex items-center gap-1 text-[10px] font-bold bg-sky-500/10 text-sky-400 dark:text-primary-400 border border-sky-500/20 px-2.5 py-0.5 rounded-full">
               <Shield className="w-3 h-3" /> Current Plan
             </span>
           )}

@@ -34,7 +34,7 @@ export function ReportSchedulerPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Calendar className="w-6 h-6 text-sky-400" />
+            <Calendar className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Scheduled Reports & Automated Subscriptions
           </h1>
           <p className="text-slate-400 text-sm">Manage automated cron schedules for recurring email dispatch of executive reports</p>
@@ -52,14 +52,14 @@ export function ReportSchedulerPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {subscriptions.length === 0 ? (
           <div className="col-span-full py-16 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <Calendar className="w-10 h-10 text-slate-600 mx-auto mb-2" />
+            <Calendar className="w-10 h-10 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No scheduled report subscriptions active</p>
           </div>
         ) : (
           subscriptions.map((sub) => (
             <div key={sub.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">{sub.frequency}</span>
+                <span className="text-xs font-bold text-sky-400 dark:text-primary-400 uppercase tracking-wider">{sub.frequency}</span>
                 <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
                   ACTIVE
                 </span>

@@ -42,7 +42,7 @@ export function TicketDetailsPage() {
     return (
       <div className="py-12 text-center text-slate-400">
         <p>Support ticket not found.</p>
-        <button onClick={() => navigate(-1)} className="mt-4 text-sky-400 font-semibold">
+        <button onClick={() => navigate(-1)} className="mt-4 text-sky-400 dark:text-primary-400 font-semibold">
           Go Back
         </button>
       </div>
@@ -85,7 +85,7 @@ export function TicketDetailsPage() {
                 Opened: {new Date(ticket.createdAt).toLocaleString()}
               </span>
               {ticket.assigneeUser && (
-                <span className="flex items-center gap-1.5 text-sky-400 font-semibold">
+                <span className="flex items-center gap-1.5 text-sky-400 dark:text-primary-400 font-semibold">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   Assigned Agent: {ticket.assigneeUser.firstName} {ticket.assigneeUser.lastName}
                 </span>

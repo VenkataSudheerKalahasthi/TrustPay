@@ -26,48 +26,48 @@ export function AIMessageBubble({ message }) {
   };
 
   return (
-    <div className={`flex items-start gap-3 p-4 rounded-2xl ${isUser ? 'bg-surface-800/80 ml-8' : 'bg-surface-900 border border-surface-800 mr-8'}`}>
-      <div className={`p-2 rounded-xl shrink-0 ${isUser ? 'bg-indigo-500/20 text-indigo-400' : 'bg-primary-500/20 text-primary-400'}`}>
+    <div className={`flex items-start gap-3 p-4 rounded-2xl ${isUser ? 'bg-surface-100/80 ml-8' : 'bg-card border border-surface-200 mr-8'}`}>
+      <div className={`p-2 rounded-xl shrink-0 ${isUser ? 'bg-indigo-500/20 text-indigo-400' : 'bg-primary-500/20 text-primary-600'}`}>
         {isUser ? <User size={16} /> : <Bot size={16} />}
       </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-2 mb-1">
-          <span className="text-xs font-bold text-surface-100">{isUser ? 'You' : 'TrustPay AI Assistant'}</span>
-          <span className="text-3xs text-surface-400 font-mono">
+          <span className="text-xs font-bold text-surface-900">{isUser ? 'You' : 'TrustPay AI Assistant'}</span>
+          <span className="text-3xs text-surface-600 font-mono">
             {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
 
-        <div className="text-xs text-surface-200 whitespace-pre-wrap leading-relaxed space-y-2">
+        <div className="text-xs text-surface-800 whitespace-pre-wrap leading-relaxed space-y-2">
           {message.content}
         </div>
 
         {!isUser && (
-          <div className="flex items-center justify-between pt-3 mt-3 border-t border-surface-800/60 text-3xs text-surface-400">
+          <div className="flex items-center justify-between pt-3 mt-3 border-t border-surface-200/60 text-3xs text-surface-600">
             <span className="font-mono">Tokens: {message.tokensUsed || 0}</span>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={handleCopy}
-                className="hover:text-surface-100 flex items-center gap-1 transition-colors"
+                className="hover:text-surface-900 flex items-center gap-1 transition-colors"
                 title="Copy AI Response"
               >
                 {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
                 <span>{copied ? 'Copied' : 'Copy'}</span>
               </button>
 
-              <div className="flex items-center gap-1 border-l border-surface-800 pl-3">
+              <div className="flex items-center gap-1 border-l border-surface-200 pl-3">
                 <button
                   onClick={() => handleFeedback(1)}
-                  className={`p-1 rounded hover:bg-surface-800 ${feedback === 1 ? 'text-emerald-400 font-bold' : 'hover:text-emerald-400'}`}
+                  className={`p-1 rounded hover:bg-surface-50 ${feedback === 1 ? 'text-emerald-400 font-bold' : 'hover:text-emerald-400'}`}
                   title="Thumbs Up"
                 >
                   <ThumbsUp size={12} />
                 </button>
                 <button
                   onClick={() => handleFeedback(-1)}
-                  className={`p-1 rounded hover:bg-surface-800 ${feedback === -1 ? 'text-red-400 font-bold' : 'hover:text-red-400'}`}
+                  className={`p-1 rounded hover:bg-surface-50 ${feedback === -1 ? 'text-red-400 font-bold' : 'hover:text-red-400'}`}
                   title="Thumbs Down"
                 >
                   <ThumbsDown size={12} />
@@ -80,3 +80,4 @@ export function AIMessageBubble({ message }) {
     </div>
   );
 }
+

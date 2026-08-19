@@ -176,21 +176,21 @@ export function ProfilePage() {
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-surface-50 font-display tracking-tight">Account Profile</h1>
-        <p className="text-surface-400 text-sm mt-1">Manage your personal identity, security settings, and sessions</p>
+        <h1 className="text-3xl font-bold text-surface-900 font-display tracking-tight">Account Profile</h1>
+        <p className="text-surface-600 text-sm mt-1">Manage your personal identity, security settings, and sessions</p>
       </div>
 
       {/* User Summary Header Card */}
       <Card className="flex flex-col sm:flex-row items-center gap-6 p-6">
         <div className="relative group">
-          <div className="w-24 h-24 rounded-full bg-gradient-brand flex items-center justify-center text-white text-2xl font-bold overflow-hidden shadow-glow">
+          <div className="w-24 h-24 rounded-full bg-gradient-brand flex items-center justify-center text-white text-2xl font-bold overflow-hidden shadow-sm">
             {avatarUrl ? (
               <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
             ) : (
               getInitials(`${user?.firstName} ${user?.lastName}`)
             )}
           </div>
-          <label className="absolute inset-0 bg-surface-950/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white">
+          <label className="absolute inset-0 bg-card/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white">
             <Camera size={20} />
             <input type="file" accept="image/*" onChange={handleAvatarUpload} className="hidden" />
           </label>
@@ -198,7 +198,7 @@ export function ProfilePage() {
 
         <div className="flex-1 text-center sm:text-left space-y-2">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-            <h2 className="text-xl font-bold text-surface-50">
+            <h2 className="text-xl font-bold text-surface-900">
               {user?.firstName} {user?.lastName}
             </h2>
             <Badge variant={user?.role === 'ADMIN' ? 'danger' : user?.role === 'WORKER' ? 'secondary' : 'primary'}>
@@ -211,7 +211,7 @@ export function ProfilePage() {
               <Badge variant="warning">Unverified Email</Badge>
             )}
           </div>
-          <p className="text-sm text-surface-400 flex items-center justify-center sm:justify-start gap-1.5">
+          <p className="text-sm text-surface-600 flex items-center justify-center sm:justify-start gap-1.5">
             <Mail size={14} /> {user?.email}
           </p>
           <p className="text-xs text-surface-500">
@@ -230,19 +230,19 @@ export function ProfilePage() {
       <Card padded={true}>
         <Card.Header>
           <Card.Title className="flex items-center gap-2">
-            <UserIcon size={18} className="text-primary-400" />
+            <UserIcon size={18} className="text-primary-600" />
             Personal Details
           </Card.Title>
         </Card.Header>
 
         {profileSuccess && (
-          <div className="mb-4 p-3 rounded-xl bg-success-500/10 border border-success-500/30 text-success-400 text-sm flex items-center gap-2">
+          <div className="mb-4 p-3 rounded-xl bg-success-50 border border-success-200 text-success-700 text-sm flex items-center gap-2">
             <CheckCircle2 size={16} />
             <span>{profileSuccess}</span>
           </div>
         )}
         {profileError && (
-          <div className="mb-4 p-3 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-center gap-2">
+          <div className="mb-4 p-3 rounded-xl bg-danger-50 border border-danger-200 text-danger-700 text-sm flex items-center gap-2">
             <AlertCircle size={16} />
             <span>{profileError}</span>
           </div>
@@ -282,19 +282,19 @@ export function ProfilePage() {
       <Card padded={true}>
         <Card.Header>
           <Card.Title className="flex items-center gap-2">
-            <Lock size={18} className="text-secondary-400" />
+            <Lock size={18} className="text-secondary-600" />
             Security & Password
           </Card.Title>
         </Card.Header>
 
         {passwordSuccess && (
-          <div className="mb-4 p-3 rounded-xl bg-success-500/10 border border-success-500/30 text-success-400 text-sm flex items-center gap-2">
+          <div className="mb-4 p-3 rounded-xl bg-success-50 border border-success-200 text-success-700 text-sm flex items-center gap-2">
             <CheckCircle2 size={16} />
             <span>{passwordSuccess}</span>
           </div>
         )}
         {passwordError && (
-          <div className="mb-4 p-3 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-center gap-2">
+          <div className="mb-4 p-3 rounded-xl bg-danger-50 border border-danger-200 text-danger-700 text-sm flex items-center gap-2">
             <AlertCircle size={16} />
             <span>{passwordError}</span>
           </div>
@@ -333,8 +333,8 @@ export function ProfilePage() {
 
         <Card.Footer className="justify-between flex-wrap">
           <div>
-            <p className="text-sm font-medium text-surface-200">Active Sessions</p>
-            <p className="text-xs text-surface-400">Log out from all other devices & browsers</p>
+            <p className="text-sm font-medium text-surface-900">Active Sessions</p>
+            <p className="text-xs text-surface-600">Log out from all other devices & browsers</p>
           </div>
           <Button variant="danger" size="sm" onClick={logoutAll} leftIcon={<ShieldAlert size={14} />}>
             Logout All Devices
@@ -344,3 +344,4 @@ export function ProfilePage() {
     </div>
   );
 }
+

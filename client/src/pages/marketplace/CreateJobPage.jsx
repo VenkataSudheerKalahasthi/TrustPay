@@ -86,17 +86,17 @@ export function CreateJobPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-          <Briefcase size={20} className="text-primary-400" />
+        <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+          <Briefcase size={20} className="text-primary-600" />
           <span>7-Step Enterprise Job Creation Wizard</span>
         </h1>
-        <p className="text-xs text-surface-400">
+        <p className="text-xs text-surface-600">
           Draft auto-saved locally. Create an opportunity posting with custom screening questions.
         </p>
       </div>
 
       {/* Wizard Progress Bar */}
-      <div className="flex items-center justify-between p-2 bg-surface-900 border border-surface-800 rounded-2xl">
+      <div className="flex items-center justify-between p-2 bg-card border border-surface-200 rounded-2xl">
         {steps.map((s) => (
           <button
             key={s.num}
@@ -133,19 +133,19 @@ export function CreateJobPage() {
       )}
 
       {/* Step Form Container */}
-      <div className="p-6 rounded-2xl bg-surface-900 border border-surface-800 space-y-4">
+      <div className="p-6 rounded-2xl bg-card border border-surface-200 space-y-4">
         {step === 1 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 1: Job Title & Basic Info</h3>
+            <h3 className="text-xs font-bold text-surface-900">Step 1: Job Title & Basic Info</h3>
             <div>
-              <label className="text-3xs font-mono text-surface-400 block mb-1">Job Title *</label>
+              <label className="text-3xs font-mono text-surface-600 block mb-1">Job Title *</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Senior Full Stack Node & React Developer"
                 required
-                className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
@@ -153,16 +153,16 @@ export function CreateJobPage() {
 
         {step === 2 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 2: Detailed Scope & Qualifications</h3>
+            <h3 className="text-xs font-bold text-surface-900">Step 2: Detailed Scope & Qualifications</h3>
             <div>
-              <label className="text-3xs font-mono text-surface-400 block mb-1">Job Description *</label>
+              <label className="text-3xs font-mono text-surface-600 block mb-1">Job Description *</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={5}
                 placeholder="Detailed description of deliverables, qualifications, and project scope..."
                 required
-                className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
@@ -170,14 +170,14 @@ export function CreateJobPage() {
 
         {step === 3 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 3: Budget & Experience Level</h3>
+            <h3 className="text-xs font-bold text-surface-900">Step 3: Budget & Experience Level</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="text-3xs font-mono text-surface-400 block mb-1">Work Type</label>
+                <label className="text-3xs font-mono text-surface-600 block mb-1">Work Type</label>
                 <select
                   value={workType}
                   onChange={(e) => setWorkType(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 >
                   <option value="FIXED">Fixed Price</option>
                   <option value="HOURLY">Hourly Rate</option>
@@ -186,21 +186,21 @@ export function CreateJobPage() {
               </div>
 
               <div>
-                <label className="text-3xs font-mono text-surface-400 block mb-1">Budget ($USD)</label>
+                <label className="text-3xs font-mono text-surface-600 block mb-1">Budget ($USD)</label>
                 <input
                   type="number"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="text-3xs font-mono text-surface-400 block mb-1">Experience Level</label>
+                <label className="text-3xs font-mono text-surface-600 block mb-1">Experience Level</label>
                 <select
                   value={experienceLevel}
                   onChange={(e) => setExperienceLevel(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 >
                   <option value="ENTRY">Entry Level</option>
                   <option value="INTERMEDIATE">Intermediate</option>
@@ -213,15 +213,15 @@ export function CreateJobPage() {
 
         {step === 4 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 4: Custom Screening Questions</h3>
+            <h3 className="text-xs font-bold text-surface-900">Step 4: Custom Screening Questions</h3>
             <div>
-              <label className="text-3xs font-mono text-surface-400 block mb-1">Screening Question</label>
+              <label className="text-3xs font-mono text-surface-600 block mb-1">Screening Question</label>
               <input
                 type="text"
                 value={screeningQuestion}
                 onChange={(e) => setScreeningQuestion(e.target.value)}
                 placeholder="e.g. Describe your experience with Node.js microservices?"
-                className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
@@ -229,17 +229,17 @@ export function CreateJobPage() {
 
         {step === 5 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 5: Attachments & Storage</h3>
-            <p className="text-3xs text-surface-400">Attachments will be stored in Supabase storage buckets with signed download URLs.</p>
+            <h3 className="text-xs font-bold text-surface-900">Step 5: Attachments & Storage</h3>
+            <p className="text-3xs text-surface-600">Attachments will be stored in Supabase storage buckets with signed download URLs.</p>
           </div>
         )}
 
         {step === 6 && (
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-surface-100">Step 6: Preview Job Posting</h3>
-            <div className="p-4 rounded-xl bg-surface-950 space-y-2 text-xs">
-              <p className="font-bold text-surface-100">{title || 'Untitled Opportunity'}</p>
-              <p className="text-surface-300 text-3xs">{description || 'No description provided.'}</p>
+            <h3 className="text-xs font-bold text-surface-900">Step 6: Preview Job Posting</h3>
+            <div className="p-4 rounded-xl bg-card space-y-2 text-xs">
+              <p className="font-bold text-surface-900">{title || 'Untitled Opportunity'}</p>
+              <p className="text-surface-700 text-3xs">{description || 'No description provided.'}</p>
               <div className="text-3xs font-mono text-emerald-400">Budget: ${budget} ({workType})</div>
             </div>
           </div>
@@ -247,8 +247,8 @@ export function CreateJobPage() {
 
         {step === 7 && (
           <div className="space-y-3 text-center">
-            <h3 className="text-xs font-bold text-surface-100">Step 7: Confirm & Publish</h3>
-            <p className="text-3xs text-surface-400">Publish opportunity to the global marketplace catalog.</p>
+            <h3 className="text-xs font-bold text-surface-900">Step 7: Confirm & Publish</h3>
+            <p className="text-3xs text-surface-600">Publish opportunity to the global marketplace catalog.</p>
             <Button size="sm" variant="primary" onClick={() => handleSubmit(false)} isLoading={loading} leftIcon={<Check size={14} />}>
               Publish Opportunity Now
             </Button>
@@ -256,7 +256,7 @@ export function CreateJobPage() {
         )}
 
         {/* Navigation Controls */}
-        <div className="flex items-center justify-between pt-4 border-t border-surface-800">
+        <div className="flex items-center justify-between pt-4 border-t border-surface-200">
           <Button
             size="xs"
             variant="outline"
@@ -282,3 +282,4 @@ export function CreateJobPage() {
     </div>
   );
 }
+

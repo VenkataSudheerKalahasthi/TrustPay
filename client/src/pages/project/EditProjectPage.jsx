@@ -66,7 +66,7 @@ export function EditProjectPage() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto space-y-4">
-        <div className="h-64 bg-surface-900 border border-surface-800 rounded-2xl animate-pulse" />
+        <div className="h-64 bg-card border border-surface-200 rounded-2xl animate-pulse" />
       </div>
     );
   }
@@ -82,8 +82,8 @@ export function EditProjectPage() {
       </div>
 
       <div>
-        <h1 className="text-xl font-bold text-surface-50">Edit Project Settings</h1>
-        <p className="text-xs text-surface-400">Update core details, budget, and scope specifications.</p>
+        <h1 className="text-xl font-bold text-surface-900">Edit Project Settings</h1>
+        <p className="text-xs text-surface-600">Update core details, budget, and scope specifications.</p>
       </div>
 
       {error && (
@@ -92,10 +92,10 @@ export function EditProjectPage() {
         </div>
       )}
 
-      <Card className="p-6 bg-surface-900 border-surface-800">
+      <Card className="p-6 bg-card border-surface-200">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">
+            <label className="block text-xs font-semibold text-surface-700 mb-1">
               Project Title *
             </label>
             <input
@@ -103,27 +103,27 @@ export function EditProjectPage() {
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">Category</label>
+              <label className="block text-xs font-semibold text-surface-700 mb-1">Category</label>
               <input
                 type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">Priority</label>
+              <label className="block text-xs font-semibold text-surface-700 mb-1">Priority</label>
               <select
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               >
                 <option value="LOW">Low</option>
                 <option value="MEDIUM">Medium</option>
@@ -134,50 +134,50 @@ export function EditProjectPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">Description</label>
+            <label className="block text-xs font-semibold text-surface-700 mb-1">Description</label>
             <textarea
               rows={4}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">Estimated Budget (₹)</label>
+              <label className="block text-xs font-semibold text-surface-700 mb-1">Estimated Budget (₹)</label>
               <input
                 type="number"
                 min="0"
                 step="any"
                 value={estimatedBudget}
                 onChange={(e) => setEstimatedBudget(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">Estimated Duration</label>
+              <label className="block text-xs font-semibold text-surface-700 mb-1">Estimated Duration</label>
               <input
                 type="text"
                 value={estimatedDuration}
                 onChange={(e) => setEstimatedDuration(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-surface-300 mb-1">Internal Notes</label>
+            <label className="block text-xs font-semibold text-surface-700 mb-1">Internal Notes</label>
             <textarea
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+              className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
             />
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-200">
             <Link to={`/projects/${id}`}>
               <Button type="button" variant="ghost" size="sm">
                 Cancel
@@ -192,3 +192,4 @@ export function EditProjectPage() {
     </div>
   );
 }
+

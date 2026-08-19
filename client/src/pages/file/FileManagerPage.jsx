@@ -63,31 +63,31 @@ export function FileManagerPage() {
     <div className="max-w-7xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-            <FolderOpen size={20} className="text-primary-400" />
+          <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+            <FolderOpen size={20} className="text-primary-600" />
             <span>Enterprise File Manager & Supabase Storage</span>
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             SHA-256 verified assets, version control, signed download URLs, and password-protected share links.
           </p>
         </div>
 
         {storageStats && (
-          <div className="text-3xs font-mono bg-surface-900 border border-surface-800 rounded-xl px-3 py-2 text-surface-400">
-            Storage Bucket: <span className="text-primary-400 font-bold">{storageStats.bucketName}</span> ({storageStats.status})
+          <div className="text-3xs font-mono bg-card border border-surface-200 rounded-xl px-3 py-2 text-surface-600">
+            Storage Bucket: <span className="text-primary-600 font-bold">{storageStats.bucketName}</span> ({storageStats.status})
           </div>
         )}
       </div>
 
       {/* Upload & Search Bar */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <form onSubmit={handleUploadMock} className="md:col-span-2 p-3 rounded-2xl bg-surface-900 border border-surface-800 flex gap-2">
+        <form onSubmit={handleUploadMock} className="md:col-span-2 p-3 rounded-2xl bg-card border border-surface-200 flex gap-2">
           <input
             type="text"
             value={fileName}
             onChange={(e) => setFileName(e.target.value)}
             placeholder="Register File Asset Name (e.g. Master_Agreement_v1.pdf)"
-            className="flex-1 px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+            className="flex-1 px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
           />
           <Button size="sm" variant="primary" type="submit" isLoading={uploading} leftIcon={<Plus size={14} />}>
             Upload Asset
@@ -95,13 +95,13 @@ export function FileManagerPage() {
         </form>
 
         <div className="relative">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-surface-400" />
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-surface-600" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Filter by file name..."
-            className="w-full pl-9 pr-3 py-3 rounded-2xl bg-surface-900 border border-surface-800 text-xs text-surface-100 placeholder-surface-500 focus:outline-none focus:border-primary-500"
+            className="w-full pl-9 pr-3 py-3 rounded-2xl bg-card border border-surface-200 text-xs text-surface-900 placeholder-surface-500 focus:outline-none focus:border-primary-600"
           />
         </div>
       </div>
@@ -126,3 +126,4 @@ export function FileManagerPage() {
     </div>
   );
 }
+

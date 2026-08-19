@@ -52,18 +52,18 @@ export function JobDetailsPage() {
     }
   };
 
-  if (loading) return <p className="text-xs text-surface-400 p-4">Loading job details...</p>;
+  if (loading) return <p className="text-xs text-surface-600 p-4">Loading job details...</p>;
   if (!job) return <p className="text-xs text-red-400 p-4">Job opportunity not found.</p>;
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-xl font-bold text-surface-50 flex items-center gap-2">
-            <Briefcase size={20} className="text-primary-400" />
+          <h1 className="text-xl font-bold text-surface-900 flex items-center gap-2">
+            <Briefcase size={20} className="text-primary-600" />
             <span>{job.title}</span>
           </h1>
-          <p className="text-3xs font-mono text-surface-400">
+          <p className="text-3xs font-mono text-surface-600">
             Posted by {job.clientUser?.firstName} {job.clientUser?.lastName} • Slug: {job.slug}
           </p>
         </div>
@@ -72,22 +72,22 @@ export function JobDetailsPage() {
           <JobStatusBadge status={job.status} />
           <Link
             to={`/dashboard/client/marketplace/${job.id}/pipeline`}
-            className="px-3 py-1.5 rounded-xl bg-surface-800 hover:bg-surface-700 text-xs font-bold text-surface-200 transition-colors"
+            className="px-3 py-1.5 rounded-xl bg-surface-50 hover:bg-surface-700 text-xs font-bold text-surface-800 transition-colors"
           >
             Hiring Pipeline ({job.proposalCount || 0})
           </Link>
         </div>
       </div>
 
-      <div className="p-6 rounded-2xl bg-surface-900 border border-surface-800 space-y-4">
-        <h3 className="text-xs font-bold text-surface-200 uppercase tracking-wider">Opportunity Description</h3>
-        <p className="text-xs text-surface-200 leading-relaxed whitespace-pre-line">{job.description}</p>
+      <div className="p-6 rounded-2xl bg-card border border-surface-200 space-y-4">
+        <h3 className="text-xs font-bold text-surface-800 uppercase tracking-wider">Opportunity Description</h3>
+        <p className="text-xs text-surface-800 leading-relaxed whitespace-pre-line">{job.description}</p>
       </div>
 
       {/* Submit Proposal Composer */}
-      <div className="p-6 rounded-2xl bg-surface-900 border border-surface-800 space-y-4">
-        <h3 className="text-xs font-bold text-surface-100 flex items-center gap-2">
-          <Send size={16} className="text-primary-400" />
+      <div className="p-6 rounded-2xl bg-card border border-surface-200 space-y-4">
+        <h3 className="text-xs font-bold text-surface-900 flex items-center gap-2">
+          <Send size={16} className="text-primary-600" />
           <span>Submit Proposal</span>
         </h3>
 
@@ -102,35 +102,35 @@ export function JobDetailsPage() {
         ) : (
           <form onSubmit={handleSubmitProposal} className="space-y-4">
             <div>
-              <label className="text-3xs font-mono text-surface-400 block mb-1">Cover Letter *</label>
+              <label className="text-3xs font-mono text-surface-600 block mb-1">Cover Letter *</label>
               <textarea
                 value={coverLetter}
                 onChange={(e) => setCoverLetter(e.target.value)}
                 rows={4}
                 placeholder="Explain why you are the best fit for this opportunity..."
                 required
-                className="w-full px-3 py-2.5 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2.5 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-3xs font-mono text-surface-400 block mb-1">Bid Amount ($USD)</label>
+                <label className="text-3xs font-mono text-surface-600 block mb-1">Bid Amount ($USD)</label>
                 <input
                   type="number"
                   value={bidAmount}
                   onChange={(e) => setBidAmount(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="text-3xs font-mono text-surface-400 block mb-1">Estimated Days to Complete</label>
+                <label className="text-3xs font-mono text-surface-600 block mb-1">Estimated Days to Complete</label>
                 <input
                   type="number"
                   value={estimatedDays}
                   onChange={(e) => setEstimatedDays(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
             </div>
@@ -144,3 +144,4 @@ export function JobDetailsPage() {
     </div>
   );
 }
+

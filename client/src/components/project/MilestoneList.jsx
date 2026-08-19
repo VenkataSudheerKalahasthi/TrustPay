@@ -8,8 +8,8 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-surface-100">Project Milestones</h3>
-          <p className="text-xs text-surface-400">
+          <h3 className="text-sm font-semibold text-surface-900">Project Milestones</h3>
+          <p className="text-xs text-surface-600">
             Sequential project goals with dependency checks and escrow release readiness
           </p>
         </div>
@@ -21,9 +21,9 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
       </div>
 
       {milestones.length === 0 ? (
-        <Card className="p-8 text-center bg-surface-900 border-surface-800">
+        <Card className="p-8 text-center bg-card border-surface-200">
           <Clock className="w-8 h-8 text-surface-600 mx-auto mb-2" />
-          <p className="text-xs text-surface-400">No milestones defined for this project yet.</p>
+          <p className="text-xs text-surface-600">No milestones defined for this project yet.</p>
         </Card>
       ) : (
         <div className="space-y-3">
@@ -35,16 +35,16 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
             return (
               <Card
                 key={m.id}
-                className="p-4 bg-surface-900 border-surface-800 hover:border-surface-700 transition-colors"
+                className="p-4 bg-card border-surface-200 hover:border-surface-300 transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-surface-800 text-surface-300 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-surface-50 text-surface-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {index + 1}
                     </span>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap mb-1">
-                        <h4 className="text-sm font-semibold text-surface-100">{m.title}</h4>
+                        <h4 className="text-sm font-semibold text-surface-900">{m.title}</h4>
                         <Badge
                           variant={
                             isCompleted ? 'success' : m.status === 'IN_PROGRESS' ? 'warning' : 'neutral'
@@ -63,17 +63,17 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
                       </div>
 
                       {m.description && (
-                        <p className="text-xs text-surface-400 mb-2 leading-relaxed">
+                        <p className="text-xs text-surface-600 mb-2 leading-relaxed">
                           {m.description}
                         </p>
                       )}
 
-                      <div className="flex items-center gap-4 text-2xs text-surface-400">
+                      <div className="flex items-center gap-4 text-2xs text-surface-600">
                         {m.dueDate && (
                           <span>Due: {new Date(m.dueDate).toLocaleDateString()}</span>
                         )}
                         {m.estimatedAmount && (
-                          <span className="font-semibold text-surface-200">
+                          <span className="font-semibold text-surface-800">
                             Est. Amount: ₹{m.estimatedAmount.toLocaleString()}
                           </span>
                         )}
@@ -81,7 +81,7 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
                     </div>
                   </div>
 
-                  <div className="flex flex-col items-end gap-2 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-surface-800">
+                  <div className="flex flex-col items-end gap-2 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-surface-200">
                     {readiness.isReleaseEligible ? (
                       <div className="flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-xl">
                         <ShieldCheck size={14} />
@@ -113,3 +113,4 @@ export function MilestoneList({ milestones = [], onAdd, onUpdateStatus, isClient
     </div>
   );
 }
+

@@ -78,26 +78,26 @@ export function RegisterPage() {
   return (
     <div>
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-surface-50 font-display">Create Account</h1>
-        <p className="text-sm text-surface-400 mt-1">Join TrustPay for secure digital contracts & escrow</p>
+        <h1 className="text-2xl font-bold text-surface-900 font-display">Create Account</h1>
+        <p className="text-sm text-surface-500 mt-1">Join TrustPay for secure digital contracts & escrow</p>
       </div>
 
       {serverError && (
-        <div className="mb-6 p-4 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-start gap-2">
+        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-200 text-danger-700 text-sm flex items-start gap-2">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />
           <span>{serverError}</span>
         </div>
       )}
 
       {/* Role Selection Tabs */}
-      <div className="mb-6 grid grid-cols-2 gap-3 p-1 bg-surface-900 rounded-xl border border-surface-800">
+      <div className="mb-6 grid grid-cols-2 gap-3 p-1 bg-surface-100 rounded-xl border border-surface-200">
         <button
           type="button"
           onClick={() => handleRoleSelect(USER_ROLES.CLIENT)}
           className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
             selectedRole === USER_ROLES.CLIENT
-              ? 'bg-gradient-brand text-white shadow-sm'
-              : 'text-surface-400 hover:text-surface-200'
+              ? 'bg-card text-primary-600 shadow-sm border border-surface-200'
+              : 'text-surface-500 hover:text-surface-900'
           }`}
         >
           <ShieldCheck size={16} />
@@ -108,8 +108,8 @@ export function RegisterPage() {
           onClick={() => handleRoleSelect(USER_ROLES.WORKER)}
           className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
             selectedRole === USER_ROLES.WORKER
-              ? 'bg-gradient-brand text-white shadow-sm'
-              : 'text-surface-400 hover:text-surface-200'
+              ? 'bg-card text-primary-600 shadow-sm border border-surface-200'
+              : 'text-surface-500 hover:text-surface-900'
           }`}
         >
           <Briefcase size={16} />
@@ -181,9 +181,9 @@ export function RegisterPage() {
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-xs text-surface-400">
+      <div className="mt-6 text-center text-xs text-surface-500">
         Already have an account?{' '}
-        <Link to={ROUTES.LOGIN} className="text-primary-400 hover:text-primary-300 font-semibold">
+        <Link to={ROUTES.LOGIN} className="text-primary-600 hover:text-primary-700 font-semibold">
           Sign In
         </Link>
       </div>

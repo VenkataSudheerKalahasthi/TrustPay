@@ -24,7 +24,7 @@ export function GoalProgressCard({ goal }) {
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
               : isAtRisk
               ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
+              : 'bg-sky-500/10 text-sky-400 dark:text-primary-400 border border-sky-500/20'
           }`}
         >
           {isCompleted ? <CheckCircle2 className="w-3 h-3" /> : isAtRisk ? <AlertTriangle className="w-3 h-3" /> : <Target className="w-3 h-3" />}

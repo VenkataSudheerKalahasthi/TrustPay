@@ -6,7 +6,7 @@ export function InformationCard({ title, items = [], icon: Icon, className }) {
     <Card className={className}>
       <Card.Header>
         <div className="flex items-center gap-2">
-          {Icon && <Icon size={18} className="text-primary-400" />}
+          {Icon && <Icon size={18} className="text-primary-600" />}
           <Card.Title>{title}</Card.Title>
         </div>
       </Card.Header>
@@ -16,3 +16,4 @@ export function InformationCard({ title, items = [], icon: Icon, className }) {
     </Card>
   );
 }
+

@@ -48,7 +48,7 @@ export function DisputeCenterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {disputes.length === 0 ? (
           <div className="col-span-full py-16 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <AlertOctagon className="w-10 h-10 text-slate-600 mx-auto mb-2" />
+            <AlertOctagon className="w-10 h-10 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No active contract dispute cases</p>
           </div>
         ) : (

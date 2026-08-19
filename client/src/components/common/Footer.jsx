@@ -38,7 +38,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface-900 border-t border-surface-800 py-12">
+    <footer className="bg-card border-t border-surface-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* ─── Brand Column ─────────────────────────────────────────── */}
@@ -47,11 +47,11 @@ export function Footer() {
               <div className="w-9 h-9 rounded-xl bg-primary-500 flex items-center justify-center shadow-sm transition-shadow duration-300">
                 <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="font-display font-bold text-xl text-surface-50">
+              <span className="font-display font-bold text-xl text-surface-900">
                 Trust<span className="gradient-text">Pay</span>
               </span>
             </Link>
-            <p className="text-surface-400 text-sm leading-relaxed max-w-xs mb-6">
+            <p className="text-surface-600 text-sm leading-relaxed max-w-xs mb-6">
               The secure digital contract and escrow platform built for the future of work.
               Protect every transaction, every time.
             </p>
@@ -66,7 +66,7 @@ export function Footer() {
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
                   id={`footer-social-${label.toLowerCase()}`}
-                  className="w-9 h-9 rounded-lg bg-surface-800 border border-surface-700 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:border-primary-500/50 hover:bg-primary-500/10 transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-surface-50 border border-surface-300 flex items-center justify-center text-surface-600 hover:text-primary-600 hover:border-primary-600/50 hover:bg-primary-50 transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>
@@ -77,13 +77,13 @@ export function Footer() {
           {/* ─── Link Columns ─────────────────────────────────────────── */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <h3 className="text-sm font-semibold text-surface-100 mb-4">{heading}</h3>
+              <h3 className="text-sm font-semibold text-surface-900 mb-4">{heading}</h3>
               <ul className="flex flex-col gap-3">
                 {links.map(({ label, href }) => (
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-sm text-surface-400 hover:text-surface-100 transition-colors duration-200"
+                      className="text-sm text-surface-600 hover:text-surface-900 transition-colors duration-200"
                     >
                       {label}
                     </a>
@@ -95,7 +95,7 @@ export function Footer() {
         </div>
 
         {/* ─── Bottom Bar ───────────────────────────────────────────── */}
-        <div className="mt-12 pt-8 border-t border-surface-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-surface-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-surface-500 flex items-center gap-1.5">
             © {currentYear} {APP_NAME}. All rights reserved.
           </p>
@@ -107,3 +107,4 @@ export function Footer() {
     </footer>
   );
 }
+

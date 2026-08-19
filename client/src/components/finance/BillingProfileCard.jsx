@@ -7,13 +7,13 @@ export function BillingProfileCard({ profile, onEdit }) {
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
       <div className="flex items-center justify-between pb-3 border-b border-slate-800">
         <h3 className="text-lg font-bold text-white flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-sky-400" />
+          <Building2 className="w-5 h-5 text-sky-400 dark:text-primary-400" />
           Corporate Billing Profile
         </h3>
         {onEdit && (
           <button
             onClick={onEdit}
-            className="text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+            className="text-xs font-semibold text-sky-400 dark:text-primary-400 hover:text-sky-300 transition-colors"
           >
             Edit Profile
           </button>

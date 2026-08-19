@@ -18,7 +18,7 @@ export function AdministrativeAuditPage() {
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       <div>
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <ShieldCheck className="w-6 h-6 text-sky-400" />
+          <ShieldCheck className="w-6 h-6 text-sky-400 dark:text-primary-400" />
           Administrative Audit Log & Action History
         </h1>
         <p className="text-slate-400 text-sm">Full audit trail of administrative interventions, restrictions, freezes, and bulk operations</p>
@@ -47,7 +47,7 @@ export function AdministrativeAuditPage() {
                   <td className="py-3.5 px-4 font-bold text-white">
                     {h.admin?.firstName} {h.admin?.lastName} ({h.admin?.email})
                   </td>
-                  <td className="py-3.5 px-4 font-mono text-sky-400 text-xs">{h.action}</td>
+                  <td className="py-3.5 px-4 font-mono text-sky-400 dark:text-primary-400 text-xs">{h.action}</td>
                   <td className="py-3.5 px-4 font-mono text-xs text-slate-400">
                     {h.targetEntity} ({h.targetId || 'GLOBAL'})
                   </td>

@@ -36,15 +36,15 @@ export function InvoicesListPage() {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="p-2 rounded-xl bg-surface-900 border border-surface-800 text-surface-400 hover:text-surface-100"
+          className="p-2 rounded-xl bg-card border border-surface-200 text-surface-600 hover:text-surface-900"
         >
           <ArrowLeft size={16} />
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-surface-100 font-display">
+          <h1 className="text-2xl font-bold text-surface-900 font-display">
             Tax Invoices
           </h1>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Digital contract & escrow deposit PDF tax invoice documents.
           </p>
         </div>
@@ -53,7 +53,7 @@ export function InvoicesListPage() {
       {isLoading ? (
         <PageLoader />
       ) : invoices.length === 0 ? (
-        <div className="glass-card p-12 text-center text-xs text-surface-400">
+        <div className="glass-card p-12 text-center text-xs text-surface-600">
           No tax invoices generated yet.
         </div>
       ) : (
@@ -61,11 +61,11 @@ export function InvoicesListPage() {
           {invoices.map((inv) => (
             <div
               key={inv.id}
-              className="glass-card p-5 flex flex-col justify-between hover:border-surface-700 transition-all group"
+              className="glass-card p-5 flex flex-col justify-between hover:border-surface-300 transition-all group"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-2xs font-mono text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded-md border border-primary-500/20">
+                  <span className="text-2xs font-mono text-primary-600 bg-primary-50 px-2 py-0.5 rounded-md border border-primary-100">
                     {inv.invoiceNumber}
                   </span>
                   <span className="text-2xs text-surface-500 font-mono">
@@ -73,19 +73,19 @@ export function InvoicesListPage() {
                   </span>
                 </div>
 
-                <div className="text-xl font-bold text-surface-100 font-display mb-1">
+                <div className="text-xl font-bold text-surface-900 font-display mb-1">
                   ₹{(inv.totalAmount || inv.amount).toLocaleString('en-IN')}
                 </div>
-                <p className="text-xs text-surface-400 line-clamp-2 mb-4">
+                <p className="text-xs text-surface-600 line-clamp-2 mb-4">
                   {inv.paymentDetailsText || 'Escrow payment invoice'}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-surface-800/80 flex items-center justify-between">
+              <div className="pt-3 border-t border-surface-200/80 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => handleDownloadPdf(inv.id)}
-                  className="inline-flex items-center gap-1 text-xs text-primary-400 hover:underline font-semibold"
+                  className="inline-flex items-center gap-1 text-xs text-primary-600 hover:underline font-semibold"
                 >
                   <Download size={13} />
                   <span>Download PDF</span>
@@ -93,7 +93,7 @@ export function InvoicesListPage() {
 
                 <Link
                   to={`/invoices/${inv.id}`}
-                  className="inline-flex items-center gap-1 text-2xs text-surface-400 hover:text-surface-100"
+                  className="inline-flex items-center gap-1 text-2xs text-surface-600 hover:text-surface-900"
                 >
                   <span>Details</span>
                   <ArrowUpRight size={12} />
@@ -106,3 +106,4 @@ export function InvoicesListPage() {
     </div>
   );
 }
+

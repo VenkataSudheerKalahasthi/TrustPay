@@ -42,14 +42,14 @@ export function WalletDashboardPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-surface-100 font-display">
+            <h1 className="text-2xl font-bold text-surface-900 font-display">
               Escrow Wallet & Payments
             </h1>
-            <span className="px-2 py-0.5 rounded-md bg-success-500/10 text-success-400 text-2xs font-mono border border-success-500/20">
+            <span className="px-2 py-0.5 rounded-md bg-success-50 text-success-700 text-2xs font-mono border border-success-200">
               {wallet?.status || 'ACTIVE'}
             </span>
           </div>
-          <p className="text-xs text-surface-400">
+          <p className="text-xs text-surface-600">
             Secure client escrow balances, Razorpay deposits & contractual releases.
           </p>
         </div>
@@ -102,14 +102,14 @@ export function WalletDashboardPage() {
       </div>
 
       {/* Security Banner */}
-      <div className="glass-card p-4 flex items-center justify-between gap-4 border-l-4 border-l-primary-500">
+      <div className="glass-card p-4 flex items-center justify-between gap-4 border-l-4 border-l-primary-600">
         <div className="flex items-center gap-3">
-          <ShieldCheck size={24} className="text-primary-400 shrink-0" />
+          <ShieldCheck size={24} className="text-primary-600 shrink-0" />
           <div>
-            <h4 className="text-xs font-bold text-surface-200">
+            <h4 className="text-xs font-bold text-surface-900">
               Double-Entry Immutable Escrow Protection
             </h4>
-            <p className="text-2xs text-surface-400">
+            <p className="text-2xs text-surface-600">
               Client deposits are held securely until contractual milestones are satisfied and signed.
             </p>
           </div>
@@ -118,13 +118,13 @@ export function WalletDashboardPage() {
 
       {/* Recent Ledger Transactions */}
       <div className="glass-card p-6 space-y-4">
-        <div className="flex items-center justify-between border-b border-surface-800/80 pb-3">
-          <h3 className="text-sm font-bold text-surface-100 font-display">
+        <div className="flex items-center justify-between border-b border-surface-200 pb-3">
+          <h3 className="text-sm font-bold text-surface-900 font-display">
             Recent Ledger Transactions
           </h3>
           <Link
             to="/wallet/transactions"
-            className="text-xs text-primary-400 hover:underline inline-flex items-center gap-1 font-semibold"
+            className="text-xs text-primary-600 hover:underline inline-flex items-center gap-1 font-semibold"
           >
             <span>View All</span>
             <ArrowRight size={12} />
@@ -132,7 +132,7 @@ export function WalletDashboardPage() {
         </div>
 
         {transactions.length === 0 ? (
-          <div className="text-center py-8 text-xs text-surface-400">
+          <div className="text-center py-8 text-xs text-surface-500">
             No financial transactions recorded yet.
           </div>
         ) : (
@@ -140,15 +140,15 @@ export function WalletDashboardPage() {
             {transactions.map((tx) => (
               <div
                 key={tx.id}
-                className="bg-surface-900/60 p-4 rounded-xl border border-surface-800/60 flex items-center justify-between gap-4"
+                className="bg-surface-50 p-4 rounded-xl border border-surface-200 flex items-center justify-between gap-4"
               >
                 <div className="flex items-center gap-3">
                   <TransactionBadge type={tx.type} />
                   <div>
-                    <span className="text-xs font-bold text-surface-200 block font-mono">
+                    <span className="text-xs font-bold text-surface-900 block font-mono">
                       {tx.referenceNumber}
                     </span>
-                    <span className="text-2xs text-surface-400">{tx.description}</span>
+                    <span className="text-2xs text-surface-600">{tx.description}</span>
                   </div>
                 </div>
 
@@ -156,8 +156,8 @@ export function WalletDashboardPage() {
                   <span
                     className={`text-xs font-bold font-mono ${
                       tx.type === 'DEPOSIT' || tx.type === 'REFUND'
-                        ? 'text-success-400'
-                        : 'text-surface-200'
+                        ? 'text-success-600'
+                        : 'text-surface-900'
                     }`}
                   >
                     {tx.type === 'DEPOSIT' || tx.type === 'REFUND' ? '+' : '-'}₹

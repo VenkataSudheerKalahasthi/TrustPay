@@ -97,8 +97,8 @@ export function CreateProjectPage() {
       </div>
 
       <div>
-        <h1 className="text-xl font-bold text-surface-50">Create New Execution Project</h1>
-        <p className="text-xs text-surface-400">
+        <h1 className="text-xl font-bold text-surface-900">Create New Execution Project</h1>
+        <p className="text-xs text-surface-600">
           Establish operational workflow connecting workers, clients, digital contracts, and escrow wallets.
         </p>
       </div>
@@ -109,16 +109,16 @@ export function CreateProjectPage() {
         </div>
       )}
 
-      <Card className="p-6 bg-surface-900 border-surface-800">
+      <Card className="p-6 bg-card border-surface-200">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Core Info */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-400 border-b border-surface-800 pb-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-600 border-b border-surface-200 pb-2">
               1. Project Core Details
             </h3>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Project Name / Title *
               </label>
               <input
@@ -127,13 +127,13 @@ export function CreateProjectPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Enterprise E-Commerce Platform Build"
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Category
                 </label>
                 <input
@@ -141,18 +141,18 @@ export function CreateProjectPage() {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   placeholder="e.g. Full Stack Web Development"
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Priority
                 </label>
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 >
                   <option value="LOW">Low</option>
                   <option value="MEDIUM">Medium</option>
@@ -163,7 +163,7 @@ export function CreateProjectPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Project Scope & Description
               </label>
               <textarea
@@ -171,26 +171,26 @@ export function CreateProjectPage() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Detailed explanation of requirements, goals, and deliverables..."
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
 
           {/* Integrations */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-400 border-b border-surface-800 pb-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-600 border-b border-surface-200 pb-2">
               2. Module Integrations (Contract, Escrow, Worker)
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1 flex items-center gap-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1 flex items-center gap-1">
                   <ShieldCheck size={14} className="text-emerald-400" /> Linked Contract
                 </label>
                 <select
                   value={contractId}
                   onChange={(e) => setContractId(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 >
                   <option value="">None (Independent Project)</option>
                   {contracts.map((c) => (
@@ -202,25 +202,25 @@ export function CreateProjectPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1 flex items-center gap-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1 flex items-center gap-1">
                   <Wallet size={14} className="text-indigo-400" /> Linked Escrow Wallet
                 </label>
                 <input
                   type="text"
                   readOnly
                   value={escrowWallet ? `Escrow Wallet (${escrowWallet.currency} ${escrowWallet.totalBalance})` : 'Active Escrow Wallet'}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-300"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-700"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1 flex items-center gap-1">
-                  <UserCheck size={14} className="text-primary-400" /> Assigned Worker
+                <label className="block text-xs font-semibold text-surface-700 mb-1 flex items-center gap-1">
+                  <UserCheck size={14} className="text-primary-600" /> Assigned Worker
                 </label>
                 <select
                   value={workerProfileId}
                   onChange={(e) => setWorkerProfileId(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 >
                   <option value="">Select Assigned Worker...</option>
                   {workers.map((w) => (
@@ -235,13 +235,13 @@ export function CreateProjectPage() {
 
           {/* Schedule & Budget */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-400 border-b border-surface-800 pb-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-600 border-b border-surface-200 pb-2">
               3. Budget & Schedule
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Estimated Budget (₹)
                 </label>
                 <input
@@ -251,12 +251,12 @@ export function CreateProjectPage() {
                   value={estimatedBudget}
                   onChange={(e) => setEstimatedBudget(e.target.value)}
                   placeholder="150000"
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Estimated Duration
                 </label>
                 <input
@@ -264,37 +264,37 @@ export function CreateProjectPage() {
                   value={estimatedDuration}
                   onChange={(e) => setEstimatedDuration(e.target.value)}
                   placeholder="e.g. 6 Weeks"
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Start Date
                 </label>
                 <input
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-surface-300 mb-1">
+                <label className="block text-xs font-semibold text-surface-700 mb-1">
                   Target End Date
                 </label>
                 <input
                   type="date"
                   value={targetEndDate}
                   onChange={(e) => setTargetEndDate(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                  className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-surface-300 mb-1">
+              <label className="block text-xs font-semibold text-surface-700 mb-1">
                 Internal Execution Notes
               </label>
               <textarea
@@ -302,12 +302,12 @@ export function CreateProjectPage() {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Internal notes or reference guidelines..."
-                className="w-full px-3 py-2 rounded-xl bg-surface-800 border border-surface-700 text-xs text-surface-100 focus:outline-none focus:border-primary-500"
+                className="w-full px-3 py-2 rounded-xl bg-surface-50 border border-surface-300 text-xs text-surface-900 focus:outline-none focus:border-primary-600"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-800">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-surface-200">
             <Link to="/projects">
               <Button type="button" variant="ghost" size="sm">
                 Cancel
@@ -322,3 +322,4 @@ export function CreateProjectPage() {
     </div>
   );
 }
+

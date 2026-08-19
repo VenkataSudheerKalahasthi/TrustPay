@@ -6,7 +6,7 @@ export function EnterpriseTimeline({ events = [] }) {
       {events.map((ev, idx) => (
         <div key={idx} className="flex items-start gap-4 relative pl-8">
           <div className="absolute left-1 top-1 w-4 h-4 rounded-full bg-sky-500/20 border border-sky-500 flex items-center justify-center">
-            <Clock className="w-2.5 h-2.5 text-sky-400" />
+            <Clock className="w-2.5 h-2.5 text-sky-400 dark:text-primary-400" />
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3.5 flex-1 space-y-1">
             <div className="flex items-center justify-between text-xs">

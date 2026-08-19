@@ -4,7 +4,7 @@ export function PlatformMetricCard({ metricKey, value, status }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg flex items-center justify-between">
       <div className="space-y-1">
-        <span className="text-xs font-mono font-bold text-sky-400 uppercase">{metricKey}</span>
+        <span className="text-xs font-mono font-bold text-sky-400 dark:text-primary-400 uppercase">{metricKey}</span>
         <div className="text-xl font-bold text-white font-mono">{value}</div>
       </div>
 

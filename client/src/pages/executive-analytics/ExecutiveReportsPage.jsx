@@ -50,7 +50,7 @@ export function ExecutiveReportsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <FileText className="w-6 h-6 text-sky-400" />
+            <FileText className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Executive Reports & AI Generation Engine
           </h1>
           <p className="text-slate-400 text-sm">Generate, inspect, and export C-suite financial, operational, and strategic reports</p>
@@ -68,14 +68,14 @@ export function ExecutiveReportsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {reports.length === 0 ? (
           <div className="col-span-full py-16 text-center border border-dashed border-slate-800 rounded-xl bg-slate-900/50">
-            <FileText className="w-10 h-10 text-slate-600 mx-auto mb-2" />
+            <FileText className="w-10 h-10 text-surface-600 mx-auto mb-2" />
             <p className="text-slate-400 font-medium">No executive reports generated yet</p>
           </div>
         ) : (
           reports.map((rpt) => (
             <div key={rpt.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-sky-400 font-bold">{rpt.reportNumber}</span>
+                <span className="text-xs font-mono text-sky-400 dark:text-primary-400 font-bold">{rpt.reportNumber}</span>
                 <span className="text-xs text-slate-500">{new Date(rpt.generatedAt).toLocaleDateString()}</span>
               </div>
               <h3 className="text-lg font-bold text-white">{rpt.title}</h3>
@@ -87,7 +87,7 @@ export function ExecutiveReportsPage() {
                     setSelectedReportId(rpt.id);
                     setIsExportOpen(true);
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-bold rounded-lg transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-sky-400 dark:text-primary-400 text-xs font-bold rounded-lg transition-all"
                 >
                   <Download className="w-3.5 h-3.5" />
                   Export

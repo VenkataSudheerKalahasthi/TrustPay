@@ -23,20 +23,20 @@ export function Modal({ isOpen, onClose, title, children, size = 'md', className
   };
 
   return (
-    <div className="fixed inset-0 z-modal flex items-center justify-center p-4 bg-surface-950/80 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-modal flex items-center justify-center p-4 bg-card/40 backdrop-blur-md animate-fade-in">
       <div
         className={cn(
-          'w-full bg-surface-900 border border-surface-800 shadow-glow rounded-2xl overflow-hidden flex flex-col max-h-[90vh]',
+          'w-full bg-card border border-surface-200 shadow-xl rounded-2xl overflow-hidden flex flex-col max-h-[90vh]',
           sizeClasses[size],
           className
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-surface-800">
-          <h2 className="text-lg font-bold text-surface-50 font-display">{title}</h2>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-surface-200">
+          <h2 className="text-lg font-bold text-surface-900 font-display">{title}</h2>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-colors"
+            className="p-1.5 rounded-lg text-surface-500 hover:text-surface-900 hover:bg-surface-100 transition-colors"
           >
             <X size={18} />
           </button>
@@ -48,3 +48,4 @@ export function Modal({ isOpen, onClose, title, children, size = 'md', className
     </div>
   );
 }
+

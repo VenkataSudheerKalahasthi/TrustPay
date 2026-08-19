@@ -40,9 +40,9 @@ export function SupportDashboardPage() {
   return (
     <div className={`space-y-8 pb-12 transition-opacity ${loading ? 'opacity-50' : ''}`}>
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/40 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+      <div className="bg-gradient-to-r from-slate-900 dark:from-[#0A120E] via-slate-900 dark:via-[#07100B] to-sky-950/40 dark:to-primary-950/20 border border-slate-800 dark:border-primary-900/30 rounded-2xl p-8 shadow-2xl">
         <div className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-sky-400">Enterprise Service Ops</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-sky-400 dark:text-primary-400">Enterprise Service Ops</span>
           <h1 className="text-3xl md:text-4xl font-black text-white mt-1">Customer Success & Support Desk</h1>
           <p className="text-slate-300 text-sm md:text-base mt-2">
             Integrated service desk operations, SLA monitoring, contract disputes, knowledge base search, and AI advisory recommendations.
@@ -64,7 +64,7 @@ export function SupportDashboardPage() {
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl">
+            <div className="p-2.5 bg-sky-500/10 text-sky-400 dark:text-primary-400 rounded-xl">
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
@@ -94,7 +94,7 @@ export function SupportDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tickets.length === 0 ? (
             <div className="col-span-full py-12 text-center border border-dashed border-slate-800 rounded-xl">
-              <Headset className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+              <Headset className="w-8 h-8 text-surface-600 mx-auto mb-2" />
               <p className="text-slate-400 font-medium text-sm">No tickets found</p>
             </div>
           ) : (

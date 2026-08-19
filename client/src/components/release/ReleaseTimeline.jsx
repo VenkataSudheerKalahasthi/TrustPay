@@ -20,7 +20,7 @@ export function ReleaseTimeline() {
                 <Check className="w-3.5 h-3.5" />
               </div>
               <div>
-                <span className="font-bold text-sky-400 block">{m.phase}</span>
+                <span className="font-bold text-sky-400 dark:text-primary-400 block">{m.phase}</span>
                 <span className="text-white font-semibold text-sm">{m.title}</span>
               </div>
             </div>

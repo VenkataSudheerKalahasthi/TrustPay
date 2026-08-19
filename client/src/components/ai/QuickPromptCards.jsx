@@ -40,16 +40,17 @@ export function QuickPromptCards({ onSelectPrompt }) {
           <button
             key={idx}
             onClick={() => onSelectPrompt(item.prompt, item.action)}
-            className="p-3.5 rounded-2xl bg-surface-900 border border-surface-800 hover:border-primary-500/50 hover:bg-surface-850 text-left transition-all group"
+            className="p-3.5 rounded-2xl bg-card border border-surface-200 hover:border-primary-600/50 hover:bg-surface-850 text-left transition-all group"
           >
-            <div className="p-2 rounded-xl bg-primary-500/10 border border-primary-500/30 text-primary-400 w-fit mb-2.5 group-hover:scale-105 transition-transform">
+            <div className="p-2 rounded-xl bg-primary-50 border border-primary-600/30 text-primary-600 w-fit mb-2.5 group-hover:scale-105 transition-transform">
               <Icon size={16} />
             </div>
-            <h4 className="text-xs font-bold text-surface-100 mb-1">{item.title}</h4>
-            <p className="text-3xs text-surface-400 line-clamp-2">{item.desc}</p>
+            <h4 className="text-xs font-bold text-surface-900 mb-1">{item.title}</h4>
+            <p className="text-3xs text-surface-600 line-clamp-2">{item.desc}</p>
           </button>
         );
       })}
     </div>
   );
 }
+

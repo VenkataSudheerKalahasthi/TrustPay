@@ -23,8 +23,8 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
     <div className="space-y-4">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h3 className="text-sm font-semibold text-surface-100">Categorized Project Attachments</h3>
-          <p className="text-xs text-surface-400">
+          <h3 className="text-sm font-semibold text-surface-900">Categorized Project Attachments</h3>
+          <p className="text-xs text-surface-600">
             Requirements, design assets, reference materials, and project files
           </p>
         </div>
@@ -43,8 +43,8 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
             onClick={() => setSelectedCategory(cat)}
             className={`px-3 py-1.5 rounded-xl font-medium whitespace-nowrap transition-colors ${
               selectedCategory === cat
-                ? 'bg-primary-500/20 text-primary-400 border border-primary-500/30'
-                : 'text-surface-400 hover:text-surface-200 bg-surface-800/40'
+                ? 'bg-primary-500/20 text-primary-600 border border-primary-600/30'
+                : 'text-surface-600 hover:text-surface-800 bg-surface-100/40'
             }`}
           >
             {cat}
@@ -53,9 +53,9 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
       </div>
 
       {filtered.length === 0 ? (
-        <Card className="p-8 text-center bg-surface-900 border-surface-800">
+        <Card className="p-8 text-center bg-card border-surface-200">
           <Paperclip className="w-8 h-8 text-surface-600 mx-auto mb-2" />
-          <p className="text-xs text-surface-400">No attachments found in this category.</p>
+          <p className="text-xs text-surface-600">No attachments found in this category.</p>
         </Card>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -66,16 +66,16 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
               : 'User';
 
             return (
-              <Card key={att.id} className="p-4 bg-surface-900 border-surface-800 hover:border-surface-700 transition-colors">
+              <Card key={att.id} className="p-4 bg-card border-surface-200 hover:border-surface-300 transition-colors">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-start gap-3 min-w-0">
-                    <div className="p-2.5 rounded-xl bg-surface-800 border border-surface-700 text-surface-300 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-surface-50 border border-surface-300 text-surface-700 shrink-0">
                       <FileText size={18} />
                     </div>
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h4 className="text-xs font-semibold text-surface-100 truncate">{att.fileName}</h4>
+                        <h4 className="text-xs font-semibold text-surface-900 truncate">{att.fileName}</h4>
                         <Badge variant={config.variant} size="xs">
                           {config.label}
                         </Badge>
@@ -92,7 +92,7 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
                     href={att.fileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-xl bg-surface-800 text-surface-300 hover:text-surface-100 hover:bg-surface-700 shrink-0"
+                    className="p-2 rounded-xl bg-surface-50 text-surface-700 hover:text-surface-900 hover:bg-surface-700 shrink-0"
                   >
                     <Download size={14} />
                   </a>
@@ -105,3 +105,4 @@ export function ProjectAttachments({ attachments = [], onUpload, isClientOwner, 
     </div>
   );
 }
+

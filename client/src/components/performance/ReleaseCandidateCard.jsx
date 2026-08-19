@@ -8,7 +8,7 @@ export function ReleaseCandidateCard({ status = {} }) {
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
       <div className="flex items-center justify-between border-b border-slate-800 pb-4">
         <div>
-          <span className="text-xs text-sky-400 font-bold uppercase tracking-wider">Release Candidate</span>
+          <span className="text-xs text-sky-400 dark:text-primary-400 font-bold uppercase tracking-wider">Release Candidate</span>
           <h2 className="text-2xl font-extrabold text-white">{rc.version}</h2>
         </div>
         <div className="text-right">

@@ -43,12 +43,12 @@ export function LoginPage() {
   return (
     <div>
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-surface-50 font-display">Welcome Back</h1>
-        <p className="text-sm text-surface-400 mt-1">Sign in to your TrustPay account</p>
+        <h1 className="text-2xl font-bold text-surface-900 font-display">Welcome Back</h1>
+        <p className="text-sm text-surface-500 mt-1">Sign in to your TrustPay account</p>
       </div>
 
       {serverError && (
-        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-500/30 text-danger-500 text-sm flex items-start gap-2">
+        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-200 text-danger-700 text-sm flex items-start gap-2">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />
           <span>{serverError}</span>
         </div>
@@ -66,10 +66,10 @@ export function LoginPage() {
 
         <div>
           <div className="flex items-center justify-between mb-1">
-            <label className="text-sm font-medium text-surface-200">Password</label>
+            <label className="text-sm font-medium text-surface-600">Password</label>
             <Link
               to={ROUTES.FORGOT_PASSWORD}
-              className="text-xs text-primary-500 hover:text-primary-600 font-medium transition-colors"
+              className="text-xs text-primary-600 hover:text-primary-700 font-semibold transition-colors"
             >
               Forgot Password?
             </Link>
@@ -85,7 +85,7 @@ export function LoginPage() {
 
         <Button
           type="submit"
-          variant="primary"
+          variant="gradient"
           fullWidth
           loading={isSubmitting}
           rightIcon={<ArrowRight size={16} />}
@@ -95,9 +95,9 @@ export function LoginPage() {
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-xs text-surface-400">
+      <div className="mt-6 text-center text-xs text-surface-500">
         Don't have an account?{' '}
-        <Link to={ROUTES.REGISTER} className="text-primary-400 hover:text-primary-300 font-semibold">
+        <Link to={ROUTES.REGISTER} className="text-primary-600 hover:text-primary-700 font-semibold">
           Create Account
         </Link>
       </div>

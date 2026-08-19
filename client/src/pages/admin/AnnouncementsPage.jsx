@@ -30,7 +30,7 @@ export function AnnouncementsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Megaphone className="w-6 h-6 text-sky-400" />
+            <Megaphone className="w-6 h-6 text-sky-400 dark:text-primary-400" />
             Administrative Announcements & Operational Banners
           </h1>
           <p className="text-slate-400 text-sm">System broadcasts, platform notices, and targeted role announcements</p>
