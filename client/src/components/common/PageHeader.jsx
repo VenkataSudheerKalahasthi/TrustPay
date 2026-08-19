@@ -61,7 +61,7 @@ export function PageHeader({
                 <Icon size={22} />
               </div>
             )}
-            <h1 className="text-2xl font-bold font-display text-surface-50 tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-surface-50 font-display tracking-tight">
               {title}
             </h1>
             {badge && <div className="shrink-0">{badge}</div>}

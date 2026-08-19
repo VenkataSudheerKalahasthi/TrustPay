@@ -1,106 +1,67 @@
 import { forwardRef } from 'react';
+import { Loader2 } from 'lucide-react';
 import { cn } from '@utils';
 
-/**
- * Shared Button Component
- *
- * Supports multiple variants, sizes, loading state, and icon slots.
- * Built with Tailwind and Framer Motion-ready structure.
- *
- * @param {object} props
- * @param {'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'success'} props.variant
- * @param {'xs' | 'sm' | 'md' | 'lg' | 'xl'} props.size
- * @param {boolean} props.loading
- * @param {boolean} props.fullWidth
- * @param {React.ReactNode} props.leftIcon
- * @param {React.ReactNode} props.rightIcon
- */
-const Button = forwardRef(
+const variantStyles = {
+  primary:
+    'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
+  secondary:
+    'bg-surface-800 hover:bg-surface-700 active:bg-surface-600 text-surface-100 border border-surface-700 focus-visible:ring-primary-500',
+  outline:
+    'border border-surface-700 bg-transparent text-surface-200 hover:bg-surface-800 hover:text-surface-50 hover:border-surface-600 focus-visible:ring-primary-500',
+  ghost:
+    'bg-transparent text-surface-400 hover:text-surface-100 hover:bg-surface-800/60 focus-visible:ring-primary-500',
+  danger:
+    'bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white shadow-sm focus-visible:ring-danger-500',
+  success:
+    'bg-success-500 hover:bg-success-600 active:bg-success-700 text-white shadow-sm focus-visible:ring-success-500',
+  gradient:
+    'bg-gradient-brand hover:opacity-95 text-white shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
+};
+
+const sizeStyles = {
+  xs: 'px-2.5 py-1 text-xs rounded-lg gap-1.5',
+  sm: 'px-3 py-1.5 text-xs rounded-xl gap-1.5',
+  md: 'px-4 py-2 text-sm rounded-xl gap-2',
+  lg: 'px-5 py-2.5 text-base rounded-xl gap-2.5',
+  xl: 'px-6 py-3 text-base rounded-2xl gap-3 font-semibold',
+};
+
+export const Button = forwardRef(
   (
     {
       children,
       variant = 'primary',
       size = 'md',
-      loading = false,
-      fullWidth = false,
+      isLoading = false,
+      isDisabled = false,
       leftIcon,
       rightIcon,
+      fullWidth = false,
       className,
-      disabled,
       type = 'button',
       ...props
     },
     ref
   ) => {
-    const isDisabled = disabled || loading;
-
-    const baseStyles =
-      'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-950 select-none whitespace-nowrap';
-
-    const variantStyles = {
-      primary:
-        'bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-700 shadow-sm hover:shadow-glow disabled:bg-primary-900 disabled:text-primary-600',
-      secondary:
-        'bg-secondary-600 text-white hover:bg-secondary-500 active:bg-secondary-700 shadow-sm hover:shadow-lg disabled:bg-secondary-900 disabled:text-secondary-600',
-      outline:
-        'border-2 border-primary-500 text-primary-400 hover:bg-primary-500/10 active:bg-primary-500/20 disabled:border-surface-700 disabled:text-surface-600',
-      ghost:
-        'text-surface-300 hover:bg-surface-800 hover:text-surface-100 active:bg-surface-700 disabled:text-surface-600',
-      danger:
-        'bg-danger-600 text-white hover:bg-danger-500 active:bg-danger-700 shadow-sm disabled:bg-danger-900 disabled:text-danger-600',
-      success:
-        'bg-success-600 text-white hover:bg-success-500 active:bg-success-700 shadow-sm disabled:bg-success-900 disabled:text-success-600',
-      gradient:
-        'bg-gradient-brand text-white hover:opacity-90 active:opacity-80 shadow-sm hover:shadow-glow',
-    };
-
-    const sizeStyles = {
-      xs: 'h-7 px-3 text-xs rounded-lg',
-      sm: 'h-8 px-4 text-sm rounded-lg',
-      md: 'h-10 px-5 text-sm',
-      lg: 'h-12 px-6 text-base',
-      xl: 'h-14 px-8 text-lg rounded-2xl',
-    };
+    const disabled = isDisabled || isLoading;
 
     return (
       <button
         ref={ref}
         type={type}
-        disabled={isDisabled}
+        disabled={disabled}
         className={cn(
-          baseStyles,
+          'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-surface-950 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none select-none',
           variantStyles[variant],
           sizeStyles[size],
           fullWidth && 'w-full',
-          isDisabled && 'cursor-not-allowed opacity-60',
           className
         )}
         {...props}
       >
-        {loading ? (
-          <span className="flex items-center gap-2">
-            <svg
-              className="animate-spin h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              />
-            </svg>
-            Loading...
-          </span>
+        {isLoading ? (
+          <Loader2 className="w-4 h-4 animate-spin shrink-0" />
         ) : (
           <>
             {leftIcon && <span className="shrink-0">{leftIcon}</span>}
@@ -114,5 +75,3 @@ const Button = forwardRef(
 );
 
 Button.displayName = 'Button';
-
-export { Button };

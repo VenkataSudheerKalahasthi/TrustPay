@@ -1,75 +1,45 @@
 import { cn } from '@utils';
-import { LoadingSpinner } from './LoadingSpinner';
 
-export function Table({ children, className, ...props }) {
+export function Table({ children, className }) {
   return (
-    <div className="w-full overflow-x-auto rounded-2xl border border-surface-700/60 bg-surface-800/40 backdrop-blur-sm">
-      <table className={cn('w-full text-left text-sm border-collapse', className)} {...props}>
-        {children}
-      </table>
+    <div className={cn('w-full overflow-x-auto rounded-xl border border-surface-800 bg-surface-900 shadow-glow-sm', className)}>
+      <table className="w-full text-left text-sm border-collapse">{children}</table>
     </div>
   );
 }
 
-Table.Header = function TableHeader({ children, className, ...props }) {
+export function TableHeader({ children }) {
   return (
-    <thead className={cn('bg-surface-800/90 border-b border-surface-700 text-surface-400 font-medium uppercase text-xs tracking-wider', className)} {...props}>
+    <thead className="bg-surface-800/80 text-xs font-semibold text-surface-400 uppercase tracking-wider border-b border-surface-700">
       {children}
     </thead>
   );
-};
+}
 
-Table.Body = function TableBody({ children, isLoading, isEmpty, emptyMessage = 'No data available', columnsCount = 5, className, ...props }) {
-  if (isLoading) {
-    return (
-      <tbody className={className} {...props}>
-        <tr>
-          <td colSpan={columnsCount} className="py-12 text-center">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <LoadingSpinner size="md" />
-              <span className="text-xs text-surface-400">Loading data...</span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    );
-  }
+export function TableBody({ children }) {
+  return <tbody className="divide-y divide-surface-800/60">{children}</tbody>;
+}
 
-  if (isEmpty) {
-    return (
-      <tbody className={className} {...props}>
-        <tr>
-          <td colSpan={columnsCount} className="py-12 text-center text-surface-400 text-sm">
-            {emptyMessage}
-          </td>
-        </tr>
-      </tbody>
-    );
-  }
-
-  return <tbody className={cn('divide-y divide-surface-700/50 text-surface-200', className)} {...props}>{children}</tbody>;
-};
-
-Table.Row = function TableRow({ children, className, ...props }) {
+export function TableRow({ children, className, onClick }) {
   return (
-    <tr className={cn('hover:bg-surface-700/30 transition-colors', className)} {...props}>
+    <tr
+      onClick={onClick}
+      className={cn(
+        'hover:bg-surface-800/40 transition-colors duration-150',
+        onClick && 'cursor-pointer',
+        className
+      )}
+    >
       {children}
     </tr>
   );
-};
+}
 
-Table.Head = function TableHead({ children, className, ...props }) {
-  return (
-    <th className={cn('px-4 py-3.5 font-semibold text-surface-300', className)} {...props}>
-      {children}
-    </th>
-  );
-};
+export function TableHead({ children, className }) {
+  return <th className={cn('px-4 py-3.5 font-semibold text-surface-300', className)}>{children}</th>;
+}
 
-Table.Cell = function TableCell({ children, className, ...props }) {
-  return (
-    <td className={cn('px-4 py-3.5 whitespace-nowrap', className)} {...props}>
-      {children}
-    </td>
-  );
-};
+export function TableCell({ children, className }) {
+  return <td className={cn('px-4 py-3.5 text-surface-200 align-middle', className)}>{children}</td>;
+}
+

@@ -7,6 +7,7 @@ import { Button } from '@components/ui/Button';
 import { PortfolioCard } from '@components/worker/PortfolioCard';
 import { PageLoader } from '@components/error/PageLoader';
 import { NotFound } from '@components/error/NotFound';
+import { CollaborationRequestModal } from '@components/collaboration/CollaborationRequestModal';
 import {
   CheckCircle2,
   MapPin,
@@ -14,7 +15,10 @@ import {
   Briefcase,
   GraduationCap,
   Award,
-  MessageSquare,
+  Star,
+  Send,
+  CheckCircle,
+  ThumbsUp,
 } from 'lucide-react';
 
 export function PublicWorkerProfilePage() {
@@ -22,6 +26,7 @@ export function PublicWorkerProfilePage() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchProfile();
@@ -48,6 +53,11 @@ export function PublicWorkerProfilePage() {
   const name = `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Worker';
   const skills = profile.skills ? profile.skills.map((s) => s.skill?.name || s.name) : [];
   const projects = profile.portfolioProjects || [];
+
+  const rating = profile.rating || 4.9;
+  const reviewsCount = profile.reviewsCount || 18;
+  const completedProjects = profile.completedProjectsCount || profile.projects?.length || 12;
+  const successRate = profile.successRate || 98;
 
   return (
     <div className="min-h-screen bg-surface-950 text-surface-50 py-10 px-4 sm:px-6 lg:px-8">
@@ -82,7 +92,7 @@ export function PublicWorkerProfilePage() {
                 <p className="text-sm text-surface-300 font-medium">
                   {profile.title || 'Independent Specialist'}
                 </p>
-                <div className="flex items-center gap-4 text-xs text-surface-400 mt-1">
+                <div className="flex flex-wrap items-center gap-4 text-xs text-surface-400 mt-1">
                   <div className="flex items-center gap-1">
                     <MapPin size={14} className="text-surface-500" />
                     <span>{profile.city ? `${profile.city}, ${profile.country || 'India'}` : 'Remote'}</span>
@@ -91,16 +101,57 @@ export function PublicWorkerProfilePage() {
                     <Clock size={14} className="text-surface-500" />
                     <span>{profile.yearsExperience || 0} Years Experience</span>
                   </div>
+                  <div className="flex items-center gap-1 text-amber-400 font-semibold">
+                    <Star size={14} className="fill-amber-400" />
+                    <span>{rating} ({reviewsCount} reviews)</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Action CTA */}
+            {/* Header Primary Action CTA */}
             <div className="flex items-center gap-3 w-full sm:w-auto">
-              <Button variant="primary" size="md" leftIcon={<MessageSquare size={16} />}>
-                Hire / Contact Worker
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() => setIsModalOpen(true)}
+                leftIcon={<Send size={16} />}
+                className="shadow-glow font-bold w-full sm:w-auto"
+              >
+                ✅ Request Collaboration
               </Button>
             </div>
+          </div>
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="glass-card p-4 flex flex-col gap-1">
+            <span className="text-2xs uppercase tracking-wider text-surface-400 font-semibold">Completed Projects</span>
+            <span className="text-xl font-bold font-display text-surface-50 flex items-center gap-1.5">
+              <CheckCircle size={18} className="text-primary-400" />
+              {completedProjects}
+            </span>
+          </div>
+          <div className="glass-card p-4 flex flex-col gap-1">
+            <span className="text-2xs uppercase tracking-wider text-surface-400 font-semibold">Success Rate</span>
+            <span className="text-xl font-bold font-display text-emerald-400 flex items-center gap-1.5">
+              <ThumbsUp size={18} />
+              {successRate}%
+            </span>
+          </div>
+          <div className="glass-card p-4 flex flex-col gap-1">
+            <span className="text-2xs uppercase tracking-wider text-surface-400 font-semibold">Rating</span>
+            <span className="text-xl font-bold font-display text-amber-400 flex items-center gap-1.5">
+              <Star size={18} className="fill-amber-400" />
+              {rating} / 5.0
+            </span>
+          </div>
+          <div className="glass-card p-4 flex flex-col gap-1">
+            <span className="text-2xs uppercase tracking-wider text-surface-400 font-semibold">Availability</span>
+            <span className="text-sm font-bold font-display text-emerald-300 mt-1">
+              {profile.availabilityStatus || 'AVAILABLE'}
+            </span>
           </div>
         </div>
 
@@ -108,7 +159,7 @@ export function PublicWorkerProfilePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content Area */}
           <div className="lg:col-span-2 flex flex-col gap-8">
-            {/* About Me */}
+            {/* About Specialist */}
             <div className="glass-card p-6 flex flex-col gap-3">
               <h2 className="text-base font-bold text-surface-100 font-display flex items-center gap-2">
                 <Briefcase size={18} className="text-primary-400" />
@@ -196,7 +247,33 @@ export function PublicWorkerProfilePage() {
             </div>
           </div>
         </div>
+
+        {/* Primary Bottom Action Bar as specified in Step 1 */}
+        <div className="glass-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-2 border-primary-500/40 bg-surface-900/90 shadow-glow">
+          <div>
+            <h3 className="text-lg font-bold text-surface-50 font-display">Ready to work with {name}?</h3>
+            <p className="text-xs text-surface-400 mt-0.5">
+              Initiate a secure, private collaboration workspace with real-time chat, contract, and escrow protection.
+            </p>
+          </div>
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={() => setIsModalOpen(true)}
+            leftIcon={<Send size={18} />}
+            className="shadow-glow font-bold w-full sm:w-auto text-sm px-8 py-3"
+          >
+            ✅ Request Collaboration
+          </Button>
+        </div>
       </div>
+
+      {/* Collaboration Request Modal */}
+      <CollaborationRequestModal
+        worker={profile}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

@@ -5,11 +5,11 @@ export const EnterpriseButton = forwardRef(function EnterpriseButton(
   ref
 ) {
   const variantStyles = {
-    primary: 'bg-sky-600 hover:bg-sky-500 text-white font-bold shadow-lg shadow-sky-600/20',
-    secondary: 'bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700',
-    outline: 'border border-sky-500/50 text-sky-400 hover:bg-sky-500/10 font-semibold',
-    danger: 'bg-rose-600 hover:bg-rose-500 text-white font-bold shadow-lg shadow-rose-600/20',
-    ghost: 'text-slate-400 hover:text-white hover:bg-slate-800 font-medium',
+    primary: 'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white font-semibold shadow-glow-sm hover:shadow-glow focus-visible:ring-primary-500',
+    secondary: 'bg-surface-800 hover:bg-surface-700 text-surface-100 font-medium border border-surface-700 focus-visible:ring-primary-500',
+    outline: 'border border-primary-500/50 text-primary-400 hover:bg-primary-500/10 font-semibold',
+    danger: 'bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white font-semibold shadow-sm focus-visible:ring-danger-500',
+    ghost: 'text-surface-400 hover:text-surface-100 hover:bg-surface-800 font-medium',
   };
 
   const sizeStyles = {
@@ -22,7 +22,7 @@ export const EnterpriseButton = forwardRef(function EnterpriseButton(
     <button
       ref={ref}
       disabled={disabled || isLoading}
-      className={`inline-flex items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-sky-500/50 disabled:opacity-50 disabled:cursor-not-allowed ${variantStyles[variant] || variantStyles.primary} ${sizeStyles[size] || sizeStyles.md} ${className}`}
+      className={`inline-flex items-center justify-center transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50 disabled:opacity-50 disabled:cursor-not-allowed ${variantStyles[variant] || variantStyles.primary} ${sizeStyles[size] || sizeStyles.md} ${className}`}
       {...props}
     >
       {isLoading ? (

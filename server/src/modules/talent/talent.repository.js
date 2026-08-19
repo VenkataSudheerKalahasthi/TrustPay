@@ -1,14 +1,21 @@
 'use strict';
 
-const prisma = require('../../config/database');
+const { prisma } = require('../../config/database');
 
 class TalentRepository {
-  async searchWorkers({ query, availability, skip = 0, take = 20 }) {
+  async searchWorkers(params = {}) {
+    const { query, availability, page = 1, limit = 20, skip: customSkip, take: customTake } = params;
+    const skip = customSkip !== undefined ? Number(customSkip) : (Number(page) - 1) * Number(limit);
+    const take = customTake !== undefined ? Number(customTake) : Number(limit);
+
     const where = {};
     if (query) {
       where.OR = [
         { title: { contains: query, mode: 'insensitive' } },
         { bio: { contains: query, mode: 'insensitive' } },
+        { user: { firstName: { contains: query, mode: 'insensitive' } } },
+        { user: { lastName: { contains: query, mode: 'insensitive' } } },
+        { skills: { some: { skill: { name: { contains: query, mode: 'insensitive' } } } } },
       ];
     }
     if (availability) {
@@ -33,7 +40,7 @@ class TalentRepository {
           yearsExperience: true,
           verificationStatus: true,
           user: {
-            select: { id: true, firstName: true, lastName: true, avatarUrl: true },
+            select: { id: true, firstName: true, lastName: true, avatar: true },
           },
           skills: {
             select: {
@@ -61,7 +68,7 @@ class TalentRepository {
         yearsExperience: true,
         verificationStatus: true,
         user: {
-          select: { id: true, firstName: true, lastName: true, avatarUrl: true },
+          select: { id: true, firstName: true, lastName: true, avatar: true },
         },
         skills: {
           select: { skill: { select: { id: true, name: true } } },
@@ -156,7 +163,7 @@ class TalentRepository {
         hourlyRate: true,
         availabilityStatus: true,
         yearsExperience: true,
-        user: { select: { id: true, firstName: true, lastName: true, avatarUrl: true } },
+        user: { select: { id: true, firstName: true, lastName: true, avatar: true } },
         skills: { select: { skill: { select: { name: true } } } },
       },
     });
@@ -164,3 +171,4 @@ class TalentRepository {
 }
 
 module.exports = new TalentRepository();
+

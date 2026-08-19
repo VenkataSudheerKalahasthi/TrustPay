@@ -11,16 +11,18 @@
 /* ─── Base Resets ─────────────────────────────────────────────────────────── */
 @layer base {
   :root {
-    --color-bg: theme('colors.surface.950');
-    --color-bg-secondary: theme('colors.surface.900');
-    --color-bg-card: theme('colors.surface.800');
-    --color-text-primary: theme('colors.surface.50');
-    --color-text-secondary: theme('colors.surface.400');
-    --color-border: theme('colors.surface.700');
-    --color-primary: theme('colors.primary.500');
-    --color-primary-hover: theme('colors.primary.400');
+    --color-bg: #0F172A;
+    --color-bg-secondary: #020617;
+    --color-bg-card: #1E293B;
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #94A3B8;
+    --color-text-muted: #64748B;
+    --color-border: #334155;
+    --color-border-soft: #1E293B;
+    --color-primary: #0EA5E9;
+    --color-primary-hover: #0284C7;
 
-    /* Sidebar */
+    /* Sidebar & Navbar */
     --sidebar-width: 16rem;
     --sidebar-collapsed: 4.5rem;
     --navbar-height: 4rem;
@@ -36,6 +38,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
   }
 
   body {
@@ -64,7 +67,7 @@
 
   /* Selection */
   ::selection {
-    @apply bg-primary-500/30 text-primary-200;
+    @apply bg-primary-900/40 text-primary-200;
   }
 
   /* Focus Outline */
@@ -75,14 +78,14 @@
 
 /* ─── Component Utilities ────────────────────────────────────────────────── */
 @layer components {
-  /* Glassmorphism card */
+  /* Clean Fintech Card */
   .glass-card {
-    @apply bg-surface-800/60 backdrop-blur-md border border-surface-700/50 rounded-2xl;
+    @apply bg-surface-900/60 backdrop-blur-xl border border-surface-800 rounded-2xl shadow-glow transition-all duration-300;
   }
 
-  /* Gradient text */
+  /* TrustPay Blue Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent;
   }
 
   /* Gradient border */
@@ -95,7 +98,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, #6366f1, #d946ef);
+    background: linear-gradient(135deg, #0EA5E9, #6366F1);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -121,31 +124,17 @@
 
   /* Section spacing */
   .section {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-12 sm:py-16 lg:py-20;
   }
 
   /* Badge base */
   .badge {
-    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide;
   }
 
   /* Divider */
   .divider {
     @apply border-t border-surface-700/60 my-6;
-  }
-
-  /* Noise texture overlay */
-  .noise {
-    position: relative;
-  }
-  .noise::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 0;
   }
 }
 

@@ -98,6 +98,10 @@ import { CandidateComparisonPage } from '@pages/talent/CandidateComparisonPage';
 import { WorkforceDashboardPage } from '@pages/workforce/WorkforceDashboardPage';
 import { SchedulesPage } from '@pages/workforce/SchedulesPage';
 import { AttendancePage } from '@pages/workforce/AttendancePage';
+
+// Phase 2 Part 5: Collaboration Pages
+import { CollaborationCenterPage } from '@pages/collaboration/CollaborationCenterPage';
+import { CollaborationWorkspacePage } from '@pages/collaboration/CollaborationWorkspacePage';
 import { TimesheetsPage } from '@pages/workforce/TimesheetsPage';
 import { CapacityPlanningPage } from '@pages/workforce/CapacityPlanningPage';
 import { ResourceAllocationPage } from '@pages/workforce/ResourceAllocationPage';
@@ -214,6 +218,23 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <ProfilePage />
+          </ProtectedRoute>
+        ),
+      },
+      // ─── Phase 2 Part 5: Client-Worker Collaboration Routes ───────────────
+      {
+        path: 'collaboration',
+        element: (
+          <ProtectedRoute>
+            <CollaborationCenterPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'collaboration/workspace/:id',
+        element: (
+          <ProtectedRoute>
+            <CollaborationWorkspacePage />
           </ProtectedRoute>
         ),
       },

@@ -1,6 +1,6 @@
 'use strict';
 
-const prisma = require('../../config/database');
+const { prisma } = require('../../config/database');
 
 class ActivityService {
   /**

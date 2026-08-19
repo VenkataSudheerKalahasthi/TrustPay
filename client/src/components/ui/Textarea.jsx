@@ -25,7 +25,7 @@ const Textarea = forwardRef(
     return (
       <div className={cn('flex flex-col gap-1.5', fullWidth ? 'w-full' : 'w-auto')}>
         {label && (
-          <label htmlFor={inputId} className="text-sm font-medium text-surface-200 flex items-center gap-1">
+          <label htmlFor={inputId} className="text-xs font-semibold text-surface-200 uppercase tracking-wider flex items-center gap-1">
             {label}
             {props.required && <span className="text-danger-500 text-xs">*</span>}
           </label>
@@ -39,10 +39,10 @@ const Textarea = forwardRef(
             maxLength={maxLength}
             value={value}
             className={cn(
-              'w-full bg-surface-800/80 border rounded-xl px-4 py-2.5 text-sm text-surface-50 placeholder:text-surface-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-surface-950 resize-y',
+              'w-full bg-surface-900 border rounded-xl px-4 py-2.5 text-sm text-surface-50 placeholder:text-surface-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/20 resize-y shadow-glow-sm',
               error
-                ? 'border-danger-500 focus:ring-danger-500'
-                : 'border-surface-700 focus:border-primary-500 focus:ring-primary-500',
+                ? 'border-danger-500 focus:ring-danger-500/20'
+                : 'border-surface-800 focus:border-primary-500 focus:ring-primary-500/20',
               className
             )}
             aria-invalid={!!error}

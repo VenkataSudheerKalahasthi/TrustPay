@@ -5,7 +5,7 @@ const { NOTIFICATION_EMAIL_TEMPLATES } = require('./notification.template');
 const activityService = require('../activity/activity.service');
 const { sendEmail } = require('../../utils/email');
 const { getSocketIO } = require('../../config/socket');
-const prisma = require('../../config/database');
+const { prisma } = require('../../config/database');
 const { logger } = require('../../utils/logger');
 
 class NotificationService {
@@ -29,7 +29,7 @@ class NotificationService {
     const pref = await notificationRepository.getNotificationPreference(userId);
 
     // Check if in-app / category updates enabled
-    if (!pref.inAppNotifications) {
+    if (pref.inAppNotifications === false) {
       return null;
     }
 
@@ -167,6 +167,17 @@ class NotificationService {
    */
   async updatePreferences(userId, data) {
     return notificationRepository.updateNotificationPreference(userId, data);
+  }
+
+  async sendNotification(data) {
+    return this.createNotification({
+      userId: data.userId,
+      title: data.title,
+      message: data.message,
+      category: data.category || data.type || 'SYSTEM',
+      linkUrl: data.linkUrl || (data.entityId ? `/collaboration` : null),
+      metadata: data,
+    });
   }
 }
 

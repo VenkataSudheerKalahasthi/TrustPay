@@ -9,6 +9,15 @@ export const APP_TAGLINE =
   import.meta.env.VITE_APP_TAGLINE || 'Secure Digital Contract & Escrow Platform';
 export const APP_VERSION = import.meta.env.VITE_APP_VERSION || '1.0.0';
 
+// ─── Social & Contact Links ───────────────────────────────────────────────────
+export const SOCIAL_LINKS = {
+  GITHUB: 'https://github.com/VenkataSudheerKalahasthi',
+  LINKEDIN:
+    'https://www.linkedin.com/in/kalahasthi-venkata-sudheer-39a022322?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+  EMAIL: 'mailto:sudheercse510@gmail.com',
+  TWITTER: 'https://x.com/k_sudheer_045',
+};
+
 // ─── API ──────────────────────────────────────────────────────────────────────
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
 export const API_TIMEOUT = Number(import.meta.env.VITE_API_TIMEOUT) || 30000;

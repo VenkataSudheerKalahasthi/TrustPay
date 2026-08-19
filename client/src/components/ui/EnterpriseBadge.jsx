@@ -1,14 +1,14 @@
 export function EnterpriseBadge({ children, variant = 'info', className = '' }) {
   const variantStyles = {
-    info: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
-    success: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    warning: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    danger: 'bg-rose-500/10 text-rose-400 border-rose-500/20',
-    purple: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+    info: 'bg-primary-100 text-primary-600 border-primary-500/20 dark:bg-primary-950/40 dark:text-primary-300',
+    success: 'bg-success-50 text-success-600 border-success-500/20 dark:bg-success-950/40 dark:text-success-300',
+    warning: 'bg-warning-50 text-warning-600 border-warning-500/30 dark:bg-warning-950/40 dark:text-warning-300',
+    danger: 'bg-danger-50 text-danger-600 border-danger-500/20 dark:bg-danger-950/40 dark:text-danger-300',
+    purple: 'bg-secondary-100 text-secondary-600 border-secondary-500/20 dark:bg-secondary-950/40 dark:text-secondary-300',
   };
 
   return (
-    <span className={`px-2.5 py-0.5 text-xs font-bold rounded-full border ${variantStyles[variant] || variantStyles.info} ${className}`}>
+    <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${variantStyles[variant] || variantStyles.info} ${className}`}>
       {children}
     </span>
   );

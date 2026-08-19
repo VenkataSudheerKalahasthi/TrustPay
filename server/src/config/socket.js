@@ -38,8 +38,10 @@ function initializeSocket(httpServer) {
   // Register Phase 2 Part 5 & Phase 3 Part 1 Handlers
   const { registerChatSocketHandlers } = require('../socket/handlers/chatSocket.handler');
   const { registerNotificationSocketHandlers } = require('../socket/handlers/notificationSocket.handler');
+  const { registerCollaborationSocketHandlers } = require('../socket/handlers/collaborationSocket.handler');
   registerChatSocketHandlers(io);
   registerNotificationSocketHandlers(io);
+  registerCollaborationSocketHandlers(io);
 
   socketLogger.info('Socket.IO initialized', {
     transports: ['websocket', 'polling'],

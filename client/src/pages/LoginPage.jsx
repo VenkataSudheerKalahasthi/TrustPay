@@ -48,7 +48,7 @@ export function LoginPage() {
       </div>
 
       {serverError && (
-        <div className="mb-6 p-4 rounded-xl bg-danger-500/10 border border-danger-500/30 text-danger-400 text-sm flex items-start gap-2">
+        <div className="mb-6 p-4 rounded-xl bg-danger-50 border border-danger-500/30 text-danger-500 text-sm flex items-start gap-2">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />
           <span>{serverError}</span>
         </div>
@@ -69,7 +69,7 @@ export function LoginPage() {
             <label className="text-sm font-medium text-surface-200">Password</label>
             <Link
               to={ROUTES.FORGOT_PASSWORD}
-              className="text-xs text-primary-400 hover:text-primary-300 font-medium transition-colors"
+              className="text-xs text-primary-500 hover:text-primary-600 font-medium transition-colors"
             >
               Forgot Password?
             </Link>
@@ -85,7 +85,7 @@ export function LoginPage() {
 
         <Button
           type="submit"
-          variant="gradient"
+          variant="primary"
           fullWidth
           loading={isSubmitting}
           rightIcon={<ArrowRight size={16} />}

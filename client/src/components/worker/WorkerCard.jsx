@@ -12,7 +12,7 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
   const skills = worker.skills ? worker.skills.map((s) => s.skill?.name || s.name).slice(0, 4) : [];
 
   return (
-    <div className="glass-card p-5 flex flex-col justify-between hover:border-surface-700/80 transition-all duration-300 group">
+    <div className="glass-card p-6 flex flex-col justify-between hover:shadow-glow transition-all duration-200 group">
       <div>
         {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-4">
@@ -22,12 +22,12 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
               <div className="flex items-center gap-1.5">
                 <Link
                   to={`/workers/${worker.slug || worker.id}`}
-                  className="font-bold text-sm text-surface-100 hover:text-primary-400 transition-colors"
+                  className="font-bold text-sm text-surface-100 hover:text-primary-500 transition-colors"
                 >
                   {name}
                 </Link>
                 {worker.verificationStatus === 'VERIFIED' && (
-                  <CheckCircle2 size={14} className="text-primary-400 shrink-0" />
+                  <CheckCircle2 size={14} className="text-primary-500 shrink-0" />
                 )}
               </div>
               <span className="text-2xs text-surface-400 font-medium line-clamp-1">{title}</span>
@@ -37,10 +37,10 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
           <button
             type="button"
             onClick={() => onToggleFavorite && onToggleFavorite(worker.id)}
-            className={`p-2 rounded-xl transition-colors ${
+            className={`p-2 rounded-full transition-colors ${
               isFavorite
-                ? 'bg-danger-500/10 text-danger-500 hover:bg-danger-500/20'
-                : 'bg-surface-800/80 text-surface-400 hover:text-surface-100'
+                ? 'bg-danger-50 text-danger-500 hover:bg-danger-50/80'
+                : 'bg-surface-700/50 text-surface-400 hover:text-surface-100'
             }`}
             aria-label="Save worker to favorites"
           >
@@ -50,7 +50,7 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
 
         {/* Bio */}
         {worker.bio && (
-          <p className="text-xs text-surface-300 line-clamp-2 mb-4 leading-relaxed">
+          <p className="text-xs text-surface-400 line-clamp-2 mb-4 leading-relaxed">
             {worker.bio}
           </p>
         )}
@@ -61,7 +61,7 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
             {skills.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-2 py-0.5 rounded-lg bg-surface-800 text-surface-300 text-2xs font-medium border border-surface-700/50"
+                className="px-2.5 py-1 rounded-full bg-surface-700/60 text-surface-300 text-2xs font-medium border border-surface-700"
               >
                 {skill}
               </span>
@@ -71,13 +71,13 @@ export function WorkerCard({ worker, isFavorite = false, onToggleFavorite }) {
       </div>
 
       {/* Footer Info */}
-      <div className="pt-4 border-t border-surface-800/60 flex items-center justify-between">
+      <div className="pt-4 border-t border-surface-700 flex items-center justify-between">
         <div className="flex items-center gap-3 text-2xs text-surface-400">
           <div className="flex items-center gap-1">
             <MapPin size={12} className="text-surface-500" />
             <span>{location}</span>
           </div>
-          <div className="flex items-center gap-1 font-semibold text-primary-400">
+          <div className="flex items-center gap-1 font-semibold text-primary-500">
             <span>{rate}</span>
           </div>
         </div>

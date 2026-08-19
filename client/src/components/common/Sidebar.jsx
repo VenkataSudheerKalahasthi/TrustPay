@@ -48,6 +48,7 @@ import { Badge } from '@components/ui/Badge';
 const roleMenus = {
   CLIENT: [
     { icon: LayoutDashboard, label: 'Overview', href: '/dashboard/client' },
+    { icon: Users, label: 'Workers / Freelancers', href: '/workers' },
     { icon: ShieldCheck, label: 'Platform Governance', href: '/dashboard/client/platform' },
     { icon: BarChart3, label: 'Executive BI & Analytics', href: '/dashboard/client/bi' },
     { icon: DollarSign, label: 'Finance & Billing', href: '/dashboard/client/finance' },
@@ -197,7 +198,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
       <aside
         id="app-sidebar"
         className={cn(
-          'fixed left-0 top-0 z-sidebar h-screen bg-surface-900 border-r border-surface-800 flex flex-col transition-all duration-300',
+          'fixed left-0 top-0 z-sidebar h-screen bg-surface-900 border-r border-surface-800 flex flex-col transition-all duration-300 shadow-glow-sm',
           collapsed ? 'lg:w-[4.5rem]' : 'lg:w-64',
           isOpen ? 'translate-x-0 w-64' : '-translate-x-full lg:translate-x-0'
         )}
@@ -205,11 +206,11 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-surface-800">
           <Link to={ROUTES.HOME} className="flex items-center gap-3 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-gradient-brand flex items-center justify-center shrink-0 shadow-glow">
+            <div className="w-8 h-8 rounded-xl bg-primary-500 flex items-center justify-center shrink-0 shadow-sm">
               <Shield className="w-4 h-4 text-white" />
             </div>
             {(!collapsed || isOpen) && (
-              <span className="font-display font-bold text-lg text-surface-50 tracking-tight whitespace-nowrap overflow-hidden">
+              <span className="font-display font-bold text-lg text-surface-50 truncate">
                 Trust<span className="gradient-text">Pay</span>
               </span>
             )}
@@ -252,8 +253,8 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                     className={cn(
                       'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group',
                       active
-                        ? 'bg-primary-500/15 text-primary-400 border border-primary-500/30 font-semibold'
-                        : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800'
+                        ? 'bg-primary-500/10 text-primary-400 border border-primary-500/20 font-semibold'
+                        : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800/60'
                     )}
                   >
                     <Icon size={20} className="shrink-0" />
@@ -261,7 +262,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                       <span className="flex-1 whitespace-nowrap overflow-hidden">{label}</span>
                     )}
                     {collapsed && !isOpen && (
-                      <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-xl">
+                      <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
                         {label}
                       </span>
                     )}
@@ -282,8 +283,8 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
               className={cn(
                 'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group relative mb-1',
                 isActive(href)
-                  ? 'bg-primary-500/15 text-primary-400 font-semibold'
-                  : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800'
+                  ? 'bg-primary-500/10 text-primary-400 font-semibold'
+                  : 'text-surface-400 hover:text-surface-100 hover:bg-surface-800/60'
               )}
             >
               <Icon size={20} className="shrink-0" />
@@ -291,7 +292,7 @@ export function Sidebar({ isOpen = true, onClose, role = 'CLIENT' }) {
                 <span className="whitespace-nowrap overflow-hidden">{label}</span>
               )}
               {collapsed && !isOpen && (
-                <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-xl">
+                <span className="absolute left-full ml-3 px-2.5 py-1 text-xs bg-surface-800 text-surface-200 rounded-lg border border-surface-700 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity z-50 shadow-md">
                   {label}
                 </span>
               )}

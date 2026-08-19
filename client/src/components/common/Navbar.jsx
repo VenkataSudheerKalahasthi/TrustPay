@@ -5,15 +5,12 @@ import {
   Shield,
   Menu,
   X,
-  Sun,
-  Moon,
   LayoutDashboard,
   LogOut,
   User as UserIcon,
 } from 'lucide-react';
 import { cn } from '@utils';
 import { ROUTES } from '@constants';
-import { useTheme } from '@contexts/ThemeContext';
 import { useAuth } from '@hooks/useAuth';
 import { Button } from '@components/ui/Button';
 import { Avatar } from '@components/ui/Avatar';
@@ -34,7 +31,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
   const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
@@ -86,19 +82,19 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-navbar transition-all duration-300',
           isScrolled
-            ? 'bg-surface-950/90 backdrop-blur-xl border-b border-surface-800/60 shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-surface-950/95 backdrop-blur-xl border-b border-surface-800 shadow-glow-sm'
+            : 'bg-surface-950/80 backdrop-blur-md border-b border-surface-800/60'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to={ROUTES.HOME} className="flex items-center gap-2 group" id="nav-logo">
               <div className="relative">
-                <div className="w-8 h-8 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-shadow duration-300">
-                  <Shield className="w-4 h-4 text-white" />
+                <div className="w-9 h-9 rounded-xl bg-primary-500 flex items-center justify-center shadow-glow-sm group-hover:shadow-glow transition-all duration-300">
+                  <Shield className="w-5 h-5 text-white" />
                 </div>
               </div>
-              <span className="font-display font-bold text-xl text-surface-50 tracking-tight">
+              <span className="font-display font-bold text-xl text-surface-50">
                 Trust<span className="gradient-text">Pay</span>
               </span>
             </Link>
@@ -108,7 +104,7 @@ export function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-surface-400 hover:text-surface-100 rounded-lg hover:bg-surface-800/50 transition-all duration-200"
+                  className="px-4 py-2 text-sm font-medium text-surface-300 hover:text-surface-50 rounded-lg hover:bg-surface-800/50 transition-all duration-200"
                 >
                   {link.label}
                 </a>
@@ -123,14 +119,6 @@ export function Navbar() {
             )}
 
             <div className="flex items-center gap-2">
-              <button
-                id="nav-theme-toggle"
-                onClick={toggleTheme}
-                className="p-2 rounded-lg text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-all duration-200"
-                aria-label="Toggle theme"
-              >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
 
               {isAuthenticated ? (
                 <div className="hidden sm:flex items-center gap-3">

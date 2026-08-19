@@ -5,11 +5,11 @@ const { z } = require('zod');
 const searchTalentSchema = z.object({
   query: z.string().optional(),
   skillId: z.string().optional(),
-  minHourlyRate: z.number().positive().optional(),
-  maxHourlyRate: z.number().positive().optional(),
+  minHourlyRate: z.coerce.number().positive().optional(),
+  maxHourlyRate: z.coerce.number().positive().optional(),
   availability: z.enum(['AVAILABLE', 'BUSY', 'ON_VACATION', 'OFFLINE']).optional(),
-  page: z.number().int().positive().default(1),
-  limit: z.number().int().positive().default(20),
+  page: z.coerce.number().int().positive().default(1),
+  limit: z.coerce.number().int().positive().default(20),
 });
 
 const createTalentPoolSchema = z.object({

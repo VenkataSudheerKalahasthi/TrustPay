@@ -3,7 +3,7 @@ import { cn } from '@utils';
 export function Skeleton({ className, ...props }) {
   return (
     <div
-      className={cn('animate-pulse rounded-xl bg-surface-700/50', className)}
+      className={cn('animate-pulse rounded-xl bg-surface-300 dark:bg-surface-700/50', className)}
       {...props}
     />
   );
@@ -21,7 +21,7 @@ Skeleton.Text = function SkeletonText({ lines = 3, className }) {
 
 Skeleton.Card = function SkeletonCard({ className }) {
   return (
-    <div className={cn('p-6 rounded-2xl bg-surface-800/40 border border-surface-700/50 flex flex-col gap-4', className)}>
+    <div className={cn('p-6 rounded-2xl bg-white dark:bg-surface-800/40 border border-surface-400 dark:border-surface-700/50 flex flex-col gap-4 shadow-sm', className)}>
       <div className="flex items-center gap-3">
         <Skeleton className="w-10 h-10 rounded-full shrink-0" />
         <div className="flex flex-col gap-2 w-full">
@@ -36,8 +36,8 @@ Skeleton.Card = function SkeletonCard({ className }) {
 
 Skeleton.Table = function SkeletonTable({ rows = 5, columns = 4, className }) {
   return (
-    <div className={cn('w-full rounded-2xl border border-surface-700/50 bg-surface-800/40 p-4 flex flex-col gap-3', className)}>
-      <div className="flex items-center gap-4 border-b border-surface-700/60 pb-3">
+    <div className={cn('w-full rounded-2xl border border-surface-400 dark:border-surface-700/50 bg-white dark:bg-surface-800/40 p-4 flex flex-col gap-3 shadow-sm', className)}>
+      <div className="flex items-center gap-4 border-b border-surface-300 dark:border-surface-700/60 pb-3">
         {Array.from({ length: columns }).map((_, i) => (
           <Skeleton key={i} className="h-4 flex-1" />
         ))}

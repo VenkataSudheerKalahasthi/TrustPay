@@ -30,6 +30,7 @@ const platformRouter = require('../../modules/platform/platform.route');
 const executiveAnalyticsRouter = require('../../modules/executive-analytics/executiveAnalytics.route');
 const performanceRouter = require('../../modules/performance/performance.route');
 const releaseRouter = require('../../modules/release/release.route');
+const collaborationRouter = require('../../modules/collaboration/collaboration.route');
 
 const v1Router = Router();
 
@@ -67,5 +68,6 @@ v1Router.use('/platform', platformRouter);
 v1Router.use('/executive-analytics', executiveAnalyticsRouter);
 v1Router.use('/performance', performanceRouter);
 v1Router.use('/release', releaseRouter);
+v1Router.use('/collaboration', collaborationRouter);
 
 module.exports = v1Router;

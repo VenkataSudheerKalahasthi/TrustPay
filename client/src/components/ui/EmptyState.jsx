@@ -13,11 +13,11 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-dashed border-surface-700/80 bg-surface-800/20 max-w-md mx-auto my-6',
+        'flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-dashed border-surface-800 bg-surface-900/50 shadow-glow-sm max-w-md mx-auto my-6',
         className
       )}
     >
-      <div className="p-3.5 rounded-2xl bg-surface-800 text-surface-400 border border-surface-700 mb-4 shadow-sm">
+      <div className="p-3.5 rounded-2xl bg-surface-800 text-primary-400 border border-surface-700 mb-4 shadow-glow-sm">
         <Icon size={28} />
       </div>
       <h3 className="text-base font-semibold text-surface-100 font-display">{title}</h3>

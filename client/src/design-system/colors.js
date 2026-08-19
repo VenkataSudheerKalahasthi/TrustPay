@@ -1,21 +1,29 @@
 export const colors = {
   brand: {
-    primary: '#0ea5e9', // sky-500
-    secondary: '#8b5cf6', // purple-500
-    accent: '#10b981', // emerald-500
+    primary: '#0EA5E9',
+    secondary: '#6366F1',
+    accent: '#10B981',
   },
   dark: {
-    bg: '#020617', // slate-950
-    surface: '#0f172a', // slate-900
-    border: '#1e293b', // slate-800
-    text: '#f8fafc',
-    textMuted: '#94a3b8',
+    bg: '#020617',
+    surface: '#0F172A',
+    border: '#1E293B',
+    text: '#F8FAFC',
+    textMuted: '#64748B',
   },
   light: {
-    bg: '#ffffff',
-    surface: '#f8fafc',
-    border: '#e2e8f0',
-    text: '#0f172a',
-    textMuted: '#64748b',
+    bg: '#F8FAFC',
+    surface: '#FFFFFF',
+    border: '#E2E8F0',
+    text: '#0F172A',
+    textSecondary: '#475569',
+    textMuted: '#94A3B8',
+  },
+  semantic: {
+    success: '#10B981',
+    warning: '#F59E0B',
+    danger: '#EF4444',
+    info: '#3B82F6',
   },
 };
+

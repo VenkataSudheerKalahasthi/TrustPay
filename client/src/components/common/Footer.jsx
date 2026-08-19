@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Shield, Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
-import { APP_NAME } from '@constants';
+import { APP_NAME, SOCIAL_LINKS } from '@constants';
 
 const footerLinks = {
   Platform: [
@@ -22,10 +22,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:hello@trustpay.com', label: 'Email' },
+  { icon: Github, href: SOCIAL_LINKS.GITHUB, label: 'GitHub' },
+  { icon: Twitter, href: SOCIAL_LINKS.TWITTER, label: 'Twitter' },
+  { icon: Linkedin, href: SOCIAL_LINKS.LINKEDIN, label: 'LinkedIn' },
+  { icon: Mail, href: SOCIAL_LINKS.EMAIL, label: 'Email' },
 ];
 
 /**
@@ -38,13 +38,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="app-footer" className="bg-surface-950 border-t border-surface-800">
+    <footer className="bg-surface-900 border-t border-surface-800 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* ─── Brand Column ─────────────────────────────────────────── */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4 w-fit group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-shadow duration-300">
+              <div className="w-9 h-9 rounded-xl bg-primary-500 flex items-center justify-center shadow-sm transition-shadow duration-300">
                 <Shield className="w-5 h-5 text-white" />
               </div>
               <span className="font-display font-bold text-xl text-surface-50">

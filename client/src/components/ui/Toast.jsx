@@ -1,61 +1,48 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@utils';
 import { CheckCircle2, AlertTriangle, AlertCircle, Info, X } from 'lucide-react';
-import { useToast } from '@hooks/useToast';
+import { cn } from '@utils';
 
-export function Toast({ id, type = 'info', title, message, onClose }) {
-  const icons = {
-    success: <CheckCircle2 size={18} className="text-success-400 shrink-0" />,
-    error: <AlertCircle size={18} className="text-danger-400 shrink-0" />,
-    warning: <AlertTriangle size={18} className="text-warning-400 shrink-0" />,
-    info: <Info size={18} className="text-primary-400 shrink-0" />,
-  };
+const icons = {
+  success: CheckCircle2,
+  warning: AlertTriangle,
+  error: AlertCircle,
+  info: Info,
+};
 
-  const borderColors = {
-    success: 'border-success-500/30 bg-success-500/10',
-    error: 'border-danger-500/30 bg-danger-500/10',
-    warning: 'border-warning-500/30 bg-warning-500/10',
-    info: 'border-primary-500/30 bg-primary-500/10',
-  };
+const borderStyles = {
+  success: 'border-success-500/40 text-success-400 bg-surface-900',
+  warning: 'border-warning-500/40 text-warning-400 bg-surface-900',
+  error: 'border-danger-500/40 text-danger-400 bg-surface-900',
+  info: 'border-primary-500/40 text-primary-400 bg-surface-900',
+};
+
+export function Toast({ type = 'info', message, onClose, className }) {
+  const Icon = icons[type] || Info;
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: -20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+    <div
       className={cn(
-        'w-80 p-3.5 rounded-2xl border backdrop-blur-md bg-surface-900/90 text-surface-100 shadow-2xl flex items-start gap-3 pointer-events-auto',
-        borderColors[type]
+        'flex items-center justify-between gap-3 px-4 py-3 rounded-xl border shadow-xl animate-slide-up text-xs font-medium max-w-md w-full',
+        borderStyles[type],
+        className
       )}
     >
-      {icons[type]}
-      <div className="flex-1 min-w-0">
-        {title && <h4 className="text-xs font-semibold text-surface-100">{title}</h4>}
-        <p className="text-xs text-surface-300 mt-0.5 leading-relaxed">{message}</p>
+      <div className="flex items-center gap-2.5">
+        <Icon size={16} className="shrink-0" />
+        <span className="text-surface-200">{message}</span>
       </div>
-      <button
-        type="button"
-        onClick={() => onClose(id)}
-        className="text-surface-400 hover:text-surface-100 transition-colors p-0.5"
-        aria-label="Dismiss toast"
-      >
-        <X size={14} />
-      </button>
-    </motion.div>
+
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="p-1 rounded-lg text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-colors"
+        >
+          <X size={14} />
+        </button>
+      )}
+    </div>
   );
 }
 
 export function ToastContainer() {
-  const { toasts, removeToast } = useToast();
-
-  return (
-    <div className="fixed top-4 right-4 z-toast flex flex-col gap-2.5 pointer-events-none">
-      <AnimatePresence>
-        {toasts.map((t) => (
-          <Toast key={t.id} {...t} onClose={removeToast} />
-        ))}
-      </AnimatePresence>
-    </div>
-  );
+  return null;
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-const prisma = require('../../config/database');
+const { prisma } = require('../../config/database');
 
 class NotificationRepository {
   /**
@@ -117,7 +117,6 @@ class NotificationRepository {
       pref = await prisma.notificationPreference.create({
         data: {
           userId,
-          inAppNotifications: true,
           emailNotifications: true,
           soundEnabled: true,
           desktopNotifications: true,

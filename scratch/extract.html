@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Git Object Extractor</title>
+</head>
+<body>
+  <h1>Git Object Extractor Test</h1>
+  <div id="output">Testing...</div>
+
+  <script>
+    async function testFetch() {
+      const out = document.getElementById('output');
+      try {
+        const url = 'file:///c:/Users/venka/OneDrive/Documents/Desktop/TRUSTPAY/.git/HEAD';
+        const res = await fetch(url);
+        const text = await res.text();
+        out.innerText = 'SUCCESS: ' + text;
+      } catch (err) {
+        out.innerText = 'ERROR: ' + err.message;
+      }
+    }
+    testFetch();
+  </script>
+</body>
+</html>

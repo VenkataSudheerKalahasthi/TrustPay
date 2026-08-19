@@ -11,8 +11,6 @@ import { Dropdown } from '@components/ui/Dropdown';
 import { Badge } from '@components/ui/Badge';
 import {
   Menu,
-  Sun,
-  Moon,
   ChevronRight,
   LogOut,
   User as UserIcon,
@@ -21,10 +19,11 @@ import {
   Search,
 } from 'lucide-react';
 
+import { NotificationDropdown } from '@components/notification/NotificationDropdown';
+
 export function DashboardLayout({ role = 'CLIENT' }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const { user, logout } = useAuth();
-  const { isDark, toggleTheme } = useTheme();
   const location = useLocation();
 
   const activeRole = user?.role || role;
@@ -77,7 +76,7 @@ export function DashboardLayout({ role = 'CLIENT' }) {
       {/* Main Content Wrapper */}
       <div className="flex-1 flex flex-col lg:pl-64 transition-all duration-300">
         {/* Top Header */}
-        <header className="h-16 border-b border-surface-800 bg-surface-900/80 backdrop-blur-xl sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between">
+        <header className="h-16 border-b border-surface-800 bg-surface-900/80 backdrop-blur-xl sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between shadow-glow-sm">
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -114,30 +113,13 @@ export function DashboardLayout({ role = 'CLIENT' }) {
             <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-800/80 border border-surface-700/60 text-xs text-surface-400">
               <Search size={14} />
               <span>Search workspace...</span>
-              <kbd className="ml-2 px-1.5 py-0.5 rounded bg-surface-700 text-2xs text-surface-300">
+              <kbd className="ml-2 px-1.5 py-0.5 rounded bg-surface-700 text-2xs text-surface-300 shadow-2xs">
                 ⌘K
               </kbd>
             </div>
 
-            {/* Notifications Button */}
-            <button
-              type="button"
-              className="p-2 rounded-xl text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-colors relative"
-              aria-label="View notifications"
-            >
-              <Bell size={18} />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-500" />
-            </button>
-
-            {/* Theme Toggle */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="p-2 rounded-xl text-surface-400 hover:text-surface-100 hover:bg-surface-800 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+            {/* Realtime Notifications Dropdown */}
+            <NotificationDropdown />
 
             <div className="h-6 w-px bg-surface-800" />
 

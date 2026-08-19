@@ -302,6 +302,8 @@ model WorkerProfile {
   escrowReleases        EscrowRelease[]
   invoices              Invoice[]
   projects              Project[]
+  collaborationRequests CollaborationRequest[]
+  collaborationWorkspaces CollaborationWorkspace[]
 
   @@index([userId])
   @@index([slug])
@@ -336,6 +338,8 @@ model ClientProfile {
   escrowRefunds   EscrowRefund[]
   invoices        Invoice[]
   projects        Project[]
+  collaborationRequests CollaborationRequest[]
+  collaborationWorkspaces CollaborationWorkspace[]
 
   @@index([userId])
   @@map("client_profiles")
@@ -594,6 +598,7 @@ model Contract {
   conversations      Conversation[]
   notifications      Notification[]
   systemActivities   Activity[]
+  collaborationWorkspace CollaborationWorkspace?
 
   @@index([clientProfileId])
   @@index([workerProfileId])
@@ -762,6 +767,7 @@ model EscrowWallet {
   refunds      EscrowRefund[]
   invoices     Invoice[]
   projects     Project[]
+  collaborationWorkspaces CollaborationWorkspace[]
 
   @@index([clientProfileId])
   @@map("escrow_wallets")
@@ -1013,6 +1019,7 @@ model Project {
   conversations     Conversation[]
   notifications     Notification[]
   systemActivities  Activity[]
+  collaborationWorkspace CollaborationWorkspace?
 
   @@index([clientProfileId])
   @@index([workerProfileId])
@@ -1281,6 +1288,7 @@ model Conversation {
   participants       ConversationParticipant[]
   messages           Message[]
   typingSessions     TypingSession[]
+  collaborationWorkspace CollaborationWorkspace?
 
   @@index([projectId])
   @@index([contractId])
@@ -5323,6 +5331,130 @@ model ProductionAcceptanceReport {
   acceptedAt DateTime @default(now())
 
   @@map("production_acceptance_reports")
+}
+
+// ============================================================
+// PHASE 2 PART 5 – Client ↔ Worker Project Collaboration Workflow
+// ============================================================
+
+enum CollaborationRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  CANCELLED
+}
+
+enum WorkspaceStatus {
+  PLANNING
+  CONTRACT_PENDING
+  CONTRACT_LOCKED
+  FUNDED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model CollaborationRequest {
+  id                 String                     @id @default(cuid())
+  requestNumber      String                     @unique
+  clientProfileId    String
+  clientProfile      ClientProfile              @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+  workerProfileId    String
+  workerProfile      WorkerProfile              @relation(fields: [workerProfileId], references: [id], onDelete: Cascade)
+  projectTitle       String
+  projectDescription String                     @db.Text
+  budget             Float
+  estimatedDuration  String
+  expectedStartDate  DateTime?
+  deadline           DateTime?
+  additionalNotes    String?                    @db.Text
+  status             CollaborationRequestStatus @default(PENDING)
+  rejectionReason    String?                    @db.Text
+  createdAt          DateTime                   @default(now())
+  updatedAt          DateTime                   @updatedAt
+
+  workspace CollaborationWorkspace?
+
+  @@index([clientProfileId])
+  @@index([workerProfileId])
+  @@index([requestNumber])
+  @@index([status])
+  @@map("collaboration_requests")
+}
+
+model CollaborationWorkspace {
+  id              String                 @id @default(cuid())
+  workspaceNumber String                 @unique
+  requestId       String?                @unique
+  request         CollaborationRequest?  @relation(fields: [requestId], references: [id], onDelete: SetNull)
+  clientProfileId String
+  clientProfile   ClientProfile          @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+  workerProfileId String
+  workerProfile   WorkerProfile          @relation(fields: [workerProfileId], references: [id], onDelete: Cascade)
+  projectId       String?                @unique
+  project         Project?               @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  contractId      String?                @unique
+  contract        Contract?              @relation(fields: [contractId], references: [id], onDelete: SetNull)
+  conversationId  String?                @unique
+  conversation    Conversation?          @relation(fields: [conversationId], references: [id], onDelete: SetNull)
+  escrowWalletId  String?
+  escrowWallet    EscrowWallet?          @relation(fields: [escrowWalletId], references: [id], onDelete: SetNull)
+  status          WorkspaceStatus        @default(PLANNING)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+
+  planningBoard PlanningBoard?
+  certificates  CompletionCertificate[]
+
+  @@index([clientProfileId])
+  @@index([workerProfileId])
+  @@index([workspaceNumber])
+  @@index([status])
+  @@map("collaboration_workspaces")
+}
+
+model PlanningBoard {
+  id             String                 @id @default(cuid())
+  workspaceId    String                 @unique
+  workspace      CollaborationWorkspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  scope          String?                @db.Text
+  deliverables   String?                @db.Text
+  milestones     String?                @db.Text
+  timeline       String?
+  budget         Float?
+  revisionPolicy String?                @db.Text
+  dueDates       String?
+  notes          String?                @db.Text
+  clientAgreed   Boolean                @default(false)
+  workerAgreed   Boolean                @default(false)
+  agreedAt       DateTime?
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+
+  @@map("planning_boards")
+}
+
+model CompletionCertificate {
+  id                String                 @id @default(cuid())
+  certificateNumber String                 @unique
+  workspaceId       String
+  workspace         CollaborationWorkspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  projectId         String?
+  contractId        String?
+  clientProfileId   String
+  workerProfileId   String
+  projectTitle      String
+  clientName        String
+  workerName        String
+  budget            Float
+  completedAt       DateTime               @default(now())
+  verificationHash  String
+  pdfUrl            String?
+  createdAt         DateTime               @default(now())
+
+  @@index([workspaceId])
+  @@index([certificateNumber])
+  @@map("completion_certificates")
 }
 
 
